@@ -1,0 +1,178 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, enumitem, fancyhdr, graphicx, libertine, nth,
+  pgfplots, tikz, wasysym, xcolor}
+\pgfplotsset{compat=1.11}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{patterns}
+\usepackage[margin=1in]{geometry}
+\usepackage[libertine]{newtxmath}
+\pagestyle{fancy}
+\definecolor{solution-color}{HTML}{000080}
+\chead{\emph{EC201 -- Practice Final}}
+
+% Define new topic command
+\newcommand{\topic}[1]{\medskip\begin{center}\large\textsc{#1}\normalsize
+  \end{center}}
+
+% Define question counter:
+\newcounter{question}[section]
+\newcommand{\question}[1]{\refstepcounter{question}
+  \subsubsection*{Question~\thequestion~-- #1}}
+
+% Subquestions are enumerate with letters
+\newenvironment{subquestions}{
+  \begin{enumerate}[label=(\roman*)]}{\end{enumerate}}
+
+\begin{document}
+\question{Preferences (10 Points)}
+\begin{itemize}
+  \item Draw a pair of indifference curves that would violate transitivity.
+    Explain why they violate transitivity.
+  \item Draw an indifference curve that violates convexity. Explain why it
+    violates convexity.
+  \item Draw a pair of indifference curves that violate monotonicity. Explain
+    why they violate monotonicity.
+\end{itemize}
+\question{Demand (10 Points)}
+  Your utility function for goods 1 and 2 is given by:
+  \[
+    u\left( x_1,x_2 \right)= \log\left({x_1}\right) + x_2
+  \]
+\textbf{Note}: If $f\left( x \right)=\log\left( x \right)$, then
+$\frac{df\left( x \right)}{dx}=\frac{1}{x}$.
+\begin{subquestions}
+\item Good 1 costs \$1 and good 2 costs \$2. You have \$10 to
+  spend.  How much of good 1 will you buy and how much of good 2 will you buy?
+\item For each good, are they normal or inferior?
+\end{subquestions}
+\question{Intertemporal Choice (10 Points)}
+Your lifetime utility function is:
+\[
+u\left( c_1,c_2 \right)=c_1^{\frac{1}{2}}c_2^{\frac{1}{2}}
+\]
+The interest rate is 10\%. You earn income of \$100 in
+period 1 and \$110 in period 2. How much will you save/borrow in period 1?
+
+\question{Uncertainty (10 Points)}
+Your total assets are worth \$30,000. Included in that \$30,000 are \$20,000
+worth of valuable items in your apartment. There is a 10\% chance that you will be
+burgled. The local insurance company offers to insure each dollar of stolen
+items at 15\cent. If you fully insure, it will cost $\$20000\times 15\cent = \$3,000$. The remaining assets (the \$10,000) are safely locked in a
+secure bank vault.
+
+Let state 1 be the case where you are burgled and state 2 be the state where
+you are not burgled. Call $c_1$ and $c_2$ your consumption in both states.
+\begin{subquestions}
+  \item Draw your budget contstraint for consumption across states where $c_1$
+    is on the horizontal axis and $c_2$ is on the vertical axis. Assume you
+    can't ``over insure'' (you can only buy a maximum of \$20,000-worth of
+    insurance) and you can't negatively insure. You are, however, able to
+    partially insure. Label the consumption path where you don't buy insurance
+    and where you fully insure.  For each of these points, label how much you
+    have to consume in each state of the world.
+  \item What is the slope of the budget line?
+  \item How much would an actuarially fair insurance policy cost?
+  \item What would the slope of the budget line be if the insurance was
+    actuarially fair? Would it be steeper or flatter?
+\end{subquestions}
+
+\question{Equilibrium, Firm Supply and Industry Supply (12 Points)}
+The demand curve for a particular market is given by:
+\[
+  D\left( p \right)=880-20p
+\]
+There are 100 firms operating in this market each with a cost function $c\left(
+q \right)=\frac{q^2}{4}$.
+\begin{subquestions}
+  \item What is the equilibrium price and quantity?
+\end{subquestions}
+Suddenly this good increases in popularity everyone is now willing to pay \$1
+more for the good. The government decides now is a good time to introduce a
+value tax of 25\% on the good.
+\begin{subquestions}
+  \setcounter{enumi}{1}
+  \item What is the new equilibrium price and quantity as a result of the
+    popularity increase and the tax? (Assume we're in the short run so that the
+    number of firms does not change).
+\end{subquestions}
+
+
+\question{Monopoly (13 Points)}
+Suppose market demand curve for a particular good is given by $D\left( p
+\right)=70-\frac{1}{3}p$. There is only one firm selling this particular good.
+The cost function for this firm is $c\left( q \right)=30q+3q^2$.
+\begin{subquestions}
+  \item What price and quantity does the monopolist choose? What is its profits?
+  \item What is the elasticity of demand at the price and quantity the
+    monopolist is operating at?
+  \item If the monopolist could perfectly price discriminate, what profits
+    could it achieve?
+\end{subquestions}
+\question{Game Theory (15 Points)}
+\begin{subquestions}
+  \item Consider the following game:
+    \setlength{\arraycolsep}{0pt}
+    \[
+      \begin{array}{cccccc}
+        &  & \quad L \quad & & \quad R \quad  &  \\ \cline{3-6} U \quad & \vline{}
+        & \quad 2,4  \quad & \vline{} & \quad 1,3 \quad & \vline{}  \\ \cline{3-6}
+        M \quad & \vline{} & \quad 4,2 \quad & \vline{} & \quad 0,-1 \quad &
+        \vline{} \\ \cline{3-6} D \quad & \vline{} & \quad 3,1 \quad & \vline{} &
+        \quad 5,3 \quad & \vline{} \\ \cline{3-6}
+      \end{array}
+    \]
+    \begin{itemize}
+      \item Does any player have any dominated strategies?
+      \item Find all pure-strategy Nash equilibria of the game.
+    \end{itemize}
+    \item Consider the following extensive form game:
+          \ \\
+      \begin{center}
+        \begin{tikzpicture}[scale=1.5,font=\footnotesize]
+          \tikzstyle{solid node}=[circle,draw,inner sep=1.5,fill=black]
+          \tikzstyle{hollow node}=[circle,draw,inner sep=1.5]
+          \tikzstyle{level 1}=[level distance=15mm,sibling distance=3.5cm]
+          \tikzstyle{level 2}=[level distance=15mm,sibling distance=1.5cm]
+          \tikzstyle{level 3}=[level distance=15mm,sibling distance=1cm]
+          \node(0)[hollow node,label=above:{$P1$}]{}
+          child{node[solid node,label=above left:{$P2$}]{}
+          child{node[label=below:{$(5,2)$}]{} edge from parent node[left]{$A$}}
+          child{node[label=below:{$(3,-1)$}]{} edge from parent node[left]{$B$}}
+          child{node[label=below:{$(0,3)$}]{} edge from parent node[right]{$C$}}
+          edge from parent node[left,xshift=-5]{$L$}
+          }
+          child{node[solid node,label=above right:{$P2$}]{}
+          child{node[label=below:{$(2,2)$}]{} edge from parent node[left]{$D$}}
+          child{node[label=below:{$(4,1)$}]{} edge from parent node[right]{$E$}}
+          edge from parent node[right,xshift=5]{$M$}
+          }
+          child[grow=right]{node{$(4,0)$} edge from parent node[above]{$R$}};
+        \end{tikzpicture}
+      \end{center}
+      Find the subgame-perfect Nash equilibirium of the game.
+    \end{subquestions}
+\question{Oligopoly (20 Points)}
+The inverse demand curve for a product is $p\left( q \right)=400-q$. Two firms
+operate in this industry. Their marginal cost of production is constant at 100
+and they have no fixed costs.
+
+In this industry, the firms produce their output and then hand over all of
+their output to a government distributor. The government distributor then
+decides what price to charge such that all of the output will be sold. The
+government distributor then gives the respective revenues back to the firms.
+The government distributor does not charge a fee and has no costs.
+\begin{subquestions}
+  \item If the two firms compete by choosing quantities simultaneously, what
+    output will each produce in equilibrium?  What will the price be? What will
+    each firm's profits be?
+  \item If one firm produces first and then publicly announces how much it
+    produced before the other firm decides how much to produce, how much will
+    each produce? What will the price be? What will their profits be?
+  \item If both firms secretly decide together how much to produce in order to
+    jointly maximize profits, how much will they produce? Assume here that if
+    one firm cheats on the collusion quantity that the other firm will respond
+    very aggresively, so neither firm will want to cheat on the collusion
+    quantity. What will the price be? What will their profits be?
+\end{subquestions}
+
+\end{document}

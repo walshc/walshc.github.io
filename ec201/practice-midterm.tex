@@ -1,0 +1,129 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, enumitem, fancyhdr, graphicx, libertine, nth,
+  pgfplots, tikz, xcolor}
+\pgfplotsset{compat=1.11}
+\usepackage[margin=1in]{geometry}
+\usepackage[libertine]{newtxmath}
+\pagestyle{fancy}
+\definecolor{solution-color}{HTML}{000080}
+\chead{\emph{EC201 -- Practice Midterm}}
+
+% Define new topic command
+\newcommand{\topic}[1]{\medskip\begin{center}\large\textsc{#1}\normalsize
+  \end{center}}
+
+% Define question counter:
+\newcounter{question}[section]
+\newcommand{\question}[1]{\refstepcounter{question}
+  \subsubsection*{Question~\thequestion~-- #1}}
+
+% Subquestions are enumerate with letters
+\newenvironment{subquestions}{
+  \begin{enumerate}[label=(\roman*)]}{\end{enumerate}}
+\begin{document}
+\question{Preferences (5 Points)}
+The following are common assumptions about preferences:
+\begin{itemize}
+  \item Completeness
+  \item Transitivity
+  \item Monotonicity
+  \item Convexity
+\end{itemize}
+Consider the following scenario:
+\begin{itemize}
+  \item I ask you which of the bundles $\left( x_1,x_2 \right)=\left( 2,8
+    \right)$ and $\left(x_1,x_2  \right)=\left( 8, 2 \right)$ you prefer you
+    tell me you are indifferent between the two.
+  \item I ask you which of the bundles $\left( x_1,x_2 \right)=\left( 2,8
+    \right)$ and $\left( x_1,x_2 \right)=\left( 5,5 \right)$ you prefer and you
+    tell me that you strictly prefer $\left( x_1,x_2 \right)=\left( 2,8
+    \right)$.
+\end{itemize}
+Which one of these assumptions do your choices violate and why?
+
+
+\question{Choice and Demand (15 Points)}
+Suppose your utility function for goods 1 and 2 was:
+\[
+  u\left( x_1,x_2 \right)=\max\left\{ x_1,x_2 \right\}
+\]
+\begin{subquestions}
+  \item \textbf{[5 Points]} Sketch some indifference curves for this utility function.
+  \item \textbf{[5 Points]} If $x_1=1$ and $x_2=2$, what is your $MRS$? Interpret the number.
+  \item \textbf{[5 Points]} Find the demand functions $x_1\left( p_1,p_2,m \right)$ and $x_2\left(
+    p_1,p_2, m\right)$
+  % \item Suppose initially $p_1>p_2$. Then $p_2$ increases so much that we end
+  %   up with $p_2>p_1$. Does the demand for good 1 increase or decrease? Are the
+  %   goods substitutes or complements?
+  % \item Can you come up with an example of two goods where you might have such
+  %   preferences? Feel free to make assumptions about a particular scenario.
+\end{subquestions}
+\question{Income and Substitution Effects (10 Points)}
+You live for one period. There are two goods with prices $p_1$ and $p_2$. You have income $m$ to spend on the two goods. Both goods are normal and your preferences satisfy all the main assumptions.
+
+For each of the following parts, draw \textsl{\textbf{separate}} graphs.
+\begin{subquestions}
+\item \textbf{[2 Points]} Draw the budget line, your optimal consumption bundle and the indifference curve associated with the optimal choice. Label your axes and the points where the budget line intercepts the axes.
+\item \textbf{[3 Points]} The price of good 1 falls. Describe what happens in a diagram. Show your new budget line, optimal bundle and indifference curve associated with the optimal choice.
+\item \textbf{[5 Points]} Decompose the change in demand for good 1 into income and substitution effects in a diagram. Show the optimal choice you would make if you only experienced a relative change in prices.
+\end{subquestions}
+
+\question{Intertemporal Choice (5 Points)}
+What is the most you would pay for a security that paid you \$100 in one year
+from now and \$200 in two years from now? The interest rate is 5\%.
+\question{Uncertainty (15 Points)}
+A Roulette wheel has 38 numbered pockets, labelled 0, 00, 1, 2, 3, \dots, 34, 35,
+36. There are 18 red numbers, 18 black numbers and 2 green numbers (0 and 00).
+The wheel is spun and a ball is thrown. The ball is equally likely to land on
+any of the 38 pockets.
+
+You have \$100. If you bet \$100 on red and it lands on red, you get \$200
+back (your profit is \$100). If it lands on black or green, you get nothing
+(you lose \$100).
+\begin{subquestions}
+  \item \textbf{[5 Points]} What is the expected value of wealth from taking the bet?
+  \item \textbf{[5 Points]} Suppose your utility function for wealth is $u\left( W
+    \right)=\sqrt{W}$. Would you take this bet?
+  \item \textbf{[5 Points]}  Can you propose a utility function such that you would take this bet? Verify that indeed taking the bet with your proposed utility function is better than not taking it.
+\end{subquestions}
+\question{Technology (10 Points)}
+Calculate (i) the marginal products of both factors of production and (ii) the
+technical rate of substitution between both factors for the following
+production function:
+\[
+  f\left( x_1,x_2 \right)=x_1^{\frac{1}{4}}x_2^{\frac{1}{2}}
+\]
+
+\question{Cost Curves (5 Points)}
+The marginal cost function of a firm is $MC\left( y \right)=2$. The firm has
+fixed costs of 5. What is the total cost of producing $10$ units of output?
+
+
+\question{Firm Supply and Industry Supply (20 Points)}
+All firms operating in a perfectly competitive industry have the same cost function $c\left( y\right) = y^2 +1$. The market demand function is $D\left( p \right)=100-10p$.
+\begin{subquestions}
+  \item \textbf{[3 Points]} What is each firm's supply function?
+  \item \textbf{[3 Points]} If there are 30 firms, what is the industry supply function?
+  \item \textbf{[3 Points]} If there are 30 firms, what is the equilibrium price?
+  \item \textbf{[3 Points]} If there are 30 firms, how much will each firm produce?
+  \item \textbf{[3 Points]} If there are 30 firms, what is each firm's profits?
+  \item \textbf{[5 Points]} How many firms will there be in the long run?
+\end{subquestions}
+
+\question{Equilibrium and Taxation (15 Points)}
+The demand and supply functions for good are:
+\begin{align*}
+  D\left( p \right) &= 120 - p \\
+  S\left( p \right) &= 2p
+\end{align*}
+\begin{subquestions}
+  \item \textbf{[5 Points]} Calculate the equilibrium price and quantity.
+\end{subquestions}
+Suppose the government now adds a sales tax to the good of 20\%.
+\begin{subquestions}
+  \setcounter{enumi}{1}
+  \item \textbf{[5 Points]} Calculate the price buyers pay, the price sellers receive and quantity sold after the tax is imposed.
+  \item  \textbf{[5 Points]} What portion of the tax to buyers pay and what portion of the tax do
+    sellers pay?
+\end{subquestions}
+\end{document}

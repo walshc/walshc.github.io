@@ -1,0 +1,263 @@
+\documentclass[10pt]{article}
+\usepackage{amsmath, amssymb, enumitem, fancyhdr, graphicx, libertine, nth,
+  pgfplots, tikz, xcolor}
+\pgfplotsset{compat=1.11}
+\usepackage[margin=1in]{geometry}
+\usepackage[libertine]{newtxmath}
+\pagestyle{fancy}
+\definecolor{solution-color}{HTML}{000080}
+\chead{\emph{EC201 -- Midterm -- July \nth{24}}}
+
+% Define new topic command
+\newcommand{\topic}[1]{\medskip\begin{center}\large\textsc{#1}\normalsize
+  \end{center}}
+
+% Define question counter:
+\newcounter{question}[section]
+\newcommand{\question}[1]{\refstepcounter{question}
+  \subsubsection*{Question~\thequestion~-- #1}}
+
+% Subquestions are enumerate with letters
+\newenvironment{subquestions}{
+  \begin{enumerate}[label=(\roman*)]}{\end{enumerate}}
+
+\begin{document}
+\thispagestyle{empty}
+\vspace*{0.12\paperheight}
+\begin{center}
+
+  \Huge{\bf EC201 Intermediate Microeconomics}
+  \bigskip
+
+  \large{\sl Boston University Summer Term 2}
+
+  \bigskip
+  \bigskip
+  \Huge{\sc Midterm Exam}
+
+  \bigskip
+
+  \bigskip
+  \bigskip
+  \bigskip
+
+  \Large{\sc July \nth{24}, 2017}
+
+  \bigskip
+  \bigskip
+  \bigskip
+  \bigskip
+
+  \begin{tabular}{ll}
+    \emph{Permitted materials:} & Non-programmable calculator \\
+  \end{tabular}
+  \bigskip
+  \bigskip
+  \bigskip
+  \par
+  \begin{itemize}
+    \item Please write only your BU ID on the blue books (not your name).
+    \item If using multiple blue books, please write which questions are in
+      each blue book on the front.
+    \item Questions requiring verbal answers (i.e.~``explain why'' questions) should be concise. Only 1-2 sentences should be required.
+  \end{itemize}
+
+
+\end{center}
+
+\normalsize
+\newpage
+\topic{Short Questions}
+\question{Preferences (5 Points)}
+The following are common assumptions about preferences:
+\begin{itemize}
+  \item Completeness
+  \item Transitivity
+  \item Monotonicity
+  \item Convexity
+\end{itemize}
+Consider the following scenario:
+\begin{itemize}
+  \item I ask you which of the bundles $\left( x_1,x_2 \right)=\left( 2,2
+    \right)$ and $\left(x_1,x_2  \right)=\left( 1, 5 \right)$ you prefer and you
+    tell me you strictly prefer $\left( x_1,x_2 \right)=\left( 2,2 \right)$.
+  \item I ask you which of the bundles $\left( x_1,x_2 \right)=\left( 1,5
+    \right)$ and $\left( x_1,x_2 \right)=\left( 5,1 \right)$ you prefer and you
+    tell me that you strictly prefer $\left( x_1,x_2 \right)=\left( 1,5
+    \right)$.
+  \item I ask you which of the bundles $\left( x_1,x_2 \right)=\left( 5,1
+    \right)$ and $\left( x_1,x_2 \right)=\left( 2,2 \right)$ you prefer and you
+    tell me that you strictly prefer $\left( x_1,x_2 \right)=\left( 5,1
+    \right)$.
+\end{itemize}
+Which one of the common assumptions listed above do your choices violate and why?
+
+\question{Technology (5 Points)}
+The graph below shows an isoquant for a production function $f\left( x_1,x_2
+\right)$.
+\begin{center}
+  \begin{tikzpicture}[baseline, scale = 0.8]
+    \begin{axis}[xmax=6,xmin=0,
+                 ymin=0,ymax=6,
+                 domain=0.01:5.5,
+                 xlabel=$x_1$,ylabel=$x_2$,
+                 width=13cm]
+      \addplot[samples=100] {2^(3/2) / x^(0.5)};
+      \addplot[red, thick, samples=100, domain=0.1:0.7] {6.9 - 6 * x};
+      \draw (0.4, 4.5) node {\Large{\textbullet}};
+      \draw (0.4, 4.5) node [above right] {\Large{$A$}};
+      \addplot[red, thick, samples=100, domain=2.4:5.5] {2.10 - 0.177 * x};
+      \draw (4, 1.365) node {\Large{\textbullet}};
+      \draw (4, 1.365) node [above right] {\Large{$B$}};
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+What do the slopes of the tangents at points $A$ and $B$ represent? How do we
+interpret it?
+\newpage
+\topic{Long Questions}
+
+\question{Choice (15 Points)}
+Your utility function for goods 1 and 2 is:
+\[
+  u\left( x_1,x_2 \right) = x_1^{\frac{2}{3}}x_2^{\frac{1}{3}}
+\]
+The prices of goods 1 and 2 are $p_1=2$ and $p_2=1$ respectively. You have $m=30$
+income to spend.
+\begin{subquestions}
+  \item \textbf{[5 Points]} Find the marginal utility for goods 1 and 2,
+    $MU_1$ and $MU_2$.
+  \item \textbf{[5 Points]} Find the marginal rate of substitution, $MRS$.
+  \item \textbf{[5 Points]} How much of goods 1 and 2 will you demand? Do not
+    just write down the final answer. Derive the demand from the budget constraint
+    and the consumer's optimality/tangency condition.
+\end{subquestions}
+
+\question{Income and Substitution Effects (15 Points)}
+There are two goods with prices $p_1$ and $p_2$. You have income $m$. According to your preferences for goods 1 and 2, good 1 is inferior (but not Giffen) and good 2 is a normal good. Your optimal bundle is a combination $\left( x_1,x_2 \right)$. If the price of good 1 falls from $p_1$ to $p_1^\prime$, you end up consuming \emph{more} of both goods 1 and 2, i.e.~your optimal bundle is $\left( x_1^\prime,x_2^\prime \right)$ where $x_1^\prime>x_1$ and $x_2^\prime>x_2$.
+\begin{subquestions}
+  \item \textbf{[5 Points]} Draw a graph showing the following:
+    \begin{itemize}
+      \item The budget constraints before the price of good 1 falls and after the price of good 1 falls. Label the vertical and horizontal intercepts.
+      \item The optimal bundles before and after the price change, as well as the indifference curves associated with those optimal bundles.
+    \end{itemize}
+  \item \textbf{[7 Points]} Draw a separate graph for this question. You will redraw your graph from part (i) but you will add the following:
+    \begin{itemize}
+      \item Show the income and substitution effect decomposition, i.e.~show the budget line that brings you back to your original purchasing power but with the new relative prices, the optimal bundle that you would choose on this budget line, and the indifference curve associated with that bundle. Identify where the income effect is and where the substitution effect is. \textbf{Remember, good 1 is an \emph{inferior} good}.
+    \end{itemize}
+  \item \textbf{[3 Points]} Compare the relative magnitudes of the income and substitution effect.
+\end{subquestions}
+
+% \question{Demand (15 Points)}
+% Your demand functions for goods 1 and 2 are:
+% \begin{align*}
+%   x_1\left( p_1,p_2,m\right)&=\frac{2m - 100}{p_1} \\
+%   x_2\left( p_1,p_2,m\right)&=\frac{100 - m}{p_2}
+% \end{align*}
+% % \begin{align*}
+% %   x_1\left( p_1,p_2,m\right)&=
+% %   \begin{cases}
+% %     \frac{2m - 100}{p_1} &\text{ if } m \geq 50 \\
+% %     0 & \text{ if } m < 50 \\
+% %   \end{cases} \\
+% %   x_2\left( p_1,p_2,m\right)&=
+% %   \begin{cases}
+% %     \frac{100 - m}{p_2} & \text{ if } m \leq 100 \\
+% %     0 & \text{ if } m > 100 \\
+% %   \end{cases}
+% % \end{align*}
+% Assume that $50\leq m\leq 100$ (this is not required to answer the question,
+% but rather it is a a technical condition so that your demand for both goods is
+% never negative).
+% \begin{subquestions}
+%   \item \textbf{[3 Points]} Is good 1 an ordinary or a Giffen good?
+%   \item \textbf{[3 Points]} Is good 2 an ordinary or a Giffen good?
+%   \item \textbf{[3 Points]} Is good 1 a normal good or an inferior good?
+%   \item \textbf{[3 Points]} Is good 2 a normal good or an inferior good?
+%   \item \textbf{[3 Points]} Is good 1 a substitute, a complement, or neither, for good 2?
+% \end{subquestions}
+\question{Intertemporal Choice (15 Points)}
+\emph{In this question, please draw \textbf{separate} graphs for each part (i), (ii)
+and (iii).}
+
+\medskip\noindent
+There are two periods. You receive income $m$ in period 1 and $m$ in period 2 (you receive the same amount of money in both periods, so in total you get $2m$ in your lifetime). You are able to borrow and lend at an interest rate $r$. There is no inflation.
+\begin{subquestions}
+  \item \textbf{[5 Points]} Draw the budget constraint. Label the axis
+    intercepts and the endowment.
+\end{subquestions}
+Your preferences, $u\left( c_1,c_2 \right)$, endowment, $\left( m_1,m_2 \right)$, and the interest rate, $r$, lead to you optimally choose a consumption path $\left( c_1,c_2 \right)$ where you \textbf{borrow} in the first period. That is, $c_1>m$.
+\begin{subquestions}
+  \setcounter{enumi}{1}
+  \item \textbf{[5 Points]} Draw your optimal choice on a graph. Show the
+    budget constraint, endowment, the optimal choice, and the indifference
+    curve associated with the optimal choice.
+\end{subquestions}
+Now the interest rate $r$, increases.
+\begin{subquestions}
+  \setcounter{enumi}{2}
+\item \textbf{[5 Points]} Show the change in the budget constraint on a graph. Can you still afford your original bundle?
+\end{subquestions}
+
+\question{Uncertainty (15 Points)}
+You have \$20,000 in your bank account. Your car is worth \$10,000 (so
+altogether your wealth is \$30,000).  The probablity that your car will be
+stolen in a given year is 10\%. An insurance company offers to insure your car
+against theft for \$1,050 per year.  Your utility for wealth is $U\left( W
+\right)=\sqrt{W}$.
+\begin{subquestions}
+  \item \textbf{[2 Points]} Are you risk averse, risk loving or risk neutral? Explain why.
+  \item \textbf{[4 Points]} What is your expected utility from \emph{not}
+      purchasing insurance?
+  \item \textbf{[4 Points]} What is your expected utility from purchasing
+    insurance?
+  \item \textbf{[2 Points]} Will you purchase insurance?
+  \item \textbf{[3 Points]} How much would the actuarially fair insurance
+    policy cost?
+\end{subquestions}
+
+
+\question{Cost curves, Firm Supply and Industry Supply (15 Points)}
+There are 100 firms in a particular perfectly competitive industry. Each firm
+has the following cost function:
+\[
+  c\left( y \right) = 2y^2 + 4
+\]
+The equilibrium price of output is $p$.
+\begin{subquestions}
+  \item \textbf{[2 Points]} What is the variable cost function $c_v\left( y
+    \right)$?
+  \item \textbf{[2 Points]}  What is the firm's fixed cost?
+  \item \textbf{[3 Points]}  What is the average cost function, $AC\left( y
+    \right)$?
+  \item \textbf{[3 Points]}  What is the marginal cost function, $MC\left( y
+    \right)$?
+  \item \textbf{[3 Points]}  What is firm $i$'s supply function, $S_i\left( p
+    \right)$ (the supply function for one individual firm)?
+  \item \textbf{[2 Points]}  What is the industry supply function, $S\left( p
+    \right)$?
+\end{subquestions}
+
+\question{Equilibrium and Taxes (15 Points)}
+The demand and supply functions for a particular good
+  in the market are given by:
+\[
+  D\left( p \right) = 24 - 4p
+\]
+\[
+  S\left( p \right) = 4 + 6p
+\]
+\begin{subquestions}
+  \item \textbf{[6 Points]} Find the equilibrium price and quantity.
+\end{subquestions}
+Now the government imposes a per-unit tax (a quantity tax) of 1 on the good.
+\begin{subquestions}
+  \setcounter{enumi}{1}
+  \item \textbf{[6 Points]}  Find the price the buyers pay, the price sellers
+    receive and the new equilibrium quantity.
+  \item \textbf{[3 Points]}  What portion of the tax do consumers pay and what
+    portion of the tax do sellers pay?
+\end{subquestions}
+
+
+\end{document}

@@ -1,0 +1,161 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, enumitem, fancyhdr, graphicx, libertine, nth,
+pgfplots, tikz, units, xcolor}
+\pgfplotsset{compat=1.11}
+\usepackage[margin=1in]{geometry}
+\usepackage[libertine]{newtxmath}
+\pagestyle{fancy}
+\definecolor{solution-color}{HTML}{000080}
+\chead{\emph{EC201 -- Problem Set 2}}
+
+% Define new topic command
+\newcommand{\topic}[1]{\medskip\begin{center}\large\textsc{#1}\normalsize
+  \end{center}}
+
+% Define question counter:
+\newcounter{question}[section]
+\newcommand{\question}[1]{\refstepcounter{question}
+  \subsubsection*{Question~\thequestion~-- #1}}
+
+% Subquestions are enumerate with letters
+\newenvironment{subquestions}{
+  \begin{enumerate}[label=(\roman*)]}{\end{enumerate}}
+
+\begin{document}
+\topic{Choice and Demand}
+\question{Neutral Goods}
+Revisiting the preferences from Question 6 on the previous problem set, suppose
+that you enjoy good 1 but you are neutral about good 2 (your indifference
+curves are vertical lines).
+\begin{subquestions}
+  \item Find the demand functions $x_1\left( p_1,p_2,m \right)$ and $x_2\left(
+    p_1,p_2,m \right)$.
+  \item Write down a utility function $u\left( x_1,x_2 \right)$ that would be
+    consistent with these preferences.
+\end{subquestions}
+
+\question{Cobb-Douglas Demand}
+Suppose you have the following utility function for goods 1 and 2:
+\[
+  u\left( x_1,x_2 \right) = 2 x_1^{\frac{1}{4}}x_2^{\frac{3}{4}}
+\]
+\begin{subquestions}
+  \item Find the demand functions $x_1\left( p_1,p_2,m \right)$ and $x_2\left(
+    p_1,p_2,m \right)$.
+  \item The price of good 1 is \$1 and the price of good two is \$3. You have
+    \$60 to spend. How much will you consume of goods 1 and 2?
+  \item How much of goods 1 and 2 will you buy if you had \$120 and the prices
+    stayed the same? Are the goods normal or inferior?
+  \item If the price of good 2 doubled (to \$6), what would happen to your
+    demand for good 1?
+  \item Which of the following statements is true and why?
+    \begin{itemize}
+      \item Good 1 is a substitute to good 2.
+      \item Good 1 is a complement to good 2.
+      \item Good 1 is neither a substitute nor a complement to good 2.
+    \end{itemize}
+\end{subquestions}
+\question{Income and Substitution Effects}
+Suppose your utility function is $u\left( x_1,x_2 \right)=x_1^{\frac{2}{3}}x_2^{\frac{1}{3}}$. It can be shown that the resulting demand functions are $x_1\left( p_1,p_2,m \right)=\frac{2m}{3p_1}$ and $x_2\left( p_1,p_2,m \right)=\frac{m}{3p_2}$ (you should check this). Throughout this question, you have income of $m=30$.
+\begin{subquestions}
+\item If $p_1=1$ and $p_2=1$, how much of goods 1 and 2 would you buy? Sketch the budget line and optimal bundle on a graph.
+\item If the price of good 1 increases to $p_1=2$ and the price of good 2 remains at $p_2$, how much of goods 1 and 2 would you buy? Sketch the new budget line and optimal bundle on your graph.
+  \item Suppose that after the price of good 1 increased, the government gave you just enough money so that you could afford the original bundle, i.e.~the bundle in part(i). How much money would the government need to give you?
+  \item If the government gave you this reimbursement, how much of goods 1 and 2 would you buy? Is this different from part (i)? Sketch your new budget line after the government handout and the optimal bundle.
+  \item What is the income effect and substitution effect of the price increase of good 1 on the demand for good 1?
+\end{subquestions}
+
+\topic{Intertemporal Choice}
+\question{Saving for Retirement}
+There are two time periods. In period 1 you work and earn income $m_1$. In
+period 2 you are retired and earn no income ($m_2=0$). The interest rate is $r$
+and there is no inflation. Your consumption in time periods 1 and 2 are $c_1$
+and $c_2$ respectively.
+
+The lifetime budget constraint is therefore:
+\[
+  c_1 + \frac{c_2}{1+r} = m_1
+\]
+Your lifetime utility function is:
+\[
+  u\left( c_1,c_2 \right)=\frac{1}{2}c_1^2 + \frac{\beta}{2}c_2^2
+\]
+where $\beta$ is a constant.
+\begin{subquestions}
+  \item Sketch the budget constraint on a graph. Label the axis intercepts and
+    the endowment.
+  \item The marginal rate of substitution of consumption between the two
+    periods is:
+    \[
+      MRS = - \frac{\frac{\partial u\left( c_1,c_2 \right)}{\partial c_1}}
+                   {\frac{\partial u\left( c_1,c_2 \right)}{\partial c_2}}
+    \]
+    Calculate the $MRS$ for the lifetime utility function $u\left( c_1,c_2
+    \right)$ provided above.
+  \item Now we want to find exactly how much you will want to save in the first
+    period. In what follows, \underline{assume that $\beta = \frac{1}{1+r}$}
+    (this will make the algebra easier).
+
+    At the optimum you will set the $MRS$ equal to the slope of the budget
+    constraint, which is $-\left( 1+r \right)$.
+    Therefore we have two equations to find $c_1$ and $c_2$:
+    \begin{align}
+      \frac{\frac{\partial u\left( c_1,c_2 \right)}{\partial c_1}}
+           {\frac{\partial u\left( c_1,c_2 \right)}{\partial c_2}} &=
+           1+r  \\
+             c_1 + \frac{c_2}{1+r} &= m_1
+    \end{align}
+    Using these two equations, solve for $c_1$ and $c_2$ as a function of $m_1$
+    and $r$.
+  \item If the interest rate increases, will you consume more or less in the
+    first period? To answer this you can assume that $m_1=1$ and $r$ ranges from
+    0 to 1.
+  \end{subquestions}
+\newpage
+\topic{Uncertainty}
+% \question{Preferences for Risk}
+% For each of the utility functions for wealth below, sketch them and state
+% whether the consumer is risk averse, risk loving, or risk neutral.
+% \begin{subquestions}
+%   \item $u\left( W \right)=aW$, where $a>0$.
+%   \item $u\left( W \right)=W^2$
+%   \item $u\left( W \right)=\sqrt{W}$
+% \end{subquestions}
+\question{Insurance}
+You have \$200,000 worth of valuable items in your home. There is a 5\% chance
+that you will be burgled. Fortunately, you keep \$100,000 worth of your
+valuables in a hidden safe that the burgulars won't find. The local insurance
+company will insure your valuables for \$7,000. That is, in the event of a
+burgulary the insurance company will give you \$100,000 (the amount the
+burgulars stole).
+
+Suppose your utility for wealth is $U\left( W \right)=\sqrt{W}$. So if you have
+\$200,000 you utility is $\sqrt{200,000}$.
+
+\begin{subquestions}
+  \item What is your expected utility if you don't purchase insurance?
+  \item What is your expected utility if you do purhcase insurance?
+  \item Would you purchase insurance?
+  \item How much would the insurance policy be if it were actuarially fair?
+\end{subquestions}
+\topic{Technology}
+\question{The Technical Rate of Substitutition (TRS)}
+Find the techinical rate of substitution for the following production function
+(show all your work, including the partial derivatives to get the marginal
+products):
+\[
+  f\left( x_1,x_2 \right)=x_1^{\frac{1}{3}}x_2^{\frac{2}{3}}
+\]
+Interpret what the $TRS$ means when $x_1 = 2$ and $x_2 = 4$.
+\question{Returns to scale}
+Show whether the following production functions exhibit constant returns to
+scale, increasing returns to scale or decreasing returns to scale:
+\begin{subquestions}
+  \item $f\left( x_1,x_2 \right)=x_1x_2$.
+  \item $f\left( x_1,x_2 \right)=x_1 + x_2$.
+  \item $f\left( x_1,x_2 \right)=\min\left\{ x_1, x_2 \right\}$.
+\end{subquestions}
+\topic{Profit Maximization}
+\question{Short-run profit maximization}
+Suppose the production function is $y=f\left( x_1,x_2 \right)=x_1^{\frac{1}{2}}x_2^{\frac{1}{2}}$, the price of output is $p=2$ and the prices of each input/factor are $w_1=1$ and $w_2=1$. The firm is competitive and therefore has no control over input and output prices. Factor 2 is fixed in the short run at $x_2=1$. Find the amount of factor 1 that will maximimize the firm's profits. What profit does the firm make?
+\end{document}

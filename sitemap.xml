@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>http://walshc.github.io/</loc>
+  <lastmod>2016-05-04T01:01:18+00:00</lastmod>
+</url>
+<url>
+  <loc>http://walshc.github.io/cv.pdf</loc>
+  <lastmod>2016-05-04T01:01:18+00:00</lastmod>
+</url>
+<url>
+  <loc>http://walshc.github.io/ec201/syllabus.pdf</loc>
+  <lastmod>2016-05-04T01:01:18+00:00</lastmod>
+</url>
+<url>
+  <loc>http://walshc.github.io/ec201/</loc>
+  <lastmod>2016-05-04T01:01:18+00:00</lastmod>
+</url>
+<url>
+  <loc>http://walshc.github.io/baseball/</loc>
+  <lastmod>2016-05-04T01:01:18+00:00</lastmod>
+</url>
+<url>
+  <loc>http://walshc.github.io/research/</loc>
+  <lastmod>2017-01-15T01:01:18+00:00</lastmod>
+</url>
+<url>
+  <loc>http://walshc.github.io/research/ghana_radio.pdf</loc>
+  <lastmod>2017-01-15T01:01:18+00:00</lastmod>
+</url>
+<url>
+  <loc>http://walshc.github.io/blog/</loc>
+  <lastmod>2016-09-01T01:01:18+00:00</lastmod>
+</url>
+</urlset>
