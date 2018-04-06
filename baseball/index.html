@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title>Baseball Riddle</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<style type="text/css">body{margin:40px
+auto;max-width:650px;line-height:1.6;font-size:18px;color:#444;padding:0
+10px}h1,h2,h3{line-height:1.2}</style>
+</head>
+
+<body>
+Let $X_i$ be a discrete random variable which is team $i$'s number of wins.
+$X_i$ follows a binomial distribution with $n=162$ trials and probability $p=\frac{1}{2}$.
+
+Let $Z=\max\left\{X_1, X_2, X_3, X_4, X_5\right\}$ be the number of wins of the team with the most wins. We are interested in $\mathbb{E}[Z]$.
+
+If the cdf of $X_i$ is $F(x)$, the cdf of
+$Z$ is $[F(x)]^5$ since each of the $X_i$ are independent. To see this:
+\begin{align*}
+  F_Z\left( z \right)= &\Pr\left( Z\leq z \right) \\
+  =& \Pr\left( \max\left\{ X_1, X_2, X_3, X_4, X_5 \right\}\leq z \right) \\
+  =& \Pr\left( X_1 \leq z, X_2 \leq z, X_3 \leq z, X_4 \leq z, X_5 \leq
+  z\right)\\
+   =& \Pr\left( X_1 \leq z\right)\Pr\left( X_2 \leq z\right)\Pr\left( X_3 \leq z\right)\Pr\left( X_4 \leq z\right)\Pr\left( X_5 \leq z\right)
+\end{align*}
+This means that the pmf of $Z$ is $[F(z)]^5 - [F(z-1)]^5$.
+
+Let's write out the pmf and cdf of $X_i$ explicitly. The pmf is:
+\[ f(x) = {n \choose x} p^x (1- p)^{n-x} = {n \choose x}\left(\frac{1}{2}\right)^n \]
+The cdf is:
+\[ F(x) = \sum_{k=0}^x {n \choose k} \left(\frac{1}{2}\right)^n \]
+Therefore the pmf of $Z$ is:
+\[ f_Z(z) =\left[\sum_{k=0}^z {n \choose k} \left(\frac{1}{2}\right)^n \right]^5 -
+\left[\sum_{k=0}^{z-1} {n \choose k} \left(\frac{1}{2}\right)^n \right]^5 
+\]
+Therefore the expected value of $Z$ is given by:
+\[
+\mathbb{E}[Z]=\sum_{j=0}^{n=162} 
+j\left(
+\left[\sum_{k=0}^j {n \choose k} \left(\frac{1}{2}\right)^n \right]^5 -
+\left[\sum_{k=0}^{j-1} {n \choose k} \left(\frac{1}{2}\right)^n \right]^5
+\right)
+\]
+This turns out to be about 88.394.
+
+To check the answer, we can simulate the result. See <a href="code.html">here</a>.
+Special thanks to Nick Saponara for helping out with the solution.
+</body>
+</html>
