@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Programming and Quantitative Skills for IBA - R - 11&nbsp; Dataframes: Creating Variables</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<link href="./dataframes-summary-statistics.html" rel="next">
+<link href="./dataframes-indexing.html" rel="prev">
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dataframes-creating-variables.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Dataframes: Creating Variables</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Programming and Quantitative Skills for IBA - R</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Programming-and-Quantitative-Skills-for-IBA---R.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./getting-started.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r-as-a-calculator.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R as a Calculator</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-types.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Objects and Object Types</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./operations-on-vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Operations on Vectors</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./comparing-vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Comparing Vectors</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r-scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R Scripts</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reading-csv-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Loading a CSV Dataset</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R Packages</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dataframes-indexing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dataframes: Indexing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dataframes-creating-variables.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Dataframes: Creating Variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dataframes-summary-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Dataframes: Summary Statistics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Data Cleaning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-plotting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduction to Plotting</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./plotting-with-ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Visualization with <code>ggplot</code></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./making-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Making Functions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Univariate Unconstrained Optimization</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ifelse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Conditional Statements</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./merging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Merging</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reshaping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Reshaping</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./aggregating.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aggregating by Group</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tutorial Exercises</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#goal-difference" id="toc-goal-difference" class="nav-link active" data-scroll-target="#goal-difference"><span class="header-section-number">11.1</span> Goal Difference</a></li>
+  <li><a href="#total-points" id="toc-total-points" class="nav-link" data-scroll-target="#total-points"><span class="header-section-number">11.2</span> Total Points</a></li>
+  <li><a href="#team-ranking" id="toc-team-ranking" class="nav-link" data-scroll-target="#team-ranking"><span class="header-section-number">11.3</span> Team Ranking</a></li>
+  <li><a href="#relegation-status" id="toc-relegation-status" class="nav-link" data-scroll-target="#relegation-status"><span class="header-section-number">11.4</span> Relegation Status</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-dataframes-creating-variables" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Dataframes: Creating Variables</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
+<p>Here we will continue to work with the example dataframe from <a href="dataframes-indexing.html"><span>Chapter&nbsp;10</span></a>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">text =</span> <span class="st">"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">            team, wins, draws, losses, goals_for, goals_against</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">              AZ,   20,     7,      7,        68,            35</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">            Ajax,   20,     9,      5,        86,            38</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">       Excelsior,    9,     5,     20,        32,            71</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">        FC Emmen,    6,    10,     18,        33,            65</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">    FC Groningen,    4,     6,     24,        31,            75</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">       FC Twente,   18,    10,      6,        66,            27</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">      FC Utrecht,   15,     9,     10,        55,            50</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="st">     FC Volendam,   10,     6,     18,        42,            71</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="st">       Feyenoord,   25,     7,      2,        81,            30</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="st"> Fortuna Sittard,   10,     6,     18,        39,            62</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="st"> Go Ahead Eagles,   10,    10,     14,        46,            56</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="st">             NEC,    8,    15,     11,        42,            45</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="st">             PSV,   23,     6,      5,        89,            40</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="st">    RKC Waalwijk,   11,     8,     15,        50,            64</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="st">      SC Cambuur,    5,     4,     25,        26,            69</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="st">Sparta Rotterdam,   17,     8,      9,        60,            37</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="st">         Vitesse,   10,    10,     14,        45,            50</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="st">   sc Heerenveen,   12,    10,     12,        44,            50</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>, <span class="at">strip.white =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can see that we are missing some of the columns we usually see when we look at the standings of an association football league. These are:</p>
+<ol type="1">
+<li>The goal difference</li>
+<li>The number of points the team has,</li>
+<li>The rankings of the teams in the league</li>
+<li>The relegation status of each team.</li>
+</ol>
+<p>What we will learn in this chapter is how to create these variables from the existing ones we have.</p>
+<section id="goal-difference" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="goal-difference"><span class="header-section-number">11.1</span> Goal Difference</h2>
+<p>The goal difference in association football is the number of goals for minus goals against. To create this variable we then simply need to subtract the variable <code>goals_against</code> from <code>goals_for</code>. How can we do that?</p>
+<p>To get the goal difference then, we subtract <code>df$goals_against</code> from <code>df$goals_for</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>goals_for <span class="sc">-</span> df<span class="sc">$</span>goals_against</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  33  48 -39 -32 -44  39   5 -29  51 -23 -10  -3  49 -14 -43  23  -5  -6</code></pre>
+</div>
+</div>
+<p>This prints out the goal difference for all 18 teams, but it does not save it in the dataset. To do that, we need to assign this output to a new variable in <code>df</code>. We do that using the dollar symbol again:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>goal_diff <span class="ot">&lt;-</span> df<span class="sc">$</span>goals_for <span class="sc">-</span> df<span class="sc">$</span>goals_against</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now when we look at our dataset, there is a new variable in it:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               team wins draws losses goals_for goals_against goal_diff
+1                AZ   20     7      7        68            35        33
+2              Ajax   20     9      5        86            38        48
+3         Excelsior    9     5     20        32            71       -39
+4          FC Emmen    6    10     18        33            65       -32
+5      FC Groningen    4     6     24        31            75       -44
+6         FC Twente   18    10      6        66            27        39
+7        FC Utrecht   15     9     10        55            50         5
+8       FC Volendam   10     6     18        42            71       -29
+9         Feyenoord   25     7      2        81            30        51
+10  Fortuna Sittard   10     6     18        39            62       -23
+11  Go Ahead Eagles   10    10     14        46            56       -10
+12              NEC    8    15     11        42            45        -3
+13              PSV   23     6      5        89            40        49
+14     RKC Waalwijk   11     8     15        50            64       -14
+15       SC Cambuur    5     4     25        26            69       -43
+16 Sparta Rotterdam   17     8      9        60            37        23
+17          Vitesse   10    10     14        45            50        -5
+18    sc Heerenveen   12    10     12        44            50        -6</code></pre>
+</div>
+</div>
+<!-- ### Other ways of creating variables (Optional) {-} -->
+<!-- We have to write `df$` before the variables 3 times here. This can get quite annoying and make the code look messy with bigger operations. Here I will show a couple of alternative ways to do this with fewer or no dollar symbols. -->
+<!-- One way is to use the `with()` function. This way we don't need to use the dollar symbol for the variables already in our dataset: -->
+<!-- ```{r} -->
+<!-- df$goal_diff <- with(df, goals_for - goals_against) -->
+<!-- ``` -->
+<!-- By using the `with()` function with `df` as the first argument, R knows to look for the variables called in the second argument inside the dataframe `df`. -->
+<!-- Another way is to use the `transform()` function in the following way, which doesn't require any dollar symbols at all: -->
+<!-- ```{r} -->
+<!-- df <- transform(df, goal_diff = goals_for - goals_against) -->
+<!-- ``` -->
+
+<!-- Another way is to use the `dplyr` package or the `data.table` package, but we will save that for another lesson. -->
+</section>
+<section id="total-points" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="total-points"><span class="header-section-number">11.2</span> Total Points</h2>
+<p>In association football leagues, a team gets 3 points for a win and 1 point for a draw. They get 0 points for a loss. The formula for calculating the total number of points is then: <span class="math display">
+\text{Points} = 3 \times \text{Wins} + 1 \times \text{Draws} + 0 \times \text{Losses}
+</span> In our data we observe the number of wins, draws and losses, but not the total points. So we need to create this variable from the other ones using the formula above. We can do this with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>total_points <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">*</span> df<span class="sc">$</span>wins <span class="sc">+</span> df<span class="sc">$</span>draws</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We didn’t need to include <code>df$losses</code> in the formula because when we multiply it by zero it won’t make a difference.</p>
+<p>Let’s take a look at what we’ve created:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df[, <span class="fu">c</span>(<span class="st">"team"</span>, <span class="st">"wins"</span>, <span class="st">"draws"</span>, <span class="st">"losses"</span>, <span class="st">"total_points"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               team wins draws losses total_points
+1                AZ   20     7      7           67
+2              Ajax   20     9      5           69
+3         Excelsior    9     5     20           32
+4          FC Emmen    6    10     18           28
+5      FC Groningen    4     6     24           18
+6         FC Twente   18    10      6           64
+7        FC Utrecht   15     9     10           54
+8       FC Volendam   10     6     18           36
+9         Feyenoord   25     7      2           82
+10  Fortuna Sittard   10     6     18           36
+11  Go Ahead Eagles   10    10     14           40
+12              NEC    8    15     11           39
+13              PSV   23     6      5           75
+14     RKC Waalwijk   11     8     15           41
+15       SC Cambuur    5     4     25           19
+16 Sparta Rotterdam   17     8      9           59
+17          Vitesse   10    10     14           40
+18    sc Heerenveen   12    10     12           46</code></pre>
+</div>
+</div>
+</section>
+<section id="team-ranking" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="team-ranking"><span class="header-section-number">11.3</span> Team Ranking</h2>
+<p>At the moment, the data are sorted alphabetically by team. But usually we see them sorted by their ranking in the league. What we will do now is sort the data by their ranking in the league, and also create a variable that shows the team’s rank in the league.</p>
+<p>In association football leagues, teams are ranked by the number of points they accumulated throughout the season. If two teams have the same number of points, we rank teams by their goal difference.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>We can create a ranking by <em>sorting</em> the data by the number of points and goal difference. We can do that using the <code>order()</code> function in R. The first argument is what we want to sort by (total points). For breaking ties we can include additional arguments. By default, <code>order()</code> sorts ascending so to sort descending we need to use the option <code>decreasing = TRUE</code>.</p>
+<p>If we use the order function by itself, we get:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">order</span>(df<span class="sc">$</span>total_points, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  9 13  2  1  6 16  7 18 14 11 17 12  8 10  3  4 15  5</code></pre>
+</div>
+</div>
+<p>The 9 at the beginning means that the team with the most points is the one in the 9th position. Let’s check which one that was:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">9</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       team wins draws losses goals_for goals_against goal_diff total_points
+9 Feyenoord   25     7      2        81            30        51           82</code></pre>
+</div>
+</div>
+<p>This is correct, because Feyenoord won the competition. The 2nd number 13 means the team in the 13th position (PSV) came second.</p>
+<p>To actually sort the data, we need to use this function when specifying the row indices:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[<span class="fu">order</span>(df<span class="sc">$</span>total_points, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df[, <span class="fu">c</span>(<span class="st">"team"</span>, <span class="st">"total_points"</span>, <span class="st">"goal_diff"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               team total_points goal_diff
+9         Feyenoord           82        51
+13              PSV           75        49
+2              Ajax           69        48
+1                AZ           67        33
+6         FC Twente           64        39
+16 Sparta Rotterdam           59        23
+7        FC Utrecht           54         5
+18    sc Heerenveen           46        -6
+14     RKC Waalwijk           41       -14
+11  Go Ahead Eagles           40       -10
+17          Vitesse           40        -5
+12              NEC           39        -3
+8       FC Volendam           36       -29
+10  Fortuna Sittard           36       -23
+3         Excelsior           32       -39
+4          FC Emmen           28       -32
+15       SC Cambuur           19       -43
+5      FC Groningen           18       -44</code></pre>
+</div>
+</div>
+<p>If there are ties in total points, the function will keep the initial ordering. Here, both Go Ahead Eagles and Vitesse have 40 points, but Vitesse has a better goal difference (-5 instead of -10). But for the ranking to be correct, we need Vitesse to be ahead of Go Ahead Eagles. To do this, we add <code>df$goal_diff</code> as another argument to the <code>order()</code> function. This orders by goal difference whenever there is a tie in points:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[<span class="fu">order</span>(df<span class="sc">$</span>total_points, df<span class="sc">$</span>goal_diff, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df[, <span class="fu">c</span>(<span class="st">"team"</span>, <span class="st">"total_points"</span>, <span class="st">"goal_diff"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               team total_points goal_diff
+9         Feyenoord           82        51
+13              PSV           75        49
+2              Ajax           69        48
+1                AZ           67        33
+6         FC Twente           64        39
+16 Sparta Rotterdam           59        23
+7        FC Utrecht           54         5
+18    sc Heerenveen           46        -6
+14     RKC Waalwijk           41       -14
+17          Vitesse           40        -5
+11  Go Ahead Eagles           40       -10
+12              NEC           39        -3
+10  Fortuna Sittard           36       -23
+8       FC Volendam           36       -29
+3         Excelsior           32       -39
+4          FC Emmen           28       -32
+15       SC Cambuur           19       -43
+5      FC Groningen           18       -44</code></pre>
+</div>
+</div>
+<p>Now we get the right ordering. We can also confirm that there are no ties in both total points and goal difference.</p>
+<p>To create the ranking variable we can simply create a sequence from 1 to 18. We can do this with <code>1:18</code>. But another way to get 18 is to use <code>nrow(df)</code>, which is the number of rows in <code>df</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>ranking <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df[, <span class="fu">c</span>(<span class="st">"team"</span>, <span class="st">"total_points"</span>, <span class="st">"goal_diff"</span>, <span class="st">"ranking"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               team total_points goal_diff ranking
+9         Feyenoord           82        51       1
+13              PSV           75        49       2
+2              Ajax           69        48       3
+1                AZ           67        33       4
+6         FC Twente           64        39       5
+16 Sparta Rotterdam           59        23       6
+7        FC Utrecht           54         5       7
+18    sc Heerenveen           46        -6       8
+14     RKC Waalwijk           41       -14       9
+17          Vitesse           40        -5      10
+11  Go Ahead Eagles           40       -10      11
+12              NEC           39        -3      12
+10  Fortuna Sittard           36       -23      13
+8       FC Volendam           36       -29      14
+3         Excelsior           32       -39      15
+4          FC Emmen           28       -32      16
+15       SC Cambuur           19       -43      17
+5      FC Groningen           18       -44      18</code></pre>
+</div>
+</div>
+<p>You can confirm that this is the correct points, goal difference and rankings by checking the table <a href="https://www.eurosport.nl/voetbal/eredivisie/2022-2023/standen.shtml">here</a>.</p>
+</section>
+<section id="relegation-status" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="relegation-status"><span class="header-section-number">11.4</span> Relegation Status</h2>
+<p>The last variable we will create is the relegation status. In the Eredivisie, the teams ranked 17th and 18th are automatically relegated to the lower “Keuken Kampioen” (Kitchen Champion) league (where Tilburg’s Willem II competed that year). The 16th team enters into a playoff with teams in the Keuken Kampioen league. We will create a character variable with this information.</p>
+<p>To do this we first create a variable which is blank everywhere: (<code>""</code>). We then fill in values depending on the rank of the team using indexing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>relegation_status <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>relegation_status[df<span class="sc">$</span>ranking <span class="sc">&lt;</span> <span class="dv">16</span>] <span class="ot">&lt;-</span> <span class="st">"No relegation"</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>relegation_status[df<span class="sc">$</span>ranking <span class="sc">==</span> <span class="dv">16</span>] <span class="ot">&lt;-</span> <span class="st">"Relegation playoffs"</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>relegation_status[df<span class="sc">$</span>ranking <span class="sc">==</span> <span class="dv">17</span> <span class="sc">|</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                     df<span class="sc">$</span>ranking <span class="sc">==</span> <span class="dv">18</span>] <span class="ot">&lt;-</span> <span class="st">"Automatic relegation"</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>df[, <span class="fu">c</span>(<span class="st">"team"</span>, <span class="st">"ranking"</span>, <span class="st">"relegation_status"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               team ranking    relegation_status
+9         Feyenoord       1        No relegation
+13              PSV       2        No relegation
+2              Ajax       3        No relegation
+1                AZ       4        No relegation
+6         FC Twente       5        No relegation
+16 Sparta Rotterdam       6        No relegation
+7        FC Utrecht       7        No relegation
+18    sc Heerenveen       8        No relegation
+14     RKC Waalwijk       9        No relegation
+17          Vitesse      10        No relegation
+11  Go Ahead Eagles      11        No relegation
+12              NEC      12        No relegation
+10  Fortuna Sittard      13        No relegation
+8       FC Volendam      14        No relegation
+3         Excelsior      15        No relegation
+4          FC Emmen      16  Relegation playoffs
+15       SC Cambuur      17 Automatic relegation
+5      FC Groningen      18 Automatic relegation</code></pre>
+</div>
+</div>
+<p>For teams in rank 17 or 18, we use the logical OR operator: If the ranking is equal to 17 or equal to 18, we set the status to “Automatic relegation”.</p>
+<p>Writing <code>df$ranking == 17 | df$ranking == 18</code> inside the brackets is quite long. If you had more numbers you wanted to compare the ranking to, it would become a really long command. Fortunately R has a special operator we can use as a shortcut: the <code>%in%</code> operator. We can use the <code>%in%</code> operator to do the same thing as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>relegation_status[df<span class="sc">$</span>ranking <span class="sc">%in%</span> <span class="dv">17</span><span class="sc">:</span><span class="dv">18</span>] <span class="ot">&lt;-</span> <span class="st">"Automatic relegation"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>What is the <code>%in%</code> doing? When we write <code>a %in% b</code> we are checking for each element in <code>a</code> if there is a <em>matching</em> element <em>somewhere</em> in <code>b</code>. To see this at work, consider the following example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>a <span class="sc">%in%</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
+</div>
+</div>
+<p>Here the 3rd and 5th element are <code>TRUE</code>, because the 3rd and 5th element of <code>a</code> (which are 3 and 5) are <em>somewhere</em> in <code>b</code> (3 and 5 are in <code>b</code>, but 1, 2, 4 and 6 aren’t). An equivalent way of doing it (but with more typing) would be to see if <span class="math inline">a=3</span> or <span class="math inline">a=5</span> or <span class="math inline">a=7</span> for each element (i.e.&nbsp;check for a match in any of the elements of <code>b</code>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">==</span> b[<span class="dv">1</span>] <span class="sc">|</span> a <span class="sc">==</span> b[<span class="dv">2</span>] <span class="sc">|</span> a <span class="sc">==</span> b[<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
+</div>
+</div>
+<p>In the example above, we had <code>df$ranking %in% 17:18</code>. This returns <code>TRUE</code> if the team’s ranking was one of 17 or 18 and is <code>FALSE</code> otherwise.</p>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>If they are also tied on their goal difference, we rank them on their goals scored, then head-to-head points, then head-to-head goal difference, then head-to-head away goals scored. If they are still tied they will play another match (possibly ending with penalties) if it is for 1st place, relegation, or a European league; otherwise they will draw a ranking randomly. Fortunately, as we will see we can determine a clear ranking based on only points and goal scored, so we won’t need to code all these possibilities here. But if we wanted to be very exact we should also included these extra possibilities in our code.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./dataframes-indexing.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dataframes: Indexing</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./dataframes-summary-statistics.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Dataframes: Summary Statistics</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

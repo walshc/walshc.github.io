@@ -1,0 +1,178 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Christoph Walsh. RM Micro 3 - GE Theory">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RM Micro 3 - GE Theory</title>
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="../images/favicon.png">
+    <meta name="theme-color" content="#3f51b5">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="RM Micro 3 - General Equilibrium Theory">
+    <link rel="apple-touch-icon-precomposed" href="../images/favicon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="../images/favicon.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- Windows phone -->
+    <meta name="msapplication-navbutton-color" content="#3f51b5">
+
+    <link rel="shortcut icon" href="../images/favicon.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css" />
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link href="../css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+    .alignleft {
+      float:left;
+    }
+    .alignright {
+      float:right;
+    }
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    table, th, td {
+      border: 1px solid grey;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+    }
+    .fulltablewidth{
+      width: 100%;
+      table-layout: fixed;
+      word-break: break-word;
+      word-wrap: break-word;
+    }
+    a {
+    text-decoration: none;
+    }
+    #add {
+      transition: 0.4s ease all;
+      -webkit-transition: 0.4s ease all;
+    }
+    #add:hover {
+      transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+    }
+    box-shadow: -3px -3px 10px rgba(0, 0, 0, .25);
+    </style>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-68572645-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script type="text/javascript">
+      function scrambledemail() {
+        var a = "wals";
+        var b = "hcb";
+        var c = "@b";
+        var d = "u.edu";
+        e_string = "<a href=\"ma" + "ilto:" + a + b + c + d + "\">" + a + b + c + d + "</a>";
+        document.write(e_string);
+      }
+    </script>
+
+    <script type="text/javascript">
+      function scrambledphone() {
+        var a = "+1-";
+        var b = "617-";
+        var c = "855";
+        var d = "-94";
+        var e = "90";
+        phone_string = "<a href=tel://" + a + b + c + d + e + ">" + a + b + c +d + e + "</a>";
+        phone_no_link = a + b + c + d + e;
+        document.write(phone_string);
+      }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  </head>
+
+  <body class="mdl-demo mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h3><a href="https://walshc.github.io" style="text-decoration: none; color: white">RM Microeconomics 3 - General Equilibrium Theory</a></h3>
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+            <li class="mdl-menu__item"><a href="https://walshc.github.io" style="text-decoration: none; color: black">Homepage</a></li>
+          </ul>
+          <a href="#material" class="mdl-layout__tab is-active">Course Material</a>
+        </div>
+      </header>
+
+      <main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active" id="material">
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--8dp">
+            <div class="mdl-card__supporting-text mdl-color-text--grey-800">
+              <h4>Course Information</h4>
+              This webpage contains information about the general equilibrium theory course in the microeconomics sequence of the
+              <a href="https://www.tilburguniversity.edu/education/masters-programs/research-master-economics/program">Research Master in Economics</a> program at Tilburg University. The course syllabus is <a target="_blank" href="syllabus_micro3_part2_2023.pdf">here</a>. Students taking this course should follow the course's Canvas page for more material.
+              <br><br>
+            </div>
+          </section>
+
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--8dp">
+            <div class="mdl-card__supporting-text mdl-color-text--grey-800">
+              <h4>Lecture Slides</h4>
+              <a target="_blank" href="1-intro-to-ge.pdf">1. Introduction</i></a><br>
+              <a target="_blank" href="2-partial-equilibrium.pdf">2. Partial Equilibrium</i></a><br>
+              <a target="_blank" href="3-market-failures.pdf">3. Externalities and Public Goods</i></a><br>
+              <a target="_blank" href="4-edgeworth box.pdf">4. The Edgeworth Box</i></a><br>
+              <a target="_blank" href="5-welfare.pdf">5. Equilibrium Welfare Properties</i></a><br>
+              <a target="_blank" href="6-existence.pdf">6. Equilibrium Existence, Uniqueness and Stability</i></a><br>
+            </div>
+          </section>
+
+        </div>
+      </main>
+    </div>
+    <a href="https://walshc.github.io" target="_self" id="add" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast mdl-shadow--8dp box-shadow">
+      <i class="material-icons" role="presentation">home</i>
+    </a>
+  </body>
+</html>

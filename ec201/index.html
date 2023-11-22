@@ -1,0 +1,325 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Christoph Walsh. EC201 - Intermediate Microeconomics at Boston University (BU)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Christoph Walsh - EC201 - Intermediate Microeconomics</title>
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="../images/favicon.png">
+    <meta name="theme-color" content="#3f51b5">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="EC201 - Intermediate Microeconomics">
+    <link rel="apple-touch-icon-precomposed" href="../images/favicon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="../images/favicon.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- Windows phone -->
+    <meta name="msapplication-navbutton-color" content="#3f51b5">
+
+    <link rel="shortcut icon" href="../images/favicon.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css" />
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link href="../css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+    .alignleft {
+      float:left;
+    }
+    .alignright {
+      float:right;
+    }
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    table, th, td {
+      border: 1px solid grey;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+    }
+    .fulltablewidth{
+      width: 100%;
+      table-layout: fixed;
+      word-break: break-word;
+      word-wrap: break-word;
+    }
+    a {
+    text-decoration: none;
+    }
+    #add {
+      transition: 0.4s ease all;
+      -webkit-transition: 0.4s ease all;
+    }
+    #add:hover {
+      transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+    }
+    box-shadow: -3px -3px 10px rgba(0, 0, 0, .25);
+    </style>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-68572645-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script type="text/javascript">
+      function scrambledemail() {
+        var a = "wals";
+        var b = "hcb";
+        var c = "@b";
+        var d = "u.edu";
+        e_string = "<a href=\"ma" + "ilto:" + a + b + c + d + "\">" + a + b + c + d + "</a>";
+        document.write(e_string);
+      }
+    </script>
+
+    <script type="text/javascript">
+      function scrambledphone() {
+        var a = "+1-";
+        var b = "617-";
+        var c = "855";
+        var d = "-94";
+        var e = "90";
+        phone_string = "<a href=tel://" + a + b + c + d + e + ">" + a + b + c +d + e + "</a>";
+        phone_no_link = a + b + c + d + e;
+        document.write(phone_string);
+      }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  </head>
+
+  <body class="mdl-demo mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h3><a href="https://walshc.github.io" style="text-decoration: none; color: white">EC201 - Intermediate Microeconomics</a></h3>
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+            <li class="mdl-menu__item"><a href="https://walshc.github.io" style="text-decoration: none; color: black">Homepage</a></li>
+          </ul>
+          <a href="#syllabus" class="mdl-layout__tab is-active">Syllabus</a>
+          <a href="#material" class="mdl-layout__tab">Course Material</a>
+        </div>
+      </header>
+
+      <main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active" id="syllabus">
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--8dp">
+            <div class="mdl-card__supporting-text mdl-color-text--grey-800">
+              This is the syllabus for EC201 in Summer II 2017. The course syllabus in pdf format is available <a target="_blank" href="syllabus-2017.pdf">here</a>.<br>
+            </div>
+          </section>
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--8dp">
+            <div class="mdl-card__supporting-text mdl-color-text--grey-800">
+                <b>Class times:</b> Monday, Tuesday, Wednesday 6:00PM-8:30PM (July 3rd to August 9th 2017).
+                <br>
+                <b>Location:</b> <a href="https://www.bu.edu/classrooms/classroom/cas-b20/">CAS B20</a>
+                <br>
+                <b>Instructor:</b> Christoph Walsh
+                <br>
+                <b>Office Hours:</b> Monday &amp Wednesday 4:30PM-5:30PM in <a href="https://www.google.com/maps/place/Boston+University+School+of+Social+Work/@42.350845,-71.1052384,15z/data=!4m2!3m1!1s0x0:0xe9b0a401410ded28?sa=X&ved=0ahUKEwibjuTl_b7MAhXKJR4KHdfDAScQ_BIIdDAO">SSW</a> B16
+                <br>
+                <b>Email: </b><script = type="text/javascript">scrambledemail();</script>
+                <br>
+            </div>
+          </section>
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--8dp">
+            <div class="mdl-card__supporting-text mdl-color-text--grey-800">
+              <h4>Course Summary</h4>
+                The goal of the course is to examine the topics studied in Introductory Microeconomics (EC101) in more detail and with more rigor. This will continue to develop your economic intuition and expand your knowledge of the analytical tools useful in modeling consumer and firm behavior. A solid foundation in this course will greatly assist you in future economics courses, as the tools used here are building blocks for the tools you will use in the future.
+                <br>
+                <br>
+                We will begin by studying the foundations of the demand curve through individual consumption choice, along with intertemporal and risky choice.  Analogously, we'll consider firms' choices of inputs and production quantities.  Together, these will allow us to consider market equilibria. We will then study strategic interaction and use it to analyze various other market structures.  Lastly we will look at settings where the market fails due to asymmetric information or failures of rationality.
+            </div>
+          </section>
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--8dp">
+            <div class="mdl-card__supporting-text mdl-color-text--grey-800">
+              <h4>Textbook and Materials</h4>
+                The main notes for the course will be written on the whiteboard during class time. Problem sets, practice exams (and their solutions) and extra notes will be posted on the course website. The textbook for the course is:
+              <br><br>
+              Varian, Hal. R. (2014) <i>Intermediate Microeconomics with
+                Calculus: A Modern Approach</i>, 1st edition, W. W. Norton &amp Company
+              <br><br>
+              While the textbook is not required, the material covered in the course and the material in the book are very similar and reading it may be a useful addition to your class notes.
+            </div>
+          </section>
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--8dp">
+            <div class="mdl-card__supporting-text mdl-color-text--grey-800">
+              <h4>Prerequisites</h4>
+                A sound understanding of the topics covered in EC101 will be crucial as we will be discussing some of those topics in greater detail. We will also use basic calculus, algebra, and graphing techniques very frequently, which I will review on the first day. If you are uncomfortable with any of the topics covered on the first day, it is very important that you come see me as soon as possible.
+            </div>
+          </section>
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--8dp">
+            <div class="mdl-card__supporting-text mdl-color-text--grey-800">
+              <h4>Grading</h4>
+                <h5>Attendance (10%)</h5>
+                  Attendance is extremely important. There are very few lectures relative to a regular term course and we will be covering a lot of material in each lecture. Thus, missing a class could result in falling behind rather quickly.
+                <br><br>
+                <h5>Class Participation (10%)</h5>
+                  Long class times in the evenings make it difficult to stay focused. Interaction and class participation can make this easier. A portion of this grade will go to students who participate well during the course. I will also ask students to solve homework problems on the board during class time.
+                <br><br>
+                <h5>Midterm Exam (35%)</h5>
+                  The midterm exam will be held on Monday July 24th during class time. It will include all content covered up to that date.
+                <br><br>
+                <h5>Final Exam (45%)</h5>
+                The final exam will be held on Wednesday August 9th during class time. It will be <b>cumulative</b>, including all content covered in the class since the first day. There will be no make-up exams for either exam except in extreme cases.
+            </div>
+          </section>
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--8dp">
+            <div class="mdl-card__supporting-text mdl-color-text--grey-800">
+              <h4>Problem Sets</h4>
+                The midterm and final exams will consist of problems that you will need to solve and the problem sets will serve as practice for the exams. Doing problems to practice the techniques is the only way to master the material in preparation for exams. The problem sets will also serve as a way to emphasize the important concepts that we discuss in class, as well as give you an opportunity to explore some issues at a deeper level. There will be one problem set each week and we will spend a portion of the class on Monday going over the previous week's problem set.
+            </div>
+          </section>
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--8dp">
+            <div class="mdl-card__supporting-text mdl-color-text--grey-800">
+              <h4>Other Issues</h4>
+                I will be teaching the course on the whiteboard because I believe that for this kind of material (involving lots of graphs and mathematics) this will be the easiest for students to follow. Therefore please do not use laptops to take notes in class.  It is very difficult and also distracting to transfer the mathematics and graphs to the computer, so your notes will suffer. It is also good practice to draw the graphs on paper as that is how you will do it in the exams.
+                <br><br>
+                If you have a disability that allows you extra time on exams or any other accommodations, please let me know on the first day and, as soon as possible, give me a note from BU disability services. If any students need extra time I will need to book the classroom for a longer time period in advance which takes time.
+              <br><br>
+              The BU academic conduct code is in effect during this course. You can find the details spelled out <a href="http://www.bu.edu/academics/policies/academic-conduct-code/">here</a> if you are not familiar.
+            </div>
+          </section>
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--8dp">
+            <div class="mdl-card__supporting-text mdl-color-text--grey-800">
+              <h4>Course Outline</h4>
+              The course consists of 18 days in the classroom. The following is a rough outline of the material we will cover on each day, with the associated textbook chapters.
+              <br><br>
+              <ul>
+                <li>Mathematics Review (Mathematical Appendix)</li>
+                <li>The Budget Constraint (Ch. 2)</li>
+                <li>Preferences and Utility (Ch. 3-4)</li>
+                <li>Choice and Demand (Ch. 5-6)</li>
+                <li>Intertemporal Choice (Ch. 10)</li>
+                <li>Uncertainty (Ch. 12)</li>
+                <li>Technology and Profit Maximization (Ch. 19-20)</li>
+                <li>Cost Curves (Ch. 22)</li>
+                <li>Firm Supply and Industry Supply (Ch. 23-24)</li>
+                <li>Equilibrium (Ch. 16)</li>
+                <li>Demand Elasticities (Ch. 15)</li>
+                <li>Monopoly (Ch. 25-26)</li>
+                <li>Game Theory (Ch. 29-30)</li>
+                <li>Oligopoly (Ch. 28)</li>
+              </ul>
+            </div>
+          </section>
+        </div>
+        <div class="mdl-layout__tab-panel" id="material">
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--8dp">
+            <div class="mdl-card__supporting-text mdl-color-text--grey-800">
+              <h4>Notes</h4>
+              <a target="_blank" href="ec201-notes.pdf">Topic Summaries</a><br><br>
+              <a target="_blank" href="math-review.pdf">Mathematics Review</a>
+            </div>
+          </section>
+
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--8dp">
+            <div class="mdl-card__supporting-text mdl-color-text--grey-800">
+              <h4>Problem Sets and Solutions</h4>
+              <a target="_blank" href="ps1.pdf">Problem Set 1</i></a>
+              &ensp; &#8213; &ensp;
+              <a target="_blank" href="ps1-sol.pdf">Solutions</i></a><br><br>
+              <a target="_blank" href="ps2.pdf">Problem Set 2</i></a>
+              &ensp; &#8213; &ensp;
+              <a target="_blank" href="ps2-sol.pdf">Solutions</i></a><br><br>
+              <a target="_blank" href="ps3.pdf">Problem Set 3</i></a>
+              &ensp; &#8213; &ensp;
+              <a target="_blank" href="ps3-sol.pdf">Solutions</i></a><br><br>
+              <a target="_blank" href="ps4.pdf">Problem Set 4</i></a>
+              &ensp; &#8213; &ensp;
+              <a target="_blank" href="ps4-sol.pdf">Solutions</i></a><br><br>
+              <a target="_blank" href="ps5.pdf">Problem Set 5</i></a>
+              &ensp; &#8213; &ensp;
+              <a target="_blank" href="ps5-sol.pdf">Solutions</i></a><br><br>
+              <a target="_blank" href="extra-questions.pdf">Extra Practice Problems</i></a>
+              &ensp; &#8213; &ensp;
+              <a target="_blank" href="extra-questions-sol.pdf">Solutions</i></a>
+            </div>
+          </section>
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--8dp">
+            <div class="mdl-card__supporting-text mdl-color-text--grey-800">
+              <h4>Practice Exams and Past Exams</h4>
+              <a target="_blank" href="practice-midterm.pdf">Practice Midterm</a>
+              &ensp; &#8213; &ensp;
+              <a target="_blank" href="practice-midterm-sol.pdf">Solutions</i></a><br><br>
+              <a target="_blank" href="midterm-2016.pdf">Midterm 2016</a>
+              &ensp; &#8213; &ensp;
+              <a target="_blank" href="midterm-2016-sol.pdf">Solutions</i></a><br><br>
+              <a target="_blank" href="midterm-2017.pdf">Midterm 2017</a>
+              &ensp; &#8213; &ensp;
+              <a target="_blank" href="midterm-2017-sol.pdf">Solutions</i></a><br><br>
+              <a target="_blank" href="practice-final.pdf">Practice Final</a>
+              &ensp; &#8213; &ensp;
+              <a target="_blank" href="practice-final-sol.pdf">Solutions</i></a><br><br>
+              <a target="_blank" href="final-2016.pdf">Final 2016</a>
+              &ensp; &#8213; &ensp;
+              <a target="_blank" href="final-2016-sol.pdf">Solutions</i></a><br><br>
+              <a target="_blank" href="final-2017.pdf">Final 2017</a>
+              &ensp; &#8213; &ensp;
+              <a target="_blank" href="final-2017-sol.pdf">Solutions</i></a><br>
+            </div>
+          </section>
+
+        </div>
+      </main>
+    </div>
+    <a href="https://walshc.github.io" target="_self" id="add" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast mdl-shadow--8dp box-shadow">
+      <i class="material-icons" role="presentation">home</i>
+    </a>
+  </body>
+</html>
