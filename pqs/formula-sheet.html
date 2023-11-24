@@ -199,12 +199,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Get columns of <code>df</code> with names <code>"a"</code> and <code>"b"</code>: <code>df[, c("a", "b")]</code></li>
 <li>Get column with name <code>a</code> from <code>df</code>: <code>df$a</code> OR <code>df[, "a"]</code> OR <code>df[["a"]]</code></li>
 <li>Drop variable called <code>a</code>: <code>df$a &lt;- NULL</code></li>
+<li>Drop rows with missing data: <code>df &lt;- na.omit(df)</code></li>
 <li>Drop the 2nd variable in <code>df</code>: <code>df &lt;- df[, -2]</code></li>
 <li>Convert to dataframe: <code>as.data.frame()</code></li>
 <li>Sort by variable <code>x</code>: <code>df &lt;- df[order(df$x, decreasing = FALSE), ]</code></li>
 <li>Dimensions: <code>nrow()</code>, <code>ncol()</code>, <code>dim()</code></li>
 <li>Name the 2nd column of <code>df</code> to <code>b</code>: <code>names(df)[2] &lt;- "b"</code></li>
-<li>Merge <code>df</code> with <code>df2</code> by id variable <code>id</code>: <code>df &lt;- merge(df, df2, by = "id2")</code>.</li>
+<li>Merge <code>df1</code> with <code>df2</code> by id variable <code>id</code>: <code>df &lt;- merge(df1, df2, by = "id")</code>.</li>
+<li>Merge <code>df1</code> with <code>df2</code> by id variables <code>id1</code> and <code>id2</code>: <code>df &lt;- merge(df1, df2, by = c("id1", "id2"))</code>.</li>
 <li>Get the mean of <code>x</code> by group <code>g</code> in <code>df</code>: <code>aggregate(x ~ g, FUN = mean, data = df)</code></li>
 </ul>
 </section>
@@ -257,8 +259,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Reshape wide to long by <code>"id"</code>: <code>melt(df, id.vars = "id")</code></li>
 </ul>
 </section>
-<section id="optimizing-functions" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="optimizing-functions">Optimizing Functions</h3>
+<section id="optimizing-and-plotting-functions" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="optimizing-and-plotting-functions">Optimizing and Plotting Functions</h3>
 <ul>
 <li>Creating a function that multiplies its input by 2:</li>
 </ul>
@@ -270,22 +272,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <ul>
 <li>Minimize a function <code>f</code> between lower bound <code>lb</code> and upper bound <code>ub</code>: <code>optimize(f, interval = c(lb, ub), maximum = FALSE)</code></li>
-</ul>
-</section>
-<section id="conditional-statements" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="conditional-statements">Conditional Statements</h3>
-<ul>
-<li>Conditional statements for vectors: <code>ifelse(test, value_if_true, value_if_false)</code></li>
-<li>Control flow example:</li>
+<li>Plot a function <code>f()</code> between <code>xmin</code> and <code>xmax</code>:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">1</span>) {</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x = 1"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">2</span>) {</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x = 2"</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x neither 1 nor 2"</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(xmin, xmax, <span class="at">length.out =</span> <span class="dv">2000</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">f</span>(x)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x, y)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="st">``</span>    <span class="st">`</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">### Conditional Statements {-}</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="at">- Conditional statements for vectors: </span><span class="st">`</span><span class="fu">ifelse</span>(test, value_if_true, value_if_false)<span class="st">`</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="at">- Control flow example:</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x = 1"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">2</span>) {</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x = 2"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x neither 1 nor 2"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 
