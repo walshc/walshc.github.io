@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -47,6 +81,11 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#question-1" id="toc-question-1" class="nav-link active" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
+  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
+  <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="tutorial7.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </div>
@@ -72,8 +111,238 @@ ul.task-list li input[type="checkbox"] {
 <p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
 <section id="question-1" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="question-1">Question 1</h2>
+<p>Download the two datasets:</p>
+<ul>
+<li><a href="https://walshc.github.io/pqs-tutorials/cpb-house-prices.csv">cpb-house-prices.csv</a></li>
+<li><a href="https://walshc.github.io/pqs-tutorials/cpb-pop-growth.csv">cpb-pop-growth.csv</a></li>
+</ul>
+<p>Read in both datasets. When reading in the house price dataset you should use the following command:</p>
+<p><code>read.csv("cpb-house-prices.csv", sep = ";", dec = ",")</code></p>
+<p>This is because the dataset uses semicolons to separate the columns instead of commas, and uses commas for decimals.</p>
+<p>Rename the 3 variables to: <code>"municipality", "house_price_2022", "house_price_2021"</code>.</p>
+<p>The 2nd dataset is can be read in with the <code>read.csv()</code> function without any special options. Rename the 2 variables in that dataset to: <code>"municipality", "pop_growth_2018_2023"</code>.</p>
+<p>Merge the two datasets together by the variable <code>"municipality"</code>.</p>
+<p>One municipality from the population growth dataset fails to merge with the house price dataset. Which municipality is this?</p>
 <section id="solution" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="solution">Solution</h4>
+<p>We read in the two datasets and rename the variables according to the instructions:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"cpb-house-prices.csv"</span>, <span class="at">sep =</span> <span class="st">";"</span>, <span class="at">dec =</span> <span class="st">","</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"municipality"</span>, <span class="st">"house_price_2022"</span>, <span class="st">"house_price_2021"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"cpb-pop-growth.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"municipality"</span>, <span class="st">"pop_growth_2018_2023"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To see which observations from <code>df2</code> fail to merge with <code>df1</code>, we can use the <code>all.y = TRUE</code> option in the <code>merge()</code> function, and see which values are <code>NA</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>test1 <span class="ot">&lt;-</span> <span class="fu">merge</span>(df1, df2, <span class="at">by =</span> <span class="st">"municipality"</span>, <span class="at">all.y =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>test1[<span class="fu">is.na</span>(test1<span class="sc">$</span>house_price_2022), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      municipality house_price_2022 house_price_2021 pop_growth_2018_2023
+300 Voorne aan Zee               NA               NA                  3.4</code></pre>
+</div>
+</div>
+<p>Another way would be to see which municipalities in <code>df2</code> are <em>NOT</em> contained somewhere in <code>df1</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df2<span class="sc">$</span>municipality[<span class="sc">!</span>(df2<span class="sc">$</span>municipality <span class="sc">%in%</span> df1<span class="sc">$</span>municipality)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Voorne aan Zee"</code></pre>
+</div>
+</div>
+<p>Voorne aan Zee is a new municipality that merged from Brielle, Hellevoetsluis, and Westvoorne. The house price data is from before the merger, whereas the population growth data is from after. Therefore it failed to merge. This happens frequently when we merge on locations.</p>
+</section>
+</section>
+<section id="question-2" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="question-2">Question 2</h2>
+<p>How many municipalities from the house price dataset fail to merge with the population growth dataset?</p>
+<section id="solution-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="solution-1">Solution</h4>
+<p>To see which observations from <code>df1</code> fail to merge with <code>df2</code>, we can use the <code>all.x = TRUE</code> option in the <code>merge()</code> function, and see which values are <code>NA</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>test2 <span class="ot">&lt;-</span> <span class="fu">merge</span>(df1, df2, <span class="at">by =</span> <span class="st">"municipality"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>test2[<span class="fu">is.na</span>(test2<span class="sc">$</span>pop_growth_2018_2023), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      municipality house_price_2022 house_price_2021 pop_growth_2018_2023
+50         Brielle            406.1            375.3                   NA
+129 Hellevoetsluis            363.1            371.4                   NA
+313          Weesp            537.6            305.8                   NA
+322     Westvoorne            627.8            625.7                   NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(test2[<span class="fu">is.na</span>(test2<span class="sc">$</span>pop_growth_2018_2023), ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<p>We can see that Brielle, Hellevoetsluis, and Westvoorne didn’t merge, for the same reason as above. They merged into Voorne aan Zee so didn’t merge with it. In addition to these municipalities, Weesp merged with Amsterdam. Therefore this one also failed to merge. Because Amsterdam didn’t change its name, it still managed to merge.</p>
+<p>Another way would be to see which municipalities in <code>df1</code> are <em>NOT</em> contained somewhere in <code>df2</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>municipality[<span class="sc">!</span>(df1<span class="sc">$</span>municipality <span class="sc">%in%</span> df2<span class="sc">$</span>municipality)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Westvoorne"     "Weesp"          "Brielle"        "Hellevoetsluis"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(df1<span class="sc">$</span>municipality[<span class="sc">!</span>(df1<span class="sc">$</span>municipality <span class="sc">%in%</span> df2<span class="sc">$</span>municipality)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<p>Although it’s not asked here and it’s outside the scope of what we will learn to do in this course, suppose we really wanted to avoid losing these observations when merging. What we could do is take the population-weighted average of the house prices in Brielle, Hellevoetsluis and Westvoorne in each year and create an observation for Voorne aan Zee in <code>df1</code>. We could then do the same for Weesp: we change the house prices for Amsterdam to be the population-weighted average of Weesp and Amsterdam.</p>
+</section>
+</section>
+<section id="question-3" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="question-3">Question 3</h2>
+<p>Create a scatter plot using ggplot of population growth on the horizontal axis and the house price in 2022 on the vertical axis.</p>
+<p>Add the following layer to your plot to get a fitted line through the points:</p>
+<p><code>geom_smooth(method = "lm")</code></p>
+<p>Choose the answer below which best interprets what we can see in the plot.</p>
+<ul>
+<li>Municipalities with higher population growth on average have higher house prices.</li>
+<li>Municipalities with higher population growth on average have lower house prices.</li>
+</ul>
+<section id="solution-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="solution-2">Solution</h4>
+<p>We first merge the data, and then make the scatter plot with the added fitted line layer using the <code>geom_smooth(method = "lm")</code> command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">merge</span>(df1, df2, <span class="at">by =</span> <span class="st">"municipality"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(pop_growth_2018_2023, house_price_2022)) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="tutorial7_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>If we wanted to customize the plot a little:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(pop_growth_2018_2023, house_price_2022)) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Population growth over 2018-2023"</span>) <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Average house price in 2022 (in €1,000s)"</span>) <span class="sc">+</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="tutorial7_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>You will learn a lot more about what is happening with the <code>geom_smooth(method = "lm")</code> command in Statistics 2. But essentially what is happening is R is trying to fit a straight line through that scatter plot points that fit the pattern as best as possible.</p>
+<p>What we see is that where the population growth was high, also usually have higher house prices. Conversely, places where the population growth was low tend to have lower house prices. Therefore the correct answer option is <em>“Municipalities with higher population growth on average have lower house prices.”</em></p>
+</section>
+</section>
+<section id="question-4" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="question-4">Question 4</h2>
+<p>Reshape the original house price dataset from wide format to long format using the municipality as the ID variable. How many rows does the long format dataset have?</p>
+<section id="solution-3" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="solution-3">Solution</h4>
+<p>To go from wide to long with the <code>reshape2</code> package, we use the <code>melt()</code> function on the data, specifying the ID variable with <code>id.vars</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df1_long <span class="ot">&lt;-</span> <span class="fu">melt</span>(df1, <span class="at">id.vars =</span> <span class="st">"municipality"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df1_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 690</code></pre>
+</div>
+</div>
+<p>This is exactly 2 times the length of the original dataset, as there are 2 house prices for each municipality: one for 2021 and another for 2022.</p>
+</section>
+</section>
+<section id="question-5" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="question-5">Question 5</h2>
+<p>If you correctly reshaped the dataset from the previous question the first 4 rows should look like:</p>
+<pre><code>  municipality         variable  value
+1  Bloemendaal house_price_2022 1118.9
+2     Blaricum house_price_2022 1099.1
+3  Laren (NH.) house_price_2022 1030.1
+4    Wassenaar house_price_2022  970.8</code></pre>
+<p>Suppose the long format dataset is called <code>df1_long</code>. Which of the following commands will return the dataset back to its original format (apart from the order of the observations)?</p>
+<ul>
+<li><code>dcast(df1_long, municipality ~ variable)</code></li>
+<li><code>dcast(df1_long, variable ~ municipality)</code></li>
+<li><code>dcast(df1_long, value ~ municipality)</code></li>
+<li><code>dcast(df1_long, municipality ~ value)</code></li>
+</ul>
+<section id="solution-4" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="solution-4">Solution</h4>
+<p>One way to answer this question would be to just try out each one and see which one gets the right output. But the correct approach is to put the ID variable before the <code>~</code> (the tilde) and the <code>variable</code> column after it. The <code>dcast()</code> function will then take the numbers from the <code>value</code> column by default.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df1_returned <span class="ot">&lt;-</span> <span class="fu">dcast</span>(df1_long, municipality <span class="sc">~</span> variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The two datasets will still be sorted differently, but we can check that both have the same summary statistics to check they are the same, as the order doesn’t affect the summary statistics:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> municipality       house_price_2022 house_price_2021
+ Length:345         Min.   : 230.8   Min.   : 200.5  
+ Class :character   1st Qu.: 361.4   1st Qu.: 325.1  
+ Mode  :character   Median : 411.2   Median : 371.3  
+                    Mean   : 431.7   Mean   : 388.0  
+                    3rd Qu.: 476.2   3rd Qu.: 424.6  
+                    Max.   :1118.9   Max.   :1067.3  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df1_returned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> municipality       house_price_2022 house_price_2021
+ Length:345         Min.   : 230.8   Min.   : 200.5  
+ Class :character   1st Qu.: 361.4   1st Qu.: 325.1  
+ Mode  :character   Median : 411.2   Median : 371.3  
+                    Mean   : 431.7   Mean   : 388.0  
+                    3rd Qu.: 476.2   3rd Qu.: 424.6  
+                    Max.   :1118.9   Max.   :1067.3  </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="question-6" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="question-6">Question 6</h2>
+<p>Download the dataset <a href="https://walshc.github.io/pqs-tutorials/municipality-province.csv">municipality-province.csv</a>.</p>
+<p>This dataset contains two variables: the municipality and the province in which each municipality is located.</p>
+<p>Read in the dataset and rename the variables to <code>"municipality", "province"</code>.</p>
+<p>Merge the <code>municipality-province.csv</code> dataset with your previously-merged house price and population growth dataset.</p>
+<p>Calculate the average of the variable <code>house_price_2022</code> by province.</p>
+<p>Which province has the highest average?</p>
+<section id="solution-5" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="solution-5">Solution</h4>
+<p>We begin by reading in the new dataset and renaming the variables according to the instructions:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"municipality-province.csv"</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"municipality"</span>, <span class="st">"province"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We then merge it with the previous merged data. I will overwrite the previous <code>df</code> with the merged one:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">merge</span>(df, df3, <span class="at">by =</span> <span class="st">"municipality"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To get the average house price in 2022 by province, we can use the aggregate function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(house_price_2022 <span class="sc">~</span> province, <span class="at">data =</span> df, <span class="at">FUN =</span> mean)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>tmp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        province house_price_2022
+1        Drenthe         381.3083
+2      Flevoland         388.5500
+3        Fryslân         370.8889
+4     Gelderland         435.2157
+5      Groningen         296.5800
+6        Limburg         342.4194
+7  Noord-Brabant         442.7839
+8  Noord-Holland         541.2523
+9     Overijssel         376.3640
+10       Utrecht         518.4808
+11       Zeeland         338.1000
+12  Zuid-Holland         443.6020</code></pre>
+</div>
+</div>
+<p>From this we can see that Noord-Holland (North Holland) has the highest. But we can also find this by sorting the data decreasing by house price and returning the first province:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>tmp[<span class="fu">order</span>(tmp<span class="sc">$</span>house_price_2022, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ]<span class="sc">$</span>province[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Noord-Holland"</code></pre>
+</div>
+</div>
 </section>
 </section>
 
