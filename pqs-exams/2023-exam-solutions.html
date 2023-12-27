@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Programming and Quantitative Skills Sample Exam</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="2023-exam-solutions_files/libs/clipboard/clipboard.min.js"></script>
+<script src="2023-exam-solutions_files/libs/quarto-html/quarto.js"></script>
+<script src="2023-exam-solutions_files/libs/quarto-html/popper.min.js"></script>
+<script src="2023-exam-solutions_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="2023-exam-solutions_files/libs/quarto-html/anchor.min.js"></script>
+<link href="2023-exam-solutions_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="2023-exam-solutions_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="2023-exam-solutions_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="2023-exam-solutions_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="2023-exam-solutions_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Programming and Quantitative Skills Sample Exam</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="short-answer-questions-5-points" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="short-answer-questions-5-points">Short-Answer Questions (5 points)</h2>
+<section id="question-1-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-1-1-point">Question 1 (1 point)</h3>
+<p>Calculate <span class="math inline">\(\sqrt[3]{729}\)</span> using R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">729</span><span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9</code></pre>
+</div>
+</div>
+</section>
+<section id="question-2-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-2-1-point">Question 2 (1 point)</h3>
+<p>Calculate <span class="math inline">\(\log_3\left(243\right)\)</span> using R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">243</span>, <span class="at">base =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+</section>
+<section id="question-3-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-3-1-point">Question 3 (1 point)</h3>
+<p>If we create the following vector in R, what class will it be?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Numeric.</li>
+<li>Logical.</li>
+<li>Character</li>
+<li>A combination of some of numeric, logical and character.</li>
+<li>Neither numeric nor logical nor character.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 1 0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># All elements of a vector in R must have the same class. Here all elements</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># are coerced to be numeric.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="question-4-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-4-1-point">Question 4 (1 point)</h3>
+<p>Write an R command to generate a numeric vector containing the following sequence:</p>
+<p><span class="math display">\[
+(0.00, 0.01, 0.02, 0.03, \dots, 0.97, 0.98, 0.99, 1.00, 0.00, 0.01, 0.02, 0.03, \dots, 0.97, 0.98, 0.99, 1.00)
+\]</span> The resulting sequence should have 202 elements.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>), <span class="at">times =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] 0.00 0.01 0.02 0.03 0.04 0.05 0.06 0.07 0.08 0.09 0.10 0.11 0.12 0.13 0.14
+ [16] 0.15 0.16 0.17 0.18 0.19 0.20 0.21 0.22 0.23 0.24 0.25 0.26 0.27 0.28 0.29
+ [31] 0.30 0.31 0.32 0.33 0.34 0.35 0.36 0.37 0.38 0.39 0.40 0.41 0.42 0.43 0.44
+ [46] 0.45 0.46 0.47 0.48 0.49 0.50 0.51 0.52 0.53 0.54 0.55 0.56 0.57 0.58 0.59
+ [61] 0.60 0.61 0.62 0.63 0.64 0.65 0.66 0.67 0.68 0.69 0.70 0.71 0.72 0.73 0.74
+ [76] 0.75 0.76 0.77 0.78 0.79 0.80 0.81 0.82 0.83 0.84 0.85 0.86 0.87 0.88 0.89
+ [91] 0.90 0.91 0.92 0.93 0.94 0.95 0.96 0.97 0.98 0.99 1.00 0.00 0.01 0.02 0.03
+[106] 0.04 0.05 0.06 0.07 0.08 0.09 0.10 0.11 0.12 0.13 0.14 0.15 0.16 0.17 0.18
+[121] 0.19 0.20 0.21 0.22 0.23 0.24 0.25 0.26 0.27 0.28 0.29 0.30 0.31 0.32 0.33
+[136] 0.34 0.35 0.36 0.37 0.38 0.39 0.40 0.41 0.42 0.43 0.44 0.45 0.46 0.47 0.48
+[151] 0.49 0.50 0.51 0.52 0.53 0.54 0.55 0.56 0.57 0.58 0.59 0.60 0.61 0.62 0.63
+[166] 0.64 0.65 0.66 0.67 0.68 0.69 0.70 0.71 0.72 0.73 0.74 0.75 0.76 0.77 0.78
+[181] 0.79 0.80 0.81 0.82 0.83 0.84 0.85 0.86 0.87 0.88 0.89 0.90 0.91 0.92 0.93
+[196] 0.94 0.95 0.96 0.97 0.98 0.99 1.00</code></pre>
+</div>
+</div>
+</section>
+<section id="question-5-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-5-1-point">Question 5 (1 point)</h3>
+<p>The logical vectors <code>a</code> and <code>b</code> have equal length. Which of the following options is always the same as <code>!a | !b</code>, regardless of the contents of <code>a</code> and <code>b</code>?</p>
+<ul>
+<li><code>a &amp; b</code></li>
+<li><code>!(a | b)</code></li>
+<li><code>!(a &amp; b)</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make two vectors covering every possibility:</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># The target output is:</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>a <span class="sc">|</span> <span class="sc">!</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE  TRUE  TRUE  TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Try the different options:</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&amp;</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  TRUE FALSE FALSE FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>(a <span class="sc">|</span> b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE FALSE  TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>(a <span class="sc">&amp;</span> b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE  TRUE  TRUE  TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The last one, !(a &amp; b), matches</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="data-analysis-5-points" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="data-analysis-5-points">Data Analysis (5 points)</h2>
+<p>Download the dataset <a href="https://walshc.github.io/pqs/rental.csv">rental.csv</a>. The dataset contains information on the population, student enrollment, average rent and average income for 64 American cities in 1980 and 1990. The variable descriptions are:</p>
+<ul>
+<li><code>city</code>: A number identifying the city.</li>
+<li><code>year</code>: The year.</li>
+<li><code>pop</code>: Population of the city.</li>
+<li><code>enroll</code>: Student enrollment in the city (total number of students).</li>
+<li><code>rent</code>: Average rent in the city (in dollars).</li>
+<li><code>avginc</code>: Average annaul income in the city (in dollars).</li>
+</ul>
+<section id="question-6-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-6-1-point">Question 6 (1 point)</h3>
+<p>How many observations are in the dataset?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"rental.csv"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 128</code></pre>
+</div>
+</div>
+</section>
+<section id="question-7-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-7-1-point">Question 7 (1 point)</h3>
+<p>Create a variable called <code>studentratio</code> which is the proportion of the city’s population made up by students in that year. What is the median of this variable?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>studentratio <span class="ot">&lt;-</span> df<span class="sc">$</span>enroll <span class="sc">/</span> df<span class="sc">$</span>pop</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(df<span class="sc">$</span>studentratio)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2362887</code></pre>
+</div>
+</div>
+</section>
+<section id="question-8-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-8-1-point">Question 8 (1 point)</h3>
+<p>What was the average rent across cities in 1980?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df[df<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">1980</span>, ]<span class="sc">$</span>rent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 239.6562</code></pre>
+</div>
+</div>
+</section>
+<section id="question-9-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-9-1-point">Question 9 (1 point)</h3>
+<p>How many cities had an average rent exceeding $400 in 1990?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(df[df<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">1990</span>, ]<span class="sc">$</span>rent <span class="sc">&gt;</span> <span class="dv">400</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 32</code></pre>
+</div>
+</div>
+</section>
+<section id="question-10-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-10-1-point">Question 10 (1 point)</h3>
+<p>Create a scatter plot with:</p>
+<ul>
+<li><code>avginc</code> on the horizontal axis</li>
+<li><code>rent</code> on the vertical axis.</li>
+</ul>
+<p>Choose the answer below which best describes what we can see in the plot.</p>
+<ul>
+<li>Cities with higher average income usually have higher average rent.</li>
+<li>Cities with higher average income usually have lower average rent.</li>
+<li>There is no relationship between average income and average rent.</li>
+<li>Cities with very low and very high average income have low average rent, but the cities with in-between average income have the highest average rent.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(avginc, rent)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-exam-solutions_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cities with higher average income usually have higher average rent.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="data-cleaning-4-points" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="data-cleaning-4-points">Data Cleaning (4 points)</h2>
+<p>Download the dataset <a href="https://walshc.github.io/pqs/copper.csv">copper.csv</a>. The dataset contains the closing price for the copper futures on the stock market (variable “Price”) each day throughout 2022, together with the opening, highest and lowest price in that day. Furthermore, it includes the volume traded and the percentage daily change in the closing price.</p>
+<p>In this question you will need clean this dataset to answer the questions that follow.</p>
+<p>You should do the following cleaning tasks:</p>
+<ol type="1">
+<li>Format the <code>Date</code> variable to a date.</li>
+<li>Sort the data by <code>Date</code> ascending (the earliest date in the data should be first, the most recent date last).</li>
+<li>Drop rows with any missing data.</li>
+<li>Convert <code>Price</code>, <code>Open</code>, <code>High</code> and <code>Low</code> to numeric.</li>
+<li>Convert <code>Change</code> to numeric. <em>Tip:</em> Use <code>gsub("\\%", "", x)</code> to remove a percentage symbol from <code>x</code>.</li>
+<li>Change the name of the variable <code>DayOfWeek</code> to <code>day_of_week</code>.</li>
+<li>Convert all remaining variable names to lower case.</li>
+</ol>
+<p>If you did all the steps correctly, you should have 260 observations. The average of the <code>high</code> variable should be 4.047335. The average of the <code>change</code> variable should be -0.046. If only some of these match your cleaned dataset, you will still be able to answer some of the questions correctly.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First perform all the cleaning tasks:</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"copper.csv"</span>)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Format the date:</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df<span class="sc">$</span>Date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "31-12-2022" "30-12-2022" "29-12-2022" "28-12-2022" "27-12-2022"
+[6] "26-12-2022"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Format is DD-MM-YYYYY (year with century):</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(df<span class="sc">$</span>Date, <span class="at">format =</span> <span class="st">"%d-%m-%Y"</span>)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Order by date:</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[<span class="fu">order</span>(df<span class="sc">$</span>Date), ]</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop observations with missing data:</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(df)</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert prices data to numeric:</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Price <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(df<span class="sc">$</span>Price)</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Open <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(df<span class="sc">$</span>Open)</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>High <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(df<span class="sc">$</span>High)</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Low <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(df<span class="sc">$</span>Low)</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert Change numeric:</span></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Change <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">%"</span>, <span class="st">""</span>, df<span class="sc">$</span>Change))</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Change the name of the DayOfWeek variable (1st variable in the dataset):</span></span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"day_of_week"</span></span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert variable names to lower case:</span></span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">names</span>(df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="question-11-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-11-1-point">Question 11 (1 point)</h3>
+<p>What is the median of the variable <code>change</code> in the cleaned data?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(df<span class="sc">$</span>change)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.065</code></pre>
+</div>
+</div>
+</section>
+<section id="question-12-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-12-1-point">Question 12 (1 point)</h3>
+<p>On what day of the week was the maximum value of the variable <code>high</code>?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>df[df<span class="sc">$</span>high <span class="sc">==</span> <span class="fu">max</span>(df<span class="sc">$</span>high), ]<span class="sc">$</span>day_of_week</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Mon"</code></pre>
+</div>
+</div>
+</section>
+<section id="question-13-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-13-1-point">Question 13 (1 point)</h3>
+<p>For Mondays in the cleaned data, what is the mean of the variable <code>open</code>? That is, calculate the mean of the variable <code>open</code> on Mondays only.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df[df<span class="sc">$</span>day_of_week <span class="sc">==</span> <span class="st">"Mon"</span>, ]<span class="sc">$</span>open)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.009908</code></pre>
+</div>
+</div>
+</section>
+<section id="question-14-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-14-1-point">Question 14 (1 point)</h3>
+<p>Create a variable called <code>increase</code> from the variable <code>change</code> according to:</p>
+<p><span class="math display">\[
+increase=
+\begin{cases}
+1 &amp; \text{ if } change &gt; 0 \\
+0 &amp; \text{ otherwise}  \\
+\end{cases}
+\]</span></p>
+<p>What is the sum of the variable <code>increase</code> in the cleaned data?</p>
+<p><em>Hint:</em> Use the <code>ifelse()</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>increase <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>change <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(df<span class="sc">$</span>increase)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 122</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="optimization-3-points" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="optimization-3-points">Optimization (3 points)</h2>
+<p>The following 3 questions will involve working with the following mathematical function defined over all real numbers <span class="math inline">\(x\)</span>: <span class="math display">\[f(x) = x^2 - 20x + 150\]</span></p>
+<section id="question-15-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-15-1-point">Question 15 (1 point)</h3>
+<p>Plot the function between the <span class="math inline">\(x\)</span> values <span class="math inline">\(-25\)</span> and <span class="math inline">\(+40\)</span>. Choose the answer below which best describes the shape of this function:</p>
+<ul>
+<li>Straight line</li>
+<li>Flat</li>
+<li>U shape</li>
+<li>Inverted U shape (upside-down U)</li>
+</ul>
+<p>Note: you do not need to store your answer to this question in your R script.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">20</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="dv">150</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(y)</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">25</span>, <span class="dv">40</span>, <span class="at">length.out =</span> <span class="dv">2000</span>)</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">f</span>(x)</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x, y)</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-exam-solutions_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can see that it has a U shape.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="question-16-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-16-1-point">Question 16 (1 point)</h3>
+<p>Use R to find the value of <span class="math inline">\(x\)</span> at an extreme point of this function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>f_max <span class="ot">&lt;-</span> <span class="fu">optimize</span>(f, <span class="fu">c</span>(<span class="sc">-</span><span class="dv">100</span>, <span class="dv">100</span>), <span class="at">maximum =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>f_max<span class="sc">$</span>minimum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10</code></pre>
+</div>
+</div>
+</section>
+<section id="question-17-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-17-1-point">Question 17 (1 point)</h3>
+<p>What value does the function take at the extreme point?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>f_max<span class="sc">$</span>objective</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 50</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or alternatively:</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(f_max<span class="sc">$</span>minimum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 50</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="aggregating-reshaping-and-merging-3-points" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="aggregating-reshaping-and-merging-3-points">Aggregating, Reshaping and Merging (3 points)</h2>
+<p>Download the two datasets:</p>
+<ol type="1">
+<li><a href="https://walshc.github.io/pqs/college-enrollment.csv">college-enrollment.csv</a> - this dataset contains 3 variables: <code>country</code>, <code>year</code> and <code>college</code>. The variable <code>college</code> is the total number of people enrolled in third-level education in the country divided by the total population of people of college-going age (then multiplied by 100). Enrollment can exceed 100% if there are many older adults attending college.</li>
+<li><a href="https://walshc.github.io/pqs/r-and-d.csv">r-and-d.csv</a> - this dataset contains 3 variables: <code>country</code>, <code>year</code> and <code>rd</code>. The variable <code>rd</code> is the country’s spending on research and development (R&amp;D) as a percentage of gross domestic product (GDP) in that year (ranging from 0 to 100).</li>
+</ol>
+<section id="question-18-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-18-1-point">Question 18 (1 point)</h3>
+<p>Using the dataset <code>college-enrollment.csv</code>, get the number of observations by country. How many countries have exactly 24 observations in the dataset? That is, how many countries have data for every year over the period 1996-2019?</p>
+<p><em>Hint:</em> One way to do this is to use the <code>aggregate</code> function to count the number of observations per country (with the function <code>length</code> in the <code>FUN</code> argument). Then find how many rows of this output has a value equal to 24.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"college-enrollment.csv"</span>)</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(college <span class="sc">~</span> country, <span class="at">data =</span> df, <span class="at">FUN =</span> length)</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(tmp<span class="sc">$</span>college <span class="sc">==</span> <span class="dv">24</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 33</code></pre>
+</div>
+</div>
+</section>
+<section id="question-19-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-19-1-point">Question 19 (1 point)</h3>
+<p>Using the dataset <code>r-and-d.csv</code>, perform the following steps:</p>
+<ol type="1">
+<li>Create a subset of the data which only includes data for the years 2000 and 2010.</li>
+<li>Reshape this subset of the data to <em>wide format</em>. You should have a dataset with 3 columns: (1) the country, (2) R&amp;D expenditure as a % of GDP in 2000, (3) R&amp;D expenditure as a % of GDP in 2010.</li>
+<li>Drop any rows with missing data.</li>
+</ol>
+<p>If you performed this correctly, your dataset should have 60 rows where the first 3 rows are:</p>
+<pre><code>     country    2000    2010
+1  Argentina 0.43884 0.56104
+2    Armenia 0.19106 0.24139
+3  Australia 1.57320 2.37075</code></pre>
+<p>Calculate the change in the R&amp;D expenditure as a percentage of GDP from 2000 to 2010. That is, calculate the R&amp;D expenditure as a % of GDP in 2010 minus the R&amp;D expenditure as a % of GDP in 2000.</p>
+<p>What is the average change across countries?</p>
+<p><em>Tip:</em> if your reshaped data is called <code>wide</code>, you can get the change from 2000 to 2010 with <code>wide[, 3] - wide[, 2]</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"r-and-d.csv"</span>)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[df<span class="sc">$</span>year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">2010</span>), ]</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">dcast</span>(df, country <span class="sc">~</span> year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using rd as value column: use value.var to override.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(df)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df[, <span class="dv">3</span>] <span class="sc">-</span> df[, <span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1845765</code></pre>
+</div>
+</div>
+</section>
+<section id="question-20-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-20-1-point">Question 20 (1 point)</h3>
+<p>Create a scatter plot with:</p>
+<ul>
+<li>College enrollment across countries in 1996 on the horizontal axis.</li>
+<li>R&amp;D expenditure as a percentage of GDP across countries in 1996 on the vertical axis.</li>
+</ul>
+<p>Choose the answer below which best describes what we see in the plot:</p>
+<ul>
+<li>Countries with higher college enrollment usually spend more on R&amp;D as a percentage of GDP.</li>
+<li>Countries with higher college enrollment usually spend less on R&amp;D as a percentage of GDP.</li>
+<li>There is no apparent association between college enrollment and R&amp;D expenditure from the scatter plot.</li>
+<li>Countries with very high and very low college enrollment spend the most on R&amp;D (as a % of GDP), but countries with college enrollment close to the average spend the least on R&amp;D (as a % of GDP).</li>
+</ul>
+<p><em>Tip:</em> Merge the two datasets <code>college-enrollment.csv</code> and <code>r-and-d.csv</code> by the variables <code>"country"</code> and <code>"year"</code>. Create a subset of this merged dataset containing only data from the year 1996. Then create the scatter plot using the 1996 data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"college-enrollment.csv"</span>)</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"r-and-d.csv"</span>)</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">merge</span>(df1, df2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"year"</span>))</span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df[df<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">1996</span>, ], <span class="fu">aes</span>(college, rd)) <span class="sc">+</span></span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="2023-exam-solutions_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Countries with higher college enrollment usually spend more on R&amp;D as a percentage of GDP.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
