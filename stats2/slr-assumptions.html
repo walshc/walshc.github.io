@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistics 2 for IBA - 8&nbsp; SLR Model Assumptions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<link href="./slr-confint.html" rel="next">
+<link href="./slr-estimation.html" rel="prev">
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./slr-assumptions.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">SLR Model Assumptions</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistics 2 for IBA</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Statistics-2-for-IBA.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./scatter-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Visualizing the Relationship between Two Variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./covariance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Covariance</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./correlation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spurious-relationships.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spurious Relationships</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slr-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The Simple Linear Regression Model (SLR)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slr-estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">SLR Estimation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slr-assumptions.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">SLR Model Assumptions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slr-confint.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">SLR Confidence Intervals</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slr-hypothesis-testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">SLR Hypothesis Testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slr-statistical-significance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SLR Statistical Significance</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slr-r-squared.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">SLR Quantifying Model Usefulness</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slr-prediction-intervals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">SLR Prediction Intervals</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mlr-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">The Multiple Linear Regression Model (MLR)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mlr-assumptions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">MLR Model Assumptions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mlr-inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">MLR Inference on a Single Variable</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mlr-r-squared.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">MLR Quantifying Model Usefulness</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mlr-prediction-intervals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">MLR Prediction Intervals</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./f-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><span class="math inline">F</span>-test</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./partial-f-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Partial <span class="math inline">F</span>-Test</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./collinearity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Collinearity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./higher-order-terms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Higher-Order Terms</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./interaction-terms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Interaction Terms</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dummy-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Dummy Variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./qualitative-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Qualitative Variables with Multiple Levels</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./heteroskedasticity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Testing and Correcting for Heteroskedasticity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./serial-correlation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Testing and Correcting for Serial Correlation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./zero-conditional-mean.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Zero Conditional Mean Assumption</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#assumption-1-linear-in-parameters" id="toc-assumption-1-linear-in-parameters" class="nav-link active" data-scroll-target="#assumption-1-linear-in-parameters"><span class="header-section-number">8.1</span> Assumption 1: Linear in Parameters</a></li>
+  <li><a href="#assumption-2-random-sampling" id="toc-assumption-2-random-sampling" class="nav-link" data-scroll-target="#assumption-2-random-sampling"><span class="header-section-number">8.2</span> Assumption 2: Random Sampling</a></li>
+  <li><a href="#assumption-3-sample-variation-in-the-explanatory-variable" id="toc-assumption-3-sample-variation-in-the-explanatory-variable" class="nav-link" data-scroll-target="#assumption-3-sample-variation-in-the-explanatory-variable"><span class="header-section-number">8.3</span> Assumption 3: Sample Variation in the Explanatory Variable</a></li>
+  <li><a href="#assumption-4-zero-conditional-mean" id="toc-assumption-4-zero-conditional-mean" class="nav-link" data-scroll-target="#assumption-4-zero-conditional-mean"><span class="header-section-number">8.4</span> Assumption 4: Zero Conditional Mean</a></li>
+  <li><a href="#assumption-5-homoskedasticity" id="toc-assumption-5-homoskedasticity" class="nav-link" data-scroll-target="#assumption-5-homoskedasticity"><span class="header-section-number">8.5</span> Assumption 5: Homoskedasticity</a></li>
+  <li><a href="#assumption-6-normality" id="toc-assumption-6-normality" class="nav-link" data-scroll-target="#assumption-6-normality"><span class="header-section-number">8.6</span> Assumption 6: Normality</a></li>
+  <li><a href="#model-assumptions-summary" id="toc-model-assumptions-summary" class="nav-link" data-scroll-target="#model-assumptions-summary"><span class="header-section-number">8.7</span> Model Assumptions Summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-slr-assumptions" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">SLR Model Assumptions</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
+<p>We are now interested in performing <em>inference</em> for our model. By inference we mean <em>inferring</em> the properties of the population regression model generating our sample data. With model inference we can answer questions like:</p>
+<ul>
+<li>How precise are our estimates <span class="math inline">b_0</span> and <span class="math inline">b_1</span>?</li>
+<li>What are the confidence intervals around <span class="math inline">b_0</span> and <span class="math inline">b_1</span>?</li>
+<li>How can we perform hypothesis tests on <span class="math inline">b_0</span> and <span class="math inline">b_1</span>?</li>
+</ul>
+<p>In order to perform model inference, we need to make some assumptions about our model. There are 6 assumptions in total, which we will discuss in the following sections.</p>
+<section id="assumption-1-linear-in-parameters" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="assumption-1-linear-in-parameters"><span class="header-section-number">8.1</span> Assumption 1: Linear in Parameters</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Assumption 1: Linear in Parameters">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Assumption 1: Linear in Parameters
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the population model, the dependent variable <span class="math inline">Y_i</span> is related to the independent variable <span class="math inline">X_i</span> and the error <span class="math inline">\varepsilon_i</span> according to: <span class="math display">Y_i=\beta_0 + \beta_1 X_i + \varepsilon_i</span></p>
+</div>
+</div>
+<p>This assumption means that the process that generates the data in our sample follows this model. That is, <span class="math inline">Y_i</span> has a linear relationship with <span class="math inline">X_i</span> and the values <span class="math inline">Y_i</span> are generated according to the line <span class="math inline">\beta_0 + \beta_1 X_i</span> plus an error term <span class="math inline">\varepsilon_i</span>.</p>
+<p>An example of something that would violate this is if the true population model was something non-linear like: <span class="math display">
+        Y_i=\exp\left(\beta_0\right) X_i^{\beta_1}\exp\left(\varepsilon_i\right)
+</span> with <span class="math inline">X_i&gt;0</span> for all <span class="math inline">i</span>. If this were the true model, it would not be the end of the world. We could take the natural log of both sides to get: <span class="math display">
+\ln\left( Y_i \right)=\beta_0 + \beta_1 \ln\left( X_i \right)+\varepsilon_i
+</span> This transformed model satisfies assumption 1. So if we transform our data into logs, we can still use the simple linear regression model.</p>
+</section>
+<section id="assumption-2-random-sampling" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="assumption-2-random-sampling"><span class="header-section-number">8.2</span> Assumption 2: Random Sampling</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Assumption 2: Random Sampling">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Assumption 2: Random Sampling
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We have a random sample of size <span class="math inline">n</span>, <span class="math inline">\left(\left( x_1,y_1 \right),\dots,\left( x_n,y_n \right)\right)</span> following the population model in Assumption 1.</p>
+</div>
+</div>
+<p>This assumption means that the sample of data we observe were generated according to the model <span class="math inline">Y_i=\beta_0+\beta_1 X_i +\varepsilon_i</span>. The values of <span class="math inline">y_i</span> that we observe are related to the unknown population parameters, observed <span class="math inline">x_i</span> and the unobserved error <span class="math inline">\varepsilon_i</span> according to <span class="math inline">\beta_0+\beta_1x_i +\varepsilon_i</span>, where <span class="math inline">\varepsilon_i</span> is independent across observation <span class="math inline">i</span>.</p>
+<p>A crucial part of this assumption is the independence of the error terms across observations. For that reason this assumption is also called the independence assumption.</p>
+<p>With <em>cross-section data</em>, there could be dependence in <span class="math inline">\varepsilon_i</span> between people in the same household/town/industry. With <em>time-series data</em>, there could be dependence in <span class="math inline">\varepsilon_i</span> in subsequent time periods.</p>
+<p>Violations of this assumption are much more common with time series data. An example of this assumption beind violated can be seen in the figure below, which plots the errors against time:</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.618">
+<details>
+<summary>Show code generating the plot below</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">5727</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>nT <span class="ot">&lt;-</span> <span class="dv">200</span>  <span class="co"># number of time periods</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">t =</span> <span class="dv">1</span><span class="sc">:</span>nT,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="dv">0</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">runif</span>(nT, <span class="dv">10</span>, <span class="dv">12</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">e =</span> <span class="dv">0</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>e[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>y[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop over time periods with a first-order autocorrelation in the error:</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>nT) {</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>e[i] <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="fl">0.5</span>) <span class="sc">+</span> <span class="fl">0.95</span> <span class="sc">*</span> df<span class="sc">$</span>e[i <span class="sc">-</span> <span class="dv">1</span>]</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>y[i] <span class="ot">&lt;-</span> <span class="fl">0.0001</span> <span class="sc">*</span> df<span class="sc">$</span>x[i] <span class="sc">+</span> df<span class="sc">$</span>e[i]</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(t, y)) <span class="sc">+</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"error"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slr-assumptions_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We observe a clear pattern in the errors: if the error is positive in one time period, it’s very likely to be positive in the following time period. Similarly, if the error is negative. If the errors were independent, the value of the error in any given time period should not depend on what the value of the error was in the previous period.</p>
+<p>Let’s compare what the errors would look like over time if they were independent:</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.618">
+<details>
+<summary>Show code generating the plot below</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">345346</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>nT <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">t =</span> <span class="dv">1</span><span class="sc">:</span>nT,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">e =</span> <span class="fu">rnorm</span>(nT)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(t, e)) <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"error"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slr-assumptions_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Here we just see a random cloud of points. The error in any time period does not appear in any way related to the value of the error in the previous time period.</p>
+<p>Later in this course we will learn how to formally test for correlation in the residuals over time. But now, let’s learn how to make a plot of the residuals in R in order to visually inspect this model assumption. I would like to stress that this approach only works with time-series data. With cross-sectional data we cannot plot the residuals over time, because all subjects in cross-sectional data are surveyed at the same point in time.</p>
+<p>As an example we return to the Netherlands GDP and exports data from <a href="slr-estimation.html"><span>Chapter&nbsp;7</span></a>.</p>
+<p>The first thing we need to do is read in the data and estimate the regression model. This is the same as in <a href="slr-estimation.html"><span>Chapter&nbsp;7</span></a>. When we estimate the regression model, we will assign it to an object in our environment so we can access the residuals from the model. Let’s assign the model to <code>m</code> (“M” for model):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"nl-exports-gdp.csv"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">lm</span>(gdp <span class="sc">~</span> exports, <span class="at">data =</span> df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Looking at our environment we can see that <code>m</code> is a list. If we click on it in RStudio we can see all the different things stored in this list, such as the coefficients, the residuals and the fitted values. There are 12 objects in total, but we will only use some of these in this course.</p>
+<p>We can also list all the things stored in <code>m</code> by using the <code>ls()</code> command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "assign"        "call"          "coefficients"  "df.residual"  
+ [5] "effects"       "fitted.values" "model"         "qr"           
+ [9] "rank"          "residuals"     "terms"         "xlevels"      </code></pre>
+</div>
+</div>
+<p>Recall that to access objects in a <code>list</code> we also use the dollar symbol (the <em>extraction operator</em>), just like with a <code>data.frame</code>. So to access the residuals, we can use <code>m$residuals</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>residuals</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         1          2          3          4          5          6          7 
+-76.979824 -66.766015 -60.884810 -56.927320 -48.719213 -40.048630 -37.653082 
+         8          9         10         11         12         13         14 
+-30.219716 -20.420951 -14.494551 -14.067661 -11.543704 -17.244818 -20.792229 
+        15         16         17         18         19         20         21 
+-15.474479 -11.867085  -6.794114   1.873095   5.313227   8.821736  16.430221 
+        22         23         24         25         26         27         28 
+ 27.048551  28.452513  31.860574  31.402768  31.051349  29.617104  39.398917 
+        29         30         31         32         33         34         35 
+ 42.211326  52.859591  60.121738  52.430464  62.941840  62.376269  57.683258 
+        36         37         38         39         40         41         42 
+ 44.828888  38.944480  36.803112  42.901967  52.338672  60.545934  33.388814 
+        43         44         45         46         47         48         49 
+ 23.338514   1.345738 -10.829735 -21.366546 -42.487514 -34.390817 -46.009436 
+        50         51         52         53         54         55 
+-51.404011 -46.927667 -53.610900 -49.250801 -40.059088 -29.095947 </code></pre>
+</div>
+</div>
+<p>This gives us the value of the residuals for all 55 observations in our data. Let’s assign these residuals to our dataframe <code>df</code> so we can plot them:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>residuals <span class="ot">&lt;-</span> m<span class="sc">$</span>residuals</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  year      gdp  exports residuals
+1 1969 262.4266 62.97751 -76.97982
+2 1970 278.5400 70.15091 -66.76601
+3 1971 290.5646 77.62057 -60.88481
+4 1972 300.8328 85.29375 -56.92732
+5 1973 317.2108 95.22753 -48.71921
+6 1974 328.1187 97.94799 -40.04863</code></pre>
+</div>
+</div>
+<p>We then plot the residuals over time. We use the <code>year</code> variable as the time variable:</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.618">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(year, residuals)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slr-assumptions_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can see that the residuals in a period clearly depend on the value in the previous period. Therefore the residuals are not independent and violate assumption 2! Later in this course we will learn how to formally test for this violation, and how to correct for it.</p>
+</section>
+<section id="assumption-3-sample-variation-in-the-explanatory-variable" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="assumption-3-sample-variation-in-the-explanatory-variable"><span class="header-section-number">8.3</span> Assumption 3: Sample Variation in the Explanatory Variable</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Assumption 3: Sample Variation in the Explanatory Variable">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Assumption 3: Sample Variation in the Explanatory Variable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The sample outcomes <span class="math inline">\left( x_1,\dots,x_n \right)</span> are not all the same value.</p>
+</div>
+</div>
+<p>A simple explanation for this assumption is that we need it to avoid dividing by zero when calculating the sample regression coefficients. Recall the formula for the slope coefficient: <span class="math display">
+b_1=\frac{s_{X,Y}}{s_X^2}
+</span> If all the values <span class="math inline">\left( x_1,\dots,x_n \right)</span> in the sample were the same value, then the sample variance of <span class="math inline">X</span> would be zero, i.e.&nbsp;<span class="math inline">s_X^2=0</span>. If <span class="math inline">s_X^2=0</span>, we would be dividing by zero in the formula for the sample regression slope.</p>
+<p>In the example plot below, all the values of <span class="math inline">x</span> are equal to 10. The sample variance is zero and we cannot estimate the regression slope.</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.618">
+<details>
+<summary>Show code generating the plot below</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3453463</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">rep</span>(<span class="dv">10</span>, <span class="dv">20</span>))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">20</span>, <span class="dv">0</span>, <span class="dv">100</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">11</span>)) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slr-assumptions_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can easily check whether this assumption holds with our data in R by calculating the standard deviation of our <span class="math inline">x</span> variable. If the standard deviation is zero, all values are the same and the assumption is violated. If the standard deviation is positive, there are at least some different values and the assumption holds.</p>
+<p>Let’s check it in the advertising and sales data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"advertising-sales.csv"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(df<span class="sc">$</span>advertising)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 92.98518</code></pre>
+</div>
+</div>
+<p>This is positive, so it holds.</p>
+<p>Although we only need just one value to be different to be able to estimate the regression model, more variation in the <span class="math inline">x</span> variable will be better for our model.</p>
+</section>
+<section id="assumption-4-zero-conditional-mean" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="assumption-4-zero-conditional-mean"><span class="header-section-number">8.4</span> Assumption 4: Zero Conditional Mean</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Assumption 4: Zero Conditional Mean">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Assumption 4: Zero Conditional Mean
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The error <span class="math inline">\varepsilon_i</span> has an expected value of zero given any value of the explanatory variable, i.e.~<span class="math inline">\mathbb{E}\left[ \varepsilon_i|X_i \right]=0</span> for all <span class="math inline">X_i</span>.</p>
+</div>
+</div>
+<p>An implication of this is that the error term is uncorrelated with the explanatory variable.</p>
+<p>Let’s consider some examples of when this assumption would be violated. The first is a model trying to explain ice cream sales (<span class="math inline">Y</span>) with fan sales (<span class="math inline">X</span>). Ice cream sales are influenced by temperature. Because temperature is not included in the model (is not the <span class="math inline">X</span> variable), temperature is included in the error, <span class="math inline">\varepsilon</span>. But temperature is also correlated with fan sales, so <span class="math inline">\varepsilon</span> is correlated with <span class="math inline">X</span>. Therefore <span class="math inline">\mathbb{E}\left[\varepsilon_i|X_i\right]\neq 0</span>, a violation of the zero conditional mean assumption. This can bias the estimation of <span class="math inline">\beta_1</span>. The true <span class="math inline">\beta_1</span> should equal zero: fan sales doesn’t cause ice cream sales. However, if we were to estimate this model with data we would estimate <span class="math inline">b_1&gt;0</span> as we observe a (spurious) correlation between ice cream sales and fan sales.</p>
+<p>Another example is test scores (<span class="math inline">Y</span>) and classroom size (<span class="math inline">X</span>) that we saw in <a href="spurious-relationships.html"><span>Chapter&nbsp;5</span></a>. Test scores are influenced by socioeconomic status, which is higher in urban areas. So the degree of urbanization is included in <span class="math inline">\varepsilon</span>. But urban areas also have classrooms with more students, so <span class="math inline">\varepsilon</span> is correlated with <span class="math inline">X</span>. The true <span class="math inline">\beta_1</span> should be negative (smaller classrooms improve test scores) but we would estimate <span class="math inline">b_1&gt;0</span>. Estimation is biased again!</p>
+<p>Non-linearities in the relationship between <span class="math inline">X</span> and <span class="math inline">Y</span> can also violate the zero conditional mean assumption <span class="math inline">\mathbb{E}\left[ \varepsilon_i|X_i \right]=0</span>. Consider the following plot:</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.618">
+<details>
+<summary>Show code generating the plot below</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">53653</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">runif</span>(<span class="dv">200</span>, <span class="dv">0</span>, <span class="dv">130</span>))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="dv">300</span> <span class="sc">+</span> df<span class="sc">$</span>x <span class="sc">-</span> <span class="fl">0.35</span> <span class="sc">*</span> df<span class="sc">$</span>x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.0043</span> <span class="sc">*</span> df<span class="sc">$</span>x<span class="sc">^</span><span class="dv">3</span> <span class="sc">+</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="sc">-</span><span class="dv">400</span>, <span class="dv">400</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>, <span class="dv">125</span>)) <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slr-assumptions_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>At <span class="math inline">x=75</span>, the average value of the error term is negative, whereas at <span class="math inline">x=125</span>, the average value of the error term is positive. Under the zero conditional mean assumption, the average value of the error should be zero at all values of <span class="math inline">X</span>, so this would be a violation of this assumption.</p>
+</section>
+<section id="assumption-5-homoskedasticity" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="assumption-5-homoskedasticity"><span class="header-section-number">8.5</span> Assumption 5: Homoskedasticity</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Assumption 5: Homoskedasticity">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Assumption 5: Homoskedasticity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The error <span class="math inline">\varepsilon_i</span> has the same variance given any value of the explanatory variable. In other words: <span class="math display">
+      \text{Var}\left( \varepsilon_i| x_i \right)=\sigma_\varepsilon^2
+</span></p>
+</div>
+</div>
+<p>Homoskedasticity means that the variance of the errors is the same for small values of <span class="math inline">x</span> and large values of <span class="math inline">x</span>. “Skedasticity” comes from the Ancient Greek work σκεδάννυμι (skedánnymi) which means to scatter or disperse. So homoskedasticity litterly means “same dispersion”. A violation of homoskedasticity is called <em>heteroskedasticity</em>, which means “different dispersion”.</p>
+<p>Let’s take a look at a scatter plot of data that violate the homoskedasticity assumption:</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.618">
+<details>
+<summary>Show code generating the plot below</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">434634</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">runif</span>(<span class="dv">200</span>, <span class="dv">0</span>, <span class="dv">130</span>))</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="dv">300</span> <span class="sc">+</span> <span class="fl">0.4</span> <span class="sc">*</span> df<span class="sc">$</span>x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="dv">0</span>, <span class="dv">200</span>) <span class="sc">*</span> <span class="fl">0.001</span> <span class="sc">*</span> df<span class="sc">$</span>x</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slr-assumptions_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The variance of the residuals are small at low <span class="math inline">x</span> and large at high <span class="math inline">x</span>.</p>
+<p>Let’s learn how to visually inspect our data for heteroskedasticity in R (in a later chapter we will learn how to formally test for it). We will use the advertising and sales data again.</p>
+<p>We first obtain the residuals from our estimated model, just like we did when we were testing assumption 2:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"advertising-sales.csv"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">lm</span>(sales <span class="sc">~</span> advertising, <span class="at">data =</span> df)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>residuals <span class="ot">&lt;-</span> m<span class="sc">$</span>residuals</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We then plot the residuals and the <span class="math inline">x</span> variable against each other:</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.618">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(advertising, residuals)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slr-assumptions_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The dispersion in the residuals appears to be increasing in the <span class="math inline">x</span> variable. This is evidence of heteroskedasticity, a violation of assumption 5.</p>
+<p>When we have a violation of homoskedasticity, our estimates of <span class="math inline">\beta_1</span> are not biased but we can no longer perform inference (obtain confidence intervals or perform hypothesis tests). In a later chapter we will learn how we can correct for heteroskedasticity.</p>
+</section>
+<section id="assumption-6-normality" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="assumption-6-normality"><span class="header-section-number">8.6</span> Assumption 6: Normality</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Assumption 6: Normality">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Assumption 6: Normality
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The distribution of <span class="math inline">\varepsilon_i</span> conditional on <span class="math inline">x_i</span> is normally distributed.</p>
+</div>
+</div>
+<p>This means that the distribution of the error terms conditional on the <span class="math inline">X</span> variable should have a symmetric bell-curve shape:</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.618">
+<details>
+<summary>Show code generating the plot below</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">error =</span> <span class="fu">qnorm</span>(<span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="at">by =</span> <span class="fl">0.001</span>)))</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>density <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(df<span class="sc">$</span>error)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(error, density)) <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Ɛ|x"</span>) <span class="sc">+</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"f(Ɛ|x)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slr-assumptions_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This assumption, combined with assumptions 4 and 5 implies: <span class="math display">
+\varepsilon_i | x_i \sim \mathcal{N}\left( 0,\sigma_\varepsilon^2 \right)
+</span> In words: <span class="math inline">\varepsilon_i</span> conditional on <span class="math inline">x_i</span> follows a normal distribution with a zero mean and variance <span class="math inline">\sigma_\varepsilon^2</span>.</p>
+<p>Let’s take a look at an example scatter plot of <span class="math inline">X</span> and <span class="math inline">Y</span> of data that violate this assumption:</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.618">
+<details>
+<summary>Show code generating the plot below</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">34636</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">2000</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">runif</span>(n, <span class="dv">0</span>, <span class="dv">130</span>))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="dv">300</span> <span class="sc">+</span> <span class="fl">0.4</span> <span class="sc">*</span> df<span class="sc">$</span>x <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(<span class="fu">rbinom</span>(n, <span class="dv">1</span>, <span class="fl">0.5</span>) <span class="sc">==</span> <span class="dv">1</span>, <span class="fu">rnorm</span>(n, <span class="dv">20</span>, <span class="dv">8</span>), <span class="fu">rnorm</span>(n, <span class="sc">-</span><span class="fl">0.5</span>, <span class="dv">3</span>))</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method =</span> <span class="st">'lm'</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slr-assumptions_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can see that the errors are not symmetric around the regression line. They are positively skewed. Errors below the regression line (negative values) are closer together, whereas above the regression line (positive values) they are more dispersed.</p>
+</section>
+<section id="model-assumptions-summary" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="model-assumptions-summary"><span class="header-section-number">8.7</span> Model Assumptions Summary</h2>
+<p>In short the model assumptions to perform inference are:</p>
+<ul>
+<li>The population model is <span class="math inline">Y_i=\beta_0 + \beta_1 X_i + \varepsilon_i</span>.</li>
+<li>We have a random sample of size <span class="math inline">n</span>, <span class="math inline">\left(\left( x_1,y_1 \right),\dots\left( x_n,y_n \right)\right)</span> following the population model, with the values <span class="math inline">\left(x_1,\dots,x_n\right)</span> not all taking the same value.</li>
+<li>The errors conditional on <span class="math inline">x</span> are normally distributed with a zero mean and constant variance: <span class="math inline">\varepsilon_i|x_i\sim \mathcal{N}\left( 0,\sigma_\varepsilon^2 \right)</span>.</li>
+</ul>
+<p>We can only perform inference when all model assumptions hold. Later in this course we will learn some techniques to deal with some violations of these assumptions.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./slr-estimation.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">SLR Estimation</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./slr-confint.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">SLR Confidence Intervals</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

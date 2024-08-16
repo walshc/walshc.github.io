@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistics 2 for IBA - 10&nbsp; SLR Hypothesis Testing</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<link href="./slr-statistical-significance.html" rel="next">
+<link href="./slr-confint.html" rel="prev">
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./slr-hypothesis-testing.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">SLR Hypothesis Testing</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistics 2 for IBA</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Statistics-2-for-IBA.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./scatter-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Visualizing the Relationship between Two Variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./covariance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Covariance</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./correlation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Correlation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spurious-relationships.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spurious Relationships</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slr-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The Simple Linear Regression Model (SLR)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slr-estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">SLR Estimation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slr-assumptions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">SLR Model Assumptions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slr-confint.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">SLR Confidence Intervals</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slr-hypothesis-testing.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">SLR Hypothesis Testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slr-statistical-significance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SLR Statistical Significance</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slr-r-squared.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">SLR Quantifying Model Usefulness</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slr-prediction-intervals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">SLR Prediction Intervals</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mlr-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">The Multiple Linear Regression Model (MLR)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mlr-assumptions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">MLR Model Assumptions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mlr-inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">MLR Inference on a Single Variable</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mlr-r-squared.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">MLR Quantifying Model Usefulness</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mlr-prediction-intervals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">MLR Prediction Intervals</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./f-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><span class="math inline">F</span>-test</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./partial-f-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Partial <span class="math inline">F</span>-Test</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./collinearity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Collinearity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./higher-order-terms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Higher-Order Terms</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./interaction-terms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Interaction Terms</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dummy-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Dummy Variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./qualitative-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Qualitative Variables with Multiple Levels</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./heteroskedasticity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Testing and Correcting for Heteroskedasticity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./serial-correlation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Testing and Correcting for Serial Correlation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./zero-conditional-mean.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Zero Conditional Mean Assumption</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#notation" id="toc-notation" class="nav-link active" data-scroll-target="#notation"><span class="header-section-number">10.1</span> Notation</a></li>
+  <li><a href="#test-statistic" id="toc-test-statistic" class="nav-link" data-scroll-target="#test-statistic"><span class="header-section-number">10.2</span> Test Statistic</a></li>
+  <li><a href="#size-of-the-test" id="toc-size-of-the-test" class="nav-link" data-scroll-target="#size-of-the-test"><span class="header-section-number">10.3</span> Size of the Test</a></li>
+  <li><a href="#critical-value-approach-for-a-two-sided-test" id="toc-critical-value-approach-for-a-two-sided-test" class="nav-link" data-scroll-target="#critical-value-approach-for-a-two-sided-test"><span class="header-section-number">10.4</span> Critical Value Approach for a Two-Sided Test</a></li>
+  <li><a href="#p-value-approach-for-a-two-sided-test" id="toc-p-value-approach-for-a-two-sided-test" class="nav-link" data-scroll-target="#p-value-approach-for-a-two-sided-test"><span class="header-section-number">10.5</span> <span class="math inline">p</span>-Value Approach for a Two-Sided Test</a></li>
+  <li><a href="#making-a-conclusion" id="toc-making-a-conclusion" class="nav-link" data-scroll-target="#making-a-conclusion"><span class="header-section-number">10.6</span> Making a Conclusion</a></li>
+  <li><a href="#one-sided-tests" id="toc-one-sided-tests" class="nav-link" data-scroll-target="#one-sided-tests"><span class="header-section-number">10.7</span> One-Sided Tests</a>
+  <ul class="collapse">
+  <li><a href="#hypotheses" id="toc-hypotheses" class="nav-link" data-scroll-target="#hypotheses"><span class="header-section-number">10.7.1</span> Hypotheses</a></li>
+  <li><a href="#test-statistics" id="toc-test-statistics" class="nav-link" data-scroll-target="#test-statistics"><span class="header-section-number">10.7.2</span> Test Statistics</a></li>
+  <li><a href="#critical-values" id="toc-critical-values" class="nav-link" data-scroll-target="#critical-values"><span class="header-section-number">10.7.3</span> Critical Values</a></li>
+  <li><a href="#p-values" id="toc-p-values" class="nav-link" data-scroll-target="#p-values"><span class="header-section-number">10.7.4</span> <span class="math inline">{p}</span>-Values</a></li>
+  </ul></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap"><span class="header-section-number">10.8</span> Recap</a>
+  <ul class="collapse">
+  <li><a href="#critical-value-approach" id="toc-critical-value-approach" class="nav-link" data-scroll-target="#critical-value-approach"><span class="header-section-number">10.8.1</span> Critical Value Approach</a></li>
+  <li><a href="#p-value-approach" id="toc-p-value-approach" class="nav-link" data-scroll-target="#p-value-approach"><span class="header-section-number">10.8.2</span> <span class="math inline">p</span>-Value Approach</a></li>
+  </ul></li>
+  <li><a href="#numeric-example" id="toc-numeric-example" class="nav-link" data-scroll-target="#numeric-example"><span class="header-section-number">10.9</span> Numeric Example</a></li>
+  <li><a href="#hypothesis-tests-in-r" id="toc-hypothesis-tests-in-r" class="nav-link" data-scroll-target="#hypothesis-tests-in-r"><span class="header-section-number">10.10</span> Hypothesis Tests in R</a></li>
+  <li><a href="#summary-of-r-functions-for-hypothesis-tests" id="toc-summary-of-r-functions-for-hypothesis-tests" class="nav-link" data-scroll-target="#summary-of-r-functions-for-hypothesis-tests"><span class="header-section-number">10.11</span> Summary of R Functions for Hypothesis Tests</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-slr-hypothesis-testing" class="quarto-section-identifier"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">SLR Hypothesis Testing</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
+<p>We will now learn how to do hypothesis tests for the regression slope. Like confidence intervals, it is very similar to performing hypothesis tests for the sample mean that you learned about in Statistics 1. We will first show the theory behind hypothesis testing for the regression slope. We will then show a numeric example before finally showing how to perform hypothesis tests in R.</p>
+<section id="notation" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="notation"><span class="header-section-number">10.1</span> Notation</h2>
+<p>Suppose we wanted to test if <span class="math inline">\beta_1</span> was different to some number <span class="math inline">b</span>. For example, if we wanted to test if the slope was not equal to one (i.e.&nbsp;<span class="math inline">\beta_1\neq 1</span>), then we would have <span class="math inline">b=1</span>. We call this number <span class="math inline">b</span> the <em>hinge</em>. If we are testing if <span class="math inline">\beta_1\neq b</span>, we set up the null and alternative hypotheses as follows:</p>
+<ul>
+<li>Null hypothesis: <span class="math inline">H_0: \beta_1=b</span></li>
+<li>Alternative hypothesis: <span class="math inline">H_1: \beta_1\neq b</span></li>
+</ul>
+<p>If we are testing a claim like “<span class="math inline">\beta_1</span> is not equal to <span class="math inline">b</span>” then that is referring to the <em>alternative</em> hypothesis. The null hypothesis is then always the exact opposite of the alternative hypothesis.</p>
+<p>This type of test is called a two-sided test because the values of <span class="math inline">\beta_1</span> in the alternative hypothesis are on two sides of of the null hypothesis.</p>
+<p>Denote by <span class="math inline">B_1</span> the random variable that estimates <span class="math inline">\beta_1</span> for any random sample drawn from the population. This <span class="math inline">B_1</span> is not the regression output for our dataset (our observed sample) in R. This is <span class="math inline">b_1</span>. Nor is it the true population slope we are trying to estimate. This is <span class="math inline">\beta_1</span>. Instead <span class="math inline">B_1</span> is a theoretical object that maps a hypothetical random sample that we <em>could</em> draw from the population into an estimate of <span class="math inline">\beta_1</span>.</p>
+<p>When we have a dataset, we have exactly one random sample drawn from the population and our estimate of <span class="math inline">\beta_1</span> from this is <span class="math inline">b_1</span>. But in principle we could draw another random sample from the population and get a different estimate of <span class="math inline">\beta_1</span>. We can think of the possible values of <span class="math inline">B_1</span> as all the possible values of estimates of <span class="math inline">\beta_1</span> from different random samples from the population. While <span class="math inline">b_1</span> is observed and fixed (because we have observed our sample and estimated the slope), <span class="math inline">B_1</span> is neither observed nor fixed: it’s a random variable. The estimate <span class="math inline">b_1</span> we get from our observed dataset in R is a single realization of this random variable.</p>
+<p>So to summarize:</p>
+<ul>
+<li><span class="math inline">\beta_1</span> is the population regression slope (unobserved and fixed).</li>
+<li><span class="math inline">b_1</span> is the estimated regression slope with our data (observed and fixed).</li>
+<li><span class="math inline">B_1</span> is the random variable that estimates the slope for any random sample (unobserved and a random variable).</li>
+</ul>
+<p>We similarly denote by <span class="math inline">S_{B_1}</span> the random variable that estimates the standard error of the regression slope for any random sample drawn from the population.</p>
+</section>
+<section id="test-statistic" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="test-statistic"><span class="header-section-number">10.2</span> Test Statistic</h2>
+<p>We will not show the steps but it can be proven mathematically from our model assumptions that: <span class="math display">
+        T=\frac{B_1 - \beta_1}{S_{B_1}}\sim t_{n-2}
+</span> This means that <span class="math inline">T</span> follows a <span class="math inline">t</span> distribution with <span class="math inline">n-2</span> degrees of freedom. This <span class="math inline">T</span> is also a random variable, because it is a function of two other random variables (<span class="math inline">B_1</span> and <span class="math inline">S_{B_1}</span> and a constant parameter <span class="math inline">\beta_1</span>). This formulation is very useful because <span class="math inline">T</span> has a distribution that does not depend on any unknown parameters. There is no unknown mean or variance for this distribution: it only depends on <span class="math inline">n</span> which we know. We call <span class="math inline">T</span> a <em>pivot</em> because it follows a distribution that does not depend on unknown parameters.</p>
+<p>Now, if the null hypothesis is true (<span class="math inline">\beta_1=b</span>), then it is the case that: <span class="math display">
+  T=\frac{B_1 - b}{S_{B_1}}\sim t_{n-2}
+</span> So if the null hypothesis were true, then samples drawn from the population should produce values of <span class="math inline">T</span> that follow this distribution. Denote by small <span class="math inline">t</span> the realized value of <span class="math inline">T</span> from our sample. We calculate this using the formula <span class="math inline">t=\frac{b_1-b}{s_{b_1}}</span>. If the null hypothesis is true, most of the time we should get values of <span class="math inline">t</span> close to zero, but occasionally (about 5% of the time) we could get more extreme values further away from zero (like greater than <span class="math inline">+2</span> or less than <span class="math inline">-2</span>).</p>
+<p>How can we use this to test our hypothesis? If we calculate <span class="math inline">t</span> from our observed sample and find that the value is extreme (like greater than <span class="math inline">+2</span> or less than <span class="math inline">-2</span>), then there are 2 possibilities:</p>
+<ul>
+<li>The null hypothesis is true and the sample we observed was a rare case of getting an extreme value of <span class="math inline">t</span>.</li>
+<li>The null hypothesis is false.</li>
+</ul>
+<p>Because the first possibility is rare, then it is more likely that the second possibility holds: it is likely that the null hypothesis is false. Of course it could be possible that the null hypothesis is true and we just observed a freak event. We can’t tell these apart. However, it’s much more likely that the null hypothesis is false. So if we find that what we observe in our sample to be extremely rare if the null hypothesis were true, then we conclude that the null hypothesis is false. If we find values in the normal range of the null hypothesis we instead conclude that we have no evidence to say the null hypothesis is false.</p>
+</section>
+<section id="size-of-the-test" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="size-of-the-test"><span class="header-section-number">10.3</span> Size of the Test</h2>
+<p>How do we decide whether to reject the null hypothesis or not based on the realized value of <span class="math inline">T</span>? We first have to decide on the <em>size of the test</em>. This is the highest probability that we are willing to accept that we might falsely reject the null hypothesis when it is in fact true. The most common size you see is 5%, but sometimes people use 1% or 10%. The size of the test is denoted by <span class="math inline">\alpha</span>, where a 5% size is denoted by <span class="math inline">\alpha=0.05</span>. With <span class="math inline">\alpha=0.05</span>, there is a 5% chance that we reject null hypothesis when it is in fact true. But that means that 95% of the time we reject the null it is in fact false.</p>
+<p>One we have decided on the size of the test there are two possible ways to proceed, both yielding the same conclusion:</p>
+<ol type="1">
+<li>The critical value approach (also called the rejection region approach).</li>
+<li>The <span class="math inline">p</span>-value approach.</li>
+</ol>
+<p>Let’s discuss each of these in turn.</p>
+</section>
+<section id="critical-value-approach-for-a-two-sided-test" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="critical-value-approach-for-a-two-sided-test"><span class="header-section-number">10.4</span> Critical Value Approach for a Two-Sided Test</h2>
+<p>The critical value approach involves finding a number <span class="math inline">c</span> that solves the equation:</p>
+<p><span class="math display">
+\Pr( |T| \geq c)=\alpha \quad{ \text{ under } } H_0
+</span> In words this means the probability that the absolute value of <span class="math inline">T=\frac{B_1-b}{S_{B_1}}</span> from any sample being larger than <span class="math inline">c</span> is equal to <span class="math inline">\alpha</span> under the null hypothesis. So if <span class="math inline">\alpha=0.05</span>, under the null hypothesis the probability of getting a value of <span class="math inline">|T|</span> larger than the critical value is 5%.</p>
+<p>The <span class="math inline">c</span> that solves this equation is <span class="math inline">t_{1-\frac{\alpha}{2},n-2}</span>, the same quantile from the <span class="math inline">t</span> distribution that we we use for a <span class="math inline">(1-\alpha)</span>% confidence interval. With <span class="math inline">\alpha=0.05</span>, this is the 97.5th quantile of the <span class="math inline">t</span> distribution with <span class="math inline">n-2</span> degrees of freedom.</p>
+<p>With this number we compare the realized value of <span class="math inline">T</span>, <span class="math inline">t=\frac{b_1-b}{s_{b_1}}</span> to this critical value <span class="math inline">t_{1-\frac{\alpha}{2},n-2}</span>:</p>
+<ul>
+<li>If <span class="math inline">|t|\geq t_{1-\frac{\alpha}{2},n-2}</span> we reject the null hypothesis.</li>
+<li>If <span class="math inline">|t|&lt; t_{1-\frac{\alpha}{2},n-2}</span> we fail to reject the null hypothesis.</li>
+</ul>
+<p>Graphically, we calculate <span class="math inline">t</span> and check if the value lies in one of the shaded regions below:</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.618">
+<details>
+<summary>Show code generating the plot below</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">qt</span>(<span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="at">by =</span> <span class="fl">0.001</span>), <span class="dv">98</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">dt</span>(<span class="fu">qt</span>(<span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="at">by =</span> <span class="fl">0.001</span>), <span class="dv">98</span>), <span class="dv">98</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>cv <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="dv">98</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>fill_1 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>x <span class="sc">&lt;</span> <span class="sc">-</span>cv, df<span class="sc">$</span>x, <span class="cn">NA</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>fill_2 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>x <span class="sc">&gt;</span> cv, df<span class="sc">$</span>x, <span class="cn">NA</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="fu">aes</span>(<span class="at">x =</span> fill_1), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>)  <span class="sc">+</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="fu">aes</span>(<span class="at">x =</span> fill_2), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>)  <span class="sc">+</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="sc">-</span>cv, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> cv, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slr-hypothesis-testing_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The area of the shaded region is exactly 5% of the total area with <span class="math inline">\alpha=0.05</span> (2.5% on the left and 2.5% on the right). This is the same as with a confidence interval. If the realized value of the test statistic <span class="math inline">t</span> is in the shaded area, then such a value is unlikely to occur if the null hypothesis is true (occurs with probability 5%). We therefore would reject the null. If the realized value <span class="math inline">t</span> is in between the two red lines, then the value is not extreme under the null hypothesis and we fail to reject the null hypothesis.</p>
+</section>
+<section id="p-value-approach-for-a-two-sided-test" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="p-value-approach-for-a-two-sided-test"><span class="header-section-number">10.5</span> <span class="math inline">p</span>-Value Approach for a Two-Sided Test</h2>
+<p>The other approach is the <span class="math inline">p</span>-value approach. This approach involves finding a number <span class="math inline">p</span> that solves the equation:</p>
+<p><span class="math display">
+\Pr( |T| \geq |t|)=p \quad{ \text{ under } } H_0
+</span> In words: under <span class="math inline">H_0</span>, the probability that the absolute value of <span class="math inline">T=\frac{B_1-b}{S_{B_1}}</span> from any sample being larger than the absolute value of the observed realization of <span class="math inline">t</span> is equal to <span class="math inline">p</span>. It is probability of drawing a sample from the population that is more extreme than the observed one under the null hypothesis.</p>
+<p>This <span class="math inline">p</span> can be calculated with:</p>
+<p><span class="math display">p=2\times(1-\Pr(T&lt;|t|))</span></p>
+<p>We then compare this number <span class="math inline">p</span> with the size of the test <span class="math inline">\alpha</span>:</p>
+<ul>
+<li>If <span class="math inline">p\leq \alpha</span> we reject the null hypothesis.</li>
+<li>If <span class="math inline">p&gt;\alpha</span> we fail to reject the null hypothesis.</li>
+</ul>
+<p>Graphically, if we calculate <span class="math inline">t=1</span>, then the <span class="math inline">p</span>-value is the area to the right of 1 and to the left of <span class="math inline">-1</span>:</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.618">
+<details>
+<summary>Show code generating the plot below</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">qt</span>(<span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="at">by =</span> <span class="fl">0.001</span>), <span class="dv">98</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">dt</span>(<span class="fu">qt</span>(<span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="at">by =</span> <span class="fl">0.001</span>), <span class="dv">98</span>), <span class="dv">98</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>fill_1 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>x <span class="sc">&lt;</span> <span class="sc">-</span>t, df<span class="sc">$</span>x, <span class="cn">NA</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>fill_2 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>x <span class="sc">&gt;</span> t, df<span class="sc">$</span>x, <span class="cn">NA</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="fu">aes</span>(<span class="at">x =</span> fill_1), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>)  <span class="sc">+</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="fu">aes</span>(<span class="at">x =</span> fill_2), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>)  <span class="sc">+</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> t, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slr-hypothesis-testing_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>With a sample size of <span class="math inline">n=100</span> (98 degrees of freedom), using the formula <span class="math display">p=2\times(1-\Pr(T&lt;|t|))=2\times(1-\Pr(T&lt;1))</span> the <span class="math inline">p</span>-value is equal to:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(<span class="dv">1</span>, <span class="dv">98</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3197733</code></pre>
+</div>
+</div>
+<p>The function <code>pt(t, n-2)</code> is the R function for <span class="math inline">\Pr(T&lt;t)</span> with a <span class="math inline">t</span> distribution with <span class="math inline">n-2</span> degrees of freedom. The shaded blue area is thus 31.97% of the total area. The probability of observing a a sample at least as extreme as <span class="math inline">t=1</span> is 31.97%. Because this probability is bigger than 5% we would fail to reject the null hypothesis.</p>
+<p>Note that we always end up with the same rejection decision using the critical value approach and the <span class="math inline">p</span>-value approach. If you do both and end up with different answers, then you know something has gone wrong.</p>
+</section>
+<section id="making-a-conclusion" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="making-a-conclusion"><span class="header-section-number">10.6</span> Making a Conclusion</h2>
+<p>Once we have rejected or failed to reject the null hypothesis we need to make a conclusion about the initial claim:</p>
+<ul>
+<li>If we reject null hypothesis we conclude that there is sufficient evidence for the claim.</li>
+<li>If we fail to reject, we say say there is insufficient evidence for the claim.</li>
+</ul>
+<p>If we fail to reject a null hypothesis, we never actually <em>accept</em> the null hypothesis. We just say there is not enough evidence to reject it.</p>
+<p>To see why we do this, suppose we had a very small sample size (like <span class="math inline">n=5</span>). With such little data our estimate of <span class="math inline">\beta_1</span> would be very imprecise, leading to a large standard error <span class="math inline">s_{b_1}</span>. This would lead to a very small value of <span class="math inline">t=\frac{b_1-b}{s_{b_1}}</span> even if the null hypothesis is actually false. We would end up failing to reject the null hypothesis because of the small <span class="math inline">t</span>. To conclude then the null hypothesis is true from a handful of observations would be very naive. Instead, we just don’t have enough evidence to say that it is false.</p>
+</section>
+<section id="one-sided-tests" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="one-sided-tests"><span class="header-section-number">10.7</span> One-Sided Tests</h2>
+<section id="hypotheses" class="level3" data-number="10.7.1">
+<h3 data-number="10.7.1" class="anchored" data-anchor-id="hypotheses"><span class="header-section-number">10.7.1</span> Hypotheses</h3>
+<p>If the claim we want to test is “<span class="math inline">\beta_1</span> is larger than <span class="math inline">b</span>” or “<span class="math inline">\beta_1</span> is smaller than <span class="math inline">b</span>”, then we need to use a one-sided test. These can be either upper-tail or lower-tail tests:</p>
+<ul>
+<li>“<span class="math inline">\beta_1</span> is larger than <span class="math inline">b</span>” <span class="math inline">\Rightarrow</span> Upper-tail test.</li>
+<li>“<span class="math inline">\beta_1</span> is smaller than <span class="math inline">b</span>” <span class="math inline">\Rightarrow</span> Lower-tail test.</li>
+</ul>
+<p>In these cases, the null and alternative hypotheses are:</p>
+<ul>
+<li>Upper-tail test: <span class="math inline">H_0</span>: <span class="math inline">\beta_1\leq b</span>, <span class="math inline">H_1</span>: <span class="math inline">\beta_1 &gt; b</span></li>
+<li>Lower-tail test: <span class="math inline">H_0</span>: <span class="math inline">\beta_1\geq b</span>, <span class="math inline">H_1</span>: <span class="math inline">\beta_1 &lt; b</span></li>
+</ul>
+<p>Notice that the claim corresponds to the alternative hypothesis. For example, if the claim is <span class="math inline">\beta_1</span> is larger than <span class="math inline">b</span>, then this is an upper-tail test and the alternative hypothesis corresponds to the claim: <span class="math inline">\beta_1&gt;b</span>. The null hypothesis is then just the opposite of the alternative hypothesis. When you are asked to perform a one-sided test you should therefore write down the alternative hypothesis first (which corresponds to the claim you need to test) and then write the null hypothesis as the opposite of this.</p>
+</section>
+<section id="test-statistics" class="level3" data-number="10.7.2">
+<h3 data-number="10.7.2" class="anchored" data-anchor-id="test-statistics"><span class="header-section-number">10.7.2</span> Test Statistics</h3>
+<p>For a one-sided test, the test statistic is the same as before. Under the null hypothesis: <span class="math display">
+  T=\frac{B_1 - b}{S_{B_1}}\sim t_{n-2}
+</span> We also calculate the realized value of the test statistic in our sample the same way:</p>
+<p><span class="math display">
+  t=\frac{b_1 - b}{s_{b_1}}
+</span></p>
+</section>
+<section id="critical-values" class="level3" data-number="10.7.3">
+<h3 data-number="10.7.3" class="anchored" data-anchor-id="critical-values"><span class="header-section-number">10.7.3</span> Critical Values</h3>
+<p>The critical value for an upper-tail test is the value <span class="math inline">c</span> that solves:</p>
+<p><span class="math display">\Pr(T\geq c)=\alpha</span></p>
+<p>It is the number <span class="math inline">c</span> such that under <span class="math inline">H_0</span> the probability that <span class="math inline">T</span> exceeds it is equal to <span class="math inline">\alpha</span>. This is different from the two-sided test because we don’t use the absolute value. The critical value here is equal to <span class="math inline">t_{1-\alpha,n-2}</span>. Notice that we find the <span class="math inline">1-\alpha</span> quantile, and not <span class="math inline">1-\frac{\alpha}{2}</span> quantile as in the two-sided test.</p>
+<p>Graphically, an upper-tail test with the critical value approach involves checking if <span class="math inline">t</span> in our sample is in the shaded region below:</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.618">
+<details>
+<summary>Show code generating the plot below</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">qt</span>(<span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="at">by =</span> <span class="fl">0.001</span>), <span class="dv">98</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">dt</span>(<span class="fu">qt</span>(<span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="at">by =</span> <span class="fl">0.001</span>), <span class="dv">98</span>), <span class="dv">98</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>cv <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.95</span>, <span class="dv">98</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>fill <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>x <span class="sc">&gt;</span> cv, df<span class="sc">$</span>x, <span class="cn">NA</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="fu">aes</span>(<span class="at">x =</span> fill), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>)  <span class="sc">+</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> cv, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slr-hypothesis-testing_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>With <span class="math inline">\alpha=0.05</span>, the shaded region has an area of 5%.</p>
+<p>The critical value for an lower-tail test is the value <span class="math inline">c</span> that solves:</p>
+<p><span class="math display">\Pr(T\leq c)=\alpha</span></p>
+<p>It is the number <span class="math inline">c</span> such that under <span class="math inline">H_0</span> the probability that <span class="math inline">T</span> is smaller than <span class="math inline">c</span> is equal to <span class="math inline">\alpha</span>. The critical value here is equal to <span class="math inline">t_{\alpha,n-2}</span>. This is always equal to <span class="math inline">-t_{1-\alpha,n-2}</span>, the negative of the equivalent upper-tail test critical value. Graphically, an lower-tail test with the critical value approach involves checking if <span class="math inline">t</span> in our sample is in the shaded region below:</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.618">
+<details>
+<summary>Show code generating the plot below</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">qt</span>(<span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="at">by =</span> <span class="fl">0.001</span>), <span class="dv">98</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">dt</span>(<span class="fu">qt</span>(<span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="at">by =</span> <span class="fl">0.001</span>), <span class="dv">98</span>), <span class="dv">98</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>cv <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">qt</span>(<span class="fl">0.95</span>, <span class="dv">98</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>fill <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>x <span class="sc">&lt;</span> cv, df<span class="sc">$</span>x, <span class="cn">NA</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="fu">aes</span>(<span class="at">x =</span> fill), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>)  <span class="sc">+</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> cv, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slr-hypothesis-testing_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Again, with <span class="math inline">\alpha=0.05</span>, the shaded region has an area of 5%.</p>
+</section>
+<section id="p-values" class="level3" data-number="10.7.4">
+<h3 data-number="10.7.4" class="anchored" data-anchor-id="p-values"><span class="header-section-number">10.7.4</span> <span class="math inline">{p}</span>-Values</h3>
+<p>To get the <span class="math inline">p</span>-value for a one-sided test we need to find the probability of obtaining a <span class="math inline">T</span> at least as extreme as the observed <span class="math inline">t</span> <em>in the direction of the test</em>. For an upper-tail test this is the area under the distribution of <span class="math inline">T</span> to the right of <span class="math inline">t</span>:</p>
+<p><span class="math display">p=\Pr(T\geq t)=1-\Pr(T&lt;t)</span> Graphically, if we calculate <span class="math inline">t=1</span>, then the <span class="math inline">p</span>-value is the area to the right of 1:</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.618">
+<details>
+<summary>Show code generating the plot below</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">qt</span>(<span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="at">by =</span> <span class="fl">0.001</span>), <span class="dv">98</span>))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">dt</span>(<span class="fu">qt</span>(<span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="at">by =</span> <span class="fl">0.001</span>), <span class="dv">98</span>), <span class="dv">98</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>fill <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>x <span class="sc">&gt;</span> t, df<span class="sc">$</span>x, <span class="cn">NA</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="fu">aes</span>(<span class="at">x =</span> fill), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>)  <span class="sc">+</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> t, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slr-hypothesis-testing_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>With a sample size of <span class="math inline">n=100</span> (98 degrees of freedom), using the formula <span class="math display">p=1-\Pr(T&lt;t)=1-\Pr(T&lt;1)</span> the <span class="math inline">p</span>-value is equal to:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(<span class="dv">1</span>, <span class="dv">98</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1598866</code></pre>
+</div>
+</div>
+<p>The shaded blue area is thus 15.989% of the total area. The probability of observing a a sample at least as extreme as <span class="math inline">t=1</span> in the direction of the test is 15.989%. Because this probability is bigger than 5% we would fail to reject the null hypothesis.</p>
+<p>For a lower-tail test the <span class="math inline">p</span>-value is the area in the distribution of <span class="math inline">T</span> to the left of <span class="math inline">t</span>:</p>
+<p><span class="math display">p=\Pr(T\leq t)</span> Graphically, if we calculate <span class="math inline">t=1</span>, then the <span class="math inline">p</span>-value is the area to the left of 1:</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.618">
+<details>
+<summary>Show code generating the plot below</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">qt</span>(<span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="at">by =</span> <span class="fl">0.001</span>), <span class="dv">98</span>))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">dt</span>(<span class="fu">qt</span>(<span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="at">by =</span> <span class="fl">0.001</span>), <span class="dv">98</span>), <span class="dv">98</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>fill <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>x <span class="sc">&lt;</span> t, df<span class="sc">$</span>x, <span class="cn">NA</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="fu">aes</span>(<span class="at">x =</span> fill), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>)  <span class="sc">+</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> t, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slr-hypothesis-testing_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>With a sample size of <span class="math inline">n=100</span> (98 degrees of freedom), using the formula <span class="math display">p=\Pr(T\leq t)=\Pr(T\leq 1)</span> the <span class="math inline">p</span>-value is equal to:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(<span class="dv">1</span>, <span class="dv">98</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8401134</code></pre>
+</div>
+</div>
+<p>The shaded blue area is thus 84.01% of the total area. The probability of observing a a sample at least as extreme as <span class="math inline">t=1</span> in the direction of the test is 84.01%. Because this probability is bigger than 5% we would fail to reject the null hypothesis.</p>
+</section>
+</section>
+<section id="recap" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="recap"><span class="header-section-number">10.8</span> Recap</h2>
+<section id="critical-value-approach" class="level3" data-number="10.8.1">
+<h3 data-number="10.8.1" class="anchored" data-anchor-id="critical-value-approach"><span class="header-section-number">10.8.1</span> Critical Value Approach</h3>
+<p>We first decide which type of test we need to use:</p>
+<ul>
+<li>If the claim is “<span class="math inline">\beta_1</span> is different from <span class="math inline">b</span>” we use a two-sided test.</li>
+<li>If the claim is “<span class="math inline">\beta_1</span> is greater than <span class="math inline">b</span>” we use a upper-tail test.</li>
+<li>If the claim is “<span class="math inline">\beta_1</span> is less than <span class="math inline">b</span>” we use a lower-tail test.</li>
+</ul>
+<p>We then set up the null and alternative hypotheses:</p>
+<ul>
+<li>Two-sided test: <span class="math inline">H_0</span>: <span class="math inline">\beta_1=b</span>, <span class="math inline">H_1</span>: <span class="math inline">\beta_1\neq b</span></li>
+<li>Upper-tail test: <span class="math inline">H_0</span>: <span class="math inline">\beta_1\leq b</span>, <span class="math inline">H_1</span>: <span class="math inline">\beta_1&gt; b</span></li>
+<li>Lower-tail test: <span class="math inline">H_0</span>: <span class="math inline">\beta_1\geq b</span>, <span class="math inline">H_1</span>: <span class="math inline">\beta_1&lt; b</span></li>
+</ul>
+<p>We then form the test statistic. Under the null hypothesis: <span class="math display">
+  T=\frac{B_1 - b}{S_{B_1}}\sim t_{n-2}
+</span></p>
+<p>We calculate the realized value of the test statistic using our sample:</p>
+<p><span class="math display">
+  t=\frac{b_1 - b}{s_{b_1}}
+</span> We then calculate the critical value and form rejection rules:</p>
+<ul>
+<li>Two-sided test: Reject if <span class="math inline">|t|\geq t_{1-\frac{\alpha}{2},n-2}</span> otherwise fail to reject.</li>
+<li>Upper-tail test: Reject if <span class="math inline">t\geq t_{1-\alpha,n-2}</span> otherwise fail to reject.</li>
+<li>Lower-tail test: Reject if <span class="math inline">t \leq t_{\alpha,n-2}</span> otherwise fail to reject.</li>
+</ul>
+<p>Based on whether we reject or not, we make a conclusion about the initial claim.</p>
+</section>
+<section id="p-value-approach" class="level3" data-number="10.8.2">
+<h3 data-number="10.8.2" class="anchored" data-anchor-id="p-value-approach"><span class="header-section-number">10.8.2</span> <span class="math inline">p</span>-Value Approach</h3>
+<p>We first decide which type of test we need to use:</p>
+<ul>
+<li>If the claim is “<span class="math inline">\beta_1</span> is different from <span class="math inline">b</span>” we use a two-sided test.</li>
+<li>If the claim is “<span class="math inline">\beta_1</span> is greater than <span class="math inline">b</span>” we use a upper-tail test.</li>
+<li>If the claim is “<span class="math inline">\beta_1</span> is less than <span class="math inline">b</span>” we use a lower-tail test.</li>
+</ul>
+<p>We then set up the null and alternative hypotheses:</p>
+<ul>
+<li>Upper-tail test: <span class="math inline">H_0</span>: <span class="math inline">\beta_1\leq b</span>, <span class="math inline">H_1</span>: <span class="math inline">\beta_1&gt; b</span></li>
+<li>Lower-tail test: <span class="math inline">H_0</span>: <span class="math inline">\beta_1\geq b</span>, <span class="math inline">H_1</span>: <span class="math inline">\beta_1&lt; b</span></li>
+<li>Two-sided test: <span class="math inline">H_0</span>: <span class="math inline">\beta_1=b</span>, <span class="math inline">H_1</span>: <span class="math inline">\beta_1\neq b</span></li>
+</ul>
+<p>We then form the test statistic. Under the null hypothesis: <span class="math display">
+  T=\frac{B_1 - b}{S_{B_1}}\sim t_{n-2}
+</span></p>
+<p>We calculate the realized value of the test statistic using our sample:</p>
+<p><span class="math display">
+  t=\frac{b_1 - b}{s_{b_1}}
+</span></p>
+<p>We then calculate the <span class="math inline">p</span>-value:</p>
+<ul>
+<li>Upper-tail test: <span class="math inline">p=1-\Pr(T&lt;t)</span>.</li>
+<li>Lower-tail test: <span class="math inline">p=\Pr(T\leq t)</span>.</li>
+<li>Two-sided test: <span class="math inline">p=2\times(1 - \Pr(T&lt;|t|))</span>.</li>
+</ul>
+<p>We reject if <span class="math inline">p\leq \alpha</span> otherwise we fail to reject.</p>
+<p>Based on whether we reject or not, we make a conclusion about the initial claim.</p>
+</section>
+</section>
+<section id="numeric-example" class="level2" data-number="10.9">
+<h2 data-number="10.9" class="anchored" data-anchor-id="numeric-example"><span class="header-section-number">10.9</span> Numeric Example</h2>
+<p>You have a sample with <span class="math inline">n=100</span> observations and you estimate <span class="math inline">b_1=0.3</span> and <span class="math inline">s_{b_1}=0.1</span>. You want to test the claim <span class="math inline">\beta_1&gt;0.2</span> with a <span class="math inline">p</span>-value approach with <span class="math inline">\alpha=0.05</span>.</p>
+<p><em>Solution:</em></p>
+<p>This is an upper-tail test. The null and alternative hypotheses are:</p>
+<ul>
+<li><span class="math inline">H_0</span>: <span class="math inline">\beta_1 \leq 0.2</span></li>
+<li><span class="math inline">H_1</span>: <span class="math inline">\beta_1 &gt; 0.2</span>.</li>
+</ul>
+<p>Under <span class="math inline">H_0</span>: <span class="math display">T=\frac{B_1-0.2}{S_{B_1}}\sim t_{98}</span> The value of the test statistic is: <span class="math display">t=\frac{b_1-b}{s_{b_1}}=\frac{0.3 - 0.2}{0.1}=1</span></p>
+<p>The <span class="math inline">p</span>-value is <span class="math inline">p=\Pr\left( T\geq 1 \right)</span>. We calculate this in R with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(<span class="dv">1</span>, <span class="dv">98</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1598866</code></pre>
+</div>
+</div>
+<p>Conclusion: <span class="math inline">p=0.16&gt;\alpha=0.05</span> so we cannot reject <span class="math inline">H_0</span>. There is no evidence that <span class="math inline">\beta_1&gt;0.2</span> at the 5% level.</p>
+</section>
+<section id="hypothesis-tests-in-r" class="level2" data-number="10.10">
+<h2 data-number="10.10" class="anchored" data-anchor-id="hypothesis-tests-in-r"><span class="header-section-number">10.10</span> Hypothesis Tests in R</h2>
+<p>Using the advertising and sales data, you are asked to test the following claim at the 5% level: “An increase in advertising of €1,000 on average increases sales by more than €48,000.”</p>
+<p>This is an upper-tail test. Recall that advertising is in thousands and sales is in millions. The claim is 1 unit of <span class="math inline">x</span> increases <span class="math inline">y</span> by <span class="math inline">\frac{48,000}{1,000,000}=0.048</span> units. Thus, the claim is equivalent to testing if <span class="math inline">\beta_1 &gt; 0.048</span>. With this we can form the null and alternative hypotheses:</p>
+<ul>
+<li><span class="math inline">H_0</span>: <span class="math inline">\beta_1\leq 0.048</span></li>
+<li><span class="math inline">H_1</span>: <span class="math inline">\beta&gt; 0.48</span>.</li>
+</ul>
+<p>We form the test statistic. Under <span class="math inline">H_0</span>:</p>
+<p><span class="math display">T=\frac{B_1-0.048}{S_{B_1}}\sim t_{198}</span></p>
+<p>We now calculate the value of the test statistic in R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"advertising-sales.csv"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">lm</span>(sales <span class="sc">~</span> advertising, <span class="at">data =</span> df)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>b_1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">summary</span>(m))[<span class="st">"advertising"</span>, <span class="st">"Estimate"</span>]</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>s_b_1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">summary</span>(m))[<span class="st">"advertising"</span>, <span class="st">"Std. Error"</span>]</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>(t <span class="ot">&lt;-</span> (b_1 <span class="sc">-</span> <span class="fl">0.048</span>) <span class="sc">/</span> s_b_1)  <span class="co"># value of the test statistic</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3470444</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>(cv <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.95</span>, <span class="dv">198</span>))         <span class="co"># critical value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.652586</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>(pval <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(t, <span class="dv">198</span>))      <span class="co"># p-value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3644633</code></pre>
+</div>
+</div>
+<p>We reject if <span class="math inline">t\geq t_{1-\alpha,n-2}</span> with the critical value approach and we reject if <span class="math inline">p\leq \alpha</span> with the <span class="math inline">p</span>-value approach:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>t <span class="sc">&gt;</span> cv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>pval <span class="sc">&lt;</span> <span class="fl">0.05</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>Both are <code>FALSE</code>, so we fail to reject <span class="math inline">H_0</span> under both approaches.</p>
+<p>There is no evidence for the claim that increasing advertising by €1,000 increases sales by more than €48,000 at the 5% level.</p>
+</section>
+<section id="summary-of-r-functions-for-hypothesis-tests" class="level2" data-number="10.11">
+<h2 data-number="10.11" class="anchored" data-anchor-id="summary-of-r-functions-for-hypothesis-tests"><span class="header-section-number">10.11</span> Summary of R Functions for Hypothesis Tests</h2>
+<p>Define the following:</p>
+<ul>
+<li>The size of the test, <span class="math inline">\alpha</span>, is <code>alpha</code>.</li>
+<li>The number of observations in the regression, <span class="math inline">n</span>, is <code>n</code>.</li>
+<li>The value of the test statistic, <span class="math inline">t</span>, is <code>t</code>.</li>
+</ul>
+<p>Critical Values:</p>
+<ul>
+<li>If upper-tail test: <code>qt(1-alpha, n-2)</code>.</li>
+<li>If lower-tail test: <code>qt(alpha, n-2)</code>.</li>
+<li>If two-sided test: <code>qt(1-alpha/2, n-2)</code>.</li>
+</ul>
+<p><span class="math inline">p</span>-values:</p>
+<ul>
+<li>If upper-tailed test: <code>1-pt(t, n-2)</code>.</li>
+<li>If lower-tailed test: <code>pt(t, n-2)</code>.</li>
+<li>If two-sided test: <code>2*(1-pt(t, n-2))</code>.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./slr-confint.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">SLR Confidence Intervals</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./slr-statistical-significance.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">SLR Statistical Significance</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
