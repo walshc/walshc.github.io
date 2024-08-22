@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Programming for E&amp;BI - 13&nbsp; Data Cleaning</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<link href="./intro-to-plotting.html" rel="next">
+<link href="./dataframes-summary-statistics.html" rel="prev">
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data-cleaning.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Data Cleaning</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Programming for E&amp;BI</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Programming-for-E-BI.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./getting-started.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r-as-a-calculator.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R as a Calculator</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-types.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Objects and Object Types</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./operations-on-vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Operations on Vectors</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./comparing-vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Comparing Vectors</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r-scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R Scripts</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reading-csv-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Loading a CSV Dataset</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">R Packages</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dataframes-indexing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dataframes: Indexing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dataframes-creating-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Dataframes: Creating Variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dataframes-summary-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Dataframes: Summary Statistics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-cleaning.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Data Cleaning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-plotting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduction to Plotting</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./plotting-with-ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Visualization with <code>ggplot</code></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./making-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Making Functions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Univariate Unconstrained Optimization</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ifelse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Conditional Statements</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./merging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Merging</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reshaping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Reshaping</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./aggregating.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Aggregating by Group</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tutorial Exercises</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#skipping-rows" id="toc-skipping-rows" class="nav-link active" data-scroll-target="#skipping-rows"><span class="header-section-number">13.1</span> Skipping Rows</a></li>
+  <li><a href="#formatting-dates" id="toc-formatting-dates" class="nav-link" data-scroll-target="#formatting-dates"><span class="header-section-number">13.2</span> Formatting Dates</a>
+  <ul class="collapse">
+  <li><a href="#converting-dates-in-the-asml-example" id="toc-converting-dates-in-the-asml-example" class="nav-link" data-scroll-target="#converting-dates-in-the-asml-example"><span class="header-section-number">13.2.1</span> Converting Dates in the ASML Example</a></li>
+  <li><a href="#converting-dates-from-other-formats" id="toc-converting-dates-from-other-formats" class="nav-link" data-scroll-target="#converting-dates-from-other-formats"><span class="header-section-number">13.2.2</span> Converting Dates from Other Formats</a></li>
+  <li><a href="#converting-dates-with-month-names-optional" id="toc-converting-dates-with-month-names-optional" class="nav-link" data-scroll-target="#converting-dates-with-month-names-optional"><span class="header-section-number">13.2.3</span> Converting Dates with Month Names (Optional)</a></li>
+  </ul></li>
+  <li><a href="#converting-characters-to-numbers" id="toc-converting-characters-to-numbers" class="nav-link" data-scroll-target="#converting-characters-to-numbers"><span class="header-section-number">13.3</span> Converting Characters to Numbers</a></li>
+  <li><a href="#deleting-columns" id="toc-deleting-columns" class="nav-link" data-scroll-target="#deleting-columns"><span class="header-section-number">13.4</span> Deleting columns</a></li>
+  <li><a href="#dropping-rows-with-missing-data" id="toc-dropping-rows-with-missing-data" class="nav-link" data-scroll-target="#dropping-rows-with-missing-data"><span class="header-section-number">13.5</span> Dropping rows with missing data</a></li>
+  <li><a href="#renaming-variables" id="toc-renaming-variables" class="nav-link" data-scroll-target="#renaming-variables"><span class="header-section-number">13.6</span> Renaming Variables</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-data-cleaning" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Data Cleaning</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
+<p>Often when we get a dataset we need to analyze, it’s not always exactly structured and formatted in a way that we can immediately work with it. Here are some examples of this:</p>
+<ul>
+<li>The data don’t start at the top of the file because the first few rows contain some other information.</li>
+<li>The dates are not formatted correctly.</li>
+<li>Numbers are interpreted as characters.</li>
+<li>The data contain extra columns that we don’t want.</li>
+<li>There are rows with missing data that we want to omit.</li>
+<li>The variable names are not what we want them to be.</li>
+</ul>
+<p>In these cases we need to <em>clean</em> the data before we can work with it. By cleaning we don’t mean modifying the underlying data. It just means bringing the dataset into a format such that we can more easily work with it in R.</p>
+<p>Some datasets are “dirtier” than others, sometimes so “dirty” that it can take weeks or even months to clean. Fortunately we will stick to “lightly unkempt” data for this course that can be cleaned with only a few lines of code.</p>
+<p>In this chapter we will learn some basic data cleaning techniques to deal with the 6 example issues listed above. We will do this using stock price data for the company ASML from the Amsterdam Stock Exchange.</p>
+<p>Download the following file: <a href="https://walshc.github.io/ebi-prog/asml-trades.csv">asml-trades.csv</a> and put it in your project folder. The variable names and meanings are:</p>
+<ul>
+<li><code>Date</code>: The date the data from that row are from.</li>
+<li><code>Open</code>: The opening price of the stock on that day.</li>
+<li><code>High</code>: The highest price the stock traded at on that day.</li>
+<li><code>Low</code>: The lowest price the stock traded at on that day.</li>
+<li><code>Last</code>: The price of the last-traded stock at on that day.</li>
+<li><code>Close</code>: The closing price of the stock on that day.</li>
+<li><code>Number.of.Shares</code>: The number of shares traded that day.</li>
+<li><code>Number.of.Trades</code>: The number of trades made that day.</li>
+</ul>
+<section id="skipping-rows" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="skipping-rows"><span class="header-section-number">13.1</span> Skipping Rows</h2>
+<p>Before reading the dataset into R, let’s take a quick look at the text in the file itself. In the <em>Files</em> tab in RStudio, click on the <code>asml-trades.csv</code> file and click “View File”. The text of the file opens in RStudio. The first few lines should look like:</p>
+<pre><code>Historical Data,,,,,,,,
+From 2021-08-31 to 2023-08-30,,,,,,,,
+NL0010273215,,,,,,,,
+Date,Open,High,Low,Last,Close,Number of Shares,Number of Trades,Print table
+31/8/2021,713.8,717.7,699.9,704.5,704.5,978555,36599,
+1/9/2021,712.4,715.5,706.4,714.2,714.2,674506,38527,
+2/9/2021,713.9,723.4,708.4,722.2,722.2,533840,29229,</code></pre>
+<p>We immediately notice that the first 3 rows contain information about the data that we don’t want to include in our dataframe. The variable names are on line 4 instead of line 1.</p>
+<p>One option would be to delete those rows and save the file. However, it is bad practice to directly edit a data file. One should always work with the raw CSV file as it was downloaded. This makes it easier to reproduce your work and show your steps through your R script. Fortunately the <code>read.csv()</code> function has an option to skip rows. We can use this with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"asml-trades.csv"</span>, <span class="at">skip =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We could also have read in the data directly from the URL with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://walshc.github.io/ebi-prog/asml-trades.csv"</span>, <span class="at">skip =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This way we wouldn’t have to set up an RStudio project or change the working directory.</p>
+<p>Let’s take a first look at the data with <code>summary()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Date                Open            High            Low       
+ Length:521         Min.   :394.7   Min.   :408.2   Min.   :375.8  
+ Class :character   1st Qu.:535.5   1st Qu.:545.5   1st Qu.:525.8  
+ Mode  :character   Median :592.1   Median :597.4   Median :582.5  
+                    Mean   :589.2   Mean   :597.5   Mean   :579.6  
+                    3rd Qu.:645.5   3rd Qu.:652.5   3rd Qu.:636.1  
+                    Max.   :770.5   Max.   :777.5   Max.   :764.2  
+                    NA's   :6       NA's   :6       NA's   :6      
+      Last           Close       Number.of.Shares   Number.of.Trades  
+ Min.   :397.4   Min.   :397.4   Length:521         Length:521        
+ 1st Qu.:535.9   1st Qu.:535.9   Class :character   Class :character  
+ Median :589.4   Median :589.4   Mode  :character   Mode  :character  
+ Mean   :588.4   Mean   :588.4                                        
+ 3rd Qu.:644.0   3rd Qu.:644.0                                        
+ Max.   :770.5   Max.   :770.5                                        
+ NA's   :6       NA's   :6                                            
+ Print.table   
+ Mode:logical  
+ NA's:521      
+               
+               
+               
+               
+               </code></pre>
+</div>
+</div>
+<p>From this we can see a few problems:</p>
+<ul>
+<li>From the summary of the <code>Date</code> variable, we can see that R read it in as a character. It did not recognize that it was a date.</li>
+<li>The variables <code>Open</code>, <code>High</code>, <code>Low</code>, <code>Last</code> and <code>Close</code> contain 6 <code>NA</code>s. <code>NA</code> stands for “Not Available” and is what R uses to represent missing values.</li>
+<li>For the variables <code>Number.of.Shares</code> and <code>Number.of.Trades</code>, we can see that they were read in as characters instead of numbers.</li>
+<li><code>Print.table</code> has 521 <code>NA</code>s (all values are <code>NA</code>), thus this variable is useless and should be deleted.</li>
+<li>We also want to change some of the variable names and also change the names to lower case and replace the dots (<code>.</code>) with underscores (<code>_</code>).</li>
+</ul>
+<p>We will work through these problems for the rest of this chapter.</p>
+</section>
+<section id="formatting-dates" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="formatting-dates"><span class="header-section-number">13.2</span> Formatting Dates</h2>
+<section id="converting-dates-in-the-asml-example" class="level3" data-number="13.2.1">
+<h3 data-number="13.2.1" class="anchored" data-anchor-id="converting-dates-in-the-asml-example"><span class="header-section-number">13.2.1</span> Converting Dates in the ASML Example</h3>
+<p>We will start by converting the date variable from a character to a date variable. This is useful for doing operations with the date (such as subsetting the data on observations before/after a particular date) and for plotting.</p>
+<p>We can convert the character to a date using the <code>as.Date()</code> function. The first argument of the function is the vector of dates that need to be converted, and the <code>format</code> argument specifies the format the date is written in. Let’s see what format the dates are written in using the <code>head()</code> command to see the first few rows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df<span class="sc">$</span>Date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "31/8/2021" "1/9/2021"  "2/9/2021"  "3/9/2021"  "6/9/2021"  "7/9/2021" </code></pre>
+</div>
+</div>
+<p>When we look at the data, we can see that the format is dd/mm/yyyy. To specify this we need to write <code>format = "%d/%m/%Y"</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(df<span class="sc">$</span>Date, <span class="at">format =</span> <span class="st">"%d/%m/%Y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can check what this did with the <code>head()</code> command again:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df<span class="sc">$</span>Date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2021-08-31" "2021-09-01" "2021-09-02" "2021-09-03" "2021-09-06"
+[6] "2021-09-07"</code></pre>
+</div>
+</div>
+<p>We can see that when R has dates correctly formatted they show up in the format yyyy-mm-dd. This is the default format.</p>
+<p>Now that the date is formatted correctly, the <code>summary()</code> command shows the first and last dates in the data (31 August 2021 and 29 August 2023):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>Date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
+"2021-08-31" "2022-03-01" "2022-08-30" "2022-08-29" "2023-02-28" "2023-08-29" </code></pre>
+</div>
+</div>
+</section>
+<section id="converting-dates-from-other-formats" class="level3" data-number="13.2.2">
+<h3 data-number="13.2.2" class="anchored" data-anchor-id="converting-dates-from-other-formats"><span class="header-section-number">13.2.2</span> Converting Dates from Other Formats</h3>
+<p>Dates in the Netherlands are typically written like dd-mm-yyyy. If it was the case we would instead do <code>"%d-%m-%Y"</code>. You can try this out with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">"1-9-2023"</span>, <span class="at">format =</span> <span class="st">"%d-%m-%Y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2023-09-01"</code></pre>
+</div>
+</div>
+<p>If the dates were in mm/dd/yyyy format, as is typical in USA, we would do <code>"%m/%d/%Y"</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">"12/31/2022"</span>, <span class="at">format =</span> <span class="st">"%m/%d/%Y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2022-12-31"</code></pre>
+</div>
+</div>
+<p>Sometimes we omit the century from years. We might write the 1st of September 2023 as 01/09/23. In R we need to use <code>%y</code> instead of <code>%Y</code> for these abbreviated years:<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">"01/09/22"</span>, <span class="at">format =</span> <span class="st">"%d/%m/%y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2022-09-01"</code></pre>
+</div>
+</div>
+</section>
+<section id="converting-dates-with-month-names-optional" class="level3" data-number="13.2.3">
+<h3 data-number="13.2.3" class="anchored" data-anchor-id="converting-dates-with-month-names-optional"><span class="header-section-number">13.2.3</span> Converting Dates with Month Names (Optional)</h3>
+<p>Sometimes the dates have the month name in words. To convert this we need to use the <code>%b</code> option for abbreviated month names and <code>%B</code> for full month names:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">"Sep 1 2023"</span>, <span class="at">format =</span> <span class="st">"%b %d %Y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2023-09-01"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">"January 1 2023"</span>, <span class="at">format =</span> <span class="st">"%B %d %Y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2023-01-01"</code></pre>
+</div>
+</div>
+<p>Note that if your computer is not in English it might not work as R expects to read months in the language of your computer. To get around this, you can first set the language for dates to English using the <code>Sys.setlocale()</code> function before formatting the dates. Because of the complications with month names in different languages, I will not ask questions on the assignments or exam involving this. I am just providing this information in case it may be useful for you later.</p>
+<!-- For example, my computer is normally in Irish. If I try to convert `"Sep 1 2023"` to a date, I will get an `NA`: -->
+<!-- ```{r,echo=F,results="hide"} -->
+<!-- Sys.setlocale("LC_TIME", "ga_IE.UTF-8")  -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- as.Date("September 1 2023", format = "%B %d %Y") -->
+<!-- ``` -->
+<!-- This is because September 1 2023 in Irish is written very differently: -->
+<!-- ```{r} -->
+<!-- format(as.Date("2023-09-01"), format = "%B %d %Y") -->
+<!-- ``` -->
+<!--  -->
+<!-- ### Summary of Date Formats -->
+<!-- All the different possibilities are shown on the page `help(strptime)`, but here are the important ones you should know: -->
+<!-- - `%d` Day of the month as decimal number (01–31). -->
+<!-- - `%m` Month as decimal number, e.g. 01 for January. -->
+<!-- - `%B` Full month name, e.g. January. -->
+<!-- - `%b` Abbreviated month name, e.g. Jan. -->
+<!-- - `%Y` Year with century, e.g. 2023. -->
+<!-- - `%y` Year without century, e.g. 23 for 2023. -->
+</section>
+</section>
+<section id="converting-characters-to-numbers" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="converting-characters-to-numbers"><span class="header-section-number">13.3</span> Converting Characters to Numbers</h2>
+<p>For the variables <code>Number.of.Shares</code> and <code>Number.of.Trades</code>, we saw that they were read in as characters instead of numbers. Usually this happens when there are some letters or other non-numeric symbols (like the % symbol) somewhere in the data. This is because all elements of vectors in R (the individual columns of a <code>data.frame</code>) must have the same data type. If there are any character elements in a vector, the remaining elements are coerced into characters.</p>
+<p>If we look through the data we can see that some rows have <code>"None"</code> written instead of <code>NA</code>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>To do this conversion we first replace the <code>"None"</code> values with <code>NA</code>. We do this by assigning <code>NA</code> to the subset of values where <code>df$Number.of.Shares == "None"</code>:<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Number.of.Shares[df<span class="sc">$</span>Number.of.Shares <span class="sc">==</span> <span class="st">"None"</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once we have done this we use the <code>as.numeric()</code> function to convert the values from <code>character</code> to <code>numeric</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Number.of.Shares <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(df<span class="sc">$</span>Number.of.Shares)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now when we summarize we see that it’s treated as a number:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>Number.of.Shares)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  84141  571178  711067  783291  916000 2932273       6 </code></pre>
+</div>
+</div>
+<p>We can do the same with the <code>Number.of.Trades</code>. We are also able to do this skipping the step of converting the <code>"None"</code> to <code>NA</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Number.of.Trades <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(df<span class="sc">$</span>Number.of.Trades)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: NAs introduced by coercion</code></pre>
+</div>
+</div>
+<p>When we do this, however, we see that R warned us that it converted some observations to <code>NA</code>. A warning is different to an error in that R still completes the operation (in an error it will just stop). But it is warning us because we may not have expected some values to be forced to <code>NA</code>. In general it is better to code in a way that doesn’t generate warnings, so I recommend setting the non-numeric values to <code>NA</code> first.</p>
+</section>
+<section id="deleting-columns" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="deleting-columns"><span class="header-section-number">13.4</span> Deleting columns</h2>
+<p>The last column of the data, <code>Print.table</code>, contains no data. It has <code>NA</code> for all rows.</p>
+<p>To delete a variable we write over the variable with <code>NULL</code>. This essentially replaces it with nothing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Print.table <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>An alternative approach would be to use the column index of the variable we want to drop. <code>Print.table</code> is the 9th column in the data, and to drop the 9th column we could use:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[, <span class="sc">-</span><span class="dv">9</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If we view the data in RStudio, we can see that it is now deleted.</p>
+</section>
+<section id="dropping-rows-with-missing-data" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="dropping-rows-with-missing-data"><span class="header-section-number">13.5</span> Dropping rows with missing data</h2>
+<p>Let’s take a look at how our data look now:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Date                 Open            High            Low       
+ Min.   :2021-08-31   Min.   :394.7   Min.   :408.2   Min.   :375.8  
+ 1st Qu.:2022-03-01   1st Qu.:535.5   1st Qu.:545.5   1st Qu.:525.8  
+ Median :2022-08-30   Median :592.1   Median :597.4   Median :582.5  
+ Mean   :2022-08-29   Mean   :589.2   Mean   :597.5   Mean   :579.6  
+ 3rd Qu.:2023-02-28   3rd Qu.:645.5   3rd Qu.:652.5   3rd Qu.:636.1  
+ Max.   :2023-08-29   Max.   :770.5   Max.   :777.5   Max.   :764.2  
+                      NA's   :6       NA's   :6       NA's   :6      
+      Last           Close       Number.of.Shares  Number.of.Trades
+ Min.   :397.4   Min.   :397.4   Min.   :  84141   Min.   :  4398  
+ 1st Qu.:535.9   1st Qu.:535.9   1st Qu.: 571178   1st Qu.: 26290  
+ Median :589.4   Median :589.4   Median : 711067   Median : 33375  
+ Mean   :588.4   Mean   :588.4   Mean   : 783291   Mean   : 35830  
+ 3rd Qu.:644.0   3rd Qu.:644.0   3rd Qu.: 916000   3rd Qu.: 42707  
+ Max.   :770.5   Max.   :770.5   Max.   :2932273   Max.   :108957  
+ NA's   :6       NA's   :6       NA's   :6         NA's   :6       </code></pre>
+</div>
+</div>
+<p>We can see that there are 6 <code>NA</code>s for all variables except the <code>Date</code> variable. If we scroll through the data we notice that 6 rows with <code>NA</code>s are the same for all variables. Let’s have a look at what dates these are. We can do this using the <code>is.na()</code> function. This function, when applied to a vector, returns <code>TRUE</code> if the element is <code>NA</code> and <code>FALSE</code> if not. To see the dates when the variables are missing, we can do:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Date[<span class="fu">is.na</span>(df<span class="sc">$</span>Open)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2022-04-15" "2022-04-18" "2022-12-26" "2023-04-07" "2023-04-10"
+[6] "2023-05-01"</code></pre>
+</div>
+</div>
+<p>We can see that the missings were:</p>
+<ul>
+<li>2022-04-15: Good Friday</li>
+<li>2022-04-18: Easter Monday (<em>Tweede paasdag</em>)</li>
+<li>2022-12-26: Day after Christmas (<em>Tweede kerstdag</em>)</li>
+<li>2023-04-07: Good Friday</li>
+<li>2023-04-10: Easter Monday (<em>Tweede paasdag</em>)</li>
+<li>2023-05-01: Labor Day (<em>Dag van de Arbeid</em>)</li>
+</ul>
+<p>These are weekdays where the Amsterdam stock market is closed. We can drop rows with any missing values using the <code>na.omit()</code> function. I will print the number of rows in <code>df</code> before and after the operation to show what is happening:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 521</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(df)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 515</code></pre>
+</div>
+</div>
+<p>We can see that we fell from 521 observations to 515 after deleting the 6 holidays from the data.</p>
+</section>
+<section id="renaming-variables" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="renaming-variables"><span class="header-section-number">13.6</span> Renaming Variables</h2>
+<p>Although the variable names are quite okay, suppose we wanted to change some of them.</p>
+<p>Suppose we wanted to change the name of <code>"Number.of.Shares"</code> to <code>"num_shares"</code> to make it shorter to type, and to replace the dot with an underscore. Because we know it occupies the 7th column, we can change the name with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df)[<span class="dv">7</span>] <span class="ot">&lt;-</span> <span class="st">"num_shares"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Suppose we also wanted to change the name of <code>"Number.of.Trades"</code> to <code>"num_trades"</code>. Counting columns like we did above increases our chances of making a mistake (besides, we need to do a lot of counting). We can instead change the name using the old name as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df)[<span class="fu">names</span>(df) <span class="sc">==</span> <span class="st">"Number.of.Trades"</span>] <span class="ot">&lt;-</span> <span class="st">"num_trades"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>How this works is <code>names(df) == "Number.of.Trades"</code> is <code>TRUE</code> only in the 8th column when the name is actually <code>"Number.of.Trades"</code>, and so it changes the name of only that column.</p>
+<p>We can also change the names of multiple columns at the same time. Suppose we wanted to change Open, High, Low and Last to lower case. We can do:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df)[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"open"</span>, <span class="st">"high"</span>, <span class="st">"low"</span>, <span class="st">"last"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If we wanted to quickly change all variable names to lower case, we can use the <code>tolower()</code> function. The <code>tolower()</code> function converts upper case characters to lower case:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"hello!"</span>, <span class="st">"HELLO!"</span>, <span class="st">"Hello!"</span>, <span class="st">"HeLlO!"</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tolower</span>(test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "hello!" "hello!" "hello!" "hello!"</code></pre>
+</div>
+</div>
+<p>Let’s use it to change the names of the data set:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">names</span>(df))</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "date"       "open"       "high"       "low"        "last"      
+[6] "close"      "num_shares" "num_trades"</code></pre>
+</div>
+</div>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>If the date is <code>01/01/69</code>, the format <code>%d/%m/%y</code> will interpret it as January 1 <strong>1969</strong>. But if the date is <code>01/01/68</code>, it will interpret it as January 1 <strong>2068</strong>. All short-format years after 69 are put in the 1900s and all short-format years before 69 are put in the 2000s. You don’t need to remember these details for the exam though because we won’t ever use dates outside of 1969-2068.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>As a shortcut, we could have found all the non-numeric characters in a variable using the following command: <code>unique(grep("[^0-9]", df$Number.of.Trades, value = TRUE))</code>. You don’t need to remember this command for the exam.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>We could also have replaced all elements with non-numeric characters without knowing what they are with the following: <code>df$Number.of.Shares[grepl("[^0-9]", df$Number.of.Trades)] &lt;- NA</code>. You don’t need to remember this command for the exam.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./dataframes-summary-statistics.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Dataframes: Summary Statistics</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./intro-to-plotting.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Introduction to Plotting</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
