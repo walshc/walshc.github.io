@@ -445,7 +445,7 @@ H_1: &amp; \beta_2 &gt; 0.05
 <ul>
 <li>If upper-tailed test: <code>1-pt(t, m$df.residual)</code>.</li>
 <li>If lower-tailed test: <code>pt(t, m$df.residual)</code>.</li>
-<li>If two-sided test: <code>2*(1-pt(t, m$df.residual))</code>.</li>
+<li>If two-sided test: <code>2*(1-pt(abs(t), m$df.residual))</code>.</li>
 </ul>
 </section>
 <section id="sec-mlr-statistical-significance" class="level2" data-number="16.4">
