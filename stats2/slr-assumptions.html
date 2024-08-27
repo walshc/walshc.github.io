@@ -391,7 +391,7 @@ Assumption 2: Random Sampling
 <p>This assumption means that the sample of data we observe were generated according to the model <span class="math inline">Y_i=\beta_0+\beta_1 X_i +\varepsilon_i</span>. The values of <span class="math inline">y_i</span> that we observe are related to the unknown population parameters, observed <span class="math inline">x_i</span> and the unobserved error <span class="math inline">\varepsilon_i</span> according to <span class="math inline">\beta_0+\beta_1x_i +\varepsilon_i</span>, where <span class="math inline">\varepsilon_i</span> is independent across observation <span class="math inline">i</span>.</p>
 <p>A crucial part of this assumption is the independence of the error terms across observations. For that reason this assumption is also called the independence assumption.</p>
 <p>With <em>cross-section data</em>, there could be dependence in <span class="math inline">\varepsilon_i</span> between people in the same household/town/industry. With <em>time-series data</em>, there could be dependence in <span class="math inline">\varepsilon_i</span> in subsequent time periods.</p>
-<p>Violations of this assumption are much more common with time series data. An example of this assumption beind violated can be seen in the figure below, which plots the errors against time:</p>
+<p>Violations of this assumption are much more common with time series data. An example of this assumption being violated can be seen in the figure below, which plots the errors against time:</p>
 <div class="cell" data-layout-align="center" data-fig.asp="0.618">
 <details>
 <summary>Show code generating the plot below</summary>
@@ -405,7 +405,7 @@ Assumption 2: Random Sampling
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>e[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>y[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop over time periods with a first-order autocorrelation in the error:</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop over time periods with first-order autocorrelation in the error:</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>nT) {</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>e[i] <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="fl">0.5</span>) <span class="sc">+</span> <span class="fl">0.95</span> <span class="sc">*</span> df<span class="sc">$</span>e[i <span class="sc">-</span> <span class="dv">1</span>]</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>y[i] <span class="ot">&lt;-</span> <span class="fl">0.0001</span> <span class="sc">*</span> df<span class="sc">$</span>x[i] <span class="sc">+</span> df<span class="sc">$</span>e[i]</span>
@@ -425,7 +425,7 @@ Assumption 2: Random Sampling
 </div>
 </div>
 </div>
-<p>We observe a clear pattern in the errors: if the error is positive in one time period, it’s very likely to be positive in the following time period. Similarly, if the error is negative. If the errors were independent, the value of the error in any given time period should not depend on what the value of the error was in the previous period.</p>
+<p>We observe a clear pattern in the errors: if the error is positive in one time period, it’s very likely to be positive in the following time period. If the error is negative in one time period, it’s also very likely to be negative in the following time period. If the errors were independent, the value of the error in any given time period should not depend on what the value of the error was in the previous period.</p>
 <p>Let’s compare what the errors would look like over time if they were independent:</p>
 <div class="cell" data-layout-align="center" data-fig.asp="0.618">
 <details>
@@ -580,12 +580,12 @@ Assumption 4: Zero Conditional Mean
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The error <span class="math inline">\varepsilon_i</span> has an expected value of zero given any value of the explanatory variable, i.e.~<span class="math inline">\mathbb{E}\left[ \varepsilon_i|X_i \right]=0</span> for all <span class="math inline">X_i</span>.</p>
+<p>The error <span class="math inline">\varepsilon_i</span> has an expected value of zero given any value of the explanatory variable, i.e.&nbsp;<span class="math inline">\mathbb{E}\left[ \varepsilon_i|X_i \right]=0</span> for all <span class="math inline">X_i</span>.</p>
 </div>
 </div>
 <p>An implication of this is that the error term is uncorrelated with the explanatory variable.</p>
-<p>Let’s consider some examples of when this assumption would be violated. The first is a model trying to explain ice cream sales (<span class="math inline">Y</span>) with fan sales (<span class="math inline">X</span>). Ice cream sales are influenced by temperature. Because temperature is not included in the model (is not the <span class="math inline">X</span> variable), temperature is included in the error, <span class="math inline">\varepsilon</span>. But temperature is also correlated with fan sales, so <span class="math inline">\varepsilon</span> is correlated with <span class="math inline">X</span>. Therefore <span class="math inline">\mathbb{E}\left[\varepsilon_i|X_i\right]\neq 0</span>, a violation of the zero conditional mean assumption. This can bias the estimation of <span class="math inline">\beta_1</span>. The true <span class="math inline">\beta_1</span> should equal zero: fan sales doesn’t cause ice cream sales. However, if we were to estimate this model with data we would estimate <span class="math inline">b_1&gt;0</span> as we observe a (spurious) correlation between ice cream sales and fan sales.</p>
-<p>Another example is test scores (<span class="math inline">Y</span>) and classroom size (<span class="math inline">X</span>) that we saw in <a href="spurious-relationships.html"><span>Chapter&nbsp;5</span></a>. Test scores are influenced by socioeconomic status, which is higher in urban areas. So the degree of urbanization is included in <span class="math inline">\varepsilon</span>. But urban areas also have classrooms with more students, so <span class="math inline">\varepsilon</span> is correlated with <span class="math inline">X</span>. The true <span class="math inline">\beta_1</span> should be negative (smaller classrooms improve test scores) but we would estimate <span class="math inline">b_1&gt;0</span>. Estimation is biased again!</p>
+<p>Let’s consider some examples of when this assumption would be violated. The first is a model trying to explain ice cream sales (<span class="math inline">Y</span>) with fan sales (<span class="math inline">X</span>). Ice cream sales are influenced by temperature. Because temperature is not included in the model (is not the <span class="math inline">X</span> variable), temperature is included in the error, <span class="math inline">\varepsilon</span>. But temperature is also correlated with fan sales, so <span class="math inline">\varepsilon</span> is correlated with <span class="math inline">X</span>. Therefore <span class="math inline">\mathbb{E}\left[\varepsilon_i|X_i\right]\neq 0</span>, a violation of the zero conditional mean assumption. This can bias the estimation of <span class="math inline">\beta_1</span>. The true <span class="math inline">\beta_1</span> should equal zero: if fan sales increase and nothing else changes (i.e.&nbsp;temperature stays the same), then there should be no increase in ice cream sales. However, if we were to estimate this model with data we would estimate <span class="math inline">b_1&gt;0</span> as we observe a (spurious) correlation between ice cream sales and fan sales.</p>
+<p>Another example is the test scores (<span class="math inline">Y</span>) and classroom size (<span class="math inline">X</span>) example that we saw in <a href="spurious-relationships.html"><span>Chapter&nbsp;5</span></a>. Test scores are influenced by socioeconomic status, which is higher in urban areas. So the degree of urbanization is included in <span class="math inline">\varepsilon</span>. But urban areas also have classrooms with more students, so <span class="math inline">\varepsilon</span> is correlated with <span class="math inline">X</span>. The true <span class="math inline">\beta_1</span> should be negative (smaller classrooms improve test scores) but we would estimate <span class="math inline">b_1&gt;0</span>. Estimation is biased again!</p>
 <p>Non-linearities in the relationship between <span class="math inline">X</span> and <span class="math inline">Y</span> can also violate the zero conditional mean assumption <span class="math inline">\mathbb{E}\left[ \varepsilon_i|X_i \right]=0</span>. Consider the following plot:</p>
 <div class="cell" data-layout-align="center" data-fig.asp="0.618">
 <details>
@@ -607,7 +607,7 @@ Assumption 4: Zero Conditional Mean
 </div>
 </div>
 </div>
-<p>At <span class="math inline">x=75</span>, the average value of the error term is negative, whereas at <span class="math inline">x=125</span>, the average value of the error term is positive. Under the zero conditional mean assumption, the average value of the error should be zero at all values of <span class="math inline">X</span>, so this would be a violation of this assumption.</p>
+<p>At <span class="math inline">x=75</span>, the average value of the error term is negative, whereas at <span class="math inline">x=125</span>, the average value of the error term is positive. Under the zero conditional mean assumption, the average value of the error should be zero at all values of <span class="math inline">X</span>, so this would also be a violation of this assumption.</p>
 </section>
 <section id="assumption-5-homoskedasticity" class="level2" data-number="8.5">
 <h2 data-number="8.5" class="anchored" data-anchor-id="assumption-5-homoskedasticity"><span class="header-section-number">8.5</span> Assumption 5: Homoskedasticity</h2>
@@ -626,7 +626,7 @@ Assumption 5: Homoskedasticity
 </span></p>
 </div>
 </div>
-<p>Homoskedasticity means that the variance of the errors is the same for small values of <span class="math inline">x</span> and large values of <span class="math inline">x</span>. “Skedasticity” comes from the Ancient Greek work σκεδάννυμι (skedánnymi) which means to scatter or disperse. So homoskedasticity litterly means “same dispersion”. A violation of homoskedasticity is called <em>heteroskedasticity</em>, which means “different dispersion”.</p>
+<p>Homoskedasticity means that the variance of the errors is the same for small values of <span class="math inline">x</span> and large values of <span class="math inline">x</span>. “Skedasticity” comes from the Ancient Greek word σκεδάννυμι (skedánnymi) which means to scatter or disperse. So homoskedasticity litterly means “same dispersion”. A violation of homoskedasticity is called <em>heteroskedasticity</em>, which means “different dispersion”.</p>
 <p>Let’s take a look at a scatter plot of data that violate the homoskedasticity assumption:</p>
 <div class="cell" data-layout-align="center" data-fig.asp="0.618">
 <details>
@@ -647,7 +647,7 @@ Assumption 5: Homoskedasticity
 </div>
 </div>
 </div>
-<p>The variance of the residuals are small at low <span class="math inline">x</span> and large at high <span class="math inline">x</span>.</p>
+<p>The variance of the residuals is small at low <span class="math inline">x</span> and large at high <span class="math inline">x</span>.</p>
 <p>Let’s learn how to visually inspect our data for heteroskedasticity in R (in a later chapter we will learn how to formally test for it). We will use the advertising and sales data again.</p>
 <p>We first obtain the residuals from our estimated model, just like we did when we were testing assumption 2:</p>
 <div class="cell">
