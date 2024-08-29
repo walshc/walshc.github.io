@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Programming and Quantitative Skills: Extra Practice Questions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="extra-practice-questions_files/libs/clipboard/clipboard.min.js"></script>
+<script src="extra-practice-questions_files/libs/quarto-html/quarto.js"></script>
+<script src="extra-practice-questions_files/libs/quarto-html/popper.min.js"></script>
+<script src="extra-practice-questions_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="extra-practice-questions_files/libs/quarto-html/anchor.min.js"></script>
+<link href="extra-practice-questions_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="extra-practice-questions_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="extra-practice-questions_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="extra-practice-questions_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="extra-practice-questions_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Programming and Quantitative Skills: Extra Practice Questions</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="short-answer-questions-5-points" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="short-answer-questions-5-points">Short-Answer Questions (5 points)</h2>
+<section id="question-1-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-1-1-point">Question 1 (1 point)</h3>
+<p>Calculate <span class="math inline">\(e^2\)</span> using R:</p>
+</section>
+<section id="question-2-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-2-1-point">Question 2 (1 point)</h3>
+<p>Calculate <span class="math inline">\(\sqrt[4]{256}\)</span> using R.</p>
+</section>
+<section id="question-3-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-3-1-point">Question 3 (1 point)</h3>
+<p>If we create the following vector in R, what class will it be?</p>
+<pre><code>c(FALSE, TRUE, "c", "d")</code></pre>
+<ul>
+<li>Logical.</li>
+<li>Character.</li>
+<li>Both logical nd character.</li>
+<li>Neither logical nor character.</li>
+</ul>
+<p>Note: You do not need to supply your code for this question.</p>
+</section>
+<section id="question-4-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-4-1-point">Question 4 (1 point)</h3>
+<p>Write an R command to generate a numeric vector containing the following sequence:</p>
+<p><span class="math display">\[
+(0, 2, 0, 4, 0, 6, 0, 8, \dots, 0, 98, 0, 100)
+\]</span></p>
+</section>
+<section id="question-5-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-5-1-point">Question 5 (1 point)</h3>
+<p>Consider the two vectors below: <span class="math display">\[
+\begin{split}
+a &amp;= (1, 4, 8, 2, 5, 6) \\
+b &amp;= (2, 4, 6, 8, 10)
+\end{split}
+\]</span> Write an R command that returns for each element in <span class="math inline">\(a\)</span>, <code>TRUE</code> if that element is contained anywhere <span class="math inline">\(b\)</span>, and <code>FALSE</code> otherwise. The output should be a logical vector with 6 elements (the number of elements in <span class="math inline">\(a\)</span>). For example, the first element should be <code>FALSE</code> because 1 is not contained anywhere in <span class="math inline">\(b\)</span>, whereas the second element should be <code>TRUE</code> because 4 is contained somewhere in <span class="math inline">\(b\)</span>.</p>
+</section>
+</section>
+<section id="data-analysis-5-points" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="data-analysis-5-points">Data Analysis (5 points)</h2>
+<p>Download the dataset <a href="https://walshc.github.io/pqs/ceosal.csv">ceosal.csv</a>. The dataset contains information on chief executive officers (CEOs) at different companies. The variable descriptions are:</p>
+<ul>
+<li><code>salary</code>: CEO compensation in 1990 (in dollars).</li>
+<li><code>age</code>: CEO age</li>
+<li><code>college</code>: <span class="math inline">\(=1\)</span> if the CEO attended college and <span class="math inline">\(=0\)</span> otherwise.</li>
+<li><code>grad</code>: <span class="math inline">\(=1\)</span> if the CEO attended post-graduate education and <span class="math inline">\(=0\)</span> otherwise.</li>
+<li><code>comten</code>: Years the CEO worked with the company.</li>
+<li><code>ceoten</code>: Years as CEO with the company.</li>
+<li><code>profits</code>: Profits of the company in 1990 (in dollars).</li>
+</ul>
+<section id="question-6-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-6-1-point">Question 6 (1 point)</h3>
+<p>How many variables are in the dataset?</p>
+</section>
+<section id="question-7-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-7-1-point">Question 7 (1 point)</h3>
+<p>What is the maximum of the variable <code>comten</code>?</p>
+</section>
+<section id="question-8-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-8-1-point">Question 8 (1 point)</h3>
+<p>What is the mean salary of the CEOs aged between 50-59?</p>
+</section>
+<section id="question-9-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-9-1-point">Question 9 (1 point)</h3>
+<p>How many CEOs in the dataset didn’t work for their company before becoming the CEO?</p>
+</section>
+<section id="question-10-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-10-1-point">Question 10 (1 point)</h3>
+<p>How old is the best-paid CEO in the dataset?</p>
+</section>
+</section>
+<section id="data-cleaning-4-points" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="data-cleaning-4-points">Data Cleaning (4 points)</h2>
+<p>Download the dataset <a href="https://walshc.github.io/pqs/euro-dollar-2022.csv">euro-dollar-2022.csv</a>. The dataset contains the closing Euro-Dollar exchange rate (variable “Price”) each day throughout 2022, together with the opening, highest and lowest exchange rate. Furthermore, it includes the volume traded and the percentage daily change in the closing price.</p>
+<p>In this question you will need clean this dataset to answer the questions that follow.</p>
+<p>You should do the following cleaning tasks:</p>
+<ol type="1">
+<li>Format the <code>Date</code> variable to a date.</li>
+<li>Sort the data by <code>Date</code> ascending (the earliest date in the data should be first, the most recent date last).</li>
+<li>Drop rows with any missing data.</li>
+<li>Convert <code>Price</code>, <code>Open</code>, <code>High</code> and <code>Low</code> to numeric.</li>
+<li>Convert <code>Vol</code> to numeric. For example, <code>"33.87K"</code> should be <code>33870</code>. <em>Hint:</em> First use the <code>gsub()</code> function to remove the <code>K</code>. Then convert the variable to numeric format. Finally multiply it by 1,000.</li>
+<li>Convert <code>Change</code> to numeric. <em>Tip:</em> Use <code>gsub("\\%", "", x)</code> to remove a percentage symbol from <code>x</code>.</li>
+<li>Convert all variable names to lower case.</li>
+</ol>
+<p>If you did all the steps correctly, you should have 260 observations. The average of the <code>high</code> variable should be 0.9561. The average of the <code>vol</code> variable should be 79,920. If only some of these match your cleaned dataset, you will still be able to answer some of the questions correctly.</p>
+<section id="question-11-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-11-1-point">Question 11 (1 point)</h3>
+<p>Create a variable called <code>open_vs_close</code> which is the <code>open</code> variable minus the <code>price</code> variable. What is the maximum of this variable?</p>
+</section>
+<section id="question-12-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-12-1-point">Question 12 (1 point)</h3>
+<p>Use the function <code>wday()</code> from the <code>lubridate</code> package to get the numeric day of the week from the <code>date</code> variable as follows: <code>wday(df$date, week_start = 1)</code>. The function returns numbers for each day of the week as follows:</p>
+<ul>
+<li>1 means Monday.</li>
+<li>2 means Tuesday.</li>
+<li>3 means Wednesday.</li>
+<li>4 means Thursday.</li>
+<li>5 means Friday.</li>
+</ul>
+<p>On what day of the week was the lowest volume traded in the dataset?</p>
+</section>
+<section id="question-13-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-13-1-point">Question 13 (1 point)</h3>
+<p>What was the largest <em>positive</em> daily price change in the data?</p>
+<p>Write the percentage change without the <code>%</code> symbol.</p>
+</section>
+<section id="question-14-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-14-1-point">Question 14 (1 point)</h3>
+<p>What proportion of days did the exchange rate exceed 1.00?</p>
+</section>
+</section>
+<section id="optimization-3-points" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="optimization-3-points">Optimization (3 points)</h2>
+<p>The following 3 questions will involve working with the following mathematical function defined over all real numbers <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[
+f(x) =
+\begin{cases}
+3 &amp;\text{ if } x &lt; -1 \\
+8 &amp;\text{ if } x &gt; 4 \\
+x^2-2x &amp;\text{ otherwise}  \\
+\end{cases}
+\]</span></p>
+<section id="question-15-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-15-1-point">Question 15 (1 point)</h3>
+<p>Plot the function between the <span class="math inline">\(x\)</span> values <span class="math inline">\(-3\)</span> and <span class="math inline">\(+5\)</span>. Choose the answer below which best describes the shape of this function:</p>
+<ul>
+<li>Flat everywhere</li>
+<li>U shape</li>
+<li>Inverted U shape (upside-down U)</li>
+<li>Flat over some ranges of <span class="math inline">\(x\)</span>, and U-shaped in other ranges of <span class="math inline">\(x\)</span>.</li>
+<li>Flat over some ranges of <span class="math inline">\(x\)</span>, and inverted U-shaped in other ranges of <span class="math inline">\(x\)</span>.</li>
+</ul>
+<p>Note: you do not need to save your answer in your R script for this question.</p>
+</section>
+<section id="question-16-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-16-1-point">Question 16 (1 point)</h3>
+<p>Use R to find the value of <span class="math inline">\(x\)</span> that minimizes this function. Specify the interval to search over to be <span class="math inline">\([-1, 4]\)</span>.</p>
+</section>
+<section id="question-17-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-17-1-point">Question 17 (1 point)</h3>
+<p>What value does the function take at the minimum?</p>
+</section>
+</section>
+<section id="aggregating-merging-and-reshaping-3-points" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="aggregating-merging-and-reshaping-3-points">Aggregating, Merging and Reshaping (3 points)</h2>
+<p>Download the two datasets:</p>
+<ol type="1">
+<li><a href="https://walshc.github.io/pqs/gdp-per-capita-growths.csv">gdp-per-capita-growths.csv</a> - this dataset contains 3 variables: <code>country</code>, <code>year</code> and <code>gdp_pc_growth</code>. The variable <code>gdp_pc_growth</code> is the growth rate of the country’s per capita gross domestic product (GDP) in that year.</li>
+<li><a href="https://walshc.github.io/pqs/lending-rates.csv">lending-rates.csv</a> - this dataset contains 3 variables: <code>country</code>, <code>year</code> and <code>lending_rate</code>. The variable <code>lending_rate</code> is the lending interest rate in that country in that year.</li>
+</ol>
+<section id="question-18-1-points" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-18-1-points">Question 18 (1 points)</h3>
+<p>Using the dataset <code>gdp-per-capita-growths.csv</code>, calculate the minimum per capita GDP growth rate each country experienced over the years recorded in the dataset.</p>
+<p>Which country had the largest minimum growth rate out of all countries?</p>
+</section>
+<section id="question-19-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-19-1-point">Question 19 (1 point)</h3>
+<p>Merge the datasets <code>gdp-per-capita-growths.csv</code> and <code>lending-rates.csv</code> together by the variables <code>"country"</code> and <code>"year"</code>, keeping all observations in the <code>gdp-per-capita-growths.csv</code> dataset, but only merging observations from the <code>lending-rates.csv</code> dataset with a match.</p>
+<p>Your merged dataset should have 4,087 observations and 4 variables.</p>
+<p>How many observations of the variable <code>lending_rate</code> are missing in the merged dataset?</p>
+</section>
+<section id="question-20-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-20-1-point">Question 20 (1 point)</h3>
+<p>Perform the following steps with the <code>lending-rates.csv</code> dataset:</p>
+<ul>
+<li>Create a subset of the dataset which only includes data on the years 2000 and 2010.</li>
+<li>Using this subset, reshape the data to <em>wide format</em> with rows representing countries and columns for the country, the lending rate in 2000 and the lending rate in 2010.</li>
+<li>Drop any rows with missing observations.</li>
+</ul>
+<p>Your resulting dataset should have 108 rows and 3 variables. The first three rows should look like:</p>
+<pre><code>country      2000     2010
+Albania  22.10250 12.82233
+Algeria  10.00000  8.00000
+ Angola 103.16017 22.54357</code></pre>
+<p>What is the mean change in the lending rate from 2000 to 2010 in the dataset? That is, find the mean of the lending rate in 2010 minus the lending rate in 2000.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
