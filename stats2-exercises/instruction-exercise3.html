@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Instruction Exercise Week 3</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="instruction-exercise3_files/libs/clipboard/clipboard.min.js"></script>
+<script src="instruction-exercise3_files/libs/quarto-html/quarto.js"></script>
+<script src="instruction-exercise3_files/libs/quarto-html/popper.min.js"></script>
+<script src="instruction-exercise3_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="instruction-exercise3_files/libs/quarto-html/anchor.min.js"></script>
+<link href="instruction-exercise3_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="instruction-exercise3_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="instruction-exercise3_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="instruction-exercise3_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="instruction-exercise3_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a>
+  <ul class="collapse">
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#r-tips-based-on-question-1" id="toc-r-tips-based-on-question-1" class="nav-link" data-scroll-target="#r-tips-based-on-question-1">R Tips Based on Question 1</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Instruction Exercise Week 3</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
+<section id="introduction" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
+<!--
+
+::: {.cell}
+
+```{.r .cell-code}
+df <- haven::read_stata("Earnings_and_Height.dta")
+df <- df[df$sex == 1, c("earnings", "height", "weight")]
+df$height <- round(df$height * 2.54)
+df$weight <- round(df$weight / 2.204623, 1)
+write.csv(df, file = "instruction3.csv", row.names = FALSE)
+```
+:::
+
+-->
+<p>The file <a href="https://walshc.github.io/stats2/instruction3.csv">instruction3.csv</a> contains the following three variables for a random sample of American male workers from 1994:</p>
+<ul>
+<li><code>earnings</code>: Annual labor earnings in USD.</li>
+<li><code>height</code>: Height without shoes in centimeters.</li>
+<li><code>weight</code>: Weight without shoes in kilograms.</li>
+</ul>
+</section>
+<section id="exercises" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<ol type="1">
+<li>Estimate three simple linear regression models:</li>
+</ol>
+<ul>
+<li>Model 1: Earnings explained by height.</li>
+<li>Model 2: Earnings explained by weight.</li>
+<li>Model 3: Earnings explained by height and weight.<br> Interpret the coefficient estimates from all models. Record the <span class="math inline">s_\varepsilon</span> and <span class="math inline">R^2</span> from all models. Which model do you prefer, and why?</li>
+</ul>
+<ol start="2" type="1">
+<li>Test the following claim with model 3 at the 5% level using a <span class="math inline">p</span>-value approach: “People who are 1cm taller for a given weight earn on average more than $400 extra per year”.</li>
+<li>Use model 3 to produce a 95% confidence interval for the average annual salary of people who are 175cm tall and weigh 65kg.</li>
+<li>Use model 3 to find an interval that contains with 95% probability the salary of an individual who is 175cm tall and weighs 65kg.</li>
+</ol>
+</section>
+<section id="solutions" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="solutions">Solutions</h2>
+<section id="question-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-1">Question 1</h3>
+<p>We begin by reading in and inspecting the data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"instruction3.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    earnings         height        weight      
+ Min.   : 4726   Min.   :132   Min.   : 40.80  
+ 1st Qu.:28560   1st Qu.:173   1st Qu.: 74.80  
+ Median :38925   Median :178   Median : 81.60  
+ Mean   :48460   Mean   :178   Mean   : 84.74  
+ 3rd Qu.:84055   3rd Qu.:183   3rd Qu.: 93.00  
+ Max.   :84055   Max.   :213   Max.   :227.20  </code></pre>
+</div>
+</div>
+<p>We can see that average earnings are $48,460. The heights range from 1.32m to 2.13m and the weights range from 40.8kg to 227.2kg.</p>
+<p>We then estimate the three regression models:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(earnings <span class="sc">~</span> height, <span class="at">data =</span> df)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(earnings <span class="sc">~</span> weight, <span class="at">data =</span> df)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(earnings <span class="sc">~</span> height <span class="sc">+</span> weight, <span class="at">data =</span> df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can use <code>summary()</code> on each model to see the output:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = earnings ~ height, data = df)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-50010 -22495  -7973  32974  59612 
+
+Coefficients:
+             Estimate Std. Error t value       Pr(&gt;|t|)    
+(Intercept) -44502.25    7139.74  -6.233 0.000000000481 ***
+height         522.31      40.08  13.032        &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 26670 on 7894 degrees of freedom
+Multiple R-squared:  0.02106,   Adjusted R-squared:  0.02094 
+F-statistic: 169.8 on 1 and 7894 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>The estimated intercept means that the model predicts that people 0cm tall on average earn -$44,502.25 per year. This negative number doesn’t make sense. This is extrapolating outside the range of our data: no one in our data is that short. So we should ignore the intercept. The estimated coefficient on height means that on average people 1cm taller earn $522.31 more per year.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = earnings ~ weight, data = df)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-62700 -22146  -8159  33735  41330 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 33524.84    1597.94  20.980   &lt;2e-16 ***
+weight        176.24      18.52   9.517   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 26800 on 7894 degrees of freedom
+Multiple R-squared:  0.01134,   Adjusted R-squared:  0.01122 
+F-statistic: 90.58 on 1 and 7894 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>The estimated intercept means that the model predicts that people that weigh 0kg on average earn $33,524.84 per year. Again, we should ignore this because no one in our data weighs 0kg. The estimated coefficient on weight means that on average people 1kg heavier earn $176.24 more per year.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = earnings ~ height + weight, data = df)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-56471 -21818  -7953  32445  56449 
+
+Coefficients:
+             Estimate Std. Error t value    Pr(&gt;|t|)    
+(Intercept) -37217.85    7319.85  -5.085 0.000000377 ***
+height         438.58      44.30   9.900     &lt; 2e-16 ***
+weight          89.90      20.37   4.414 0.000010282 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 26640 on 7893 degrees of freedom
+Multiple R-squared:  0.02347,   Adjusted R-squared:  0.02322 
+F-statistic: 94.86 on 2 and 7893 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>The estimated intercept means that the model predicts that people that are 0cm tall <em>and</em> weigh 0kg on average earn -$37,217.85 per year. Once again, this doesn’t make sense because no one in our data is that short <em>and</em> that light. The estimated coefficient on height means that on average people 1cm taller, holding weight fixed, earn $438.58 more per year. The estimated coefficient on weight means that on average people who weigh 1kg more, holding height fixed, earn $89.90 more per year.</p>
+<p>The coefficients on height and weight in model 3 are smaller than the respective coefficients in models 1-2. This is because height and weight are correlated.</p>
+<p>To get all the estimated model standard errors to compare them, we can do:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">summary</span>(m1)<span class="sc">$</span>sigma,</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(m2)<span class="sc">$</span>sigma,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(m3)<span class="sc">$</span>sigma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 26668.60 26800.62 26637.43</code></pre>
+</div>
+</div>
+<p>We can see that model 3 has the lowest standard error. This makes sense because it uses more variables to explain the dependent variable, which has better explanatory power and a smaller variance of the residuals.</p>
+<p>To get all the estimated model <span class="math inline">R^2</span>s, we can do:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">summary</span>(m1)<span class="sc">$</span>r.squared,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(m2)<span class="sc">$</span>r.squared,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(m3)<span class="sc">$</span>r.squared)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.02106071 0.01134449 0.02347122</code></pre>
+</div>
+</div>
+<p>We can see that model 3 has the largest <span class="math inline">R^2</span>. This makes sense because it uses more variables to explain the dependent variable, which explains a higher percentage of the variation in it. The <span class="math inline">R^2</span> of model 3 is still very low, however. Height and weight only explain 2.347% of the variation in earnings.</p>
+<p>Because model 3 has the smallest standard error and the greatest explanatory power of the 3 models, we prefer it over models 1 and 2.</p>
+</section>
+<section id="r-tips-based-on-question-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="r-tips-based-on-question-1">R Tips Based on Question 1</h3>
+<p>The following code snippets are some R tricks that are useful when comparing several regression models. It is not required to know how to use these for the assignments or exam, but it may come in useful to you later.</p>
+<p>When comparing models that use the same dependent variable and different combinations of independent variables, a useful way to present the results is side-by-side in a table. The <code>stargazer()</code> function from the <code>stargazer</code> package can do this nicely for us. First install the package with:</p>
+<pre><code>install.packages("stargazer")</code></pre>
+<p>We then just have to put all the models into a <code>list</code> and then use it in the function with the <code>type = "text"</code> option:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(m1, m2, m3)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(models, <span class="at">type =</span> <span class="st">"text"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+===============================================================================================
+                                                Dependent variable:                            
+                    ---------------------------------------------------------------------------
+                                                     earnings                                  
+                               (1)                      (2)                      (3)           
+-----------------------------------------------------------------------------------------------
+height                     522.311***                                         438.581***       
+                            (40.079)                                           (44.300)        
+                                                                                               
+weight                                               176.236***               89.896***        
+                                                      (18.517)                 (20.366)        
+                                                                                               
+Constant                 -44,502.250***            33,524.840***            -37,217.850***     
+                           (7,139.739)              (1,597.943)              (7,319.854)       
+                                                                                               
+-----------------------------------------------------------------------------------------------
+Observations                  7,896                    7,896                    7,896          
+R2                            0.021                    0.011                    0.023          
+Adjusted R2                   0.021                    0.011                    0.023          
+Residual Std. Error  26,668.600 (df = 7894)    26,800.620 (df = 7894)   26,637.430 (df = 7893) 
+F Statistic         169.830*** (df = 1; 7894) 90.581*** (df = 1; 7894) 94.856*** (df = 2; 7893)
+===============================================================================================
+Note:                                                               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+</div>
+</div>
+<p>This also shows us the <span class="math inline">R^2</span> and <span class="math inline">s_\varepsilon</span> for each model next to each other, making them easy to compare.</p>
+<p>With all three models in a list, it is also possible to iterate across them using the <code>sapply()</code> function. We can use this, for example, to extract the <span class="math inline">s_\varepsilon</span> and <span class="math inline">R^2</span> from each model:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(models, <span class="cf">function</span>(x) <span class="fu">summary</span>(x)<span class="sc">$</span>sigma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 26668.60 26800.62 26637.43</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(models, <span class="cf">function</span>(x) <span class="fu">summary</span>(x)<span class="sc">$</span>r.squared)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.02106071 0.01134449 0.02347122</code></pre>
+</div>
+</div>
+<p>As you can imagine, if we had many more models this approach would be much easier than typing <code>summary(m1)$sigma</code> and <code>summary(m1)$r.squared</code> for each model.</p>
+</section>
+<section id="question-2" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-2">Question 2</h3>
+<p>The claim implies <span class="math inline">\beta_1&gt;400</span> in our model. Therefore the null and alternative hypotheses are:</p>
+<p><span class="math display">
+H_0: \beta_1 \leq 400 \qquad \text{ and } \qquad
+H_1: \beta_1 &gt; 400
+</span> Under <span class="math inline">H_0</span>, the test statistic <span class="math inline">T=\frac{B_1-400}{S_{B_1}}</span> follows a <span class="math inline">t</span> distribution with <span class="math inline">n-k-1</span> degrees of freedom. The value of the test statistic in the sample is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>b_1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">summary</span>(m3))[<span class="st">"height"</span>, <span class="st">"Estimate"</span>]</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>s_b_1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">summary</span>(m3))[<span class="st">"height"</span>, <span class="st">"Std. Error"</span>]</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>(t <span class="ot">&lt;-</span> (b_1 <span class="sc">-</span> <span class="dv">400</span>) <span class="sc">/</span> s_b_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8709025</code></pre>
+</div>
+</div>
+<p>The <span class="math inline">p</span>-value is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>(pval <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(t, m3<span class="sc">$</span>df.residual))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1919169</code></pre>
+</div>
+</div>
+<p>Do we reject the null hypothesis (is <span class="math inline">p\leq \alpha</span>)?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>pval <span class="sc">&lt;=</span> <span class="fl">0.05</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>The <span class="math inline">p</span>-value is larger than the significance level so we fail to reject the null hypothesis. There is not enough evidence to support this claim at the 5% level.</p>
+</section>
+<section id="question-3" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-3">Question 3</h3>
+<p>We first create a small dataframe with 1 observation containing the values for all the explanatory variables. We then use this to get the confidence interval with the <code>predict()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df_p <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">height =</span> <span class="dv">175</span>, <span class="at">weight =</span> <span class="dv">65</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(m3, df_p, <span class="at">interval =</span> <span class="st">"confidence"</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    fit      lwr      upr
+1 45377 44450.25 46303.75</code></pre>
+</div>
+</div>
+<p>We specify <code>interval = "confidence"</code> because the question is asking for the average salary of all people in the population with those characteristics, not the salary for one person. Therefore we are 95% confident that the average salary of people 175cm tall weighing 65kg is between $44,450.25 and $46,303.75.</p>
+</section>
+<section id="question-4" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-4">Question 4</h3>
+<p>The characteristics are the same so we can continue using <code>df_p</code> defined above. To get an interval for an individual prediction, we change the option to:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(m3, df_p, <span class="at">interval =</span> <span class="st">"prediction"</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    fit       lwr      upr
+1 45377 -6847.635 97601.64</code></pre>
+</div>
+</div>
+<p>Therefore we are 95% confident that the salary of an individual 175cm tall weighing 65kg is between -$6,847.64 and $97,601.64. Notice that this interval is much, much wider than before. In fact it is wider than the original range of the data, which is from $4,726 and $84,055. The reason for this is that the predictive power of height and weight is not very good. The two variables together only explain 2.347% of the variation in earnings. So knowing the height and weight of a person does not tell us very much about the salary they make.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
