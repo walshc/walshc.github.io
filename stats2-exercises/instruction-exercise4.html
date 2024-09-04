@@ -195,7 +195,7 @@ F-statistic:  1663 on 3 and 296 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h3 class="unnumbered anchored" data-anchor-id="question-2">Question 2</h3>
 <p>To test the usefulness of the model as a whole we perform an <span class="math inline">F</span>-test:</p>
 <ul>
-<li><span class="math inline">H_0</span>: <span class="math inline">\beta_1=\beta_2=\beta_3</span> and <span class="math inline">H_1</span>: at least one of <span class="math inline">\beta_j\neq 0</span> for <span class="math inline">j=1,2,3</span>.</li>
+<li><span class="math inline">H_0</span>: <span class="math inline">\beta_1=\beta_2=\beta_3=0</span> and <span class="math inline">H_1</span>: at least one of <span class="math inline">\beta_j\neq 0</span> for <span class="math inline">j=1,2,3</span>.</li>
 <li>Under <span class="math inline">H_0</span>, <span class="math inline">F=\frac{SSR/k}{SSE/(n-k-1)}\sim F_{k,n-k-1}</span>.</li>
 <li>The value of the <span class="math inline">F</span>-statistic in our sample is <span class="math inline">f=1662.866</span>:</li>
 </ul>
@@ -254,7 +254,7 @@ hsize        0.5522728 0.093614275  5.899451  9.955823e-09</code></pre>
 </section>
 <section id="question-5" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-5">Question 5</h3>
-<p>A €1,000 increase in the household income on average leading to an increase in food expenditures of more than €220 implies $_1&gt;0.22.</p>
+<p>A €1,000 increase in the household income on average leading to an increase in food expenditures of more than €220 implies <span class="math inline">\beta_1&gt;0.22</span>.</p>
 <ul>
 <li><span class="math inline">H_0</span>: <span class="math inline">\beta_1\leq 0.22</span> and <span class="math inline">H_1</span>: <span class="math inline">\beta_1&gt;0.22</span>.</li>
 <li>Under <span class="math inline">H_0</span>, <span class="math inline">T=(B_1-0.22)/S_{B_1}\sim t_{n-k-1}</span>.</li>

@@ -316,13 +316,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#partial-f-test" id="toc-partial-f-test" class="nav-link active" data-scroll-target="#partial-f-test"><span class="header-section-number">21</span> Partial <span class="math inline">F</span>-Test</a>
   <ul class="collapse">
   <li><a href="#complete-and-reduced-model" id="toc-complete-and-reduced-model" class="nav-link" data-scroll-target="#complete-and-reduced-model"><span class="header-section-number">21.1</span> Complete and Reduced Model</a></li>
-  <li><a href="#the-test-statistic" id="toc-the-test-statistic" class="nav-link" data-scroll-target="#the-test-statistic"><span class="header-section-number">21.2</span> The Test Statistic</a></li>
-  <li><a href="#carrying-out-the-test" id="toc-carrying-out-the-test" class="nav-link" data-scroll-target="#carrying-out-the-test"><span class="header-section-number">21.3</span> Carrying out the Test</a></li>
-  <li><a href="#relationship-between-the-partial-f-test-the-f-test" id="toc-relationship-between-the-partial-f-test-the-f-test" class="nav-link" data-scroll-target="#relationship-between-the-partial-f-test-the-f-test"><span class="header-section-number">21.4</span> Relationship between the Partial <span class="math inline">F</span>-test the <span class="math inline">F</span>-test</a></li>
-  <li><a href="#summary-of-steps" id="toc-summary-of-steps" class="nav-link" data-scroll-target="#summary-of-steps"><span class="header-section-number">21.5</span> Summary of Steps</a>
+  <li><a href="#null-and-alternative-hypotheses" id="toc-null-and-alternative-hypotheses" class="nav-link" data-scroll-target="#null-and-alternative-hypotheses"><span class="header-section-number">21.2</span> Null and Alternative Hypotheses</a></li>
+  <li><a href="#the-test-statistic" id="toc-the-test-statistic" class="nav-link" data-scroll-target="#the-test-statistic"><span class="header-section-number">21.3</span> The Test Statistic</a></li>
+  <li><a href="#carrying-out-the-test" id="toc-carrying-out-the-test" class="nav-link" data-scroll-target="#carrying-out-the-test"><span class="header-section-number">21.4</span> Carrying out the Test</a></li>
+  <li><a href="#relationship-between-the-partial-f-test-the-f-test" id="toc-relationship-between-the-partial-f-test-the-f-test" class="nav-link" data-scroll-target="#relationship-between-the-partial-f-test-the-f-test"><span class="header-section-number">21.5</span> Relationship between the Partial <span class="math inline">F</span>-test the <span class="math inline">F</span>-test</a></li>
+  <li><a href="#summary-of-steps" id="toc-summary-of-steps" class="nav-link" data-scroll-target="#summary-of-steps"><span class="header-section-number">21.6</span> Summary of Steps</a>
   <ul class="collapse">
-  <li><a href="#critical-value-method-for-the-partial-f-test" id="toc-critical-value-method-for-the-partial-f-test" class="nav-link" data-scroll-target="#critical-value-method-for-the-partial-f-test"><span class="header-section-number">21.5.1</span> Critical Value Method for the Partial <span class="math inline">F</span>-Test}</a></li>
-  <li><a href="#p-value-method-for-the-partial-f-test" id="toc-p-value-method-for-the-partial-f-test" class="nav-link" data-scroll-target="#p-value-method-for-the-partial-f-test"><span class="header-section-number">21.5.2</span> <span class="math inline">p</span>-Value Method for the Partial <span class="math inline">F</span>-Test</a></li>
+  <li><a href="#critical-value-method-for-the-partial-f-test" id="toc-critical-value-method-for-the-partial-f-test" class="nav-link" data-scroll-target="#critical-value-method-for-the-partial-f-test"><span class="header-section-number">21.6.1</span> Critical Value Method for the Partial <span class="math inline">F</span>-Test}</a></li>
+  <li><a href="#p-value-method-for-the-partial-f-test" id="toc-p-value-method-for-the-partial-f-test" class="nav-link" data-scroll-target="#p-value-method-for-the-partial-f-test"><span class="header-section-number">21.6.2</span> <span class="math inline">p</span>-Value Method for the Partial <span class="math inline">F</span>-Test</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -364,7 +365,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         \beta_0+\beta_1 x_{i1} +\beta_2 x_{i2}+\dots +\beta_g x_{ig} + \beta_{g+1}x_{i,g+1} + \dots +\beta_k x_{ik}
 </span> The <em>reduced</em> model is the model with <span class="math inline">g&lt;k</span> independent variables: <span class="math display">
         \mathbb{E}\left[Y_i|x_{i1},\dots,x_{ig}\right]=\beta_0+\beta_1 x_{i1} +\beta_2 x_{i2}+\dots +\beta_g x_{ig}
-</span> ## Null and Alternative Hypotheses What the partial <span class="math inline">F</span>-test does is test if the <span class="math inline">k-g</span> variables <span class="math inline">X_{g+1}</span>, <span class="math inline">X_{g+2}</span>, , <span class="math inline">X_{k}</span> are jointly useful in the model.</p>
+</span></p>
+</section>
+<section id="null-and-alternative-hypotheses" class="level2" data-number="21.2">
+<h2 data-number="21.2" class="anchored" data-anchor-id="null-and-alternative-hypotheses"><span class="header-section-number">21.2</span> Null and Alternative Hypotheses</h2>
+<p>What the partial <span class="math inline">F</span>-test does is test if the <span class="math inline">k-g</span> variables <span class="math inline">X_{g+1}</span>, <span class="math inline">X_{g+2}</span>, , <span class="math inline">X_{k}</span> are jointly useful in the model.</p>
 <p>The null and alternative hypotheses are: <span class="math display">
         \begin{split}
           H_0 &amp;: \beta_{g+1}=\beta_{g+2}=\dots=\beta_k=0\\
@@ -387,16 +392,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </span></p>
 </section>
 </section>
-<section id="the-test-statistic" class="level2" data-number="21.2">
-<h2 data-number="21.2" class="anchored" data-anchor-id="the-test-statistic"><span class="header-section-number">21.2</span> The Test Statistic</h2>
+<section id="the-test-statistic" class="level2" data-number="21.3">
+<h2 data-number="21.3" class="anchored" data-anchor-id="the-test-statistic"><span class="header-section-number">21.3</span> The Test Statistic</h2>
 <p>We first discuss the intuition for the partial <span class="math inline">F</span>-test test statistic.</p>
 <p>The total variation in the <span class="math inline">y</span>-data is measured by the total sum of squared <span class="math inline">SST=\sum_{i=1}^n (y_i - \bar{y})^2</span>. This is like the sum of squared errors without any model: where we just use the mean <span class="math inline">\bar{y}</span> to predict <span class="math inline">y_i</span>. With the reduced model, the sum of squared errors is <span class="math inline">SSE_r</span> and with the complete model the sum of squared errors is <span class="math inline">SSE_c</span>.</p>
 <p>By adding more variables to our model, we always reduce the sum of squared errors, so it holds that <span class="math inline">SSE_r\geq SSE_c</span> always. If the complete model reduces the sum of squared errors “a lot” (i.e.&nbsp;<span class="math inline">SSE_r - SSE_c</span> is large), then the new <span class="math inline">k-g</span> variables are useful additions to the model. If the complete model’s sum of square errors is “very similar” to the reduced model (i.e.&nbsp;<span class="math inline">SSE_r - SSE_c</span> is small), then the new <span class="math inline">k-g</span> variables are not very useful additions to the model.</p>
 <p>The partial <span class="math inline">F</span> test statistic captures the size of this difference. Under <span class="math inline">H_0</span>: <span class="math display">F=\frac{\left(SSE_r-SSE_c\right)/\left( k-g \right)}{SSE_c/\left(n-k-1  \right)} \sim F_{k-g,n-k-1}
 </span> That is, this test statistic follows an <span class="math inline">F</span> distribution with <span class="math inline">k-g</span> numerator and <span class="math inline">n-k-1</span> denominator degrees of freedom.</p>
 </section>
-<section id="carrying-out-the-test" class="level2" data-number="21.3">
-<h2 data-number="21.3" class="anchored" data-anchor-id="carrying-out-the-test"><span class="header-section-number">21.3</span> Carrying out the Test</h2>
+<section id="carrying-out-the-test" class="level2" data-number="21.4">
+<h2 data-number="21.4" class="anchored" data-anchor-id="carrying-out-the-test"><span class="header-section-number">21.4</span> Carrying out the Test</h2>
 <p>To show how to carry out the rest of the test we will use an example. Because a partial <span class="math inline">F</span>-test only makes sense in models with at least 3 variables, we will return to the clothing expenditure model we saw in <a href="mlr-assumptions.html"><span>Chapter&nbsp;15</span></a>.</p>
 <p>Why do we need at least 3 variables? With only 2 variables, we can use a regular <span class="math inline">t</span>-test to test the usefulness of one variable, and we can use a regular <span class="math inline">F</span>-test to test the usefulness of both variables. To have a subset with at least 2 variables we need a complete model with at least 3 variables.</p>
 <p>Using the clothing expenditure model, we ask the following question: Does a household’s clothing expenditure depend on the household composition (number of people and number of children) after we control for household income (using <span class="math inline">\alpha=0.05</span>)?</p>
@@ -453,8 +458,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <p>The test statistic is greater than the critical value so we reject the null hypothesis. We also get the same conclusion looking at the critical value, which is less than 0.05. Thus the household composition variables are useful additions to the model after controlling for household income.</p>
 </section>
-<section id="relationship-between-the-partial-f-test-the-f-test" class="level2" data-number="21.4">
-<h2 data-number="21.4" class="anchored" data-anchor-id="relationship-between-the-partial-f-test-the-f-test"><span class="header-section-number">21.4</span> Relationship between the Partial <span class="math inline">F</span>-test the <span class="math inline">F</span>-test</h2>
+<section id="relationship-between-the-partial-f-test-the-f-test" class="level2" data-number="21.5">
+<h2 data-number="21.5" class="anchored" data-anchor-id="relationship-between-the-partial-f-test-the-f-test"><span class="header-section-number">21.5</span> Relationship between the Partial <span class="math inline">F</span>-test the <span class="math inline">F</span>-test</h2>
 <p>The partial <span class="math inline">F</span>-test is actually a generalization of the regular <span class="math inline">F</span> test we learned about before. If the reduced model is simply: <span class="math display">\mathbb{E}\left[Y_i\right]=\beta_0</span> then the partial <span class="math inline">F</span>-test turns into a regular <span class="math inline">F</span>-test. This is the case with <span class="math inline">g=0</span>.</p>
 <p>To see this, consider the test statistic <span class="math display">
          F=\frac{\left(SSE_r-SSE_c\right)/\left( k-g \right)}{SSE_c/\left(n-k-1  \right)}\sim F_{k-g,n-k-1}
@@ -464,10 +469,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
          F=\frac{SSR/k}{SSE/\left(n-k-1  \right)}\sim F_{k,n-k-1}
 </span> The is exactly the same as the standard <span class="math inline">F</span>-test!</p>
 </section>
-<section id="summary-of-steps" class="level2" data-number="21.5">
-<h2 data-number="21.5" class="anchored" data-anchor-id="summary-of-steps"><span class="header-section-number">21.5</span> Summary of Steps</h2>
-<section id="critical-value-method-for-the-partial-f-test" class="level3" data-number="21.5.1">
-<h3 data-number="21.5.1" class="anchored" data-anchor-id="critical-value-method-for-the-partial-f-test"><span class="header-section-number">21.5.1</span> Critical Value Method for the Partial <span class="math inline">F</span>-Test}</h3>
+<section id="summary-of-steps" class="level2" data-number="21.6">
+<h2 data-number="21.6" class="anchored" data-anchor-id="summary-of-steps"><span class="header-section-number">21.6</span> Summary of Steps</h2>
+<section id="critical-value-method-for-the-partial-f-test" class="level3" data-number="21.6.1">
+<h3 data-number="21.6.1" class="anchored" data-anchor-id="critical-value-method-for-the-partial-f-test"><span class="header-section-number">21.6.1</span> Critical Value Method for the Partial <span class="math inline">F</span>-Test}</h3>
 <ul>
 <li>Construct null and alternative hypotheses: <span class="math display">
       \begin{split}
@@ -486,8 +491,8 @@ F=\frac{\left(SSE_r-SSE_c\right)/\left( k-g \right)}{SSE_c/\left(n-k-1  \right)}
 <li>Draw a conclusion.</li>
 </ul>
 </section>
-<section id="p-value-method-for-the-partial-f-test" class="level3" data-number="21.5.2">
-<h3 data-number="21.5.2" class="anchored" data-anchor-id="p-value-method-for-the-partial-f-test"><span class="header-section-number">21.5.2</span> <span class="math inline">p</span>-Value Method for the Partial <span class="math inline">F</span>-Test</h3>
+<section id="p-value-method-for-the-partial-f-test" class="level3" data-number="21.6.2">
+<h3 data-number="21.6.2" class="anchored" data-anchor-id="p-value-method-for-the-partial-f-test"><span class="header-section-number">21.6.2</span> <span class="math inline">p</span>-Value Method for the Partial <span class="math inline">F</span>-Test</h3>
 <ul>
 <li>Construct null and alternative hypotheses: <span class="math display">
 \begin{split}
@@ -501,7 +506,7 @@ F=\frac{\left(SSE_r-SSE_c\right)/\left( k-g \right)}{SSE_c/\left(n-k-1  \right)}
 <li>Calculate the value of the test statistic, <span class="math inline">f</span>.</li>
 <li>Reject <span class="math inline">H_0</span> if <span class="math inline">p=\Pr\left( F\geq f \right)\leq \alpha</span>
 <ul>
-<li>Find <span class="math inline">p</span> in R with .</li>
+<li>Find <span class="math inline">p</span> in R with <code>1-pf(f, k-g, n-k-1)</code>.</li>
 </ul></li>
 <li>Draw a conclusion.</li>
 </ul>
