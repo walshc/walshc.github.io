@@ -108,6 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>For the purpose of this exam, the <em>Randstad</em> is defined as the provinces of Noord-Holland, Zuid-Holland and Utrecht.</p>
 <section id="question-1" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-1">Question 1</h4>
+<p>What is the sample correlation between <code>pop_growth</code> and <code>house_price</code>?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"housing.csv"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df<span class="sc">$</span>pop_growth, df<span class="sc">$</span>house_price)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -115,18 +116,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] 0.3046134</code></pre>
 </div>
 </div>
+<p><strong>Answer:</strong> 0.3046134</p>
 </section>
 <section id="question-2" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-2">Question 2</h4>
-<p>The measured correlation tells us that there is a positive linear relationship between <code>pop_growth</code> and <code>house_price</code>.</p>
+<p>Choose the answer below which best interprets the correlation from the previous question:</p>
+<ul>
+<li>The measured correlation tells us that there is a positive linear relationship between <code>pop_growth</code> and <code>house_price</code>.</li>
+<li>The measured correlation tells us that <code>house_price</code> causes <code>pop_growth</code>.</li>
+<li>The measured correlation tells us that <code>pop_growth</code> causes <code>house_price</code>.</li>
+<li>The measured correlation tells us nothing about the relationship between <code>pop_growth</code> and <code>house_price</code>.</li>
+</ul>
+<p><strong>Answer:</strong> The measured correlation tells us that there is a positive linear relationship between <code>pop_growth</code> and <code>house_price</code>.</p>
 </section>
 </section>
 <section id="model-1" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="model-1">Model 1</h2>
+<p>Estimate a simple linear regression model with the gemeente’s average house price as the dependent variable and the gemeente’s population growth as the independent variable.</p>
+<p>Your estimated sample regression intercept should be 393.049.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"housing.csv"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(house_price <span class="sc">~</span> pop_growth, <span class="at">data =</span> df)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(house_price <span class="sc">~</span> pop_growth, <span class="at">data =</span> df)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -150,19 +160,17 @@ F-statistic: 25.37 on 1 and 248 DF,  p-value: 0.0000009136</code></pre>
 </div>
 <section id="question-3" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-3">Question 3</h4>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>m1<span class="sc">$</span>coefficients[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>pop_growth 
-  12.97923 </code></pre>
-</div>
-</div>
+<p>Report the sample regression slope.</p>
+<p><strong>Answer:</strong> 12.979</p>
 </section>
 <section id="question-4" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-4">Question 4</h4>
-<p>We multiply the slope coefficient by 1,000 to convert the answer to euros:</p>
+<p>A 1 percentage point increase in the gemeente’s population growth is associated with on average how much of an increase in the gemeente’s average house price?</p>
+<p>Write your answer in euros. Note that the dependent variable is measured in thousands of euros.</p>
+<p><strong>Answer:</strong> 12979.23</p>
+<p><em>Explanation:</em> A 1 percentage point increase in the gemeente’s population growth is a one-unit increase in the <span class="math inline">\(x\)</span> variable, so no adjustment is needed. The dependent variable is measured in thousands of euros, so to convert to euros we multiply the estimtae slope coefficient by 1,000. We could do this manually or else in R with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>m1<span class="sc">$</span>coefficients[<span class="dv">2</span>] <span class="sc">*</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m1)[<span class="dv">2</span>] <span class="sc">*</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>pop_growth 
   12979.23 </code></pre>
@@ -171,29 +179,31 @@ F-statistic: 25.37 on 1 and 248 DF,  p-value: 0.0000009136</code></pre>
 </section>
 <section id="question-5" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-5">Question 5</h4>
-<p>The estimated intercept <span class="math inline">\(b_0\)</span> gives an estimate of <span class="math inline">\(\mathbb{E}[Y_i|x_i=0]\)</span> in units of the dependent variable, which is in thousands of euros. If we multiply <span class="math inline">\(b_0\)</span> by €1,000 we can get an estimate of the average house price in gemeentes with zero population growth. We then check if 0 is in the range of our data for population growth:</p>
+<p>Choose the answer below which best interprets the sample regression intercept.</p>
+<ul>
+<li>Houses in gemeentes with zero population on average sell for €393,049. However, there are no gemeentes with zero population in the data (or close to zero) so this prediction is unreliable.</li>
+<li>Houses in gemeentes with zero population on average sell for €393.05. However, there are no gemeentes with zero population in the data (or close to zero) so this prediction is unreliable.</li>
+<li>Houses in gemeentes with zero population growth on average sell for €393,049.</li>
+<li>Houses in gemeentes with zero population growth on average sell for €393.05.</li>
+</ul>
+<p><strong>Answer:</strong> Houses in gemeentes with zero population growth on average sell for €393,049.</p>
+<p><em>Explanation:</em> The intercept <span class="math inline">\(b_0\)</span> gives an estimate of <span class="math inline">\(\mathbb{E}[Y_i|x_i=0]\)</span>, the average value of <span class="math inline">\(Y\)</span> when <span class="math inline">\(x=0\)</span>. Because the <span class="math inline">\(Y\)</span> variable is measured in thousands, we need to multiply <span class="math inline">\(b_0\)</span> by 1,000 to get the answer. For this prediction to be reliable we need <span class="math inline">\(x=0\)</span> to be in the range of the data. We can check this with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>pop_growth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>pop_growth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  -2.300   1.800   3.400   3.677   5.100  18.200 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(pop_growth)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
-<div class="cell-output-display">
-<p><img src="2023-resit-solutions_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>We do observe gemeentes with zero and near-zero population growth. So the option we should choose is:</p>
-<p><em>Houses in gemeentes with zero population growth on average sell for €393,049.</em></p>
+<p>We can see that zero is in the range, and there are actually values of <code>pop_growth</code> equal to zero in the data.</p>
 </section>
 <section id="question-6" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-6">Question 6</h4>
+<p>What is the coefficient of determination?</p>
+<p><strong>Answer:</strong> 0.09279</p>
+<p><em>Explanation:</em> The coefficient of determination is the same as the <span class="math inline">\(R^2\)</span>, which we can see from the 2nd-last line in the model summary output (after <code>Multiple R-squared</code>). We could also obtain this directly with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.0927893</code></pre>
 </div>
@@ -201,9 +211,12 @@ F-statistic: 25.37 on 1 and 248 DF,  p-value: 0.0000009136</code></pre>
 </section>
 <section id="question-7" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-7">Question 7</h4>
-<p>The proportion left unexplained is <span class="math inline">\(1-R^2\)</span>:</p>
+<p>What proportion of the variation in house prices is left unexplained by the model?</p>
+<p><em>Note:</em> proportions are numbers between 0 and 1.</p>
+<p><strong>Answer:</strong> 0.9072</p>
+<p><em>Explanation:</em> The <span class="math inline">\(R^2\)</span> gives the proportion of the <span class="math inline">\(y\)</span>-data explained by the <span class="math inline">\(x\)</span>-data. The proportion unexplained is then <span class="math inline">\(1-R^2\)</span>. We can calculate this manually with 1-0.09279, but we can also get it directly from R with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">summary</span>(m1)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">summary</span>(m1)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.9072107</code></pre>
 </div>
@@ -211,53 +224,96 @@ F-statistic: 25.37 on 1 and 248 DF,  p-value: 0.0000009136</code></pre>
 </section>
 <section id="question-8" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-8">Question 8</h4>
+<p>Provide a 95% confidence interval for the estimated coefficient on <code>pop_growth</code>.</p>
+<ul>
+<li>Lower bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>Upper bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+</ul>
+<p><strong>Answer:</strong> Lower bound: 7.903474, upper bound: 18.05499.</p>
+<p><em>Explanation:</em> We obtain a 95% confidence interval for the parameter estimates using:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(m1, <span class="at">parm =</span> <span class="st">"pop_growth"</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(m1, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>              2.5 %   97.5 %
-pop_growth 7.903474 18.05499</code></pre>
+<pre><code>                 2.5 %    97.5 %
+(Intercept) 369.267353 416.83018
+pop_growth    7.903474  18.05499</code></pre>
 </div>
 </div>
 </section>
 <section id="question-9" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-9">Question 9</h4>
-<p>If the claim is true, then <span class="math inline">\(\beta_1 &lt; 15\)</span>. The null and alternative hypotheses are then:</p>
-<p><span class="math display">\[
-H_0: \beta_1 \geq 15 \quad\text{ and } \quad
-H_1: \beta_1 &lt; 15
-\]</span> Under H0, <span class="math inline">\(T=\frac{B_1-15}{S_{B_1}}\)</span> follows a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n-2\)</span> degrees of freedom. We calculate the value of the test statistic:</p>
+<p>Test the following claim at the 5% level using a <span class="math inline">\(p\)</span>-value approach:</p>
+<p><em>A 1 percentage point increase in the population growth over 5 years on average increases house prices by less than €15,000.</em></p>
+<ul>
+<li><p>What is the null hypothesis? <span class="math inline">\(\beta_1\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> (choose one comparison operator and fill in a value in the blank).</p></li>
+<li><p>What is the alternative hypothesis? <span class="math inline">\(\beta_1\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> (choose one comparison operator and fill in a value in the blank).</p></li>
+<li><p>Under the null hypothesis, the test statistic <span class="math inline">\(T\)</span> follows a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n-\underline{\hspace{10mm}}\)</span> degrees of freedom.</p></li>
+<li><p>What is the value of the test statistic? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p></li>
+<li><p>What is the associated <span class="math inline">\(p\)</span>-value? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p></li>
+<li><p>What is your conclusion? Choose an option below:</p>
+<ul>
+<li>Reject H0: There is sufficient evidence for the claim.</li>
+<li>Reject H1: There is sufficient evidence for the claim.</li>
+<li>Reject H0: There is not sufficient evidence for the claim.</li>
+<li>Reject H1: There is not sufficient evidence for the claim.</li>
+<li>Don’t reject H0: There is sufficient evidence for the claim.</li>
+<li>Don’t reject H1: There is sufficient evidence for the claim.</li>
+<li>Don’t reject H0: There is not sufficient evidence for the claim.</li>
+<li>Don’t reject H1: There is not sufficient evidence for the claim.</li>
+</ul></li>
+</ul>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\beta\geq 15\)</span>.</li>
+<li><span class="math inline">\(H_1\)</span>: <span class="math inline">\(\beta &lt; 15\)</span>.</li>
+<li>Under <span class="math inline">\(H_0\)</span>, <span class="math inline">\(T=(B_1-15)/S_{B_1}\)</span> follows a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n-2\)</span> degrees of freedom.</li>
+<li>Value of test statistic: -0.7841297.</li>
+<li><span class="math inline">\(p\)</span>-value: 0.2168561.</li>
+<li>Conclusion: Don’t reject H0: There is not sufficient evidence for the claim.</li>
+</ul>
+<p><em>Explanation:</em></p>
+<ul>
+<li>The claim is that a one-unit increase in <span class="math inline">\(x\)</span> on average leads to an increase in <span class="math inline">\(y\)</span> of less than 15 units. Thus the claim is that <span class="math inline">\(\beta_1&lt;15\)</span>. This is the alternative hypothesis, with the null hypothesis being the opposite of this.</li>
+<li>With a simple linear regression with one variable, the test statistic follows a <span class="math inline">\(t\)</span>-distribution with <span class="math inline">\(n-2\)</span> degrees of freedom.</li>
+<li>We can calculate the value of the test statistic in R with:</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>b_1 <span class="ot">&lt;-</span> <span class="fu">summary</span>(m1)<span class="sc">$</span>coefficients[<span class="st">"pop_growth"</span>, <span class="st">"Estimate"</span>]</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>s_b_1 <span class="ot">&lt;-</span> <span class="fu">summary</span>(m1)<span class="sc">$</span>coefficients[<span class="st">"pop_growth"</span>, <span class="st">"Std. Error"</span>]</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>(t <span class="ot">&lt;-</span> (b_1 <span class="sc">-</span> <span class="dv">15</span>) <span class="sc">/</span> s_b_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>b_1 <span class="ot">&lt;-</span> <span class="fu">summary</span>(m1)<span class="sc">$</span>coefficients[<span class="st">"pop_growth"</span>, <span class="st">"Estimate"</span>]</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>s_b_1 <span class="ot">&lt;-</span> <span class="fu">summary</span>(m1)<span class="sc">$</span>coefficients[<span class="st">"pop_growth"</span>, <span class="st">"Std. Error"</span>]</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>(t <span class="ot">&lt;-</span> (b_1 <span class="sc">-</span> <span class="dv">15</span>) <span class="sc">/</span> s_b_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -0.7841297</code></pre>
 </div>
 </div>
-<p>The <span class="math inline">\(p\)</span>-value is:</p>
+<ul>
+<li>Because this is a lower-tail test, the <span class="math inline">\(p\)</span>-value is calculated with:</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(t, m1<span class="sc">$</span>df.residual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(t, m1<span class="sc">$</span>df.residual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2168561</code></pre>
 </div>
 </div>
-<p>The <span class="math inline">\(p\)</span>-value is greater than the significance level of 5%. We therefore fail to reject the null hypothesis. There is insufficient evidence for the claim.</p>
+<ul>
+<li>The <span class="math inline">\(p\)</span>-value is larger than the significance level of 5%, so we do not reject <span class="math inline">\(H_0\)</span>, and say there is not sufficient evidence for the claim.</li>
+</ul>
 </section>
 <section id="question-10" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-10">Question 10</h4>
-<p>Run a formal test for heteroskedasticity using a <span class="math inline">\(p\)</span>-value approach. Report the value of the test statistic and <span class="math inline">\(p\)</span>-value. Is there evidence of heteroskedasticity at the 5% level?</p>
+<p>Run a formal test for heteroskedasticity using a <span class="math inline">\(p\)</span>-value approach.</p>
+<ul>
+<li>Report the value of the test statistic: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>Report the <span class="math inline">\(p\)</span>-value: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>Is there evidence of heteroskedasticity at the 5% level (Yes/No)? Choose one.</li>
+</ul>
+<p><strong>Answer:</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add residuals squared to data:</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>e_sq <span class="ot">&lt;-</span> m1<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate auxiliary model:</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>aux <span class="ot">&lt;-</span> <span class="fu">lm</span>(e_sq <span class="sc">~</span> pop_growth, <span class="at">data =</span> df)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(aux)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>e2 <span class="ot">&lt;-</span> m1<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(e2 <span class="sc">~</span> pop_growth, <span class="at">data =</span> df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = e_sq ~ pop_growth, data = df)
+lm(formula = e2 ~ pop_growth, data = df)
 
 Residuals:
    Min     1Q Median     3Q    Max 
@@ -274,25 +330,22 @@ Residual standard error: 44480 on 248 degrees of freedom
 Multiple R-squared:  0.01361,   Adjusted R-squared:  0.009635 
 F-statistic: 3.422 on 1 and 248 DF,  p-value: 0.06551</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract value of F-statistic:</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>(f_stat <span class="ot">&lt;-</span> <span class="fu">summary</span>(aux)<span class="sc">$</span>fstatistic[[<span class="st">"value"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.422436</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract p-value:</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pf</span>(f_stat, <span class="dv">1</span>, <span class="dv">248</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.06550557</code></pre>
-</div>
-</div>
-<p>Because the <span class="math inline">\(p\)</span>-value is greater than the significance level of 5% we fail to reject the null hypothesis of homoskedasticity. There is no evidence for heteroskedasticity at the 5% level.</p>
+<ul>
+<li>Value of the test statistic: 3.422 (F-statistic on last line).</li>
+<li><span class="math inline">\(p\)</span>-value: 0.06551 (<span class="math inline">\(p\)</span>-value on last line).</li>
+<li>Conclusion: No evidence of heteroskedasticity (<span class="math inline">\(p\)</span>-value larger than 0.05).</li>
+</ul>
 </section>
 </section>
 <section id="model-2" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="model-2">Model 2</h2>
+<p>Create a variable called <code>pop_growth_sq</code>, which is the square of the variable <code>pop_growth</code>.</p>
+<p>Estimate a linear regression model with the gemeente’s average house price as the dependent variable and <code>pop_growth</code> and <code>pop_growth_sq</code> as the two independent variables.</p>
+<p>Your estimated sample regression intercept should be 385.516.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(house_price <span class="sc">~</span> pop_growth <span class="sc">+</span> <span class="fu">I</span>(pop_growth<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> df)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(house_price <span class="sc">~</span> pop_growth <span class="sc">+</span> <span class="fu">I</span>(pop_growth<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> df)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -317,85 +370,140 @@ F-statistic: 13.04 on 2 and 247 DF,  p-value: 0.000004148</code></pre>
 </div>
 <section id="question-11" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-11">Question 11</h4>
-<p>We observe <span class="math inline">\(b_1&gt;0\)</span> and <span class="math inline">\(b_2&lt;0\)</span>, which would indicate a mountain-shaped relationship. However, the estimate of <span class="math inline">\(b_2\)</span> is not significantly different from zero, so there is no evidence of this mountain-shaped relationship. Therefore we choose the option:</p>
-<p>Because <code>pop_growth</code> is significantly positive and <code>pop_growth_sq</code> is <em>not</em> significantly negative, there is no evidence of <em>a mountain-shaped</em> relationship between house prices and population growth.</p>
+<p>Choose the answer below which best describes the interpretation of the estimates. Use a 5% significance level.</p>
+<ul>
+<li>Because <code>pop_growth</code> is significantly positive and <code>pop_growth_sq</code> is significantly negative, there is no evidence of <em>a mountain-shaped</em> relationship between house prices and population growth.</li>
+<li>Because <code>pop_growth</code> is significantly positive and <code>pop_growth_sq</code> is significantly negative, there is no evidence of <em>any</em> relationship between house prices and population growth.</li>
+<li>Because <code>pop_growth</code> is significantly positive and <code>pop_growth_sq</code> is <em>not</em> significantly negative, there is no evidence of <em>a mountain-shaped</em> relationship between house prices and population growth.</li>
+<li>Because <code>pop_growth</code> is significantly positive and <code>pop_growth_sq</code> is <em>not</em> significantly negative, there is no evidence of <em>any</em> relationship between house prices and population growth.</li>
+</ul>
+<p><strong>Answer:</strong> Because <code>pop_growth</code> is significantly positive and <code>pop_growth_sq</code> is <em>not</em> significantly negative, there is no evidence of <em>a mountain-shaped</em> relationship between house prices and population growth.</p>
+<p><em>Explanation:</em> In a model <span class="math inline">\(\mathbb{E}[Y_i|x_i]=\beta_0+\beta_1 x_i + \beta_2 x_i^2\)</span>, a <span class="math inline">\(\beta_1&gt;0\)</span> with <span class="math inline">\(\beta_2&lt;0\)</span> indicates a mountain-shaped relationship. Here we find <span class="math inline">\(b_1&gt;0\)</span> and <span class="math inline">\(b_2&lt;0\)</span> which would indicate a mountain shape. However, the estimated <span class="math inline">\(b_2\)</span> is not significantly negative (<span class="math inline">\(t\)</span>-stat of only -0.857), so there is no statistical evidence of a mountain shape.</p>
 </section>
 <section id="question-12" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-12">Question 12</h4>
+<p>Perform an appropriate hypothesis test to test the usefulness of the model. Use a 5% significance level.</p>
 <ul>
-<li>The null hypothesis is that <em>all</em> of <span class="math inline">\(\beta_j=0\)</span> for <span class="math inline">\(j=1,2\)</span>.</li>
-<li>The alternative hypothesis is that <em>at least one</em> of <span class="math inline">\(\beta_j\neq 0\)</span> for the same <span class="math inline">\(j\)</span>.</li>
-</ul>
-<p>The value of <span class="math inline">\(a\)</span> in: <span class="math display">\[
+<li>The null hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\(\beta_j\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> for <span class="math inline">\(j=\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> to <span class="math inline">\(\underline{\hspace{20mm}}\)</span> (choose one comparison operator and fill in values in the blank spaces).</li>
+<li>The alternative hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\(\beta_j\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> for the same <span class="math inline">\(j\)</span> (choose one comparison operator and fill in a value in in the blank space).</li>
+<li>The formula for the test statistic is of the form: <span class="math display">\[
 \frac{\frac{SST - a}{k}}{\frac{a}{n-k-1}}
-\]</span> is the SSE. We can find that with:</p>
+\]</span> What is the value of <span class="math inline">\(a\)</span> in the estimated model? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>What is the value of the test statistic? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>What is the critical value? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>What is your conclusion? <em>Reject/don’t reject</em> (choose one) <span class="math inline">\(H_0\)</span>. The model is <em>useful/useless</em> (choose one) .</li>
+</ul>
+<p><strong>Answer:</strong> - <span class="math inline">\(H_0\)</span>: All <span class="math inline">\(\beta_j=0\)</span> for <span class="math inline">\(j=1,2\)</span>. - <span class="math inline">\(H_1\)</span>: At least one <span class="math inline">\(\beta_j\neq 0\)</span> for the same <span class="math inline">\(j\)</span>. - <span class="math inline">\(a=3460951\)</span>. - Value of test statistic is 13.04. - Critical value: 3.032361. - Conclusion: Reject <span class="math inline">\(H_0\)</span>; the model is useful.</p>
+<p><em>Explanation:</em></p>
+<ul>
+<li>The <span class="math inline">\(a\)</span> is the <span class="math inline">\(SSE\)</span> in the formula for the test statistic. Normally the numerator would have <span class="math inline">\(SSR\)</span>, but because <span class="math inline">\(SSR=SST-SSE\)</span>, we can also write the test statistic this way. To find the <span class="math inline">\(SSE\)</span> we can get the ANOVA table by first estimating a model with just a constant term:</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">deviance</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>m0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(house_price <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> df)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m0, m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: house_price ~ 1
+Model 2: house_price ~ pop_growth + I(pop_growth^2)
+  Res.Df     RSS Df Sum of Sq      F      Pr(&gt;F)    
+1    249 3826273                                    
+2    247 3460951  2    365323 13.036 0.000004148 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>We can read the value under <code>RSS</code> for Model 2. Alternatively we can just use the <code>deviance()</code> function for our model:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">deviance</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3460951</code></pre>
 </div>
 </div>
-<p>The value of the test statistic is:</p>
+<ul>
+<li>The value of the test statistic can be read from the last line of the summary output. We can also get it directly with:</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)<span class="sc">$</span>fstatistic[[<span class="st">"value"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)<span class="sc">$</span>fstatistic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 13.03612</code></pre>
+<pre><code>    value     numdf     dendf 
+ 13.03612   2.00000 247.00000 </code></pre>
 </div>
 </div>
-<p>The critical value is:</p>
+<ul>
+<li>The critical value can be found with:</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(<span class="fl">0.95</span>, <span class="dv">2</span>, m2<span class="sc">$</span>df.residual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(<span class="fl">0.95</span>, <span class="dv">2</span>, <span class="dv">247</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.032361</code></pre>
 </div>
 </div>
-<p>The F-statistic is greater than the critical value. Therefore we <em>reject</em> <span class="math inline">\(H_0\)</span>. The model is <em>useful</em>.</p>
+<p>We can get the numerator degrees of freedom (<span class="math inline">\(k=2\)</span>) and denominator degrees of freedom (<span class="math inline">\(n-k-1=247\)</span>) from the output of <code>summary(m2)$fstatistic</code> above, or else from the last line of the summary output. - Because the test statistic is greater than the critical value we reject <span class="math inline">\(H_0\)</span> and conclude that the model is useful.</p>
 </section>
 <section id="question-13" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-13">Question 13</h4>
-<p>We obtain the adjusted <span class="math inline">\(R^2\)</span> for each model:</p>
+<p>Compare the adjusted R-squared between this model and the model in the previous block of questions (with only <code>pop_growth</code> as an independent variable). Choose the answer below which best describes how we should use this information to build our model:</p>
+<ul>
+<li>The adjusted R-squared for the model including <code>pop_growth_sq</code> is larger. Therefore the model excluding <code>pop_growth_sq</code> is preferred.</li>
+<li>The adjusted R-squared for the model including <code>pop_growth_sq</code> is larger. Therefore the model including <code>pop_growth_sq</code> is preferred.</li>
+<li>The adjusted R-squared for the model including <code>pop_growth_sq</code> is smaller. Therefore the model excluding <code>pop_growth_sq</code> is preferred.</li>
+<li>The adjusted R-squared for the model including <code>pop_growth_sq</code> is smaller. Therefore the model including <code>pop_growth_sq</code> is preferred.</li>
+</ul>
+<p><strong>Answer:</strong> - The adjusted R-squared for the model including <code>pop_growth_sq</code> is smaller. Therefore the model excluding <code>pop_growth_sq</code> is preferred.</p>
+<p><em>Explanation:</em> The adjusted <span class="math inline">\(R^2\)</span>s can be seen from the default <code>summary()</code> outputs to the right of the ordinary <span class="math inline">\(R^2\)</span>. We can see that it is smaller in the model with <code>pop_growth_sq</code> (0.0881 vs 0.0891), despite it having an extra variable. Although not necessary to do this question, we could extract both adjusted <span class="math inline">\(R^2\)</span>s to see them next to each other with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)<span class="sc">$</span>adj.r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)<span class="sc">$</span>adj.r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.08913119</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)<span class="sc">$</span>adj.r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)<span class="sc">$</span>adj.r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.08815336</code></pre>
 </div>
 </div>
-<p>Model 2 has a smaller adjusted <span class="math inline">\(R^2\)</span>, despite having more variables. The option we choose is:</p>
-<ul>
-<li>The adjusted R-squared for the model including <code>pop_growth_sq</code> is smaller. Therefore the model excluding <code>pop_growth_sq</code> is preferred.</li>
-</ul>
+<p>Because of the decrease in adjusted <span class="math inline">\(R^2\)</span> we prefer the simpler model with only <code>pop_growth</code> as it has a higher adjusted <span class="math inline">\(R^2\)</span>.</p>
 </section>
 </section>
 <section id="model-3" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="model-3">Model 3</h2>
-<p>One way we can create the <code>randstad</code> variable is with the logical OR operator <code>|</code>:</p>
+<p>Create a variable called <code>randstad</code> that is <code>TRUE</code> if the province is either Noord-Holland, Zuid-Holland or Utrecht and is <code>FALSE</code> otherwise.</p>
+<p>The mean of this variable should equal 0.392.</p>
+<p>We can create this variable two different ways. One is with the logical OR operator:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>randstad <span class="ot">&lt;-</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>province <span class="sc">==</span> <span class="st">"Noord-Holland"</span> <span class="sc">|</span></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>province <span class="sc">==</span> <span class="st">"Zuid-Holland"</span> <span class="sc">|</span></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>province <span class="sc">==</span> <span class="st">"Utrecht"</span></span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>randstad)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>randstad <span class="ot">&lt;-</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>province <span class="sc">==</span> <span class="st">"Noord-Holland"</span> <span class="sc">|</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>province <span class="sc">==</span> <span class="st">"Zuid-Holland"</span> <span class="sc">|</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>province <span class="sc">==</span> <span class="st">"Utrecht"</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>randstad)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.392</code></pre>
 </div>
 </div>
-<p>Another way which is cleaner is to use the <code>%in%</code> operator:</p>
+<p>We can see that the mean matches the question. An alternative way is to use the <code>%in%</code> operator:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>randstad <span class="ot">&lt;-</span> df<span class="sc">$</span>province <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Noord-Holland"</span>, <span class="st">"Zuid-Holland"</span>, <span class="st">"Utrecht"</span>)</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>randstad)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>randstad_provs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Noord-Holland"</span>, <span class="st">"Zuid-Holland"</span>, <span class="st">"Utrecht"</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>randstad <span class="ot">&lt;-</span> df<span class="sc">$</span>province <span class="sc">%in%</span> randstad_provs</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>randstad)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.392</code></pre>
 </div>
 </div>
-<p>Both give the expected mean.</p>
-<p>We estimate the model with:</p>
+<p>The mean also matches the question.</p>
+<section id="question-14" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-14">Question 14</h4>
+<p>What is difference between:</p>
+<ol type="1">
+<li>The mean gemeente average house price <em>inside</em> the Randstad, and</li>
+<li>The mean gemeente average house price <em>outside</em> the Randstad?</li>
+</ol>
+<p>Write your answer in euros.</p>
+<p><strong>Answer:</strong> 105,475 euros.</p>
+<p><em>Explanation:</em></p>
+<p>We can estimate a model with the dummy variable <code>randstad</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(house_price <span class="sc">~</span> randstad, <span class="at">data =</span> df)</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(house_price <span class="sc">~</span> randstad, <span class="at">data =</span> df)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -417,27 +525,22 @@ Multiple R-squared:  0.1732,    Adjusted R-squared:  0.1699
 F-statistic: 51.97 on 1 and 248 DF,  p-value: 0.00000000000679</code></pre>
 </div>
 </div>
-<section id="question-14" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="question-14">Question 14</h4>
-<p>The expected value of the gemeente average house price <em>inside</em> the Randstad is (in €1000): <span class="math display">\[
-\mathbb{E}[Y_i|x_i=1]=\beta_0+\beta_1
-\]</span> The expected value of the gemeente average house price <em>outside</em> the Randstad is (in €1000): <span class="math display">\[
-\mathbb{E}[Y_i|x_i=0]=\beta_0
-\]</span> Therefore our estimate of <span class="math inline">\(\beta_1\)</span> represents the difference in these means. When we multiply by €1000 we convert to euros. The answer is then:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>m3<span class="sc">$</span>coefficients[<span class="dv">2</span>] <span class="sc">*</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>randstadTRUE 
-    105475.5 </code></pre>
-</div>
-</div>
+<p>The model is: <span class="math display">\[\mathbb{E}[Y_i|x_i]=\beta_0+\beta_1 x_i\]</span> The mean house price inside the Randstad is: <span class="math display">\[\mathbb{E}[Y_i|x_i=1]=\beta_0+\beta_1\]</span></p>
+<p>The mean house price outside the Randstad is: <span class="math display">\[\mathbb{E}[Y_i|x_i=0]=\beta_0\]</span> The difference is <span class="math inline">\(\beta_1\)</span>. Thus <span class="math inline">\(b_1\)</span> from this model estimates this difference in means. We multiply by 1,000 then to convert to euros.</p>
 </section>
 </section>
 <section id="model-4" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="model-4">Model 4</h2>
+<p>Estimate a model explaining <code>house_price</code> with the following 3 variables:</p>
+<ol type="1">
+<li><code>pop_growth</code></li>
+<li><code>randstad</code></li>
+<li>The interaction between <code>pop_growth</code> and <code>randstad</code></li>
+</ol>
+<p>Your estimated regression intercept should be 346.65.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(house_price <span class="sc">~</span> pop_growth <span class="sc">*</span> randstad, <span class="at">data =</span> df)</span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(house_price <span class="sc">~</span> pop_growth <span class="sc">*</span> randstad, <span class="at">data =</span> df)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -463,36 +566,33 @@ F-statistic: 26.11 on 3 and 246 DF,  p-value: 0.00000000000001072</code></pre>
 </div>
 <section id="question-15" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-15">Question 15</h4>
-<p>Let <span class="math inline">\(x_{i1}\)</span> be population growth and <span class="math inline">\(x_{i2}\)</span> be the Randstad dummy. The model is then: <span class="math display">\[
-\mathbb{E}[Y_i|x_{i1},x_{i2}]=\beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \beta_3 x_{i1}x_{i2}
-\]</span> For gemeentes with zero population growth in the Randstad::</p>
-<p><span class="math display">\[
-\mathbb{E}[Y_i|x_{i1}=0,x_{i2}=1]=\beta_0 + \beta_1\times 0 + \beta_2 \times 1 + \beta_3 \times 0 \times 1 = \beta_0 + \beta_2
-\]</span> For gemeentes with zero population growth outside the Randstad::</p>
-<p><span class="math display">\[
-\mathbb{E}[Y_i|x_{i1}=0,x_{i2}=0]=\beta_0 + \beta_1\times 0 + \beta_2 \times 0 + \beta_3 \times 0 \times 0 = \beta_0
-\]</span> So <span class="math inline">\(\beta_2\)</span> represents the average difference between the gemeente average house prices inside and outside the Randstad (in €1000) for gemeentes with zero population growth - the number we are looking for. We multiply by €1000 to convert to euros:</p>
+<p>For gemeentes with zero population growth, the gemeente average house price in the Randstad is how much more larger?</p>
+<p>Write your answer in euros.</p>
+<p><strong>Answer:</strong> 137,578.20</p>
+<p><em>Explanation:</em> The model is: <span class="math display">\[\mathbb{E}[Y_i|x_{i1},x_{i2}]=\beta_0+\beta_1 x_{i1} + \beta_2 x_{i2} + \beta_3 x_{i1} x_{i2}\]</span> When population growth is zero, the model becomes: <span class="math display">\[\mathbb{E}[Y_i|x_{i1}=0,x_{i2}]=\beta_0+\beta_1 \times 0 + \beta_2 x_{i2} + \beta_3 \times 0\times x_{i2}=\beta_0+\beta_2 x_{i2}\]</span> Inside the Randstad, the average house price is (when population growth is zero): <span class="math display">\[\mathbb{E}[Y_i|x_{i1}=0,x_{i2}=1]=\beta_0+\beta_2 \]</span> Outside the Randstad, the average house price is (when population growth is zero): <span class="math display">\[\mathbb{E}[Y_i|x_{i1}=0,x_{i2}=0]=\beta_2 \]</span> Thus the difference <span class="math inline">\(\beta_2\)</span> is the difference in average house prices between the Randstad and outside the Randstad when population growth is zero. The dependent variable is measured in thousands of euros so we multiply <span class="math inline">\(b_2\)</span> by 1,000 to convert it to euros. We can do this manually, or else using R with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>m4<span class="sc">$</span>coefficients[<span class="dv">2</span>] <span class="sc">*</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m4)[<span class="dv">3</span>] <span class="sc">*</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>pop_growth 
-  16496.29 </code></pre>
+<pre><code>randstadTRUE 
+    137578.2 </code></pre>
 </div>
 </div>
 </section>
 <section id="question-16" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-16">Question 16</h4>
-<p>In the Randstad, the model is: <span class="math display">\[
-\begin{split}
-\mathbb{E}[Y_i|x_{i1},x_{i2}=1]&amp;=\beta_0 + \beta_1 x_{i1} + \beta_2 \times 1 + \beta_3 x_{i1} \times 1 \\&amp;= \beta_0 +\beta_2 + \left(\beta_1 +\beta_3\right) x_{i1}
-\end{split}
-\]</span> Increasing the population growth by one percentage point in the Randstad: <span class="math display">\[
-\begin{split}
-\mathbb{E}[Y_i|x_{i1}+1,x_{i2}=1]= \beta_0 +\beta_2 + \left(\beta_1 +\beta_3\right) \left(x_{i1}+1\right)
-\end{split}
-\]</span> Taking differences yields <span class="math inline">\(\beta_1+\beta_3\)</span>. So this multiplied by €1,000 is how much more expensive we expect houses to become in the Randstad when the population growth increases by one percentage point:</p>
+<p>In the Randstad, a 1 percentage point higher population growth rate on average leads to how much more expensive a house?</p>
+<p>Write your answer in euros.</p>
+<p><strong>Answer:</strong> 4,679.24</p>
+<p><em>Explanation:</em> The model is: <span class="math display">\[\mathbb{E}[Y_i|x_{i1},x_{i2}]=\beta_0+\beta_1 x_{i1} + \beta_2 x_{i2} + \beta_3 x_{i1} x_{i2}\]</span> Inside the Randstad, the model is: <span class="math display">\[\mathbb{E}[Y_i|x_{i1},x_{i2}=1]=\beta_0+\beta_1 x_{i1} + \beta_2 \times 1 + \beta_3 x_{i1}\times 1=\beta_0+\beta_2 +\left(\beta_1 + \beta_3\right)x_{i1}\]</span> Increasing population growth by 1 percentage point: <span class="math display">\[
+\mathbb{E}[Y_i|x_{i1}+1,x_{i2}=1]=
+\beta_0+\beta_2 +\left(\beta_1 + \beta_3\right)\left(x_{i1}+1\right)=
+\beta_0+\beta_2 +\left(\beta_1 + \beta_3\right)x_{i1} + \beta_1+\beta_3=
+\]</span> Taking differences: <span class="math display">\[
+\mathbb{E}[Y_i|x_{i1}+1,x_{i2}=1]-
+\mathbb{E}[Y_i|x_{i1},x_{i2}=1]=\beta_1+\beta_3
+\]</span> Thus <span class="math inline">\(\beta_1+\beta_3\)</span> measures the impact of a one percentage point increase in the population growth on the house price in the Randstad. Because house prices are measured in thousands, we multiply <span class="math inline">\(b_1+b_3\)</span> by 1,000 to convert to euros. We can do this manually or else in R with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>(m4<span class="sc">$</span>coefficients[<span class="dv">2</span>] <span class="sc">+</span> m4<span class="sc">$</span>coefficients[<span class="dv">4</span>]) <span class="sc">*</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">coef</span>(m4)[<span class="dv">2</span>] <span class="sc">+</span> <span class="fu">coef</span>(m4)[<span class="dv">4</span>]) <span class="sc">*</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>pop_growth 
   4679.241 </code></pre>
@@ -501,23 +601,48 @@ F-statistic: 26.11 on 3 and 246 DF,  p-value: 0.00000000000001072</code></pre>
 </section>
 <section id="question-17" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-17">Question 17</h4>
+<p>Use your model to predict the average house price in a single gemeente in the Randstad with a population growth of 4%.</p>
+<p>Also calculate an interval which contains the actual average house price with 90% probability.</p>
+<p>Write your answers in euros.</p>
+<ul>
+<li>Prediction: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>Interval lower bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>Interval upper bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+</ul>
+<p><strong>Answer:</strong></p>
+<p>We obtain the prediction and prediction interval with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(m4, <span class="fu">data.frame</span>(<span class="at">pop_growth =</span> <span class="dv">4</span>, <span class="at">randstad =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">interval =</span> <span class="st">"predict"</span>, <span class="at">level =</span> <span class="fl">0.90</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>df_p <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">pop_growth =</span> <span class="dv">4</span>, <span class="at">randstad =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(m4, df_p, <span class="at">interval =</span> <span class="st">"predict"</span>, <span class="at">level =</span> <span class="fl">0.90</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       fit      lwr      upr
 1 502.9475 322.6866 683.2083</code></pre>
 </div>
 </div>
+<p>We then multiply each by 1,000 to convert to euros:</p>
+<ul>
+<li>Prediction: 502,947.50</li>
+<li>Interval lower bound: 322,686.60</li>
+<li>Interval upper bound: 683,208.30</li>
+</ul>
 </section>
 </section>
 <section id="model-5" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="model-5">Model 5</h2>
+<p>Create a variable called <code>gelderland</code> which is <code>TRUE</code> if the gemeente is in Gelderland and is <code>FALSE</code> otherwise. Similarly, create a variable called <code>limburg</code> which is <code>TRUE</code> if the gemeente is in Limburg and is <code>FALSE</code> otherwise.</p>
+<p>Use these to estimate a model explaining <code>house_price</code> with the following 4 variables:</p>
+<ol type="1">
+<li><code>pop_growth</code></li>
+<li><code>randstad</code></li>
+<li><code>gelderland</code>.</li>
+<li><code>limburg</code>.</li>
+</ol>
+<p>Your estimated regression intercept should be 371.767.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>gelderland <span class="ot">&lt;-</span> df<span class="sc">$</span>province <span class="sc">==</span> <span class="st">"Gelderland"</span></span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>limburg <span class="ot">&lt;-</span> df<span class="sc">$</span>province <span class="sc">==</span> <span class="st">"Limburg"</span></span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>m5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(house_price <span class="sc">~</span> pop_growth <span class="sc">+</span> randstad <span class="sc">+</span> gelderland <span class="sc">+</span> limburg, <span class="at">data =</span> df)</span>
-<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>gelderland <span class="ot">&lt;-</span> df<span class="sc">$</span>province <span class="sc">==</span> <span class="st">"Gelderland"</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>limburg <span class="ot">&lt;-</span> df<span class="sc">$</span>province <span class="sc">==</span> <span class="st">"Limburg"</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>m5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(house_price <span class="sc">~</span> pop_growth <span class="sc">+</span> randstad <span class="sc">+</span> gelderland <span class="sc">+</span> limburg, <span class="at">data =</span> df)</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -545,50 +670,85 @@ F-statistic: 19.46 on 4 and 245 DF,  p-value: 0.00000000000006416</code></pre>
 </div>
 <section id="question-18" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-18">Question 18</h4>
-<p>When we include Gelderland, Limburg and the Randstad, the “base categories” are then all of Drenthe, Flevoland, Friesland, Groningen, Noord-Brabant, Overijssel, and Zeeland. So the estimated coefficient in front of Gelderland represents the average difference between Gelderland and these provinces, holding all other variables included in the model (population growth) fixed. So the correct option is:</p>
-<p>Holding the population growth fixed, the average house price in Gelderland is €28,884 more than the average house price in <em>Drenthe, Flevoland, Friesland, Groningen, Noord-Brabant, Overijssel, and Zeeland.</em></p>
+<p>Choose the answer below which best describes the interpretation of the estimated coefficient on <code>gelderland</code>:</p>
+<ul>
+<li>Holding the population growth fixed, the average house price in Gelderland is €28,884 more than the average house price in <em>Drenthe, Flevoland, Friesland, Groningen, Noord-Brabant, Overijssel, and Zeeland.</em></li>
+<li>Holding the population growth fixed, the average house price in Gelderland is €28,884 more than the average house price in the <em>Randstad and Limburg.</em></li>
+<li>If the population growth is 8.53%, the average house price in Gelderland is €28,884 more than the average house price in <em>Drenthe, Flevoland, Friesland, Groningen, Noord-Brabant, Overijssel, and Zeeland.</em></li>
+<li>If the population growth is 8.53%, the average house price in Gelderland is €28,884 more than the average house price in the <em>Randstad and Limburg.</em></li>
+</ul>
+<p><strong>Answer:</strong></p>
+<p>Holding the population growth fixed, the average house price in Gelderland is €28,884 more than the average house price in Drenthe, Flevoland, Friesland, Groningen, Noord-Brabant, Overijssel, and Zeeland.</p>
+<p><em>Explanation:</em> The Randstad (Noord-Holland, Zuid-Holland and Utrecht), Gelderland and Limburg are included provinces in the model. This means that the remaining provinces (Drenthe, Flevoland, Friesland, Groningen, Noord-Brabant, Overijssel, and Zeeland) form a collective <em>base category</em>. Each of the estimated province coefficients are therefore compared to these. Thus the coefficient in front of <code>gelderland</code> estimates the difference in average house prices between <code>gelderland</code> and these base provinces holding the population growth fixed.</p>
+<p>To see this more clearly, we can write down the model:</p>
+<p><span class="math display">\[
+\mathbb{E}[Y_i|x_{i1},x_{i2},x_{i3},x_{i4}]=
+\beta_0+ \beta_1 x_{i1} + \beta_2 x_{i2} + \beta_3 x_{i3} + \beta_4 x_{i4}
+\]</span> For gemeentes in Gelderland, we know that <span class="math inline">\(x_{i2}=x_{i4}=0\)</span> (you can’t be in Gelderland and another province). The model for Gelderland is then: <span class="math display">\[
+\mathbb{E}[Y_i|x_{i1},x_{i2}=0,x_{i3}=1,x_{i4}=0]=
+\beta_0+ \beta_1 x_{i1} + \beta_3
+\]</span> For gemeentes in the base category (Drenthe, Flevoland, Friesland, Groningen, Noord-Brabant, Overijssel, and Zeeland), we have <span class="math inline">\(x_{i2}=x_{i3}=x_{i4}=0\)</span> because they cana’t be in the Randstad, Gelderland or Limburg as well. The model for these provinces is:</p>
+<p><span class="math display">\[
+\mathbb{E}[Y_i|x_{i1},x_{i2}=0,x_{i3}=0,x_{i4}=0]=
+\beta_0+ \beta_1 x_{i1}
+\]</span> Taking differences:</p>
+<p>$$</p>
+<p>[Y_i|x_{i1},x_{i2}=0,x_{i3}=1,x_{i4}=0]= [Y_i|x_{i1},x_{i2}=0,x_{i3}=0,x_{i4}=0]=_3 $$ Thus <span class="math inline">\(\beta_3\)</span> is the difference in average house prices between Gelderland and these base provinces for a given population growth.</p>
 </section>
 <section id="question-19" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-19">Question 19</h4>
-<p>The null hypothesis is that <em>all</em> of <span class="math inline">\(\beta_j=0\)</span> for <span class="math inline">\(j=3,4\)</span>. The alternative hypothesis is that <em>at least one</em> of <span class="math inline">\(\beta_j\neq 0\)</span> for the same <span class="math inline">\(j\)</span>.</p>
+<p>We want to test for the joint usefulness of the variables <code>gelderland</code> and <code>limburg</code>, which are variables 3 and 4 in the model. Use a 5% significance level.</p>
+<p>Choose one of the options in <em>italics</em> and fill in the blanks.</p>
+<ul>
+<li>The null hypothesis is that <em>all/at least one/none</em> of <span class="math inline">\(\beta_j\)</span> <span class="math inline">\(\rule{1cm}{0.15mm}\)</span> <span class="math inline">\(\rule{1cm}{0.15mm}\)</span> for <span class="math inline">\(j=\rule{1cm}{0.15mm}\)</span>.</li>
+<li>The alternative hypothesis is that <em>all/at least one/none</em> of <span class="math inline">\(\beta_j\)</span> <span class="math inline">\(\rule{1cm}{0.15mm}\)</span> <span class="math inline">\(\rule{1cm}{0.15mm}\)</span> for the same <span class="math inline">\(j\)</span>.</li>
+</ul>
 <p>The test statistic is of the form: <span class="math display">\[
 \frac{\frac{a - SSE_c}{k-g}}{\frac{SSE_c}{n-k-1}}
-\]</span> Here <span class="math inline">\(a\)</span> represents the sum of squared errors in the reduced model. We can obtain this by estimating the reduced model (which we will need later anyway) and getting the sum of squared errors from that:</p>
+\]</span></p>
+<p>What is the value of <span class="math inline">\(a\)</span> in the test? <span class="math inline">\(\rule{1cm}{0.15mm}\)</span></p>
+<p>What is the value of the test statistic? <span class="math inline">\(\rule{1cm}{0.15mm}\)</span></p>
+<p>What is the critical value? <span class="math inline">\(\rule{1cm}{0.15mm}\)</span></p>
+<p>Which of the 4 options below is the correct conclusion from the test?</p>
+<ul>
+<li>Reject H0. The variables are useful additions to the model.</li>
+<li>Reject H0. The variables are not useful additions to the model.</li>
+<li>Don’t reject H0. The variables are useful additions to the model.</li>
+<li>Don’t reject H0. The variables are not useful additions to the model.</li>
+</ul>
+<p><strong>Answer:</strong></p>
+<p>We can perform the partial <span class="math inline">\(F\)</span> test by first estimating the reduced model:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>m5r <span class="ot">&lt;-</span> <span class="fu">lm</span>(house_price <span class="sc">~</span> pop_growth <span class="sc">+</span> randstad, <span class="at">data =</span> df)</span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">deviance</span>(m5r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2971312</code></pre>
-</div>
-</div>
-<p>The value of the test statistic can be found with the <code>anova()</code> function using the complete and reduced models as arguments:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m5, m5r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>m5r <span class="ot">&lt;-</span> <span class="fu">lm</span>(house_price <span class="sc">~</span> pop_growth <span class="sc">+</span> randstad, <span class="at">data =</span> df)</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m5r, m5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
 
-Model 1: house_price ~ pop_growth + randstad + gelderland + limburg
-Model 2: house_price ~ pop_growth + randstad
+Model 1: house_price ~ pop_growth + randstad
+Model 2: house_price ~ pop_growth + randstad + gelderland + limburg
   Res.Df     RSS Df Sum of Sq      F  Pr(&gt;F)  
-1    245 2903751                              
-2    247 2971312 -2    -67561 2.8502 0.05975 .
+1    247 2971312                              
+2    245 2903751  2     67561 2.8502 0.05975 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m5, m5r)[<span class="dv">2</span>, <span class="st">"F"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.850176</code></pre>
 </div>
-</div>
-<p>The critical value is:</p>
+<p>This also provides us with the numerator and denominator degrees of freedom required to compute the critical value:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(<span class="fl">0.95</span>, <span class="at">df1 =</span> <span class="dv">2</span>, <span class="at">df2 =</span> m5<span class="sc">$</span>df.residual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(<span class="fl">0.95</span>, <span class="dv">2</span>, <span class="dv">245</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.032663</code></pre>
 </div>
 </div>
-<p>The test statistic is smaller than the critical value. The correct conclusion is then:</p>
-<p>Don’t reject H0. The variables are not useful additions to the model.</p>
+<p>We now have everything to answer the questions:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: All <span class="math inline">\(\beta_j=0\)</span> for <span class="math inline">\(j=3,4\)</span>.</li>
+<li><span class="math inline">\(H_1\)</span>: At least one <span class="math inline">\(\beta_j\neq 0\)</span> for the same <span class="math inline">\(j\)</span>.</li>
+<li><span class="math inline">\(a\)</span> is the <span class="math inline">\(SSE_r\)</span>, the sum of squared errors for the reduced model. We can find the value of this from the <code>anova()</code> output: 2903751.</li>
+<li>Value of the test statistic: 2.8502.</li>
+<li>Critical value: 3.026153.</li>
+<li>Conclusion: Don’t reject H0. The variables are not useful additions to the model (<em>reason:</em> test statistic smaller than critical value).</li>
+</ul>
 </section>
 </section>
 
