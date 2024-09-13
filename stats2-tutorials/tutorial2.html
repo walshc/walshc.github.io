@@ -301,9 +301,9 @@ F-statistic:   613 on 1 and 378 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>The critical value is:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>(cf <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, m<span class="sc">$</span>df.residual))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>(cf <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.995</span>, m<span class="sc">$</span>df.residual))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.96626</code></pre>
+<pre><code>[1] 2.588898</code></pre>
 </div>
 </div>
 <p>Because the absolute value of the test statistic is larger than the critical value:</p>
