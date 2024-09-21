@@ -516,16 +516,25 @@ F-statistic: 14.41 on 11 and 329 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>Because the test statistic (14.409) is larger than the critical value (1.818) we reject the null hypothesis. There is sufficient evidence to suggest that the average house prices are different across provinces.</p>
-<p>We can also use the <span class="math inline">p</span>-value approach. The <span class="math inline">p</span>-value for the <span class="math inline">F</span>-test is already shown in the summary output, but we could also obtain it manually using: &lt;<house545>&gt;= f_stat &lt;- summary(m)$fstat[1] (p_val &lt;- 1 - pf(f_stat, 11, 329)) @ The <span class="math inline">p</span>-value (0) is smaller than the significance level (0.05), so we also reject <span class="math inline">H_0</span> with this approach.</house545></p>
+<p>We can also use the <span class="math inline">p</span>-value approach. The <span class="math inline">p</span>-value for the <span class="math inline">F</span>-test is already shown in the summary output, but we could also obtain it manually using:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>f_stat <span class="ot">&lt;-</span> <span class="fu">summary</span>(m)<span class="sc">$</span>fstat[<span class="dv">1</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>(p_val <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pf</span>(f_stat, <span class="dv">11</span>, <span class="dv">329</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>value 
+    0 </code></pre>
+</div>
+</div>
+<p>The <span class="math inline">p</span>-value (0) is smaller than the significance level (0.05), so we also reject <span class="math inline">H_0</span> with this approach.</p>
 </section>
 <section id="specifying-the-base-level" class="level2" data-number="25.5">
 <h2 data-number="25.5" class="anchored" data-anchor-id="specifying-the-base-level"><span class="header-section-number">25.5</span> Specifying the Base Level</h2>
 <p>The coefficient estimates <span class="math inline">b_1</span>, , <span class="math inline">b_{11}</span> are always interpreted as the differences with respect to the base level. Because of this, we may want to specify the base level to help us interpret the results. By default, R chooses Drenthe as the base level. But we may want to use Noord-Brabant or another province as the base level. How can we do this?</p>
 <p>To do this we first convert the variable to a <code>factor</code> and then “relevel” the factor variable using the <code>relevel()</code> function specifying the base level. Let’s do this making Noord-Brabant the base level:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>province <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>province)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>province <span class="ot">&lt;-</span> <span class="fu">relevel</span>(df<span class="sc">$</span>province, <span class="at">ref =</span> <span class="st">"Noord-Brabant"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(house_price_2022 <span class="sc">~</span> province, <span class="at">data =</span> df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>province <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>province)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>province <span class="ot">&lt;-</span> <span class="fu">relevel</span>(df<span class="sc">$</span>province, <span class="at">ref =</span> <span class="st">"Noord-Brabant"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(house_price_2022 <span class="sc">~</span> province, <span class="at">data =</span> df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -602,9 +611,9 @@ F-statistic: 14.41 on 11 and 329 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ul>
 <p>Let’s estimate it in R:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"wages2.csv"</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">lm</span>(wage <span class="sc">~</span> educ <span class="sc">+</span> female <span class="sc">*</span> married, <span class="at">data =</span> df)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"wages2.csv"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">lm</span>(wage <span class="sc">~</span> educ <span class="sc">+</span> female <span class="sc">*</span> married, <span class="at">data =</span> df)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -633,7 +642,7 @@ F-statistic: 60.32 on 4 and 521 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>According to the model, <span class="math inline">b_0=-1.02442</span> means the expected wage for an unmarried man with zero years of education is <span class="math inline">-</span>$1.02.</p>
 <p>Let’s see how many observations have <span class="math inline">educ_i=female_i=married_i=0</span>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df[df<span class="sc">$</span>educ <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> df<span class="sc">$</span>female <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> df<span class="sc">$</span>married <span class="sc">==</span> <span class="dv">0</span>, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df[df<span class="sc">$</span>educ <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> df<span class="sc">$</span>female <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> df<span class="sc">$</span>married <span class="sc">==</span> <span class="dv">0</span>, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
@@ -646,7 +655,17 @@ F-statistic: 60.32 on 4 and 521 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Let’s consider an example question from this output.</p>
 <p>Holding education fixed, do unmarried women earn less than unmarried men (at the 5% level)? Use a <span class="math inline">p</span>-value approach.</p>
 <p>This question is asking if <span class="math inline">\beta_2&lt; 0</span>, so the null and alternative hypotheses are <span class="math inline">H_0: \beta_2\geq 0</span> and <span class="math inline">H_1:\beta_2&lt;0</span>. Under <span class="math inline">H_0</span>, the test statistic <span class="math inline">T=B_2/S_{B_2}\sim t_{n-k-1}</span>. Because the hinge is zero, we can read the test statistic directly from the table: <span class="math inline">t=-0.8513</span>. However, the <span class="math inline">p</span>-value in the table is for a two-sided test. We can get the <span class="math inline">p</span>-value with:</p>
-<p>(t &lt;- coef(summary(m))[“female”, “t value”]) pt(t, m$df.residual) @ The <span class="math inline">p</span>-value (0.1975) is greater than the significance level (0.05), so we we do not reject the null hypothesis. There is not enough evidence to show that unmarried women earn less than unmarried men of equal education levels.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>(t <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">summary</span>(m))[<span class="st">"female"</span>, <span class="st">"t value"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.8513</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(t, m<span class="sc">$</span>df.residual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1974969</code></pre>
+</div>
+</div>
+<p>The <span class="math inline">p</span>-value (0.1975) is greater than the significance level (0.05), so we we do not reject the null hypothesis. There is not enough evidence to show that unmarried women earn less than unmarried men of equal education levels.</p>
 
 
 </section>
