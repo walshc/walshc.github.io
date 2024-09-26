@@ -116,6 +116,7 @@ window.Quarto = {
 <li>Extract variable <code>x</code> from dataframe <code>df</code> as a vector: <code>df$x</code></li>
 <li>Convert vector <code>x</code> to a factor: <code>factor(df$x)</code>.</li>
 <li>Specifying the base level of a factor variable <code>x</code> to <code>"base"</code>: <code>relevel(x, ref = "base")</code></li>
+<li>Create a new variable in <code>df</code> which is the lag of <code>x</code>: <code>df$lag_x &lt;- c(NA, df$x[1:(nrow(df)-1)])</code></li>
 </ul>
 </section>
 <section id="summary-statistics" class="level4 unnumbered">
@@ -172,7 +173,7 @@ predict(m, df_p, interval = "prediction", level = 0.95)</code></pre>
 <li>Obtain <span class="math inline">n-k-1</span> for model <code>m</code>: <code>m$df.residual</code></li>
 <li>Obtain quantile <code>p</code> of the <span class="math inline">t</span> distribution with <code>deg</code> degrees of freedom: <code>qt(p, deg)</code></li>
 <li>Obtain the area to the left of <code>q</code> under the <span class="math inline">t</span> distribution with <code>deg</code> degrees of freedom: <code>pt(q, deg)</code>.</li>
-<li>Obtain quantile <code>p</code> of the <span class="math inline">F</span> distribution with <code>deg1</code> numerator and <code>deg2</code> denominator degrees of freedom: <code>qt(p, deg1, deg2)</code></li>
+<li>Obtain quantile <code>p</code> of the <span class="math inline">F</span> distribution with <code>deg1</code> numerator and <code>deg2</code> denominator degrees of freedom: <code>qf(p, deg1, deg2)</code></li>
 <li>Obtain the area to the left of <code>q</code> under the <span class="math inline">F</span> distribution with <code>deg1</code> numerator and <code>deg2</code> denominator degrees of freedom: <code>pf(q, deg1, deg2)</code>.</li>
 </ul>
 </section>
