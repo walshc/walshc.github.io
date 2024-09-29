@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -34,8 +34,49 @@ ul.task-list li input[type="checkbox"] {
 <link href="2023-resit_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="2023-resit_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -60,7 +101,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="introduction" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
@@ -123,20 +166,20 @@ ul.task-list li input[type="checkbox"] {
 <h4 class="unnumbered anchored" data-anchor-id="question-8">Question 8</h4>
 <p>Provide a 95% confidence interval for the estimated coefficient on <code>pop_growth</code>.</p>
 <ul>
-<li>Lower bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>Upper bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>Lower bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Upper bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
 </ul>
 </section>
 <section id="question-9" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-9">Question 9</h4>
-<p>Test the following claim at the 5% level using a <span class="math inline">\(p\)</span>-value approach:</p>
+<p>Test the following claim at the 5% level using a <span class="math inline">p</span>-value approach:</p>
 <p><em>A 1 percentage point increase in the population growth over 5 years on average increases house prices by less than €15,000.</em></p>
 <ul>
-<li><p>What is the null hypothesis? <span class="math inline">\(\beta_1\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> (choose one comparison operator and fill in a value in the blank).</p></li>
-<li><p>What is the alternative hypothesis? <span class="math inline">\(\beta_1\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> (choose one comparison operator and fill in a value in the blank).</p></li>
-<li><p>Under the null hypothesis, the test statistic <span class="math inline">\(T\)</span> follows a <span class="math inline">\(t\)</span> distribution with how many degrees of freedom? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p></li>
-<li><p>What is the value of the test statistic? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p></li>
-<li><p>What is the associated <span class="math inline">\(p\)</span>-value? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p></li>
+<li><p>What is the null hypothesis? <span class="math inline">\beta_1</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</p></li>
+<li><p>What is the alternative hypothesis? <span class="math inline">\beta_1</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</p></li>
+<li><p>Under the null hypothesis, the test statistic <span class="math inline">T</span> follows a <span class="math inline">t</span> distribution with how many degrees of freedom? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is the associated <span class="math inline">p</span>-value? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
 <li><p>What is your conclusion? Choose an option below:</p>
 <ul>
 <li>Reject H0: There is sufficient evidence for the claim.</li>
@@ -152,10 +195,10 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="question-10" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-10">Question 10</h4>
-<p>Run a formal test for heteroskedasticity using a <span class="math inline">\(p\)</span>-value approach.</p>
+<p>Run a formal test for heteroskedasticity using a <span class="math inline">p</span>-value approach.</p>
 <ul>
-<li>Report the value of the test statistic: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>Report the <span class="math inline">\(p\)</span>-value: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>Report the value of the test statistic: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Report the <span class="math inline">p</span>-value: <span class="math inline">\underline{\hspace{20mm}}</span></li>
 <li>Is there evidence of heteroskedasticity at the 5% level (Yes/No)? Choose one.</li>
 </ul>
 </section>
@@ -179,14 +222,14 @@ ul.task-list li input[type="checkbox"] {
 <h4 class="unnumbered anchored" data-anchor-id="question-12">Question 12</h4>
 <p>Perform an appropriate hypothesis test to test the usefulness of the model. Use a 5% significance level.</p>
 <ul>
-<li>The null hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\(\beta_j\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> for <span class="math inline">\(j=\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> to <span class="math inline">\(\underline{\hspace{20mm}}\)</span> (choose one comparison operator and fill in values in the blank spaces).</li>
-<li>The alternative hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\(\beta_j\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> for the same <span class="math inline">\(j\)</span> (choose one comparison operator and fill in a value in in the blank space).</li>
-<li>The formula for the test statistic is of the form: <span class="math display">\[
+<li>The null hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\beta_j</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> for <span class="math inline">j=</span> <span class="math inline">\underline{\hspace{20mm}}</span> to <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in values in the blank spaces).</li>
+<li>The alternative hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\beta_j</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> for the same <span class="math inline">j</span> (choose one comparison operator and fill in a value in in the blank space).</li>
+<li>The formula for the test statistic is of the form: <span class="math display">
 \frac{\frac{SST - a}{k}}{\frac{a}{n-k-1}}
-\]</span> What is the value of <span class="math inline">\(a\)</span> in the estimated model? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>What is the value of the test statistic? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>What is the critical value? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>What is your conclusion? <em>Reject/don’t reject</em> (choose one) <span class="math inline">\(H_0\)</span>. The model is <em>useful/useless</em> (choose one) .</li>
+</span> What is the value of <span class="math inline">a</span> in the estimated model? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the critical value? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is your conclusion? <em>Reject/don’t reject</em> (choose one) <span class="math inline">H_0</span>. The model is <em>useful/useless</em> (choose one) .</li>
 </ul>
 </section>
 <section id="question-13" class="level4 unnumbered">
@@ -239,9 +282,9 @@ ul.task-list li input[type="checkbox"] {
 <p>Also calculate an interval which contains the actual average house price with 90% probability.</p>
 <p>Write your answers in euros.</p>
 <ul>
-<li>Prediction: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>Interval lower bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>Interval upper bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>Prediction: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Interval lower bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Interval upper bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
 </ul>
 </section>
 </section>
@@ -271,15 +314,15 @@ ul.task-list li input[type="checkbox"] {
 <p>We want to test for the joint usefulness of the variables <code>gelderland</code> and <code>limburg</code>, which are variables 3 and 4 in the model. Use a 5% significance level.</p>
 <p>Choose one of the options in <em>italics</em> and fill in the blanks.</p>
 <ul>
-<li>The null hypothesis is that <em>all/at least one/none</em> of <span class="math inline">\(\beta_j\)</span> <span class="math inline">\(\rule{1cm}{0.15mm}\)</span> <span class="math inline">\(\rule{1cm}{0.15mm}\)</span> for <span class="math inline">\(j=\rule{1cm}{0.15mm}\)</span>.</li>
-<li>The alternative hypothesis is that <em>all/at least one/none</em> of <span class="math inline">\(\beta_j\)</span> <span class="math inline">\(\rule{1cm}{0.15mm}\)</span> <span class="math inline">\(\rule{1cm}{0.15mm}\)</span> for the same <span class="math inline">\(j\)</span>.</li>
+<li>The null hypothesis is that <em>all/at least one/none</em> of <span class="math inline">\beta_j</span> <span class="math inline">\rule{1cm}{0.15mm}</span> <span class="math inline">\rule{1cm}{0.15mm}</span> for <span class="math inline">j=\rule{1cm}{0.15mm}</span>.</li>
+<li>The alternative hypothesis is that <em>all/at least one/none</em> of <span class="math inline">\beta_j</span> <span class="math inline">\rule{1cm}{0.15mm}</span> <span class="math inline">\rule{1cm}{0.15mm}</span> for the same <span class="math inline">j</span>.</li>
 </ul>
-<p>The test statistic is of the form: <span class="math display">\[
+<p>The test statistic is of the form: <span class="math display">
 \frac{\frac{a - SSE_c}{k-g}}{\frac{SSE_c}{n-k-1}}
-\]</span></p>
-<p>What is the value of <span class="math inline">\(a\)</span> in the test? <span class="math inline">\(\rule{1cm}{0.15mm}\)</span></p>
-<p>What is the value of the test statistic? <span class="math inline">\(\rule{1cm}{0.15mm}\)</span></p>
-<p>What is the critical value? <span class="math inline">\(\rule{1cm}{0.15mm}\)</span></p>
+</span></p>
+<p>What is the value of <span class="math inline">a</span> in the test? <span class="math inline">\rule{1cm}{0.15mm}</span></p>
+<p>What is the value of the test statistic? <span class="math inline">\rule{1cm}{0.15mm}</span></p>
+<p>What is the critical value? <span class="math inline">\rule{1cm}{0.15mm}</span></p>
 <p>Which of the 4 options below is the correct conclusion from the test?</p>
 <ul>
 <li>Reject H0. The variables are useful additions to the model.</li>
@@ -327,18 +370,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -370,11 +402,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -384,8 +455,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -397,7 +477,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -441,6 +644,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -466,6 +670,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -526,6 +756,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

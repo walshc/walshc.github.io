@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -68,8 +68,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="2023-resit-solutions_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="2023-resit-solutions_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -94,8 +135,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
 
+
+<p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
 <section id="introduction" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
 <p>The dataset <a href="https://walshc.github.io/stats2/housing.csv"><code>housing.csv</code></a> contains data from a random sample of 250 <em>gemeenten</em> (municipalities) in the Netherlands. For each <em>gemeente</em> in the sample we observe:</p>
@@ -168,7 +212,7 @@ F-statistic: 25.37 on 1 and 248 DF,  p-value: 0.0000009136</code></pre>
 <p>A 1 percentage point increase in the gemeente’s population growth is associated with on average how much of an increase in the gemeente’s average house price?</p>
 <p>Write your answer in euros. Note that the dependent variable is measured in thousands of euros.</p>
 <p><strong>Answer:</strong> 12979.23</p>
-<p><em>Explanation:</em> A 1 percentage point increase in the gemeente’s population growth is a one-unit increase in the <span class="math inline">\(x\)</span> variable, so no adjustment is needed. The dependent variable is measured in thousands of euros, so to convert to euros we multiply the estimtae slope coefficient by 1,000. We could do this manually or else in R with:</p>
+<p><em>Explanation:</em> A 1 percentage point increase in the gemeente’s population growth is a one-unit increase in the <span class="math inline">x</span> variable, so no adjustment is needed. The dependent variable is measured in thousands of euros, so to convert to euros we multiply the estimtae slope coefficient by 1,000. We could do this manually or else in R with:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m1)[<span class="dv">2</span>] <span class="sc">*</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -187,7 +231,7 @@ F-statistic: 25.37 on 1 and 248 DF,  p-value: 0.0000009136</code></pre>
 <li>Houses in gemeentes with zero population growth on average sell for €393.05.</li>
 </ul>
 <p><strong>Answer:</strong> Houses in gemeentes with zero population growth on average sell for €393,049.</p>
-<p><em>Explanation:</em> The intercept <span class="math inline">\(b_0\)</span> gives an estimate of <span class="math inline">\(\mathbb{E}[Y_i|x_i=0]\)</span>, the average value of <span class="math inline">\(Y\)</span> when <span class="math inline">\(x=0\)</span>. Because the <span class="math inline">\(Y\)</span> variable is measured in thousands, we need to multiply <span class="math inline">\(b_0\)</span> by 1,000 to get the answer. For this prediction to be reliable we need <span class="math inline">\(x=0\)</span> to be in the range of the data. We can check this with:</p>
+<p><em>Explanation:</em> The intercept <span class="math inline">b_0</span> gives an estimate of <span class="math inline">\mathbb{E}[Y_i|x_i=0]</span>, the average value of <span class="math inline">Y</span> when <span class="math inline">x=0</span>. Because the <span class="math inline">Y</span> variable is measured in thousands, we need to multiply <span class="math inline">b_0</span> by 1,000 to get the answer. For this prediction to be reliable we need <span class="math inline">x=0</span> to be in the range of the data. We can check this with:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>pop_growth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -201,7 +245,7 @@ F-statistic: 25.37 on 1 and 248 DF,  p-value: 0.0000009136</code></pre>
 <h4 class="unnumbered anchored" data-anchor-id="question-6">Question 6</h4>
 <p>What is the coefficient of determination?</p>
 <p><strong>Answer:</strong> 0.09279</p>
-<p><em>Explanation:</em> The coefficient of determination is the same as the <span class="math inline">\(R^2\)</span>, which we can see from the 2nd-last line in the model summary output (after <code>Multiple R-squared</code>). We could also obtain this directly with:</p>
+<p><em>Explanation:</em> The coefficient of determination is the same as the <span class="math inline">R^2</span>, which we can see from the 2nd-last line in the model summary output (after <code>Multiple R-squared</code>). We could also obtain this directly with:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -214,7 +258,7 @@ F-statistic: 25.37 on 1 and 248 DF,  p-value: 0.0000009136</code></pre>
 <p>What proportion of the variation in house prices is left unexplained by the model?</p>
 <p><em>Note:</em> proportions are numbers between 0 and 1.</p>
 <p><strong>Answer:</strong> 0.9072</p>
-<p><em>Explanation:</em> The <span class="math inline">\(R^2\)</span> gives the proportion of the <span class="math inline">\(y\)</span>-data explained by the <span class="math inline">\(x\)</span>-data. The proportion unexplained is then <span class="math inline">\(1-R^2\)</span>. We can calculate this manually with 1-0.09279, but we can also get it directly from R with:</p>
+<p><em>Explanation:</em> The <span class="math inline">R^2</span> gives the proportion of the <span class="math inline">y</span>-data explained by the <span class="math inline">x</span>-data. The proportion unexplained is then <span class="math inline">1-R^2</span>. We can calculate this manually with 1-0.09279, but we can also get it directly from R with:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">summary</span>(m1)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -226,8 +270,8 @@ F-statistic: 25.37 on 1 and 248 DF,  p-value: 0.0000009136</code></pre>
 <h4 class="unnumbered anchored" data-anchor-id="question-8">Question 8</h4>
 <p>Provide a 95% confidence interval for the estimated coefficient on <code>pop_growth</code>.</p>
 <ul>
-<li>Lower bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>Upper bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>Lower bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Upper bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
 </ul>
 <p><strong>Answer:</strong> Lower bound: 7.903474, upper bound: 18.05499.</p>
 <p><em>Explanation:</em> We obtain a 95% confidence interval for the parameter estimates using:</p>
@@ -242,14 +286,14 @@ pop_growth    7.903474  18.05499</code></pre>
 </section>
 <section id="question-9" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-9">Question 9</h4>
-<p>Test the following claim at the 5% level using a <span class="math inline">\(p\)</span>-value approach:</p>
+<p>Test the following claim at the 5% level using a <span class="math inline">p</span>-value approach:</p>
 <p><em>A 1 percentage point increase in the population growth over 5 years on average increases house prices by less than €15,000.</em></p>
 <ul>
-<li><p>What is the null hypothesis? <span class="math inline">\(\beta_1\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> (choose one comparison operator and fill in a value in the blank).</p></li>
-<li><p>What is the alternative hypothesis? <span class="math inline">\(\beta_1\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> (choose one comparison operator and fill in a value in the blank).</p></li>
-<li><p>Under the null hypothesis, the test statistic <span class="math inline">\(T\)</span> follows a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n-\underline{\hspace{10mm}}\)</span> degrees of freedom.</p></li>
-<li><p>What is the value of the test statistic? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p></li>
-<li><p>What is the associated <span class="math inline">\(p\)</span>-value? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p></li>
+<li><p>What is the null hypothesis? <span class="math inline">\beta_1</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</p></li>
+<li><p>What is the alternative hypothesis? <span class="math inline">\beta_1</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</p></li>
+<li><p>Under the null hypothesis, the test statistic <span class="math inline">T</span> follows a <span class="math inline">t</span> distribution with <span class="math inline">n-\underline{\hspace{10mm}}</span> degrees of freedom.</p></li>
+<li><p>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is the associated <span class="math inline">p</span>-value? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
 <li><p>What is your conclusion? Choose an option below:</p>
 <ul>
 <li>Reject H0: There is sufficient evidence for the claim.</li>
@@ -264,17 +308,17 @@ pop_growth    7.903474  18.05499</code></pre>
 </ul>
 <p><strong>Answer:</strong></p>
 <ul>
-<li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\beta\geq 15\)</span>.</li>
-<li><span class="math inline">\(H_1\)</span>: <span class="math inline">\(\beta &lt; 15\)</span>.</li>
-<li>Under <span class="math inline">\(H_0\)</span>, <span class="math inline">\(T=(B_1-15)/S_{B_1}\)</span> follows a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n-2\)</span> degrees of freedom.</li>
+<li><span class="math inline">H_0</span>: <span class="math inline">\beta\geq 15</span>.</li>
+<li><span class="math inline">H_1</span>: <span class="math inline">\beta &lt; 15</span>.</li>
+<li>Under <span class="math inline">H_0</span>, <span class="math inline">T=(B_1-15)/S_{B_1}</span> follows a <span class="math inline">t</span> distribution with <span class="math inline">n-2</span> degrees of freedom.</li>
 <li>Value of test statistic: -0.7841297.</li>
-<li><span class="math inline">\(p\)</span>-value: 0.2168561.</li>
+<li><span class="math inline">p</span>-value: 0.2168561.</li>
 <li>Conclusion: Don’t reject H0: There is not sufficient evidence for the claim.</li>
 </ul>
 <p><em>Explanation:</em></p>
 <ul>
-<li>The claim is that a one-unit increase in <span class="math inline">\(x\)</span> on average leads to an increase in <span class="math inline">\(y\)</span> of less than 15 units. Thus the claim is that <span class="math inline">\(\beta_1&lt;15\)</span>. This is the alternative hypothesis, with the null hypothesis being the opposite of this.</li>
-<li>With a simple linear regression with one variable, the test statistic follows a <span class="math inline">\(t\)</span>-distribution with <span class="math inline">\(n-2\)</span> degrees of freedom.</li>
+<li>The claim is that a one-unit increase in <span class="math inline">x</span> on average leads to an increase in <span class="math inline">y</span> of less than 15 units. Thus the claim is that <span class="math inline">\beta_1&lt;15</span>. This is the alternative hypothesis, with the null hypothesis being the opposite of this.</li>
+<li>With a simple linear regression with one variable, the test statistic follows a <span class="math inline">t</span>-distribution with <span class="math inline">n-2</span> degrees of freedom.</li>
 <li>We can calculate the value of the test statistic in R with:</li>
 </ul>
 <div class="cell">
@@ -286,7 +330,7 @@ pop_growth    7.903474  18.05499</code></pre>
 </div>
 </div>
 <ul>
-<li>Because this is a lower-tail test, the <span class="math inline">\(p\)</span>-value is calculated with:</li>
+<li>Because this is a lower-tail test, the <span class="math inline">p</span>-value is calculated with:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(t, m1<span class="sc">$</span>df.residual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -295,15 +339,15 @@ pop_growth    7.903474  18.05499</code></pre>
 </div>
 </div>
 <ul>
-<li>The <span class="math inline">\(p\)</span>-value is larger than the significance level of 5%, so we do not reject <span class="math inline">\(H_0\)</span>, and say there is not sufficient evidence for the claim.</li>
+<li>The <span class="math inline">p</span>-value is larger than the significance level of 5%, so we do not reject <span class="math inline">H_0</span>, and say there is not sufficient evidence for the claim.</li>
 </ul>
 </section>
 <section id="question-10" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-10">Question 10</h4>
-<p>Run a formal test for heteroskedasticity using a <span class="math inline">\(p\)</span>-value approach.</p>
+<p>Run a formal test for heteroskedasticity using a <span class="math inline">p</span>-value approach.</p>
 <ul>
-<li>Report the value of the test statistic: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>Report the <span class="math inline">\(p\)</span>-value: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>Report the value of the test statistic: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Report the <span class="math inline">p</span>-value: <span class="math inline">\underline{\hspace{20mm}}</span></li>
 <li>Is there evidence of heteroskedasticity at the 5% level (Yes/No)? Choose one.</li>
 </ul>
 <p><strong>Answer:</strong></p>
@@ -333,8 +377,8 @@ F-statistic: 3.422 on 1 and 248 DF,  p-value: 0.06551</code></pre>
 </div>
 <ul>
 <li>Value of the test statistic: 3.422 (F-statistic on last line).</li>
-<li><span class="math inline">\(p\)</span>-value: 0.06551 (<span class="math inline">\(p\)</span>-value on last line).</li>
-<li>Conclusion: No evidence of heteroskedasticity (<span class="math inline">\(p\)</span>-value larger than 0.05).</li>
+<li><span class="math inline">p</span>-value: 0.06551 (<span class="math inline">p</span>-value on last line).</li>
+<li>Conclusion: No evidence of heteroskedasticity (<span class="math inline">p</span>-value larger than 0.05).</li>
 </ul>
 </section>
 </section>
@@ -378,25 +422,25 @@ F-statistic: 13.04 on 2 and 247 DF,  p-value: 0.000004148</code></pre>
 <li>Because <code>pop_growth</code> is significantly positive and <code>pop_growth_sq</code> is <em>not</em> significantly negative, there is no evidence of <em>any</em> relationship between house prices and population growth.</li>
 </ul>
 <p><strong>Answer:</strong> Because <code>pop_growth</code> is significantly positive and <code>pop_growth_sq</code> is <em>not</em> significantly negative, there is no evidence of <em>a mountain-shaped</em> relationship between house prices and population growth.</p>
-<p><em>Explanation:</em> In a model <span class="math inline">\(\mathbb{E}[Y_i|x_i]=\beta_0+\beta_1 x_i + \beta_2 x_i^2\)</span>, a <span class="math inline">\(\beta_1&gt;0\)</span> with <span class="math inline">\(\beta_2&lt;0\)</span> indicates a mountain-shaped relationship. Here we find <span class="math inline">\(b_1&gt;0\)</span> and <span class="math inline">\(b_2&lt;0\)</span> which would indicate a mountain shape. However, the estimated <span class="math inline">\(b_2\)</span> is not significantly negative (<span class="math inline">\(t\)</span>-stat of only -0.857), so there is no statistical evidence of a mountain shape.</p>
+<p><em>Explanation:</em> In a model <span class="math inline">\mathbb{E}[Y_i|x_i]=\beta_0+\beta_1 x_i + \beta_2 x_i^2</span>, a <span class="math inline">\beta_1&gt;0</span> with <span class="math inline">\beta_2&lt;0</span> indicates a mountain-shaped relationship. Here we find <span class="math inline">b_1&gt;0</span> and <span class="math inline">b_2&lt;0</span> which would indicate a mountain shape. However, the estimated <span class="math inline">b_2</span> is not significantly negative (<span class="math inline">t</span>-stat of only -0.857), so there is no statistical evidence of a mountain shape.</p>
 </section>
 <section id="question-12" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-12">Question 12</h4>
 <p>Perform an appropriate hypothesis test to test the usefulness of the model. Use a 5% significance level.</p>
 <ul>
-<li>The null hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\(\beta_j\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> for <span class="math inline">\(j=\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> to <span class="math inline">\(\underline{\hspace{20mm}}\)</span> (choose one comparison operator and fill in values in the blank spaces).</li>
-<li>The alternative hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\(\beta_j\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> for the same <span class="math inline">\(j\)</span> (choose one comparison operator and fill in a value in in the blank space).</li>
-<li>The formula for the test statistic is of the form: <span class="math display">\[
+<li>The null hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\beta_j</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> for <span class="math inline">j=</span> <span class="math inline">\underline{\hspace{20mm}}</span> to <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in values in the blank spaces).</li>
+<li>The alternative hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\beta_j</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> for the same <span class="math inline">j</span> (choose one comparison operator and fill in a value in in the blank space).</li>
+<li>The formula for the test statistic is of the form: <span class="math display">
 \frac{\frac{SST - a}{k}}{\frac{a}{n-k-1}}
-\]</span> What is the value of <span class="math inline">\(a\)</span> in the estimated model? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>What is the value of the test statistic? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>What is the critical value? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>What is your conclusion? <em>Reject/don’t reject</em> (choose one) <span class="math inline">\(H_0\)</span>. The model is <em>useful/useless</em> (choose one) .</li>
+</span> What is the value of <span class="math inline">a</span> in the estimated model? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the critical value? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is your conclusion? <em>Reject/don’t reject</em> (choose one) <span class="math inline">H_0</span>. The model is <em>useful/useless</em> (choose one) .</li>
 </ul>
-<p><strong>Answer:</strong> - <span class="math inline">\(H_0\)</span>: All <span class="math inline">\(\beta_j=0\)</span> for <span class="math inline">\(j=1,2\)</span>. - <span class="math inline">\(H_1\)</span>: At least one <span class="math inline">\(\beta_j\neq 0\)</span> for the same <span class="math inline">\(j\)</span>. - <span class="math inline">\(a=3460951\)</span>. - Value of test statistic is 13.04. - Critical value: 3.032361. - Conclusion: Reject <span class="math inline">\(H_0\)</span>; the model is useful.</p>
+<p><strong>Answer:</strong> - <span class="math inline">H_0</span>: All <span class="math inline">\beta_j=0</span> for <span class="math inline">j=1,2</span>. - <span class="math inline">H_1</span>: At least one <span class="math inline">\beta_j\neq 0</span> for the same <span class="math inline">j</span>. - <span class="math inline">a=3460951</span>. - Value of test statistic is 13.04. - Critical value: 3.032361. - Conclusion: Reject <span class="math inline">H_0</span>; the model is useful.</p>
 <p><em>Explanation:</em></p>
 <ul>
-<li>The <span class="math inline">\(a\)</span> is the <span class="math inline">\(SSE\)</span> in the formula for the test statistic. Normally the numerator would have <span class="math inline">\(SSR\)</span>, but because <span class="math inline">\(SSR=SST-SSE\)</span>, we can also write the test statistic this way. To find the <span class="math inline">\(SSE\)</span> we can get the ANOVA table by first estimating a model with just a constant term:</li>
+<li>The <span class="math inline">a</span> is the <span class="math inline">SSE</span> in the formula for the test statistic. Normally the numerator would have <span class="math inline">SSR</span>, but because <span class="math inline">SSR=SST-SSE</span>, we can also write the test statistic this way. To find the <span class="math inline">SSE</span> we can get the ANOVA table by first estimating a model with just a constant term:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>m0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(house_price <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> df)</span>
@@ -439,7 +483,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <pre><code>[1] 3.032361</code></pre>
 </div>
 </div>
-<p>We can get the numerator degrees of freedom (<span class="math inline">\(k=2\)</span>) and denominator degrees of freedom (<span class="math inline">\(n-k-1=247\)</span>) from the output of <code>summary(m2)$fstatistic</code> above, or else from the last line of the summary output. - Because the test statistic is greater than the critical value we reject <span class="math inline">\(H_0\)</span> and conclude that the model is useful.</p>
+<p>We can get the numerator degrees of freedom (<span class="math inline">k=2</span>) and denominator degrees of freedom (<span class="math inline">n-k-1=247</span>) from the output of <code>summary(m2)$fstatistic</code> above, or else from the last line of the summary output. - Because the test statistic is greater than the critical value we reject <span class="math inline">H_0</span> and conclude that the model is useful.</p>
 </section>
 <section id="question-13" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-13">Question 13</h4>
@@ -451,7 +495,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <li>The adjusted R-squared for the model including <code>pop_growth_sq</code> is smaller. Therefore the model including <code>pop_growth_sq</code> is preferred.</li>
 </ul>
 <p><strong>Answer:</strong> - The adjusted R-squared for the model including <code>pop_growth_sq</code> is smaller. Therefore the model excluding <code>pop_growth_sq</code> is preferred.</p>
-<p><em>Explanation:</em> The adjusted <span class="math inline">\(R^2\)</span>s can be seen from the default <code>summary()</code> outputs to the right of the ordinary <span class="math inline">\(R^2\)</span>. We can see that it is smaller in the model with <code>pop_growth_sq</code> (0.0881 vs 0.0891), despite it having an extra variable. Although not necessary to do this question, we could extract both adjusted <span class="math inline">\(R^2\)</span>s to see them next to each other with:</p>
+<p><em>Explanation:</em> The adjusted <span class="math inline">R^2</span>s can be seen from the default <code>summary()</code> outputs to the right of the ordinary <span class="math inline">R^2</span>. We can see that it is smaller in the model with <code>pop_growth_sq</code> (0.0881 vs 0.0891), despite it having an extra variable. Although not necessary to do this question, we could extract both adjusted <span class="math inline">R^2</span>s to see them next to each other with:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)<span class="sc">$</span>adj.r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -462,7 +506,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <pre><code>[1] 0.08815336</code></pre>
 </div>
 </div>
-<p>Because of the decrease in adjusted <span class="math inline">\(R^2\)</span> we prefer the simpler model with only <code>pop_growth</code> as it has a higher adjusted <span class="math inline">\(R^2\)</span>.</p>
+<p>Because of the decrease in adjusted <span class="math inline">R^2</span> we prefer the simpler model with only <code>pop_growth</code> as it has a higher adjusted <span class="math inline">R^2</span>.</p>
 </section>
 </section>
 <section id="model-3" class="level2 unnumbered">
@@ -525,8 +569,8 @@ Multiple R-squared:  0.1732,    Adjusted R-squared:  0.1699
 F-statistic: 51.97 on 1 and 248 DF,  p-value: 0.00000000000679</code></pre>
 </div>
 </div>
-<p>The model is: <span class="math display">\[\mathbb{E}[Y_i|x_i]=\beta_0+\beta_1 x_i\]</span> The mean house price inside the Randstad is: <span class="math display">\[\mathbb{E}[Y_i|x_i=1]=\beta_0+\beta_1\]</span></p>
-<p>The mean house price outside the Randstad is: <span class="math display">\[\mathbb{E}[Y_i|x_i=0]=\beta_0\]</span> The difference is <span class="math inline">\(\beta_1\)</span>. Thus <span class="math inline">\(b_1\)</span> from this model estimates this difference in means. We multiply by 1,000 then to convert to euros.</p>
+<p>The model is: <span class="math display">\mathbb{E}[Y_i|x_i]=\beta_0+\beta_1 x_i</span> The mean house price inside the Randstad is: <span class="math display">\mathbb{E}[Y_i|x_i=1]=\beta_0+\beta_1</span></p>
+<p>The mean house price outside the Randstad is: <span class="math display">\mathbb{E}[Y_i|x_i=0]=\beta_0</span> The difference is <span class="math inline">\beta_1</span>. Thus <span class="math inline">b_1</span> from this model estimates this difference in means. We multiply by 1,000 then to convert to euros.</p>
 </section>
 </section>
 <section id="model-4" class="level2 unnumbered">
@@ -569,7 +613,7 @@ F-statistic: 26.11 on 3 and 246 DF,  p-value: 0.00000000000001072</code></pre>
 <p>For gemeentes with zero population growth, the gemeente average house price in the Randstad is how much more larger?</p>
 <p>Write your answer in euros.</p>
 <p><strong>Answer:</strong> 137,578.20</p>
-<p><em>Explanation:</em> The model is: <span class="math display">\[\mathbb{E}[Y_i|x_{i1},x_{i2}]=\beta_0+\beta_1 x_{i1} + \beta_2 x_{i2} + \beta_3 x_{i1} x_{i2}\]</span> When population growth is zero, the model becomes: <span class="math display">\[\mathbb{E}[Y_i|x_{i1}=0,x_{i2}]=\beta_0+\beta_1 \times 0 + \beta_2 x_{i2} + \beta_3 \times 0\times x_{i2}=\beta_0+\beta_2 x_{i2}\]</span> Inside the Randstad, the average house price is (when population growth is zero): <span class="math display">\[\mathbb{E}[Y_i|x_{i1}=0,x_{i2}=1]=\beta_0+\beta_2 \]</span> Outside the Randstad, the average house price is (when population growth is zero): <span class="math display">\[\mathbb{E}[Y_i|x_{i1}=0,x_{i2}=0]=\beta_2 \]</span> Thus the difference <span class="math inline">\(\beta_2\)</span> is the difference in average house prices between the Randstad and outside the Randstad when population growth is zero. The dependent variable is measured in thousands of euros so we multiply <span class="math inline">\(b_2\)</span> by 1,000 to convert it to euros. We can do this manually, or else using R with:</p>
+<p><em>Explanation:</em> The model is: <span class="math display">\mathbb{E}[Y_i|x_{i1},x_{i2}]=\beta_0+\beta_1 x_{i1} + \beta_2 x_{i2} + \beta_3 x_{i1} x_{i2}</span> When population growth is zero, the model becomes: <span class="math display">\mathbb{E}[Y_i|x_{i1}=0,x_{i2}]=\beta_0+\beta_1 \times 0 + \beta_2 x_{i2} + \beta_3 \times 0\times x_{i2}=\beta_0+\beta_2 x_{i2}</span> Inside the Randstad, the average house price is (when population growth is zero): <span class="math display">\mathbb{E}[Y_i|x_{i1}=0,x_{i2}=1]=\beta_0+\beta_2 </span> Outside the Randstad, the average house price is (when population growth is zero): <span class="math display">\mathbb{E}[Y_i|x_{i1}=0,x_{i2}=0]=\beta_2 </span> Thus the difference <span class="math inline">\beta_2</span> is the difference in average house prices between the Randstad and outside the Randstad when population growth is zero. The dependent variable is measured in thousands of euros so we multiply <span class="math inline">b_2</span> by 1,000 to convert it to euros. We can do this manually, or else using R with:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m4)[<span class="dv">3</span>] <span class="sc">*</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -583,14 +627,14 @@ F-statistic: 26.11 on 3 and 246 DF,  p-value: 0.00000000000001072</code></pre>
 <p>In the Randstad, a 1 percentage point higher population growth rate on average leads to how much more expensive a house?</p>
 <p>Write your answer in euros.</p>
 <p><strong>Answer:</strong> 4,679.24</p>
-<p><em>Explanation:</em> The model is: <span class="math display">\[\mathbb{E}[Y_i|x_{i1},x_{i2}]=\beta_0+\beta_1 x_{i1} + \beta_2 x_{i2} + \beta_3 x_{i1} x_{i2}\]</span> Inside the Randstad, the model is: <span class="math display">\[\mathbb{E}[Y_i|x_{i1},x_{i2}=1]=\beta_0+\beta_1 x_{i1} + \beta_2 \times 1 + \beta_3 x_{i1}\times 1=\beta_0+\beta_2 +\left(\beta_1 + \beta_3\right)x_{i1}\]</span> Increasing population growth by 1 percentage point: <span class="math display">\[
+<p><em>Explanation:</em> The model is: <span class="math display">\mathbb{E}[Y_i|x_{i1},x_{i2}]=\beta_0+\beta_1 x_{i1} + \beta_2 x_{i2} + \beta_3 x_{i1} x_{i2}</span> Inside the Randstad, the model is: <span class="math display">\mathbb{E}[Y_i|x_{i1},x_{i2}=1]=\beta_0+\beta_1 x_{i1} + \beta_2 \times 1 + \beta_3 x_{i1}\times 1=\beta_0+\beta_2 +\left(\beta_1 + \beta_3\right)x_{i1}</span> Increasing population growth by 1 percentage point: <span class="math display">
 \mathbb{E}[Y_i|x_{i1}+1,x_{i2}=1]=
 \beta_0+\beta_2 +\left(\beta_1 + \beta_3\right)\left(x_{i1}+1\right)=
 \beta_0+\beta_2 +\left(\beta_1 + \beta_3\right)x_{i1} + \beta_1+\beta_3=
-\]</span> Taking differences: <span class="math display">\[
+</span> Taking differences: <span class="math display">
 \mathbb{E}[Y_i|x_{i1}+1,x_{i2}=1]-
 \mathbb{E}[Y_i|x_{i1},x_{i2}=1]=\beta_1+\beta_3
-\]</span> Thus <span class="math inline">\(\beta_1+\beta_3\)</span> measures the impact of a one percentage point increase in the population growth on the house price in the Randstad. Because house prices are measured in thousands, we multiply <span class="math inline">\(b_1+b_3\)</span> by 1,000 to convert to euros. We can do this manually or else in R with:</p>
+</span> Thus <span class="math inline">\beta_1+\beta_3</span> measures the impact of a one percentage point increase in the population growth on the house price in the Randstad. Because house prices are measured in thousands, we multiply <span class="math inline">b_1+b_3</span> by 1,000 to convert to euros. We can do this manually or else in R with:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">coef</span>(m4)[<span class="dv">2</span>] <span class="sc">+</span> <span class="fu">coef</span>(m4)[<span class="dv">4</span>]) <span class="sc">*</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -605,9 +649,9 @@ F-statistic: 26.11 on 3 and 246 DF,  p-value: 0.00000000000001072</code></pre>
 <p>Also calculate an interval which contains the actual average house price with 90% probability.</p>
 <p>Write your answers in euros.</p>
 <ul>
-<li>Prediction: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>Interval lower bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>Interval upper bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>Prediction: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Interval lower bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Interval upper bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
 </ul>
 <p><strong>Answer:</strong></p>
 <p>We obtain the prediction and prediction interval with:</p>
@@ -681,36 +725,36 @@ F-statistic: 19.46 on 4 and 245 DF,  p-value: 0.00000000000006416</code></pre>
 <p>Holding the population growth fixed, the average house price in Gelderland is €28,884 more than the average house price in Drenthe, Flevoland, Friesland, Groningen, Noord-Brabant, Overijssel, and Zeeland.</p>
 <p><em>Explanation:</em> The Randstad (Noord-Holland, Zuid-Holland and Utrecht), Gelderland and Limburg are included provinces in the model. This means that the remaining provinces (Drenthe, Flevoland, Friesland, Groningen, Noord-Brabant, Overijssel, and Zeeland) form a collective <em>base category</em>. Each of the estimated province coefficients are therefore compared to these. Thus the coefficient in front of <code>gelderland</code> estimates the difference in average house prices between <code>gelderland</code> and these base provinces holding the population growth fixed.</p>
 <p>To see this more clearly, we can write down the model:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \mathbb{E}[Y_i|x_{i1},x_{i2},x_{i3},x_{i4}]=
 \beta_0+ \beta_1 x_{i1} + \beta_2 x_{i2} + \beta_3 x_{i3} + \beta_4 x_{i4}
-\]</span> For gemeentes in Gelderland, we know that <span class="math inline">\(x_{i2}=x_{i4}=0\)</span> (you can’t be in Gelderland and another province). The model for Gelderland is then: <span class="math display">\[
+</span> For gemeentes in Gelderland, we know that <span class="math inline">x_{i2}=x_{i4}=0</span> (you can’t be in Gelderland and another province). The model for Gelderland is then: <span class="math display">
 \mathbb{E}[Y_i|x_{i1},x_{i2}=0,x_{i3}=1,x_{i4}=0]=
 \beta_0+ \beta_1 x_{i1} + \beta_3
-\]</span> For gemeentes in the base category (Drenthe, Flevoland, Friesland, Groningen, Noord-Brabant, Overijssel, and Zeeland), we have <span class="math inline">\(x_{i2}=x_{i3}=x_{i4}=0\)</span> because they cana’t be in the Randstad, Gelderland or Limburg as well. The model for these provinces is:</p>
-<p><span class="math display">\[
+</span> For gemeentes in the base category (Drenthe, Flevoland, Friesland, Groningen, Noord-Brabant, Overijssel, and Zeeland), we have <span class="math inline">x_{i2}=x_{i3}=x_{i4}=0</span> because they cana’t be in the Randstad, Gelderland or Limburg as well. The model for these provinces is:</p>
+<p><span class="math display">
 \mathbb{E}[Y_i|x_{i1},x_{i2}=0,x_{i3}=0,x_{i4}=0]=
 \beta_0+ \beta_1 x_{i1}
-\]</span> Taking differences:</p>
-<p><span class="math display">\[
-\mathbb{E}[Y_i|x_{i1},x_{i2}=0,x_{i3}=1,x_{i4}=0]=
+</span> Taking differences:</p>
+<p><span class="math display">
+    \mathbb{E}[Y_i|x_{i1},x_{i2}=0,x_{i3}=1,x_{i4}=0]=
 \mathbb{E}[Y_i|x_{i1},x_{i2}=0,x_{i3}=0,x_{i4}=0]=\beta_3
-\]</span> Thus <span class="math inline">\(\beta_3\)</span> is the difference in average house prices between Gelderland and these base provinces for a given population growth.</p>
+</span> Thus <span class="math inline">\beta_3</span> is the difference in average house prices between Gelderland and these base provinces for a given population growth.</p>
 </section>
 <section id="question-19" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-19">Question 19</h4>
 <p>We want to test for the joint usefulness of the variables <code>gelderland</code> and <code>limburg</code>, which are variables 3 and 4 in the model. Use a 5% significance level.</p>
 <p>Choose one of the options in <em>italics</em> and fill in the blanks.</p>
 <ul>
-<li>The null hypothesis is that <em>all/at least one/none</em> of <span class="math inline">\(\beta_j\)</span> <span class="math inline">\(\rule{1cm}{0.15mm}\)</span> <span class="math inline">\(\rule{1cm}{0.15mm}\)</span> for <span class="math inline">\(j=\rule{1cm}{0.15mm}\)</span>.</li>
-<li>The alternative hypothesis is that <em>all/at least one/none</em> of <span class="math inline">\(\beta_j\)</span> <span class="math inline">\(\rule{1cm}{0.15mm}\)</span> <span class="math inline">\(\rule{1cm}{0.15mm}\)</span> for the same <span class="math inline">\(j\)</span>.</li>
+<li>The null hypothesis is that <em>all/at least one/none</em> of <span class="math inline">\beta_j</span> <span class="math inline">\rule{1cm}{0.15mm}</span> <span class="math inline">\rule{1cm}{0.15mm}</span> for <span class="math inline">j=\rule{1cm}{0.15mm}</span>.</li>
+<li>The alternative hypothesis is that <em>all/at least one/none</em> of <span class="math inline">\beta_j</span> <span class="math inline">\rule{1cm}{0.15mm}</span> <span class="math inline">\rule{1cm}{0.15mm}</span> for the same <span class="math inline">j</span>.</li>
 </ul>
-<p>The test statistic is of the form: <span class="math display">\[
+<p>The test statistic is of the form: <span class="math display">
 \frac{\frac{a - SSE_c}{k-g}}{\frac{SSE_c}{n-k-1}}
-\]</span></p>
-<p>What is the value of <span class="math inline">\(a\)</span> in the test? <span class="math inline">\(\rule{1cm}{0.15mm}\)</span></p>
-<p>What is the value of the test statistic? <span class="math inline">\(\rule{1cm}{0.15mm}\)</span></p>
-<p>What is the critical value? <span class="math inline">\(\rule{1cm}{0.15mm}\)</span></p>
+</span></p>
+<p>What is the value of <span class="math inline">a</span> in the test? <span class="math inline">\rule{1cm}{0.15mm}</span></p>
+<p>What is the value of the test statistic? <span class="math inline">\rule{1cm}{0.15mm}</span></p>
+<p>What is the critical value? <span class="math inline">\rule{1cm}{0.15mm}</span></p>
 <p>Which of the 4 options below is the correct conclusion from the test?</p>
 <ul>
 <li>Reject H0. The variables are useful additions to the model.</li>
@@ -719,7 +763,7 @@ F-statistic: 19.46 on 4 and 245 DF,  p-value: 0.00000000000006416</code></pre>
 <li>Don’t reject H0. The variables are not useful additions to the model.</li>
 </ul>
 <p><strong>Answer:</strong></p>
-<p>We can perform the partial <span class="math inline">\(F\)</span> test by first estimating the reduced model:</p>
+<p>We can perform the partial <span class="math inline">F</span> test by first estimating the reduced model:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>m5r <span class="ot">&lt;-</span> <span class="fu">lm</span>(house_price <span class="sc">~</span> pop_growth <span class="sc">+</span> randstad, <span class="at">data =</span> df)</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m5r, m5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -744,9 +788,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <p>We now have everything to answer the questions:</p>
 <ul>
-<li><span class="math inline">\(H_0\)</span>: All <span class="math inline">\(\beta_j=0\)</span> for <span class="math inline">\(j=3,4\)</span>.</li>
-<li><span class="math inline">\(H_1\)</span>: At least one <span class="math inline">\(\beta_j\neq 0\)</span> for the same <span class="math inline">\(j\)</span>.</li>
-<li><span class="math inline">\(a\)</span> is the <span class="math inline">\(SSE_r\)</span>, the sum of squared errors for the reduced model. We can find the value of this from the <code>anova()</code> output: 2903751.</li>
+<li><span class="math inline">H_0</span>: All <span class="math inline">\beta_j=0</span> for <span class="math inline">j=3,4</span>.</li>
+<li><span class="math inline">H_1</span>: At least one <span class="math inline">\beta_j\neq 0</span> for the same <span class="math inline">j</span>.</li>
+<li><span class="math inline">a</span> is the <span class="math inline">SSE_r</span>, the sum of squared errors for the reduced model. We can find the value of this from the <code>anova()</code> output: 2903751.</li>
 <li>Value of the test statistic: 2.8502.</li>
 <li>Critical value: 3.026153.</li>
 <li>Conclusion: Don’t reject H0. The variables are not useful additions to the model (<em>reason:</em> test statistic smaller than critical value).</li>
@@ -791,18 +835,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -834,11 +867,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -848,8 +920,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -861,7 +942,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -905,6 +1109,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -930,6 +1135,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -990,6 +1221,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

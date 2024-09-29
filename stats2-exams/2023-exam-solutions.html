@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -68,8 +68,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="2023-exam-solutions_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="2023-exam-solutions_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -94,11 +135,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
 
+
+<p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
 <section id="introduction" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Chief Executive Officers (CEOs) of large companies often earn extremely large salaries, often hundreds of times the salaries of the company’s regular employees. These relative pay differences are often criticized. You are tasked with understanding which and how much different factors impact CEO compensation. You collect data on a random sample of <span class="math inline">\(n=132\)</span> CEOs from different companies in the year 1990. Your dataset contains the following variables:</p>
+<p>Chief Executive Officers (CEOs) of large companies often earn extremely large salaries, often hundreds of times the salaries of the company’s regular employees. These relative pay differences are often criticized. You are tasked with understanding which and how much different factors impact CEO compensation. You collect data on a random sample of <span class="math inline">n=132</span> CEOs from different companies in the year 1990. Your dataset contains the following variables:</p>
 <ul>
 <li><code>salary</code>: Annual CEO compensation in 1990, measured in thousands of dollars ($1000s).</li>
 <li><code>age</code>: Age of CEO in years.</li>
@@ -186,7 +230,7 @@ F-statistic: 32.37 on 1 and 130 DF,  p-value: 0.00000008047</code></pre>
 <p>In a company with $1m more in sales, how much more do we expect CEOs in that company to earn (in dollars)?</p>
 <p><strong>Note:</strong> Be careful with the units for both sales and CEO salary.</p>
 <p><strong>Answer:</strong> 123.641</p>
-<p><em>Explanation:</em> The question refers to a one-unit increase in the <span class="math inline">\(x\)</span> variable, so no adjustment is needed. The <span class="math inline">\(y\)</span> variable is measured in in thousands of dollars, so we need to multiply <span class="math inline">\(b_1\)</span> by 1,000 to convert to dollars.</p>
+<p><em>Explanation:</em> The question refers to a one-unit increase in the <span class="math inline">x</span> variable, so no adjustment is needed. The <span class="math inline">y</span> variable is measured in in thousands of dollars, so we need to multiply <span class="math inline">b_1</span> by 1,000 to convert to dollars.</p>
 </section>
 <section id="question-6" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-6">Question 6</h4>
@@ -200,7 +244,7 @@ F-statistic: 32.37 on 1 and 130 DF,  p-value: 0.00000008047</code></pre>
 <li>Companies with CEOs with zero salaries on average have sales of $542.06 per year.</li>
 </ul>
 <p><strong>Answer:</strong> In companies with zero sales, CEOs on average earn $542,063.00 per year.</p>
-<p><em>Explanation:</em> The estimate of <span class="math inline">\(\beta_0\)</span> is the estimate of <span class="math inline">\(\mathbb{E}[Y_i|x_i=0]\)</span>. The <span class="math inline">\(y\)</span>-data are measured in thousands of dollars, so we need to multiply <span class="math inline">\(b_0\)</span> by 1,000.</p>
+<p><em>Explanation:</em> The estimate of <span class="math inline">\beta_0</span> is the estimate of <span class="math inline">\mathbb{E}[Y_i|x_i=0]</span>. The <span class="math inline">y</span>-data are measured in thousands of dollars, so we need to multiply <span class="math inline">b_0</span> by 1,000.</p>
 </section>
 <section id="question-7" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-7">Question 7</h4>
@@ -212,7 +256,7 @@ F-statistic: 32.37 on 1 and 130 DF,  p-value: 0.00000008047</code></pre>
 <li>The units of the y-data and the x-data differ. One is measured in millions, and the other is measured in thousands.</li>
 </ul>
 <p><strong>Answer:</strong> We do not observe any company with zero sales, or close to zero sales.</p>
-<p><em>Explanation:</em> We can only get a reliable estimate of <span class="math inline">\(\mathbb{E}[Y_i|x_i=0]\)</span> when we observe <span class="math inline">\(x\)</span>-data at or near zero. We can check this with:</p>
+<p><em>Explanation:</em> We can only get a reliable estimate of <span class="math inline">\mathbb{E}[Y_i|x_i=0]</span> when we observe <span class="math inline">x</span>-data at or near zero. We can check this with:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -235,8 +279,8 @@ F-statistic: 32.37 on 1 and 130 DF,  p-value: 0.00000008047</code></pre>
 <p><strong>Answer:</strong> Comparing a histogram of the residuals against a fitted normal curve we observe a significant deviation, as the residuals are positively skewed. Therefore the normality assumption is violated.</p>
 <p><em>Explanation:</em></p>
 <ul>
-<li>The first option is wrong because for homoskedasticity we should check if the dispersion of the residuals changes as the <span class="math inline">\(x\)</span> variable changes.</li>
-<li>The second option is wrong because the residuals plotted against the <span class="math inline">\(y\)</span> variable would not be how you would check the linearity assumption. For checking non-linearities, you would plot the residuals against the <span class="math inline">\(x\)</span> variable.</li>
+<li>The first option is wrong because for homoskedasticity we should check if the dispersion of the residuals changes as the <span class="math inline">x</span> variable changes.</li>
+<li>The second option is wrong because the residuals plotted against the <span class="math inline">y</span> variable would not be how you would check the linearity assumption. For checking non-linearities, you would plot the residuals against the <span class="math inline">x</span> variable.</li>
 <li>The fourth option is wrong because we can only check for a violation of independence by plotting the residuals over time (or case number) when we have time series data. However, here we have cross-section data.</li>
 <li>This leaves the third option. We can plot a histogram of the residuals to see if they are skewed:</li>
 </ul>
@@ -249,7 +293,11 @@ F-statistic: 32.37 on 1 and 130 DF,  p-value: 0.00000008047</code></pre>
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="2023-exam-solutions_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="2023-exam-solutions_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Indeed there are considerably more large positive values than large negative values, indicating the residuals are skewed to the right.</p>
@@ -262,7 +310,7 @@ F-statistic: 32.37 on 1 and 130 DF,  p-value: 0.00000008047</code></pre>
 <li>There is no heteroskedasticity.</li>
 <li>There is heteroskedasticity.</li>
 </ul>
-<p>What is the <span class="math inline">\(p\)</span>-value of the test?</p>
+<p>What is the <span class="math inline">p</span>-value of the test?</p>
 <p>What is the conclusion of the test? Choose one of the following options:</p>
 <ul>
 <li>There is not sufficient evidence to conclude that there is heteroskedasticity.</li>
@@ -273,7 +321,7 @@ F-statistic: 32.37 on 1 and 130 DF,  p-value: 0.00000008047</code></pre>
 <p><strong>Answer:</strong></p>
 <ul>
 <li>There is no heteroskedasticity.</li>
-<li>For the <span class="math inline">\(p\)</span>-value we run the test:</li>
+<li>For the <span class="math inline">p</span>-value we run the test:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>e2 <span class="ot">&lt;-</span> m1<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span></span>
@@ -299,7 +347,7 @@ Multiple R-squared:  0.007695,  Adjusted R-squared:  6.238e-05
 F-statistic: 1.008 on 1 and 130 DF,  p-value: 0.3172</code></pre>
 </div>
 </div>
-<p>The <span class="math inline">\(p\)</span>-value is 0.317206. - Conclusion: There is not sufficient evidence to conclude that there is heteroskedasticity.</p>
+<p>The <span class="math inline">p</span>-value is 0.317206. - Conclusion: There is not sufficient evidence to conclude that there is heteroskedasticity.</p>
 </section>
 </section>
 <section id="block-3-salary-and-profits" class="level3 unnumbered">
@@ -336,11 +384,11 @@ F-statistic: 15.43 on 1 and 130 DF,  p-value: 0.0001383</code></pre>
 <p>“If a CEO can increase a company’s profits by $1m, on average they get an increase in salary of more than $1,000.”</p>
 <p>Use a 5% significance level for your test.</p>
 <ul>
-<li><p>What is the null hypothesis? <span class="math inline">\(\beta_1\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> (choose one comparison operator and fill in a value in the blank).</p></li>
-<li><p>What is the alternative hypothesis? <span class="math inline">\(\beta_1\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> (choose one comparison operator and fill in a value in the blank).</p></li>
-<li><p>Under the null hypothesis, the test statistic <span class="math inline">\(T\)</span> follows a <span class="math inline">\(t\)</span> distribution with how many degrees of freedom? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p></li>
-<li><p>What is the value of the test statistic? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p></li>
-<li><p>What is the associated <span class="math inline">\(p\)</span>-value? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p></li>
+<li><p>What is the null hypothesis? <span class="math inline">\beta_1</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</p></li>
+<li><p>What is the alternative hypothesis? <span class="math inline">\beta_1</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</p></li>
+<li><p>Under the null hypothesis, the test statistic <span class="math inline">T</span> follows a <span class="math inline">t</span> distribution with how many degrees of freedom? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is the associated <span class="math inline">p</span>-value? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
 <li><p>What is your conclusion? Choose an option below:</p>
 <ul>
 <li>Reject H0: There is sufficient evidence for the claim.</li>
@@ -355,8 +403,8 @@ F-statistic: 15.43 on 1 and 130 DF,  p-value: 0.0001383</code></pre>
 </ul>
 <p><strong>Answers:</strong></p>
 <ul>
-<li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\beta_1 \leq 1\)</span></li>
-<li><span class="math inline">\(H_1\)</span>: <span class="math inline">\(\beta_1 &gt; 1\)</span></li>
+<li><span class="math inline">H_0</span>: <span class="math inline">\beta_1 \leq 1</span></li>
+<li><span class="math inline">H_1</span>: <span class="math inline">\beta_1 &gt; 1</span></li>
 <li>Degrees of freedom:</li>
 </ul>
 <div class="cell">
@@ -378,7 +426,7 @@ F-statistic: 15.43 on 1 and 130 DF,  p-value: 0.0001383</code></pre>
 </div>
 </div>
 <ul>
-<li><span class="math inline">\(p\)</span>-value:</li>
+<li><span class="math inline">p</span>-value:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(t, m2<span class="sc">$</span>df.residual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -389,14 +437,14 @@ F-statistic: 15.43 on 1 and 130 DF,  p-value: 0.0001383</code></pre>
 <ul>
 <li>Conclusion: Don’t reject H0: There is not sufficient evidence for the claim.</li>
 </ul>
-<p><em>Explanation:</em> The interpretation of <span class="math inline">\(b_1\)</span> is that a one million dollar increase in profits leads to a $1,584 increase in salary on average. The claim is asking if this is larger than $1,000 in the population, thus if <span class="math inline">\(\beta_1&gt;1\)</span>. This is the alternative hypothesis, and we use the opposite for the null. The <span class="math inline">\(p\)</span>-value is above the significance level so we fail to reject <span class="math inline">\(H_0\)</span>. There is not sufficient evidence for the claim.</p>
+<p><em>Explanation:</em> The interpretation of <span class="math inline">b_1</span> is that a one million dollar increase in profits leads to a $1,584 increase in salary on average. The claim is asking if this is larger than $1,000 in the population, thus if <span class="math inline">\beta_1&gt;1</span>. This is the alternative hypothesis, and we use the opposite for the null. The <span class="math inline">p</span>-value is above the significance level so we fail to reject <span class="math inline">H_0</span>. There is not sufficient evidence for the claim.</p>
 </section>
 <section id="question-11" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-11">Question 11</h4>
 <p>Construct a 95% confidence interval for the coefficient on profits. Report the lower bound and upper bound of this interval below:</p>
 <ul>
-<li>Lower bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>Upper bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>Lower bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Upper bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(m2, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -410,9 +458,9 @@ profits       0.7862601   2.381932</code></pre>
 </section>
 <section id="question-12" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-12">Question 12</h4>
-<p>The 95% confidence interval for the intercept is <span class="math inline">\([507.666, 670.253]\)</span>.</p>
+<p>The 95% confidence interval for the intercept is <span class="math inline">[507.666, 670.253]</span>.</p>
 <p>Insert the blanks in the interpretation of this confidence interval below. Take note of the units of the variables when writing your answer.</p>
-<p>We are <span class="math inline">\(\underline{\hspace{20mm}}\)</span>% confident that the population mean salary of CEOs in companies with profits of <span class="math inline">\(\underline{\hspace{20mm}}\)</span> is between <span class="math inline">\(\$\underline{\hspace{20mm}}\)</span> and <span class="math inline">\(\$\underline{\hspace{20mm}}\)</span></p>
+<p>We are <span class="math inline">\underline{\hspace{20mm}}</span>% confident that the population mean salary of CEOs in companies with profits of <span class="math inline">\underline{\hspace{20mm}}</span> is between <span class="math inline">\$\underline{\hspace{20mm}}</span> and <span class="math inline">\$\underline{\hspace{20mm}}</span></p>
 <p>Write your answer in dollars, taking note that the salary variable is measured in thousands of dollars.</p>
 <p><strong>Answer:</strong> We are 95% confident that the population mean salary of CEOs in companies with profits of $0 is between $507,666 and $670,253.</p>
 </section>
@@ -456,19 +504,19 @@ F-statistic: 12.21 on 3 and 128 DF,  p-value: 0.0000004449</code></pre>
 <h4 class="unnumbered anchored" data-anchor-id="question-13">Question 13</h4>
 <p>For companies with $1m more in sales, on average CEOs without graduate school education earn how much more (in dollars)?</p>
 <p><strong>Answer:</strong> $75.94.</p>
-<p><em>Explanation:</em> The model is: <span class="math display">\[\mathbb{E}[Y_i|grad_i,sales_i]=\beta_0 + \beta_1 grad_i + \beta_2 sales_i + \beta_3 grad_i sales_i\]</span> When <span class="math inline">\(grad_i=0\)</span>, the model becomes: <span class="math display">\[\mathbb{E}[Y_i|grad_i=0,sales_i]=\beta_0 + \beta_1 \times 0 + \beta_2 sales_i + \beta_3 \times 0 \times sales_i= \beta_0 + \beta_2 sales_i\]</span> Increasing sales by one unit: <span class="math display">\[\mathbb{E}[Y_i|grad_i=0,sales_i+1]=\beta_0 + \beta_2 \left(sales_i+1\right)=\beta_0 + \beta_2 sales_i + \beta_2\]</span> Taking differences: <span class="math display">\[\mathbb{E}[Y_i|grad_i=0,sales_i+1]-
+<p><em>Explanation:</em> The model is: <span class="math display">\mathbb{E}[Y_i|grad_i,sales_i]=\beta_0 + \beta_1 grad_i + \beta_2 sales_i + \beta_3 grad_i sales_i</span> When <span class="math inline">grad_i=0</span>, the model becomes: <span class="math display">\mathbb{E}[Y_i|grad_i=0,sales_i]=\beta_0 + \beta_1 \times 0 + \beta_2 sales_i + \beta_3 \times 0 \times sales_i= \beta_0 + \beta_2 sales_i</span> Increasing sales by one unit: <span class="math display">\mathbb{E}[Y_i|grad_i=0,sales_i+1]=\beta_0 + \beta_2 \left(sales_i+1\right)=\beta_0 + \beta_2 sales_i + \beta_2</span> Taking differences: <span class="math display">\mathbb{E}[Y_i|grad_i=0,sales_i+1]-
 \mathbb{E}[Y_i|grad_i=0,sales_i]=\beta_2
-\]</span> Thus <span class="math inline">\(\beta_2\)</span> is the expected change in salary (in thousands) when sales increases by one unit (one million) for CEOs that didn’t go to graduate school.</p>
+</span> Thus <span class="math inline">\beta_2</span> is the expected change in salary (in thousands) when sales increases by one unit (one million) for CEOs that didn’t go to graduate school.</p>
 <p>Because sales is in millions and salary is in thousands, a one-dollar increase in sales leads to a:</p>
-<p><span class="math display">\[b_2 \times \frac{1000000}{1000}=0.07594\times 1000=75.94\]</span> dollar increase in salary.</p>
+<p><span class="math display">b_2 \times \frac{1000000}{1000}=0.07594\times 1000=75.94</span> dollar increase in salary.</p>
 </section>
 <section id="question-14" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-14">Question 14</h4>
 <p>For companies with $1m more in sales, on average CEOs with graduate school education earn how much more (in dollars)?</p>
 <p><strong>Answer:</strong> $158.89.</p>
-<p><em>Explanation:</em> The model is: <span class="math display">\[\mathbb{E}[Y_i|grad_i,sales_i]=\beta_0 + \beta_1 grad_i + \beta_2 sales_i + \beta_3 grad_i sales_i\]</span> When <span class="math inline">\(grad_i=1\)</span>, the model becomes: <span class="math display">\[\mathbb{E}[Y_i|grad_i=1,sales_i]=\beta_0 + \beta_1 + \beta_2 sales_i + \beta_3 sales_i=\beta_0+\beta_1+\left(\beta_2+\beta_3\right)sales_i\]</span> Increasing sales by 1 unit: <span class="math display">\[\mathbb{E}[Y_i|grad_i=1,sales_i+1]=\beta_0 + \beta_1 + \beta_2 sales_i + \beta_3 sales_i=\beta_0+\beta_1+\left(\beta_2+\beta_3\right)\left(sales_i+1\right)\]</span> Taking differences: <span class="math display">\[\mathbb{E}[Y_i|grad_i=1,sales_i+1]-\mathbb{E}[Y_i|grad_i=1,sales_i]=\beta_2+\beta_3\]</span> Therefore <span class="math inline">\(\beta_2+\beta_3\)</span> represents the expected change in salary (in thousands) when sales increases by one unit for CEOs that did go to graduate school.</p>
+<p><em>Explanation:</em> The model is: <span class="math display">\mathbb{E}[Y_i|grad_i,sales_i]=\beta_0 + \beta_1 grad_i + \beta_2 sales_i + \beta_3 grad_i sales_i</span> When <span class="math inline">grad_i=1</span>, the model becomes: <span class="math display">\mathbb{E}[Y_i|grad_i=1,sales_i]=\beta_0 + \beta_1 + \beta_2 sales_i + \beta_3 sales_i=\beta_0+\beta_1+\left(\beta_2+\beta_3\right)sales_i</span> Increasing sales by 1 unit: <span class="math display">\mathbb{E}[Y_i|grad_i=1,sales_i+1]=\beta_0 + \beta_1 + \beta_2 sales_i + \beta_3 sales_i=\beta_0+\beta_1+\left(\beta_2+\beta_3\right)\left(sales_i+1\right)</span> Taking differences: <span class="math display">\mathbb{E}[Y_i|grad_i=1,sales_i+1]-\mathbb{E}[Y_i|grad_i=1,sales_i]=\beta_2+\beta_3</span> Therefore <span class="math inline">\beta_2+\beta_3</span> represents the expected change in salary (in thousands) when sales increases by one unit for CEOs that did go to graduate school.</p>
 <p>Because sales is in millions and salary is in thousands, a one-dollar increase in sales leads to a:</p>
-<p><span class="math display">\[\left(b_2+b_3\right) \times \frac{1000000}{1000}=\left(0.07594+0.08296\right)\times 1000=158.89\]</span> dollar increase in salary.</p>
+<p><span class="math display">\left(b_2+b_3\right) \times \frac{1000000}{1000}=\left(0.07594+0.08296\right)\times 1000=158.89</span> dollar increase in salary.</p>
 <p>We could also have done this calculation in R the following way:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">coef</span>(m3)[<span class="dv">3</span>] <span class="sc">+</span> <span class="fu">coef</span>(m3)[<span class="dv">4</span>]) <span class="sc">*</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -520,7 +568,7 @@ F-statistic: 12.67 on 4 and 127 DF,  p-value: 0.00000001052</code></pre>
 <h4 class="unnumbered anchored" data-anchor-id="question-15">Question 15</h4>
 <p>Which variables are individually significant at the 5% level?</p>
 <p><strong>Answer:</strong> Significant: <code>sales</code>, <code>mktval</code>, <code>ceoten</code>. Insignificant: <code>comten</code>.</p>
-<p><em>Explanation</em>: We look at the <span class="math inline">\(p\)</span>-values in the model summary table. If the <span class="math inline">\(p\)</span>-value for a variable is less than 0.05 it is significant, otherwise it is insignificant.</p>
+<p><em>Explanation</em>: We look at the <span class="math inline">p</span>-values in the model summary table. If the <span class="math inline">p</span>-value for a variable is less than 0.05 it is significant, otherwise it is insignificant.</p>
 </section>
 <section id="question-16" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-16">Question 16</h4>
@@ -532,19 +580,19 @@ F-statistic: 12.67 on 4 and 127 DF,  p-value: 0.00000001052</code></pre>
 </div>
 </div>
 <p><strong>Answer:</strong> 0.714799.</p>
-<p><em>Explanation:</em> The <span class="math inline">\(R^2\)</span> gives the proportion of the <span class="math inline">\(y\)</span>-data that is explained by the variation in the explanatory variables. From the summary table we see it is 0.2852. To get the proportion that is unexplained, we subtract this from 1.</p>
+<p><em>Explanation:</em> The <span class="math inline">R^2</span> gives the proportion of the <span class="math inline">y</span>-data that is explained by the variation in the explanatory variables. From the summary table we see it is 0.2852. To get the proportion that is unexplained, we subtract this from 1.</p>
 </section>
 <section id="question-17" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-17">Question 17</h4>
 <p>Perform an appropriate hypothesis test to test the usefulness of the model. Use a 5% significance level.</p>
 <ul>
-<li><p>The null hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\(\beta_j\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> for <span class="math inline">\(j=\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> to <span class="math inline">\(\underline{\hspace{20mm}}\)</span> (choose one comparison operator and fill in values in the blank spaces).</p></li>
-<li><p>The alternative hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\(\beta_j\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> for the same <span class="math inline">\(j\)</span> (choose one comparison operator and fill in a value in in the blank space).</p></li>
-<li><p>The formula for the test statistic is of the form: <span class="math display">\[
+<li><p>The null hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\beta_j</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> for <span class="math inline">j=</span> <span class="math inline">\underline{\hspace{20mm}}</span> to <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in values in the blank spaces).</p></li>
+<li><p>The alternative hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\beta_j</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> for the same <span class="math inline">j</span> (choose one comparison operator and fill in a value in in the blank space).</p></li>
+<li><p>The formula for the test statistic is of the form: <span class="math display">
 \frac{Z/k}{SSE/(n-k-1)}
-\]</span> What is the value of Z in the estimated model? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p></li>
-<li><p>What is the value of the test statistic? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p></li>
-<li><p>What is the critical value? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p></li>
+</span> What is the value of Z in the estimated model? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is the critical value? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
 <li><p>What is the conclusion? Choose one of the options below.</p>
 <ul>
 <li>Reject H0. The model is useful.</li>
@@ -555,9 +603,9 @@ F-statistic: 12.67 on 4 and 127 DF,  p-value: 0.00000001052</code></pre>
 </ul>
 <p><strong>Answer:</strong></p>
 <ul>
-<li><span class="math inline">\(H_0\)</span>: all <span class="math inline">\(\beta_j=0\)</span> for <span class="math inline">\(j=1,4\)</span>.</li>
-<li><span class="math inline">\(H_1\)</span>: at least one <span class="math inline">\(\beta_j\neq 0\)</span> for the same <span class="math inline">\(j\)</span>.</li>
-<li><span class="math inline">\(Z\)</span> is the SSR. We can find it using:</li>
+<li><span class="math inline">H_0</span>: all <span class="math inline">\beta_j=0</span> for <span class="math inline">j=1,4</span>.</li>
+<li><span class="math inline">H_1</span>: at least one <span class="math inline">\beta_j\neq 0</span> for the same <span class="math inline">j</span>.</li>
+<li><span class="math inline">Z</span> is the SSR. We can find it using:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>m0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> df)</span>
@@ -586,7 +634,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 <ul>
-<li>The critical value is 2.443017. We can find that with (where we can read the <span class="math inline">\(k=4\)</span> numerator and <span class="math inline">\(n-k-1=127\)</span> denominator degrees of freedom from the last line of the summary output or from the command <code>summary(m4)$fstatistic</code>):</li>
+<li>The critical value is 2.443017. We can find that with (where we can read the <span class="math inline">k=4</span> numerator and <span class="math inline">n-k-1=127</span> denominator degrees of freedom from the last line of the summary output or from the command <code>summary(m4)$fstatistic</code>):</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(<span class="fl">0.95</span>, <span class="dv">4</span>, <span class="dv">127</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -595,18 +643,18 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 <ul>
-<li>The conclusion is <em>Reject H0. The model is useful.</em> This is because the value of the <span class="math inline">\(F\)</span> statistic exceeds the critical value.</li>
+<li>The conclusion is <em>Reject H0. The model is useful.</em> This is because the value of the <span class="math inline">F</span> statistic exceeds the critical value.</li>
 </ul>
 </section>
 <section id="question-18" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-18">Question 18</h4>
 <p>Test the joint usefulness of <code>comten</code> and <code>ceoten</code>. Use a 5% significance level. Note that these variables are the 3rd and 4th variables in your model.</p>
 <ul>
-<li><p>The null hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\(\beta_j\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> for <span class="math inline">\(j=\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> to <span class="math inline">\(\underline{\hspace{20mm}}\)</span> (choose one comparison operator and fill in values in the blank spaces).</p></li>
-<li><p>The alternative hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\(\beta_j\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> for the same <span class="math inline">\(j\)</span> (choose one comparison operator and fill in a value in in the blank space).</p></li>
-<li><p>According to the null hypothesis, the test statistic follows an <span class="math inline">\(F\)</span> distribution with <span class="math inline">\(\underline{\hspace{20mm}}\)</span> numerator and <span class="math inline">\(\underline{\hspace{20mm}}\)</span> denominator degrees of freedom.</p></li>
-<li><p>What is the value of the test statistic? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p></li>
-<li><p>What is the critical value? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p></li>
+<li><p>The null hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\beta_j</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> for <span class="math inline">j=</span> <span class="math inline">\underline{\hspace{20mm}}</span> to <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in values in the blank spaces).</p></li>
+<li><p>The alternative hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\beta_j</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> for the same <span class="math inline">j</span> (choose one comparison operator and fill in a value in in the blank space).</p></li>
+<li><p>According to the null hypothesis, the test statistic follows an <span class="math inline">F</span> distribution with <span class="math inline">\underline{\hspace{20mm}}</span> numerator and <span class="math inline">\underline{\hspace{20mm}}</span> denominator degrees of freedom.</p></li>
+<li><p>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is the critical value? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
 <li><p>What is the conclusion? Choose one of the options below.</p>
 <ul>
 <li>Reject H0. The variables are useful additions to the model.</li>
@@ -617,9 +665,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </ul>
 <p><strong>Answer:</strong></p>
 <ul>
-<li><span class="math inline">\(H_0\)</span>: all <span class="math inline">\(\beta_j=0\)</span> for <span class="math inline">\(j=3,4\)</span>.</li>
-<li><span class="math inline">\(H_1\)</span>: at least one <span class="math inline">\(\beta_j\neq 0\)</span> for the same <span class="math inline">\(j\)</span>.</li>
-<li>We can run the partial <span class="math inline">\(F\)</span> test with:</li>
+<li><span class="math inline">H_0</span>: all <span class="math inline">\beta_j=0</span> for <span class="math inline">j=3,4</span>.</li>
+<li><span class="math inline">H_1</span>: at least one <span class="math inline">\beta_j\neq 0</span> for the same <span class="math inline">j</span>.</li>
+<li>We can run the partial <span class="math inline">F</span> test with:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>m4r <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> sales <span class="sc">+</span> mktval, <span class="at">data =</span> df)</span>
@@ -637,10 +685,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 <ul>
-<li>From here we can see there are <span class="math inline">\(k-g=2\)</span> numerator and <span class="math inline">\(n-k-1=127\)</span> denominator degrees of freedom.</li>
+<li>From here we can see there are <span class="math inline">k-g=2</span> numerator and <span class="math inline">n-k-1=127</span> denominator degrees of freedom.</li>
 <li>Value of the test statistic: 5.4037 (read from <code>anova()</code> output).</li>
-<li><span class="math inline">\(p\)</span>-value: 0.005594 (read from <code>anova()</code> output).</li>
-<li>Conclusion: Reject H0. The variables are useful additions to the model (<em>reason:</em> <span class="math inline">\(p\)</span>-value is less than 0.05).</li>
+<li><span class="math inline">p</span>-value: 0.005594 (read from <code>anova()</code> output).</li>
+<li>Conclusion: Reject H0. The variables are useful additions to the model (<em>reason:</em> <span class="math inline">p</span>-value is less than 0.05).</li>
 </ul>
 </section>
 <section id="question-19" class="level4 unnumbered">
@@ -649,8 +697,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <ul>
 <li><p>They have been working in their company for 20 years, and have been a CEO there for 8 of those years.</p></li>
 <li><p>The companies they work for have annual sales of $1,000m and a market value of $1,500m.</p></li>
-<li><p>Lower bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p></li>
-<li><p>Upper bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p></li>
+<li><p>Lower bound: <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>Upper bound: <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
 </ul>
 <p><strong>Answer:</strong></p>
 <div class="cell">
@@ -706,18 +754,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -749,11 +786,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -763,8 +839,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -776,7 +861,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -820,6 +1028,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -845,6 +1054,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -905,6 +1140,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

@@ -68,8 +68,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="2022-exam_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="2022-exam_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -151,10 +165,10 @@ window.Quarto = {
 </section>
 <section id="question-2" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-2">Question 2</h4>
-<p>Choose the answer below which best represents the interpretation of the correlation in the previous question, where <span class="math inline">\(r\)</span> represents your answer to the previous question.</p>
+<p>Choose the answer below which best represents the interpretation of the correlation in the previous question, where <span class="math inline">r</span> represents your answer to the previous question.</p>
 <ul>
-<li>A €1 increase in the excise duty on average leads to an increase in the price of petrol by <span class="math inline">\(r\)</span> euros.</li>
-<li>The excise duty data explains <span class="math inline">\(r\)</span>% of the data on petrol prices.</li>
+<li>A €1 increase in the excise duty on average leads to an increase in the price of petrol by <span class="math inline">r</span> euros.</li>
+<li>The excise duty data explains <span class="math inline">r</span>% of the data on petrol prices.</li>
 <li>There is a strong positive linear relationship between the price of petrol and the excise duty on it.</li>
 <li>The correlation depends on the units of the variables used to calculate it and is therefore difficult to interpret.</li>
 </ul>
@@ -181,11 +195,11 @@ window.Quarto = {
 <h4 class="unnumbered anchored" data-anchor-id="question-5">Question 5</h4>
 <p>Test the following claim: if the excise duty fell by €1, then the price of petrol would fall by more than 50 cents on average. Use a significance level of 5%.</p>
 <ul>
-<li>What is the null hypothesis? <span class="math inline">\(\beta_1\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> (choose one comparison operator and fill in a value in the blank).</li>
-<li>What is the alternative hypothesis? <span class="math inline">\(\beta_1\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> (choose one comparison operator and fill in a value in the blank).</li>
-<li>The test statistic <span class="math inline">\(T=(B_1-b)/S_{B_1}\)</span> follows a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n/k/n-1/n-2/n-k\)</span> (choose one) degrees of freedom under <span class="math inline">\(H_0\)</span>/<span class="math inline">\(H_1\)</span> (choose one).</li>
-<li>What is the value of the test statistic? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>What is the critical value? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>What is the null hypothesis? <span class="math inline">\beta_1</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</li>
+<li>What is the alternative hypothesis? <span class="math inline">\beta_1</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</li>
+<li>The test statistic <span class="math inline">T=(B_1-b)/S_{B_1}</span> follows a <span class="math inline">t</span> distribution with <span class="math inline">n/k/n-1/n-2/n-k</span> (choose one) degrees of freedom under <span class="math inline">H_0</span>/<span class="math inline">H_1</span> (choose one).</li>
+<li>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the critical value? <span class="math inline">\underline{\hspace{20mm}}</span></li>
 <li>Therefore, (choose an option below):
 <ul>
 <li>We reject, there is sufficient evidence that it would fall by more than 50 cents on average.</li>
@@ -201,23 +215,23 @@ window.Quarto = {
 <p>Estimate a simple linear regression model explaining the price of petrol with the price of Brent crude oil.</p>
 <section id="question-6" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-6">Question 6</h4>
-<p>Use a <span class="math inline">\(t\)</span>-test to test the following null and alternative hypotheses:</p>
-<p><span class="math display">\[
+<p>Use a <span class="math inline">t</span>-test to test the following null and alternative hypotheses:</p>
+<p><span class="math display">
 \begin{split}
 H_0:\,&amp; \beta_1 = 0  \\
 H_1:\,&amp; \beta_1 \neq 0
 \end{split}
-\]</span></p>
+</span></p>
 <p>Assume for this question that the model assumptions hold. Use a significance level of 5%.</p>
 <ul>
-<li>What is the value of the test statistic? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>What is the test’s <span class="math inline">\(p\)</span>-value? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the test’s <span class="math inline">p</span>-value? <span class="math inline">\underline{\hspace{20mm}}</span></li>
 <li>What is the conclusion? Choose an option below:
 <ul>
-<li><span class="math inline">\(p\leq \alpha\)</span>; the model is useful.</li>
-<li><span class="math inline">\(p&gt; \alpha\)</span>; the model is useful.</li>
-<li><span class="math inline">\(p\leq \alpha\)</span>; the model is useless.</li>
-<li><span class="math inline">\(p&gt; \alpha\)</span>; the model is useless.</li>
+<li><span class="math inline">p\leq \alpha</span>; the model is useful.</li>
+<li><span class="math inline">p&gt; \alpha</span>; the model is useful.</li>
+<li><span class="math inline">p\leq \alpha</span>; the model is useless.</li>
+<li><span class="math inline">p&gt; \alpha</span>; the model is useless.</li>
 </ul></li>
 </ul>
 </section>
@@ -258,20 +272,20 @@ H_1:\,&amp; \beta_1 \neq 0
 </section>
 <section id="question-11" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-11">Question 11</h4>
-<p>Report a 95% confidence interval for <span class="math inline">\(\beta_1\)</span> (the coefficient on the excise duty).</p>
+<p>Report a 95% confidence interval for <span class="math inline">\beta_1</span> (the coefficient on the excise duty).</p>
 <ul>
-<li>Lower bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>Upper bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>Lower bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Upper bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
 </ul>
 </section>
 <section id="question-12" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-12">Question 12</h4>
 <p>The 95% confidence interval for the coefficient on Brent Crude oil is [0.007513, 0.009452]. Choose the answer below which best explains the interpretation of this confidence interval.</p>
 <ul>
-<li>We are 95% confident that the population <span class="math inline">\(\beta_2\)</span> is between 0.007513 and 0.009452.</li>
-<li>We are 95% confident that the estimator <span class="math inline">\(B_2\)</span> is between 0.007513 and 0.009452.</li>
-<li>We are 95% confident that the sample estimate <span class="math inline">\(b_2\)</span> is between 0.007513 and 0.009452.</li>
-<li>We are 95% confident that the hinge <span class="math inline">\(b\)</span> is between 0.007513 and 0.009452.</li>
+<li>We are 95% confident that the population <span class="math inline">\beta_2</span> is between 0.007513 and 0.009452.</li>
+<li>We are 95% confident that the estimator <span class="math inline">B_2</span> is between 0.007513 and 0.009452.</li>
+<li>We are 95% confident that the sample estimate <span class="math inline">b_2</span> is between 0.007513 and 0.009452.</li>
+<li>We are 95% confident that the hinge <span class="math inline">b</span> is between 0.007513 and 0.009452.</li>
 </ul>
 </section>
 <section id="question-13" class="level4 unnumbered">
@@ -282,10 +296,10 @@ H_1:\,&amp; \beta_1 \neq 0
 <section id="question-14" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-14">Question 14</h4>
 <p>Use an appropriate test to test if this model is useful.</p>
-<p>What is the null hypothesis? <span class="math inline">\(\beta_1=\beta_2=\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> What is the alternative hypothesis? <strong>at least one of/each of/one of/none of</strong> (choose one) <span class="math inline">\(\beta_j\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> for <span class="math inline">\(j=1,2\)</span>. Under the null hypothesis, the test statistic follows a(n) <strong>F/student t/normal/binomial/chi squared</strong> (choose one) distribution with <span class="math inline">\(\underline{\hspace{20mm}}\)</span> numerator and <span class="math inline">\(\underline{\hspace{20mm}}\)</span> denominator degrees of freedom. The <span class="math inline">\(a\)</span> in the formula for the test statistic below in this sample equals <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p>
-<p><span class="math display">\[
+<p>What is the null hypothesis? <span class="math inline">\beta_1=\beta_2=</span> <span class="math inline">\underline{\hspace{20mm}}</span> What is the alternative hypothesis? <strong>at least one of/each of/one of/none of</strong> (choose one) <span class="math inline">\beta_j\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> for <span class="math inline">j=1,2</span>. Under the null hypothesis, the test statistic follows a(n) <strong>F/student t/normal/binomial/chi squared</strong> (choose one) distribution with <span class="math inline">\underline{\hspace{20mm}}</span> numerator and <span class="math inline">\underline{\hspace{20mm}}</span> denominator degrees of freedom. The <span class="math inline">a</span> in the formula for the test statistic below in this sample equals <span class="math inline">\underline{\hspace{20mm}}</span></p>
+<p><span class="math display">
 \frac{a/k}{SSE/(n-k-1)}
-\]</span> What is the value of the test statistic? <span class="math inline">\(\underline{\hspace{20mm}}\)</span> What is the critical value? <span class="math inline">\(\underline{\hspace{20mm}}\)</span> What is the conclusion? Choose one of the options below:</p>
+</span> What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span> What is the critical value? <span class="math inline">\underline{\hspace{20mm}}</span> What is the conclusion? Choose one of the options below:</p>
 <ul>
 <li>Reject; the model is useful.</li>
 <li>Reject; the model is useless.</li>
@@ -297,7 +311,7 @@ H_1:\,&amp; \beta_1 \neq 0
 <h4 class="unnumbered anchored" data-anchor-id="question-15">Question 15</h4>
 <p>On August 1st, the Brent Crude oil price was 106.09 and the excise duty remained at 35.9 cents. What is the predicted price of petrol on August 1st according to the model?</p>
 <p>Use your model to construct an interval that contains with 95% probability the actual realization of the price of petrol on August 1st.</p>
-<p>Prediction: <span class="math inline">\(\underline{\hspace{20mm}}\)</span> Lower bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span> Upper bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p>
+<p>Prediction: <span class="math inline">\underline{\hspace{20mm}}</span> Lower bound: <span class="math inline">\underline{\hspace{20mm}}</span> Upper bound: <span class="math inline">\underline{\hspace{20mm}}</span></p>
 </section>
 <section id="question-16" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-16">Question 16</h4>
@@ -390,14 +404,14 @@ H_1:\,&amp; \beta_1 \neq 0
 <p>Using an appropriate test, test the joint usefulness of the period-specific trend terms (coefficients 3 and 4 in the model).</p>
 <p>Use a significance level of 5%.</p>
 <ul>
-<li>What is the null hypothesis? <span class="math inline">\(\beta_j\)</span> = <span class="math inline">\(\underline{\hspace{20mm}}\)</span> for <span class="math inline">\(j=\)</span><strong>1,2/3,4/1,2,3,4/0,1,2,3,4</strong> (choose one).</li>
+<li>What is the null hypothesis? <span class="math inline">\beta_j</span> = <span class="math inline">\underline{\hspace{20mm}}</span> for <span class="math inline">j=</span><strong>1,2/3,4/1,2,3,4/0,1,2,3,4</strong> (choose one).</li>
 <li>The alternative hypothesis is that the null hypothesis does not hold.</li>
-<li>The formula for the test statistic has the following form: <span class="math display">\[
+<li>The formula for the test statistic has the following form: <span class="math display">
 \frac{a/(k-g)}{b/(n-k-1)}
-\]</span></li>
-<li>What is the value of a and b in your sample? a: <span class="math inline">\(\underline{\hspace{20mm}}\)</span> b: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>What is the value of the test statistic? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>What is the critical value? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+</span></li>
+<li>What is the value of a and b in your sample? a: <span class="math inline">\underline{\hspace{20mm}}</span> b: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the critical value? <span class="math inline">\underline{\hspace{20mm}}</span></li>
 <li>What is the conclusion? <strong>reject/don’t reject/accept/don’t accept</strong> (choose one) the null hypothesis. The period-specific trend terms are jointly <strong>useful/useless/colinear/different</strong> (choose one).</li>
 </ul>
 </section>

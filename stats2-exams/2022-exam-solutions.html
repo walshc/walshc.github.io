@@ -68,8 +68,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="2022-exam-solutions_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="2022-exam-solutions_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -172,10 +186,10 @@ window.Quarto = {
 </section>
 <section id="question-2" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-2">Question 2</h4>
-<p>Choose the answer below which best represents the interpretation of the correlation in the previous question, where <span class="math inline">\(r\)</span> represents your answer to the previous question.</p>
+<p>Choose the answer below which best represents the interpretation of the correlation in the previous question, where <span class="math inline">r</span> represents your answer to the previous question.</p>
 <ul>
-<li>A €1 increase in the excise duty on average leads to an increase in the price of petrol by <span class="math inline">\(r\)</span> euros.</li>
-<li>The excise duty data explains <span class="math inline">\(r\)</span>% of the data on petrol prices.</li>
+<li>A €1 increase in the excise duty on average leads to an increase in the price of petrol by <span class="math inline">r</span> euros.</li>
+<li>The excise duty data explains <span class="math inline">r</span>% of the data on petrol prices.</li>
 <li>There is a strong positive linear relationship between the price of petrol and the excise duty on it.</li>
 <li>The correlation depends on the units of the variables used to calculate it and is therefore difficult to interpret.</li>
 </ul>
@@ -245,11 +259,11 @@ F-statistic: 190.3 on 1 and 120 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h4 class="unnumbered anchored" data-anchor-id="question-5">Question 5</h4>
 <p>Test the following claim: if the excise duty fell by €1, then the price of petrol would fall by more than 50 cents on average. Use a significance level of 5%.</p>
 <ul>
-<li>What is the null hypothesis? <span class="math inline">\(\beta_1\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> (choose one comparison operator and fill in a value in the blank).</li>
-<li>What is the alternative hypothesis? <span class="math inline">\(\beta_1\)</span> <span class="math inline">\(&lt;/\leq/&gt;/\geq/=/\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> (choose one comparison operator and fill in a value in the blank).</li>
-<li>The test statistic <span class="math inline">\(T=(B_1-b)/S_{B_1}\)</span> follows a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n/k/n-1/n-2/n-k\)</span> (choose one) degrees of freedom under <span class="math inline">\(H_0\)</span>/<span class="math inline">\(H_1\)</span> (choose one).</li>
-<li>What is the value of the test statistic? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>What is the critical value? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>What is the null hypothesis? <span class="math inline">\beta_1</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</li>
+<li>What is the alternative hypothesis? <span class="math inline">\beta_1</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</li>
+<li>The test statistic <span class="math inline">T=(B_1-b)/S_{B_1}</span> follows a <span class="math inline">t</span> distribution with <span class="math inline">n/k/n-1/n-2/n-k</span> (choose one) degrees of freedom under <span class="math inline">H_0</span>/<span class="math inline">H_1</span> (choose one).</li>
+<li>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the critical value? <span class="math inline">\underline{\hspace{20mm}}</span></li>
 <li>Therefore, (choose an option below):
 <ul>
 <li>We reject, there is sufficient evidence that it would fall by more than 50 cents on average.</li>
@@ -260,9 +274,9 @@ F-statistic: 190.3 on 1 and 120 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ul>
 <p><strong>Answer:</strong></p>
 <ul>
-<li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\beta_1\geq 0.5\)</span>.</li>
-<li><span class="math inline">\(H_1\)</span>: <span class="math inline">\(\beta_1&gt; 0.5\)</span>.</li>
-<li><span class="math inline">\(T=\frac{B_1-b}{S_{B_1}}\)</span> follows a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n-2\)</span> degrees of freedom under <span class="math inline">\(H_0\)</span>.</li>
+<li><span class="math inline">H_0</span>: <span class="math inline">\beta_1\geq 0.5</span>.</li>
+<li><span class="math inline">H_1</span>: <span class="math inline">\beta_1&gt; 0.5</span>.</li>
+<li><span class="math inline">T=\frac{B_1-b}{S_{B_1}}</span> follows a <span class="math inline">t</span> distribution with <span class="math inline">n-2</span> degrees of freedom under <span class="math inline">H_0</span>.</li>
 <li>The value of the test statistic is can be found with:</li>
 </ul>
 <div class="cell">
@@ -286,7 +300,7 @@ F-statistic: 190.3 on 1 and 120 DF,  p-value: &lt; 2.2e-16</code></pre>
 <ul>
 <li>Therefore, <em>we don’t reject, there is insufficient evidence that it would fall by more than 50 cents on average.</em></li>
 </ul>
-<p><em>Explanation:</em> The interpretation of the estimated slope is that if the duty increases by €1, then the price of petrol will increase by 54.6 cents on average. This means that if the duty <em>decreases</em> by €1, then the price of petrol will <em>decrease</em> by 54.6 cents on average. The claim says that the price of petrol would fall <em>by more than 50 cents</em> on average from a €1 decrease in the duty. This would happen if <span class="math inline">\(\beta_1&gt;0.5\)</span>. So this is the alternative hypothesis. The null is then <span class="math inline">\(\beta_1\leq 0.5\)</span>. With a simple linear regression model, the test statistic follows a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n-k-1=n-2\)</span> degrees of freedom under <span class="math inline">\(H_0\)</span> (because <span class="math inline">\(k=1\)</span>). This is an upper tail test so we get the critical value with <code>qt(0.95, n-k-1)</code>, and we can use <code>m1$df.residual</code> to obtain <code>n-k-1</code> directly, or else read it from the model output (120). Because the test statistic is greater than the critical value, we reject <span class="math inline">\(H_0\)</span>.</p>
+<p><em>Explanation:</em> The interpretation of the estimated slope is that if the duty increases by €1, then the price of petrol will increase by 54.6 cents on average. This means that if the duty <em>decreases</em> by €1, then the price of petrol will <em>decrease</em> by 54.6 cents on average. The claim says that the price of petrol would fall <em>by more than 50 cents</em> on average from a €1 decrease in the duty. This would happen if <span class="math inline">\beta_1&gt;0.5</span>. So this is the alternative hypothesis. The null is then <span class="math inline">\beta_1\leq 0.5</span>. With a simple linear regression model, the test statistic follows a <span class="math inline">t</span> distribution with <span class="math inline">n-k-1=n-2</span> degrees of freedom under <span class="math inline">H_0</span> (because <span class="math inline">k=1</span>). This is an upper tail test so we get the critical value with <code>qt(0.95, n-k-1)</code>, and we can use <code>m1$df.residual</code> to obtain <code>n-k-1</code> directly, or else read it from the model output (120). Because the test statistic is greater than the critical value, we reject <span class="math inline">H_0</span>.</p>
 </section>
 </section>
 <section id="model-2" class="level2 unnumbered">
@@ -318,31 +332,31 @@ F-statistic: 0.2205 on 1 and 120 DF,  p-value: 0.6395</code></pre>
 </div>
 <section id="question-6" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-6">Question 6</h4>
-<p>Use a <span class="math inline">\(t\)</span>-test to test the following null and alternative hypotheses:</p>
-<p><span class="math display">\[
+<p>Use a <span class="math inline">t</span>-test to test the following null and alternative hypotheses:</p>
+<p><span class="math display">
 \begin{split}
 H_0:\,&amp; \beta_1 = 0  \\
 H_1:\,&amp; \beta_1 \neq 0
 \end{split}
-\]</span></p>
+</span></p>
 <p>Assume for this question that the model assumptions hold. Use a significance level of 5%.</p>
 <ul>
-<li>What is the value of the test statistic? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>What is the test’s <span class="math inline">\(p\)</span>-value? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the test’s <span class="math inline">p</span>-value? <span class="math inline">\underline{\hspace{20mm}}</span></li>
 <li>What is the conclusion? Choose an option below:
 <ul>
-<li><span class="math inline">\(p\leq \alpha\)</span>; the model is useful.</li>
-<li><span class="math inline">\(p&gt; \alpha\)</span>; the model is useful.</li>
-<li><span class="math inline">\(p\leq \alpha\)</span>; the model is useless.</li>
-<li><span class="math inline">\(p&gt; \alpha\)</span>; the model is useless.</li>
+<li><span class="math inline">p\leq \alpha</span>; the model is useful.</li>
+<li><span class="math inline">p&gt; \alpha</span>; the model is useful.</li>
+<li><span class="math inline">p\leq \alpha</span>; the model is useless.</li>
+<li><span class="math inline">p&gt; \alpha</span>; the model is useless.</li>
 </ul></li>
 </ul>
 <p><strong>Answer:</strong></p>
 <p>We can obtain the answers directly from the model output:</p>
 <ul>
 <li>Test statistic: 0.47</li>
-<li><span class="math inline">\(p\)</span>-value: 0.64</li>
-<li>Conclusion: <span class="math inline">\(p&gt; \alpha\)</span>; the model is useless.</li>
+<li><span class="math inline">p</span>-value: 0.64</li>
+<li>Conclusion: <span class="math inline">p&gt; \alpha</span>; the model is useless.</li>
 </ul>
 </section>
 <section id="question-7" class="level4 unnumbered">
@@ -447,7 +461,7 @@ F-statistic: 482.4 on 2 and 119 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h4 class="unnumbered anchored" data-anchor-id="question-10">Question 10</h4>
 <p>If the price of a barrel of oil increased by €10 while the excise duty remained fixed, by how many cents would the price of petrol be expected to increase according to the model?</p>
 <p><strong>Answer:</strong> 8.48 cents.</p>
-<p><em>Explanation</em> The interpretation of <span class="math inline">\(b_3=0.0084825\)</span> is that a €1 increase in the price of a barrel of oil increases the price of petrol by €0.00848 on average, holding the duty fixed. So a €10 increase will increase this by €0.0848 (multiply by 10). To convert this to cents, we multiply further by 100, so 8.48 cents. We can also calculate this in R with:</p>
+<p><em>Explanation</em> The interpretation of <span class="math inline">b_3=0.0084825</span> is that a €1 increase in the price of a barrel of oil increases the price of petrol by €0.00848 on average, holding the duty fixed. So a €10 increase will increase this by €0.0848 (multiply by 10). To convert this to cents, we multiply further by 100, so 8.48 cents. We can also calculate this in R with:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m3)[<span class="dv">3</span>] <span class="sc">*</span> <span class="dv">10</span> <span class="sc">*</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -458,10 +472,10 @@ F-statistic: 482.4 on 2 and 119 DF,  p-value: &lt; 2.2e-16</code></pre>
 </section>
 <section id="question-11" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-11">Question 11</h4>
-<p>Report a 95% confidence interval for <span class="math inline">\(\beta_1\)</span> (the coefficient on the excise duty).</p>
+<p>Report a 95% confidence interval for <span class="math inline">\beta_1</span> (the coefficient on the excise duty).</p>
 <ul>
-<li>Lower bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>Upper bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+<li>Lower bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Upper bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
 </ul>
 <p><strong>Answer:</strong></p>
 <div class="cell">
@@ -479,18 +493,18 @@ oil         0.007512913 0.009452144</code></pre>
 <h4 class="unnumbered anchored" data-anchor-id="question-12">Question 12</h4>
 <p>The 95% confidence interval for the coefficient on Brent Crude oil is [0.007513, 0.009452]. Choose the answer below which best explains the interpretation of this confidence interval.</p>
 <ul>
-<li>We are 95% confident that the population <span class="math inline">\(\beta_2\)</span> is between 0.007513 and 0.009452.</li>
-<li>We are 95% confident that the estimator <span class="math inline">\(B_2\)</span> is between 0.007513 and 0.009452.</li>
-<li>We are 95% confident that the sample estimate <span class="math inline">\(b_2\)</span> is between 0.007513 and 0.009452.</li>
-<li>We are 95% confident that the hinge <span class="math inline">\(b\)</span> is between 0.007513 and 0.009452.</li>
+<li>We are 95% confident that the population <span class="math inline">\beta_2</span> is between 0.007513 and 0.009452.</li>
+<li>We are 95% confident that the estimator <span class="math inline">B_2</span> is between 0.007513 and 0.009452.</li>
+<li>We are 95% confident that the sample estimate <span class="math inline">b_2</span> is between 0.007513 and 0.009452.</li>
+<li>We are 95% confident that the hinge <span class="math inline">b</span> is between 0.007513 and 0.009452.</li>
 </ul>
-<p><strong>Answer:</strong> We are 95% confident that the population <span class="math inline">\(\beta_2\)</span> is between 0.007513 and 0.009452.</p>
+<p><strong>Answer:</strong> We are 95% confident that the population <span class="math inline">\beta_2</span> is between 0.007513 and 0.009452.</p>
 </section>
 <section id="question-13" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-13">Question 13</h4>
 <p>What percentage of variation in the petrol data is explained by the variation in the excise duty and Brent Crude oil price?</p>
 <p>Write your answer as a percentage (a number between 0 and 100) and not as a proportion (a number between 0 and 1).</p>
-<p><strong>Answer:</strong> 89.01998. We multiply the <span class="math inline">\(R^2\)</span> by 100 to obtain this. We can read the <span class="math inline">\(R^2\)</span> from the summary output, or else we can calculate it directly with:</p>
+<p><strong>Answer:</strong> 89.01998. We multiply the <span class="math inline">R^2</span> by 100 to obtain this. We can read the <span class="math inline">R^2</span> from the summary output, or else we can calculate it directly with:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)<span class="sc">$</span>r.squared <span class="sc">*</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -501,10 +515,10 @@ oil         0.007512913 0.009452144</code></pre>
 <section id="question-14" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-14">Question 14</h4>
 <p>Use an appropriate test to test if this model is useful.</p>
-<p>What is the null hypothesis? <span class="math inline">\(\beta_1=\beta_2=\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> What is the alternative hypothesis? <strong>at least one of/each of/one of/none of</strong> (choose one) <span class="math inline">\(\beta_j\neq\)</span> <span class="math inline">\(\underline{\hspace{20mm}}\)</span> for <span class="math inline">\(j=1,2\)</span>. Under the null hypothesis, the test statistic follows a(n) <strong>F/student t/normal/binomial/chi squared</strong> (choose one) distribution with <span class="math inline">\(\underline{\hspace{20mm}}\)</span> numerator and <span class="math inline">\(\underline{\hspace{20mm}}\)</span> denominator degrees of freedom. The <span class="math inline">\(a\)</span> in the formula for the test statistic below in this sample equals <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p>
-<p><span class="math display">\[
+<p>What is the null hypothesis? <span class="math inline">\beta_1=\beta_2=</span> <span class="math inline">\underline{\hspace{20mm}}</span> What is the alternative hypothesis? <strong>at least one of/each of/one of/none of</strong> (choose one) <span class="math inline">\beta_j\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> for <span class="math inline">j=1,2</span>. Under the null hypothesis, the test statistic follows a(n) <strong>F/student t/normal/binomial/chi squared</strong> (choose one) distribution with <span class="math inline">\underline{\hspace{20mm}}</span> numerator and <span class="math inline">\underline{\hspace{20mm}}</span> denominator degrees of freedom. The <span class="math inline">a</span> in the formula for the test statistic below in this sample equals <span class="math inline">\underline{\hspace{20mm}}</span></p>
+<p><span class="math display">
 \frac{a/k}{SSE/(n-k-1)}
-\]</span> What is the value of the test statistic? <span class="math inline">\(\underline{\hspace{20mm}}\)</span> What is the critical value? <span class="math inline">\(\underline{\hspace{20mm}}\)</span> What is the conclusion? Choose one of the options below:</p>
+</span> What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span> What is the critical value? <span class="math inline">\underline{\hspace{20mm}}</span> What is the conclusion? Choose one of the options below:</p>
 <ul>
 <li>Reject; the model is useful.</li>
 <li>Reject; the model is useless.</li>
@@ -513,10 +527,10 @@ oil         0.007512913 0.009452144</code></pre>
 </ul>
 <p><strong>Answer:</strong></p>
 <ul>
-<li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\beta_1=\beta_2=0\)</span>.</li>
-<li><span class="math inline">\(H_1\)</span>: At least one of <span class="math inline">\(\beta_j\neq 0\)</span> for <span class="math inline">\(j=1,2\)</span>.</li>
-<li>Under <span class="math inline">\(H_0\)</span>, the test statistic follows an <span class="math inline">\(F\)</span> distribution with 2 numerator and 119 denominator degrees of freedom (numbers <span class="math inline">\(k=2\)</span> and <span class="math inline">\(n-k-1=119\)</span> can be read from the last line of the summary output).</li>
-<li>The <span class="math inline">\(a\)</span> in the formula is the <span class="math inline">\(SSR\)</span> and can be calculated with:</li>
+<li><span class="math inline">H_0</span>: <span class="math inline">\beta_1=\beta_2=0</span>.</li>
+<li><span class="math inline">H_1</span>: At least one of <span class="math inline">\beta_j\neq 0</span> for <span class="math inline">j=1,2</span>.</li>
+<li>Under <span class="math inline">H_0</span>, the test statistic follows an <span class="math inline">F</span> distribution with 2 numerator and 119 denominator degrees of freedom (numbers <span class="math inline">k=2</span> and <span class="math inline">n-k-1=119</span> can be read from the last line of the summary output).</li>
+<li>The <span class="math inline">a</span> in the formula is the <span class="math inline">SSR</span> and can be calculated with:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(petrol <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> df), m3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -532,11 +546,12 @@ Model 2: petrol ~ duty + oil
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-<p>the <span class="math inline">\(SSR\)</span> is 1.1542. - The value of the test statistic is 482.39. This can be calculated directly with:</p>
+<p>the <span class="math inline">SSR</span> is 1.1542. - The value of the test statistic is 482.39. This can be calculated directly with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)<span class="sc">$</span>fstatistics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)<span class="sc">$</span>fstatistic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>NULL</code></pre>
+<pre><code>   value    numdf    dendf 
+482.3934   2.0000 119.0000 </code></pre>
 </div>
 </div>
 <ul>
@@ -556,7 +571,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <h4 class="unnumbered anchored" data-anchor-id="question-15">Question 15</h4>
 <p>On August 1st, the Brent Crude oil price was 106.09 and the excise duty remained at 35.9 cents. What is the predicted price of petrol on August 1st according to the model?</p>
 <p>Use your model to construct an interval that contains with 95% probability the actual realization of the price of petrol on August 1st.</p>
-<p>Prediction: <span class="math inline">\(\underline{\hspace{20mm}}\)</span> Lower bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span> Upper bound: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></p>
+<p>Prediction: <span class="math inline">\underline{\hspace{20mm}}</span> Lower bound: <span class="math inline">\underline{\hspace{20mm}}</span> Upper bound: <span class="math inline">\underline{\hspace{20mm}}</span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df_p <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">oil =</span> <span class="fl">106.09</span>, <span class="at">duty =</span> <span class="fl">0.359</span>)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(m3, df_p, <span class="at">interval =</span> <span class="st">"prediction"</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -688,13 +703,13 @@ F-statistic: 687.4 on 3 and 118 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>In the June-July period, holding the excise duty fixed, the model predicts that each day the petrol price is expected to decrease by how many cents?</p>
 <p><strong>Answer:</strong> 0.3761 cents.</p>
 <p><em>Explanation</em> The model is:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \mathbb{E}[petrol_t|duty_t,t_t,t\_post_t]=\beta_0+\beta_1duty_t + \beta_2 t_t + \beta_3 t\_post_t
-\]</span> Holding the duty fixed, one day later in the post period is: <span class="math display">\[
+</span> Holding the duty fixed, one day later in the post period is: <span class="math display">
 \mathbb{E}[petrol_t|duty_t,t_t+1,t\_post_t+1]=\beta_0+\beta_1duty_t + \beta_2 \left(t_t+1\right) + \beta_3\left( t\_post_t+1\right)
-\]</span> Taking differences: <span class="math display">\[
+</span> Taking differences: <span class="math display">
 \beta_2+\beta_3
-\]</span> Thus we need to add <span class="math inline">\(b_2+b_3\)</span> to get the average effect of a one-day increase in the post-period (holding duty fixed). This is:</p>
+</span> Thus we need to add <span class="math inline">b_2+b_3</span> to get the average effect of a one-day increase in the post-period (holding duty fixed). This is:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">coef</span>(m4)[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -712,7 +727,7 @@ F-statistic: 687.4 on 3 and 118 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="question-19" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-19">Question 19</h4>
 <p>Report the coefficient of determination from the model.</p>
-<p><strong>Answer:</strong> We can read the <span class="math inline">\(R^2\)</span> straight from the summary output. This is 0.9459. We can also get it directly with:</p>
+<p><strong>Answer:</strong> We can read the <span class="math inline">R^2</span> straight from the summary output. This is 0.9459. We can also get it directly with:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m4)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -730,7 +745,7 @@ F-statistic: 687.4 on 3 and 118 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li>Both models explain the petrol price data equally well because the total sum of squares is the same for both models.</li>
 </ul>
 <p><strong>Answer:</strong> The model with excise duty and the period-specific time trends (Model 4).</p>
-<p><em>Explanation:</em> Model 4’s <span class="math inline">\(R^2\)</span> is higher (0.9459 versus 0.8902). Model 4 can explain a higher proportion of the variation in petrol prices.</p>
+<p><em>Explanation:</em> Model 4’s <span class="math inline">R^2</span> is higher (0.9459 versus 0.8902). Model 4 can explain a higher proportion of the variation in petrol prices.</p>
 </section>
 </section>
 <section id="model-5" class="level2 unnumbered">
@@ -798,21 +813,21 @@ F-statistic: 605.8 on 4 and 117 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Using an appropriate test, test the joint usefulness of the period-specific trend terms (coefficients 3 and 4 in the model).</p>
 <p>Use a significance level of 5%.</p>
 <ul>
-<li>What is the null hypothesis? <span class="math inline">\(\beta_j\)</span> = <span class="math inline">\(\underline{\hspace{20mm}}\)</span> for <span class="math inline">\(j=\)</span><strong>1,2/3,4/1,2,3,4/0,1,2,3,4</strong> (choose one).</li>
+<li>What is the null hypothesis? <span class="math inline">\beta_j</span> = <span class="math inline">\underline{\hspace{20mm}}</span> for <span class="math inline">j=</span><strong>1,2/3,4/1,2,3,4/0,1,2,3,4</strong> (choose one).</li>
 <li>The alternative hypothesis is that the null hypothesis does not hold.</li>
-<li>The formula for the test statistic has the following form: <span class="math display">\[
+<li>The formula for the test statistic has the following form: <span class="math display">
 \frac{a/(k-g)}{b/(n-k-1)}
-\]</span></li>
-<li>What is the value of a and b in your sample? a: <span class="math inline">\(\underline{\hspace{20mm}}\)</span> b: <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>What is the value of the test statistic? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
-<li>What is the critical value? <span class="math inline">\(\underline{\hspace{20mm}}\)</span></li>
+</span></li>
+<li>What is the value of a and b in your sample? a: <span class="math inline">\underline{\hspace{20mm}}</span> b: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the critical value? <span class="math inline">\underline{\hspace{20mm}}</span></li>
 <li>What is the conclusion? <strong>reject/don’t reject/accept/don’t accept</strong> (choose one) the null hypothesis. The period-specific trend terms are jointly <strong>useful/useless/colinear/different</strong> (choose one).</li>
 </ul>
 <p><strong>Answer:</strong></p>
 <ul>
-<li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\beta_j=0\)</span> for <span class="math inline">\(j=3,4\)</span>.</li>
-<li><span class="math inline">\(H_1\)</span>: <span class="math inline">\(\beta_j\neq 0\)</span> for <span class="math inline">\(j=3,4\)</span>.</li>
-<li>Under <span class="math inline">\(H_0\)</span>, the test statistic <span class="math inline">\(F=\frac{(SSE_r-SSE_c)/(k-g)}{SSE_c/(n-k-1)}\)</span> follows an <span class="math inline">\(F\)</span> distribution with <span class="math inline">\(k-g=2\)</span> and <span class="math inline">\(n-k-1=117\)</span> degrees of freedom. Thus <span class="math inline">\(a\)</span> represents <span class="math inline">\(SSE_r-SSE_c\)</span> and <span class="math inline">\(b\)</span> represents <span class="math inline">\(SSE_c\)</span>. We can calculate these with:</li>
+<li><span class="math inline">H_0</span>: <span class="math inline">\beta_j=0</span> for <span class="math inline">j=3,4</span>.</li>
+<li><span class="math inline">H_1</span>: <span class="math inline">\beta_j\neq 0</span> for <span class="math inline">j=3,4</span>.</li>
+<li>Under <span class="math inline">H_0</span>, the test statistic <span class="math inline">F=\frac{(SSE_r-SSE_c)/(k-g)}{SSE_c/(n-k-1)}</span> follows an <span class="math inline">F</span> distribution with <span class="math inline">k-g=2</span> and <span class="math inline">n-k-1=117</span> degrees of freedom. Thus <span class="math inline">a</span> represents <span class="math inline">SSE_r-SSE_c</span> and <span class="math inline">b</span> represents <span class="math inline">SSE_c</span>. We can calculate these with:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m3, m5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -828,7 +843,7 @@ Model 2: petrol ~ duty + oil + t + t_post
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-<p>because <code>m3</code> above is actually the reduced model (<code>petrol ~ duty + oil</code>) and <code>m5</code> is the complete model. The value of <span class="math inline">\(SSE_r-SSE_c\)</span> is 0.08265 and the value of <span class="math inline">\(SSE_c\)</span> is 0.059719.</p>
+<p>because <code>m3</code> above is actually the reduced model (<code>petrol ~ duty + oil</code>) and <code>m5</code> is the complete model. The value of <span class="math inline">SSE_r-SSE_c</span> is 0.08265 and the value of <span class="math inline">SSE_c</span> is 0.059719.</p>
 <ul>
 <li>The value of the test statistic is 80.963.</li>
 <li>The critical value can be found with:</li>
