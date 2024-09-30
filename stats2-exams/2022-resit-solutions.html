@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.52">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistics 2 2022/23 Resit Solutions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="2022-resit-solutions_files/libs/clipboard/clipboard.min.js"></script>
+<script src="2022-resit-solutions_files/libs/quarto-html/quarto.js"></script>
+<script src="2022-resit-solutions_files/libs/quarto-html/popper.min.js"></script>
+<script src="2022-resit-solutions_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="2022-resit-solutions_files/libs/quarto-html/anchor.min.js"></script>
+<link href="2022-resit-solutions_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="2022-resit-solutions_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="2022-resit-solutions_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="2022-resit-solutions_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="2022-resit-solutions_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Statistics 2 2022/23 Resit Solutions</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
+<section id="introduction" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The year 2022 has seen enormous fluctuations in energy prices. The price of gasoline (petrol) is one of these that has changed price a lot over the last year.</p>
+<p>To reduce the financial burden on households, the German government reduced the excise duty on unleaded petrol by 29.55 cents starting on June 1, 2022.</p>
+<p>This excise duty reduction had a large impact on the price of petrol. When the excise duty fell, petrol stations were not forced to reduce the price of petrol by the full amount. You have been tasked by the government to study why some stations reduced their prices more than others.</p>
+<p>You are given a data set which contains data from a random sample of 1,000 petrol stations within 100km of the Dutch border. The locations of these stations are shown in the map below:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2022-resit-map.png" class="img-fluid figure-img"></p>
+<figcaption>German petrol stations within 100km of the Dutch border</figcaption>
+</figure>
+</div>
+<p>The variable names and their descriptions are shown in the table below:</p>
+<ul>
+<li><code>pricemay</code>: The price (in euros) of E10 petrol on 1 May 2022</li>
+<li><code>pricejuly</code>: The price (in euros) of E10 petrol on 1 July 2022</li>
+<li><code>pricechange</code> : The change in price between 1 May and 1 July 2022 (in euros). Negative values mean price decreases.</li>
+<li><code>population</code>: Number of inhabitants living within 10km of the petrol station (in millions of people)</li>
+<li><code>competition</code>: Number of other petrol stations within 10km per million inhabitants</li>
+<li><code>border</code>: Dummy variable for being within 3km of the Dutch border</li>
+<li><code>highway</code>: Dummy variable for being on a highway/Autobahn</li>
+<li><code>aral</code>: Dummy variable for the station’s brand being Aral</li>
+<li><code>shell</code>: Dummy variable for the station’s brand being Shell</li>
+<li><code>esso</code>: Dummy variable for the station’s brand being Esso</li>
+<li><code>totalenergies</code>: Dummy variable for the station’s brand being TotalEnergies</li>
+</ul>
+<p>You can download the dataset by clicking on the following link: <a href="https://walshc.github.io/stats2/petrol2.csv">petrol2.csv</a></p>
+<section id="question-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-1">Question 1</h4>
+<p>Report the sample correlation coefficient between <code>pricechange</code> and <code>competition</code>.</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"petrol2.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df<span class="sc">$</span>pricechange, df<span class="sc">$</span>competition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.2836159</code></pre>
+</div>
+</div>
+</section>
+<section id="question-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-2">Question 2</h4>
+<p>Choose the answer below which best represents the interpretation of the sample correlation coefficient between <code>pricechange</code> and <code>competition</code>:</p>
+<ul>
+<li>There is a very strong relationship between the price change and surrounding competition.</li>
+<li>There is a weak negative linear relationship between the price change and competition.</li>
+<li>There is a perfect negative linear relationship between the price change and competition.</li>
+<li>There is a positive linear relationship between the price change and competition.</li>
+<li>There is no relationship between the price change and surrounding competition.</li>
+</ul>
+<p><strong>Answer:</strong> There is a weak negative linear relationship between the price change and competition.</p>
+</section>
+<section id="question-3" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-3">Question 3</h4>
+<p>Choose an answer from the options below that best describes what you can learn from both (a) the sample correlation coefficient between <code>pricechange</code> and <code>population</code> and (b) a scatter plot of <code>population</code> (on the x-axis) and <code>pricechange</code> (on the y-axis).</p>
+<ul>
+<li>More populated areas saw a larger increase in prices after the excise duty reduction compared to less populated areas.</li>
+<li>More populated areas saw a smaller increase in prices after the excise duty reduction compared to less populated areas.</li>
+<li>More populated areas saw a larger decrease in prices after the excise duty reduction compared to less populated areas.</li>
+<li>More populated areas saw a smaller decrease in prices after the excise duty reduction compared to less populated areas.</li>
+<li>All locations, regardless of population, saw the exact same price increase.</li>
+<li>All locations, regardless of population, saw the exact same price decrease.</li>
+</ul>
+<p><strong>Answer:</strong> More populated areas saw a larger decrease in prices after the excise duty reduction compared to less populated areas.</p>
+<p><em>Explanation:</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df<span class="sc">$</span>pricechange, df<span class="sc">$</span>population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2773691</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(population, pricechange)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2022-resit-solutions_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>We can rule out the “all locations, regardless of population, saw the exact same price increase/decrease” options because the price did change differently in different places (if it was the exact same, all the points would lie on a straight horizontal line).</li>
+<li>From the plot we see that all locations saw a decrease in prices. Therefore we can rule out options mentioning price increases.</li>
+<li>Although in the plot it does not look like a strong relationship, the 0.277 correlation confirms the two variables are positively linearly related.</li>
+<li>Therefore we are left with “more populated areas saw a larger decrease in prices after the excise duty reduction compared to less populated areas.”</li>
+</ul>
+</section>
+</section>
+<section id="model-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-1">Model 1</h2>
+<p>Estimate a simple linear regression model explaining the change in price of petrol by population.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pricechange <span class="sc">~</span> population, <span class="at">data =</span> df)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = pricechange ~ population, data = df)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.130208 -0.014065  0.001756  0.015786  0.138446 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -0.161975   0.001498 -108.13   &lt;2e-16 ***
+population   0.030556   0.003350    9.12   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.02918 on 998 degrees of freedom
+Multiple R-squared:  0.07693,   Adjusted R-squared:  0.07601 
+F-statistic: 83.18 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<section id="question-4" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-4">Question 4</h4>
+<p>Report the sample regression slope.</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m1)[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>population 
+0.03055628 </code></pre>
+</div>
+</div>
+</section>
+<section id="question-5" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-5">Question 5</h4>
+<p>Based on the simple linear regression model, what was the average price decrease (in cents) in areas of zero population?</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="fu">coef</span>(m1)[<span class="dv">1</span>] <span class="sc">*</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept) 
+   16.19751 </code></pre>
+</div>
+</div>
+<p><em>Explanation:</em> The estimated intercept <span class="math inline">b_0</span> gives an estimate of <span class="math inline">\mathbb{E}[Y_i|x_i=0]</span>, the expected change in price when population is zero. However, <span class="math inline">Y_i</span> is measured in euros so we multiply by 100 to convert to cents. Additionally, because <span class="math inline">b_0&lt;0</span> we multiply by <span class="math inline">-1</span> to get the size of the <em>decrease</em> (as a positive number).</p>
+</section>
+<section id="question-6" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-6">Question 6</h4>
+<p>Create appropriate plots to be able to comment on any violations of the homoskedasticity and independence assumptions in your model. For each of these 2 model assumptions, state (i) the model assumption, (ii) the plot (if any) you created to test the assumption and (iii) your arguments for or against why the assumption is violated in this model.</p>
+<p><em>Note:</em> As of Fall 2024 we only visually check for heteroskedasticity and (in the case of time series data) serial autocorrelation. Therefore this question was re-written slightly from its original form to reflect this change.</p>
+<p><strong>Answer:</strong> This is cross-sectional data (many petrol stations at the same point in time) so we only check for heteroskedasticity. Independence across observations is given by random sampling as stated in the introduction. To check for heteroskedasticity, we plot the residuals against the independent variable:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>e <span class="ot">&lt;-</span> m1<span class="sc">$</span>residuals</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(population, e)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2022-resit-solutions_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Because the dispersion of the residuals is higher at low values of population, this assumption is violated. There is some evidence for heteroskedasticty.</p>
+</section>
+</section>
+<section id="model-2" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-2">Model 2</h2>
+<p>Estimate a multiple linear regression model explaining the price change by:</p>
+<ul>
+<li><code>competition</code></li>
+<li><code>border</code></li>
+<li><code>population</code></li>
+<li><code>highway</code></li>
+</ul>
+<p>If you estimated the model correctly, your estimated regression intercept should be -0.147803.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pricechange <span class="sc">~</span> population <span class="sc">+</span> highway <span class="sc">+</span> competition <span class="sc">+</span> border, <span class="at">data =</span> df)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = pricechange ~ population + highway + competition + 
+    border, data = df)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.121147 -0.014327  0.002749  0.016018  0.121309 
+
+Coefficients:
+               Estimate  Std. Error t value      Pr(&gt;|t|)    
+(Intercept) -0.14780325  0.00341575 -43.271       &lt; 2e-16 ***
+population   0.02270240  0.00375709   6.043 0.00000000214 ***
+highway      0.00983050  0.00515244   1.908        0.0567 .  
+competition -0.00011101  0.00002182  -5.087 0.00000043447 ***
+border       0.02326379  0.00580928   4.005 0.00006674617 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.02844 on 995 degrees of freedom
+Multiple R-squared:  0.1255,    Adjusted R-squared:  0.122 
+F-statistic: 35.71 on 4 and 995 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<section id="question-7" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-7">Question 7</h4>
+<p>Report the coefficient of determination.</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1255493</code></pre>
+</div>
+</div>
+</section>
+<section id="question-8" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-8">Question 8</h4>
+<p>What proportion of the variation in the price change data is left unexplained by the model? Note: write your answer as a proportion (between 0 and 1).</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">summary</span>(m2)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8744507</code></pre>
+</div>
+</div>
+<p><em>Explanation:</em> The <span class="math inline">R^2</span> measures the proportion of the price change data explained by the model. <span class="math inline">1-R^2</span> measures the proprtion of the price change data left unexplained.</p>
+</section>
+<section id="question-9" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-9">Question 9</h4>
+<p>Perform an appropriate hypothesis test to test the usefulness of the model. Use a 5% significance level.</p>
+<ul>
+<li>What is the null hypothesis (<span class="math inline">H_0</span>)? All <span class="math inline">\beta_j</span> from <span class="math inline">j=\underline{\hspace{20mm}}</span> to <span class="math inline">j=\underline{\hspace{20mm}}</span> are equal to <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the alternative hypothesis (<span class="math inline">H_1</span>)? Of the <span class="math inline">\beta_j</span> in <span class="math inline">H_0</span>, <em>at least one of/all of/none of</em> (choose one) them is/are not equal to zero.</li>
+<li>Under <span class="math inline">H_0</span>, the relevant test statistic has a(n) <em>t/F/partial F/chi squared/normal</em> (choose one) distribution with <span class="math inline">\underline{\hspace{20mm}}</span> numerator and <span class="math inline">\underline{\hspace{20mm}}</span> denominator degrees of freedom.</li>
+<li>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the critical value? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the conclusion? Choose one of the options below.
+<ul>
+<li>Reject; the model is useful.</li>
+<li>Reject; the model is useless.</li>
+<li>Don’t reject; the model is useful.</li>
+<li>Don’t reject; the model is useless.</li>
+</ul></li>
+</ul>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><span class="math inline">H_0</span>: All <span class="math inline">\beta_j</span> from <span class="math inline">j=1</span> to <span class="math inline">j=4</span> are equal to 0.</li>
+<li><span class="math inline">H_1</span>: Of the <span class="math inline">\beta_j</span> in <span class="math inline">H_0</span>, <em>at least one</em> of them is not equal to zero.</li>
+<li>Under <span class="math inline">H_0</span>, the relevant test statistic has an <span class="math inline">F</span> distribution with 4 numerator and 995 denominator degrees of freedom.</li>
+<li>The value of the test statistic:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)<span class="sc">$</span>fstatistic[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  value 
+35.7143 </code></pre>
+</div>
+</div>
+<ul>
+<li>Critical value:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(<span class="fl">0.95</span>, <span class="dv">4</span>, <span class="dv">995</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.380876</code></pre>
+</div>
+</div>
+<ul>
+<li>Conclusion: Reject; the model is useful.</li>
+</ul>
+</section>
+<section id="question-10" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-10">Question 10</h4>
+<p>Report a 90% confidence interval for the estimated coefficient on highway.</p>
+<ul>
+<li>Lower bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Upper bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+</ul>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(m2, <span class="at">parm =</span> <span class="st">"highway"</span>, <span class="at">level =</span> <span class="fl">0.9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                5 %      95 %
+highway 0.001347595 0.0183134</code></pre>
+</div>
+</div>
+<ul>
+<li>Lower bound: 0.001347595</li>
+<li>Upper bound: 0.0183134</li>
+</ul>
+</section>
+<section id="question-11" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-11">Question 11</h4>
+<p>Test the following claim with a 5% significance level:</p>
+<p>“Stations on the highway on average had a smaller decrease in prices compared to stations not on the highway.”</p>
+<ul>
+<li><p>What is the null hypothesis? <span class="math inline">\beta_4</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</p></li>
+<li><p>What is the alternative hypothesis? <span class="math inline">\beta_4</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</p></li>
+<li><p>The test statistic <span class="math inline">\frac{B_4-b}{S_{B_4}}</span>, where <span class="math inline">b</span> is the hinge, follows a(n) <em>t/F/partial F/normal/chi squared</em> (choose one) distribution with <span class="math inline">\underline{\hspace{20mm}}</span> degrees of freedom under <em>H0/under H1/always</em> (choose one).</p></li>
+<li><p>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is the associated <span class="math inline">p</span>-value? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is your conclusion? Choose an option below:</p>
+<ul>
+<li>Reject: There is sufficient evidence for the claim.</li>
+<li>Reject: There is not sufficient evidence for the claim.</li>
+<li>Don’t reject: There is sufficient evidence for the claim.</li>
+<li>Don’t reject: There is not sufficient evidence for the claim.</li>
+</ul></li>
+</ul>
+<p><strong>Answer:</strong></p>
+<p>The model is: <span class="math display">\mathbb{E}[price_{it}-price_{it-1}|x_{i1},x_{i2},x_{i3},x_{i4}]=
+\beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \beta_3 x_{i3} + \beta_4 x_{i4}
+</span> where <span class="math inline">price_{it}</span> is the price of petrol in station <span class="math inline">i</span> in July and <span class="math inline">price_{it-1}</span> is the price of petrol in station <span class="math inline">i</span> in May. On the highway, the model is: <span class="math display">\mathbb{E}[price_{it}-price_{it-1}|x_{i1},x_{i2},x_{i3},x_{i4}=1]=
+\beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \beta_3 x_{i3} + \beta_4
+</span> Off the highway, the model is: <span class="math display">\mathbb{E}[price_{it}-price_{it-1}|x_{i1},x_{i2},x_{i3},x_{i4}=0]=
+\beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} \beta_3 x_{i3}
+</span> Taking differences: <span class="math display">\mathbb{E}[price_{it}-price_{it-1}|x_{i1},x_{i2},x_{i3},x_{i4}=1]-
+\mathbb{E}[price_{it}-price_{it-1}|x_{i1},x_{i2},x_{i3},x_{i4}=0]=\beta_4
+</span> A <span class="math inline">\beta_4&gt;0</span> here indicates that holding population, competition and distance to the border fixed, the price change was on average higher on the highway compared to off the highway. We saw above that prices decreased across the board, i.e.&nbsp;<span class="math inline">price_{it}-price_{it-1}&lt;0</span> for all <span class="math inline">i</span>. So <span class="math inline">\beta_4&gt;0</span> means that holding population, competition and distance to the border fixed, the price <em>decrease</em> was on average <em>smaller</em> on the highway compared to off the highway (because the change is higher). So the claim means that <span class="math inline">\beta_4&gt;0</span>. This will be our alternative hypothesis.</p>
+<p>We are ready to answer the question:</p>
+<ul>
+<li><span class="math inline">H_0</span>: <span class="math inline">\beta_4</span> <span class="math inline">\leq 0</span></li>
+<li><span class="math inline">H_1</span>: <span class="math inline">\beta_4</span> <span class="math inline">&gt; 0</span></li>
+<li>The test statistic <span class="math inline">\frac{B_4-b}{S_{B_4}}</span>, where <span class="math inline">b</span> is the hinge, follows a <em>t</em> distribution with 995 degrees of freedom under <em>H0</em>. We can get the number of degrees of freedom from the summary output above, or using the command:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>m2<span class="sc">$</span>df.residual</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 995</code></pre>
+</div>
+</div>
+<ul>
+<li>The value of the test statistic can be read under <code>t value</code> in the summary output because the hinge <span class="math inline">b=0</span>. We can also get it directly with:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">summary</span>(m2))[<span class="st">"highway"</span>, <span class="st">"t value"</span>]</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.907932</code></pre>
+</div>
+</div>
+<ul>
+<li><span class="math inline">p</span>-value: This is an upper-tail test so we can get the <span class="math inline">p</span>-value with:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(t, <span class="dv">995</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.02834384</code></pre>
+</div>
+</div>
+<ul>
+<li>Conclusion: Reject: There is sufficient evidence for the claim.</li>
+</ul>
+</section>
+<section id="question-12" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-12">Question 12</h4>
+<p>The 90% confidence interval for border is [0.014, 0.033]. Based on this, stations at the border:</p>
+<ul>
+<li>had a significantly smaller price decrease compared to stations inland.</li>
+<li>had a significantly larger price decrease compared to stations inland.</li>
+<li>had an insignificantly smaller price decrease compared to stations inland.</li>
+<li>had an insignificantly larger price decrease compared to stations inland.</li>
+</ul>
+<p><strong>Answer:</strong> Had a significantly smaller price decrease compared to stations inland.</p>
+<p><em>Explanation</em>: A <span class="math inline">\beta_2&gt;0</span> means that on average price changes are higher on the border compared to away from the border (holding population, competition and position relative to the highway fixed). But since prices decreased, this also means that border stations had a smaller price decrease. Because our confidence interval does not contain zero, this estimated effect is significantly different from zero.</p>
+</section>
+<section id="question-13" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-13">Question 13</h4>
+<p>A single station at the Dutch border was charging exactly €2.00 per liter of E10 petrol on May 1. The station is not on the highway but in a small town with exactly 10,000 people living within 10km of the station. It is the only station in the town, and the nearest rival station is 11km away.</p>
+<p>What does the model predict that this station will charge per liter of E10 petrol on July 1? Also provide a 90% confidence interval for this prediction.</p>
+<ul>
+<li>Prediction: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Interval lower bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Interval upper bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+</ul>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>We first create a dataframe with the right values. There are 10,000 people living within 10km of the station, so that is 0.01 million (the units of population). So <code>population = 0.01</code>. It is not on the highway, so <code>highway = 0</code>. There are no rival petrol stations within 10km so <code>competition = 0</code>. Finally we are told the station is at the Dutch border so <code>border = 1</code>.</li>
+<li>Because interval is for a single station and not the mean, we use <code>interval = "prediction"</code>.</li>
+<li>Finally, we are asked to predict the price on July 1. Our model only gives us a prediction for <span class="math inline">price_{pt}-price_{pt-1}</span>. However, we are told that <span class="math inline">price_{pt-1}=2</span>, so we just have to add 2 to our prediction and interval to get the predicted price on July 1.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df_p <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">population =</span> <span class="fl">0.01</span>, <span class="at">highway =</span> <span class="dv">0</span>, <span class="at">competition =</span> <span class="dv">0</span>, <span class="at">border =</span> <span class="dv">1</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(m2, df_p, <span class="at">interval =</span> <span class="st">"prediction"</span>, <span class="at">level =</span> <span class="fl">0.9</span>) <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       fit     lwr      upr
+1 1.875688 1.82786 1.923515</code></pre>
+</div>
+</div>
+<ul>
+<li>Prediction: 1.875688</li>
+<li>Interval lower bound: 1.82786</li>
+<li>Interval upper bound: 1.923515</li>
+</ul>
+</section>
+</section>
+<section id="model-3" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-3">Model 3</h2>
+<p>Create an interaction term between population and highway called <code>pophighway</code>. Include it as a 5th regressor in your model from the last block. Your dependent variable is <code>pricechange</code> and your 5 independent variables are:</p>
+<ul>
+<li><code>competition</code></li>
+<li><code>border</code></li>
+<li><code>population</code></li>
+<li><code>highway</code></li>
+<li><code>pophighway</code></li>
+</ul>
+<p>If you estimated the model correctly, your estimated constant should be -0.148076.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pricechange <span class="sc">~</span> competition <span class="sc">+</span> border <span class="sc">+</span> population <span class="sc">*</span> highway, <span class="at">data =</span> df)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = pricechange ~ competition + border + population * 
+    highway, data = df)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.12081 -0.01440  0.00240  0.01601  0.12164 
+
+Coefficients:
+                     Estimate Std. Error t value       Pr(&gt;|t|)    
+(Intercept)        -0.1480756  0.0034147 -43.364        &lt; 2e-16 ***
+competition        -0.0001119  0.0000218  -5.132 0.000000344585 ***
+border              0.0234313  0.0058029   4.038 0.000058082788 ***
+population          0.0237567  0.0037952   6.260 0.000000000573 ***
+highway             0.0284082  0.0112551   2.524         0.0118 *  
+population:highway -0.0346499  0.0186695  -1.856         0.0638 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.02841 on 994 degrees of freedom
+Multiple R-squared:  0.1286,    Adjusted R-squared:  0.1242 
+F-statistic: 29.33 on 5 and 994 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<section id="question-14" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-14">Question 14</h4>
+<p>Report the sample regression coefficient on <code>pophighway</code>:</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m3)[<span class="dv">6</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>population:highway 
+       -0.03464992 </code></pre>
+</div>
+</div>
+</section>
+<section id="question-15" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-15">Question 15</h4>
+<p>According to the model, what is the average price difference (in euros) between stations on the highway and off the highway in completely unpopulated areas (with population 0 within 10km), holding all else constant?</p>
+<p><strong>Answer:</strong></p>
+<p>The model is:</p>
+<p><span class="math display">\mathbb{E}[price_{it}-price_{it-1}|x_{i1},x_{i2},x_{i3},x_{i4}]=
+\beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \beta_3 x_{i3} + \beta_4 x_{i4} +\beta_5 x_{i3}x_{i4}
+</span> When population is zero: <span class="math display">\mathbb{E}[price_{it}-price_{it-1}|x_{i1},x_{i2},x_{i3}=0,x_{i4}]=
+\beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \beta_4 x_{i4}
+</span> When population is zero and the station is on the highway: <span class="math display">\mathbb{E}[price_{it}-price_{it-1}|x_{i1},x_{i2},x_{i3}=0,x_{i4}=1]=
+\beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \beta_4
+</span> When population is zero and the station is off the highway: <span class="math display">\mathbb{E}[price_{it}-price_{it-1}|x_{i1},x_{i2},x_{i3}=0,x_{i4}=0]=
+\beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2}
+</span> Taking differences: <span class="math display">
+\begin{split}
+&amp;\mathbb{E}[price_{it}-price_{it-1}|x_{i1},x_{i2},x_{i3}=0,x_{i4}=1]\\
+&amp;-\mathbb{E}[price_{it}-price_{it-1}|x_{i1},x_{i2},x_{i3}=0,x_{i4}=0]=\beta_4
+\end{split}
+</span> So <span class="math inline">\beta_4</span> represents the average price change between stations on and off the highway with zero population (holding competition and distance to the border fixed). So we just need to report <span class="math inline">b_4</span>, the coefficient on <code>highway</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m3)[<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   highway 
+0.02840815 </code></pre>
+</div>
+</div>
+</section>
+<section id="question-16" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-16">Question 16</h4>
+<p>According to the model, what is the average price difference (in euros) between stations on the highway and off the highway in areas of 500,000 people living within 10km, holding all else constant?</p>
+<p><strong>Answer:</strong></p>
+<p>500,000 people living within 10km means the population variable takes on a value of 0.5 because that variable’s units is in millions (500,000 is half a million). So when <code>population</code> takes on the value 0.5, the model is:</p>
+<p><span class="math display">
+\begin{split}
+&amp;\mathbb{E}[price_{it}-price_{it-1}|x_{i1},x_{i2},x_{i3}=0.5,x_{i4}]\\
+&amp;=\beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \beta_3 \times 0.5 + \beta_4 x_{i4} + \beta_5 \times 0.5\times x_{i4}\\
+&amp;=\beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + 0.5 \beta_3 + \beta_4 x_{i4} + 0.5 \beta_5 x_{i4}\\
+&amp;=(\beta_0 + 0.5\beta_3) + \beta_1 x_{i1} + \beta_2 x_{i2} + \left(\beta_4 +0.5 \beta_5\right) x_{i4}
+\end{split}
+</span> On the highway with 500,000 people within 10km: <span class="math display">
+\mathbb{E}[price_{it}-price_{it-1}|x_{i1},x_{i2},x_{i3}=0.5,x_{i4}=1]=
+(\beta_0 + 0.5\beta_3) + \beta_1 x_{i1} + \beta_2 x_{i2} + \left(\beta_4 +0.5 \beta_5\right)
+</span> Off the highway with 500,000 people within 10km: <span class="math display">
+\mathbb{E}[price_{it}-price_{it-1}|x_{i1},x_{i2},x_{i3}=0.5,x_{i4}=0]=
+(\beta_0 + 0.5\beta_3) + \beta_1 x_{i1} + \beta_2 x_{i2}
+</span> Taking differences gives <span class="math inline">\beta_4 + 0.5\beta_5</span>. So to find the answer, we need to calculate <span class="math inline">b_4 + 0.5b_5</span>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m3)[<span class="dv">5</span>] <span class="sc">+</span> <span class="fl">0.5</span> <span class="sc">*</span> <span class="fu">coef</span>(m3)[<span class="dv">6</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   highway 
+0.01108319 </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="model-4" class="level2">
+<h2 class="anchored" data-anchor-id="model-4">Model 4</h2>
+<p>Estimate the following extended model explaining the price change with the following variables:</p>
+<ul>
+<li><code>competition</code></li>
+<li><code>border</code></li>
+<li><code>population</code></li>
+<li><code>highway</code></li>
+<li><code>aral</code></li>
+<li><code>shell</code></li>
+<li><code>esso</code></li>
+<li><code>totalenergies</code></li>
+</ul>
+<p><em>Note:</em> Your model should <strong>not</strong> contain the interaction term between population and highway from the previous block.</p>
+<p>If you estimated the model correctly, your estimated constant should be -0.146559.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pricechange <span class="sc">~</span> competition <span class="sc">+</span> border <span class="sc">+</span> population <span class="sc">+</span> highway <span class="sc">+</span> </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>           aral <span class="sc">+</span> shell <span class="sc">+</span> esso <span class="sc">+</span> totalenergies, <span class="at">data =</span> df)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = pricechange ~ competition + border + population + 
+    highway + aral + shell + esso + totalenergies, data = df)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.121701 -0.013930  0.002734  0.015740  0.120463 
+
+Coefficients:
+                 Estimate  Std. Error t value      Pr(&gt;|t|)    
+(Intercept)   -0.14655909  0.00352562 -41.570       &lt; 2e-16 ***
+competition   -0.00011497  0.00002195  -5.238 0.00000019811 ***
+border         0.02306427  0.00582081   3.962 0.00007952486 ***
+population     0.02331902  0.00379983   6.137 0.00000000122 ***
+highway        0.01034231  0.00517040   2.000        0.0457 *  
+aral          -0.00301092  0.00252318  -1.193        0.2330    
+shell         -0.00416471  0.00290172  -1.435        0.1515    
+esso           0.00211408  0.00343880   0.615        0.5388    
+totalenergies -0.00294116  0.00378461  -0.777        0.4373    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.02844 on 991 degrees of freedom
+Multiple R-squared:  0.1292,    Adjusted R-squared:  0.1222 
+F-statistic: 18.38 on 8 and 991 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<section id="question-17" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-17">Question 17</h4>
+<p>Which variables are individually significant at the 5% level?</p>
+<p><strong>Answer:</strong> <code>population</code>, <code>competition</code>, <code>border</code> and <code>highway</code> have <span class="math inline">p</span>-values smaller than 0.05 (they have at least 1 star) so they are individually significant at the 5% level. <code>aral</code>, <code>shell</code>, <code>esso</code> and <code>totalenergies</code> are not individually significant.</p>
+<p><em>R tip:</em> Although looking at the summary output is sufficient to answer this question, in case you are interested, here are 2 R commands that give the names of the significant and insignificant variables:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Significant:</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(<span class="fu">coef</span>(m4))[<span class="sc">-</span><span class="dv">1</span>][<span class="fu">coef</span>(<span class="fu">summary</span>(m4))[<span class="sc">-</span><span class="dv">1</span>, <span class="dv">4</span>] <span class="sc">&lt;=</span> <span class="fl">0.05</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "competition" "border"      "population"  "highway"    </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Not significant:</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(<span class="fu">coef</span>(m4))[<span class="sc">-</span><span class="dv">1</span>][<span class="fu">coef</span>(<span class="fu">summary</span>(m4))[<span class="sc">-</span><span class="dv">1</span>, <span class="dv">4</span>] <span class="sc">&gt;</span> <span class="fl">0.05</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "aral"          "shell"         "esso"          "totalenergies"</code></pre>
+</div>
+</div>
+<p>Explanation: <code>names(coef(m4))</code> gives the names of all coefficients. <code>names(coef(m4))[-1]</code> gives the same except it drops the first one (the intercept). <code>coef(summary(m4))[-1, 4] &lt;= 0.05</code> returns <code>TRUE</code> if a variable has a <span class="math inline">p</span>-value (4th column) less than or equal to 0.05 and <code>FALSE</code> otherwise. The <code>-1</code> here drops the intercept as well. So we can use this logical vector to index the names and return only the names when it is significant. For the insignificant variables, we just change the comparison to <code>&gt; 0.05</code>.</p>
+</section>
+<section id="question-18" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-18">Question 18</h4>
+<p>Using an appropriate test, test the joint usefulness of the brand dummies (coefficients 5-8 in your model). Use a significance level of 5%.</p>
+<ul>
+<li><p>What is the null hypothesis? <span class="math inline">\beta_j=\underline{\hspace{20mm}}</span> for <span class="math inline">j=</span> <span class="math inline">\underline{\hspace{20mm}}</span> to <span class="math inline">\underline{\hspace{20mm}}</span>.</p></li>
+<li><p>The alternative hypothesis is that the null hypothesis does not hold.</p></li>
+<li><p>Under <span class="math inline">H_0</span>, the test statistic <span class="math display">
+\frac{\frac{SSE_r-SSE_c}{k-g}}{\frac{SSE_c}{n-k-1}}
+</span>has a(n) <em>t/F/partial F/chi squared/normal</em> (choose one) distribution with <span class="math inline">\underline{\hspace{20mm}}</span> numerator and <span class="math inline">\underline{\hspace{20mm}}</span> denominator degrees of freedom.</p></li>
+<li><p>The value of <span class="math inline">SSE_c</span> in your sample is <span class="math inline">\underline{\hspace{20mm}}</span>.</p></li>
+<li><p>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is the <span class="math inline">p</span>-value? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is your conclusion? Choose one of the options below.</p>
+<ul>
+<li>Reject H0. The brand dummies are jointly useful.</li>
+<li>Reject H0. The brand dummies are jointly useless.</li>
+<li>Don’t reject H0. The brand dummies are jointly useful.</li>
+<li>Don’t reject H0. The brand dummies are jointly useless.</li>
+</ul></li>
+</ul>
+<p><strong>Answer:</strong></p>
+<p>For our answer we will need to estimate the reduced model and use it together with the <code>anova()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>m4r <span class="ot">&lt;-</span> <span class="fu">lm</span>(pricechange <span class="sc">~</span> competition <span class="sc">+</span> border <span class="sc">+</span> population <span class="sc">+</span> highway, <span class="at">data =</span> df)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m4r, m4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: pricechange ~ competition + border + population + highway
+Model 2: pricechange ~ competition + border + population + highway + aral + 
+    shell + esso + totalenergies
+  Res.Df     RSS Df Sum of Sq      F Pr(&gt;F)
+1    995 0.80493                           
+2    991 0.80157  4 0.0033556 1.0371 0.3869</code></pre>
+</div>
+</div>
+<ul>
+<li><span class="math inline">H_0</span>: <span class="math inline">\beta_j=0</span> for <span class="math inline">j=5</span> to 8.</li>
+<li><span class="math inline">H_1</span>: <span class="math inline">\beta_j\neq0</span> for at least one <span class="math inline">j=5,6,7,8</span>.</li>
+<li>The test statistic has an <em>F</em> distribution with 4 numerator and 991 denominator degrees of freedom (can be read from the 2nd line of the <code>anova()</code> output above).</li>
+<li>The <span class="math inline">SSE_c</span> is the <code>RSS</code> for model 2 (the complete model). This is 0.80157.</li>
+<li>The value of the test statistic is 1.0371 (from the <code>anova()</code> output).</li>
+<li>The <span class="math inline">p</span>-value is 0.3869 (from the <code>anova()</code> output).</li>
+<li>Conclusion: Don’t reject H0. The brand dummies are jointly useless.</li>
+</ul>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
