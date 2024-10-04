@@ -409,7 +409,7 @@ window.Quarto = {
 <section id="question-14-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-14-1-point">Question 14 (1 point)</h3>
 <p>Write an R command that finds the date on which the largest volume was traded.</p>
-<p>Assign the output of this command to the variable <code>a14</code> in your script and write the day and the month in the boxes below.</p>
+<p>Assign the output of this command to the variable <code>a14</code> in your script and write the day, month and year in the boxes below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>a14 <span class="ot">&lt;-</span> df<span class="sc">$</span>date[df<span class="sc">$</span>vol <span class="sc">==</span> <span class="fu">max</span>(df<span class="sc">$</span>vol)]</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>a14</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -437,7 +437,6 @@ window.Quarto = {
 <li>U shape</li>
 <li>Inverted U shape (upside-down U)</li>
 </ul>
-<p><em>Note:</em> you do not need to assign your answer to this question to any variable in your R.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="sc">-</span>x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>x <span class="sc">-</span> <span class="dv">5</span></span>
@@ -461,7 +460,7 @@ window.Quarto = {
 <section id="question-16-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-16-1-point">Question 16 (1 point)</h3>
 <p>Write an R command that finds the value of <span class="math inline">x</span> that maximizes this function.</p>
-<p>Assign the output of this command to the variable <code>a16</code> in your script and write the numerical value of your answer in the box below.</p>
+<p>Write the numerical value of the output of this command in the box below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>f_max <span class="ot">&lt;-</span> <span class="fu">optimize</span>(f, <span class="fu">c</span>(<span class="sc">-</span><span class="dv">100</span>, <span class="dv">100</span>), <span class="at">maximum =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>a16 <span class="ot">&lt;-</span> f_max<span class="sc">$</span>maximum</span>
@@ -474,7 +473,7 @@ window.Quarto = {
 <section id="question-17-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-17-1-point">Question 17 (1 point)</h3>
 <p>Write an R command that finds the value of the function <span class="math inline">f(x)</span> at its maximum value.</p>
-<p>Assign the output of this command to the variable <code>a17</code> in your script and write the numerical value of your answer in the box below.</p>
+<p>Write the numerical value of the output of this command in the box below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>a17 <span class="ot">&lt;-</span> f_max<span class="sc">$</span>objective</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>a17</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -496,12 +495,12 @@ window.Quarto = {
 <li><a href="https://walshc.github.io/ebi-prog/gdp-per-capita-growths.csv">gdp-per-capita-growths.csv</a> - this dataset contains 3 variables: <code>country</code>, <code>year</code> and <code>gdp_pc_growth</code>. The variable <code>gdp_pc_growth</code> is the growth rate of the country’s per capita gross domestic product (GDP) in that year.</li>
 <li><a href="https://walshc.github.io/ebi-prog/lending-rates.csv">lending-rates.csv</a> - this dataset contains 3 variables: <code>country</code>, <code>year</code> and <code>lending_rate</code>. The variable <code>lending_rate</code> is the lending interest rate in that country in that year.</li>
 </ol>
-<p>Download the following <a href="https://walshc.github.io/ebi-prog-exams/sample-exam-block-5-template.R">template script</a> and use it to clean the data and answer the questions that follow. As in the template, assign the datasets <code>gdp-per-capita-growths.csv</code> to <code>df1</code> and <code>lending-rates.csv</code> to <code>df2</code> in your script.</p>
+<p>Download the following <a href="https://walshc.github.io/ebi-prog-exams/sample-exam-block-5-template.R">template script</a> and use it to answer the questions that follow. As in the template, assign the datasets <code>gdp-per-capita-growths.csv</code> to <code>df1</code> and <code>lending-rates.csv</code> to <code>df2</code> in your script.</p>
 <section id="question-18-1-points" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-18-1-points">Question 18 (1 points)</h3>
 <p>Using the dataset <code>gdp-per-capita-growths.csv</code>, calculate the average per capita GDP growth rate across countries by year.</p>
 <p>Write an R command that finds the year in the data when the average GDP per capita growth rate the <em>smallest</em>?</p>
-<p>Assign the output of this command to the variable <code>a18</code> in your script and write the numerical value of your answer in the box below.</p>
+<p>Write the numerical value of your answer in the box below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"gdp-per-capita-growths.csv"</span>)</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"lending-rates.csv"</span>)</span>
@@ -519,7 +518,7 @@ window.Quarto = {
 <h3 class="unnumbered anchored" data-anchor-id="question-19-1-point">Question 19 (1 point)</h3>
 <p>Use R to merge the datasets <code>gdp-per-capita-growths.csv</code> and <code>lending-rates.csv</code> together by the variables <code>"country"</code> and <code>"year"</code>, dropping observations without a match. Your merged dataset should have 2,572 observations and 4 variables.</p>
 <p>Write an R command that computes the mean growth rate in GDP per capita in the merged dataset.</p>
-<p>Assign the output of this command to the variable <code>a19</code> in your script and write the numerical value of your answer in the box below.</p>
+<p>Write the numerical value of your answer in the box below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge by country and year:</span></span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">merge</span>(df1, df2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"year"</span>))</span>
@@ -558,7 +557,6 @@ window.Quarto = {
 Netherlands 2000 gdp_pc_growth  3.4535383
 Netherlands 2001 gdp_pc_growth  1.5574581
 Netherlands 2002 gdp_pc_growth -0.4203677</code></pre>
-<p><em>Note:</em> You do not need to save your answer in your R script for this question.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a></span>

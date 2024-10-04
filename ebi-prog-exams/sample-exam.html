@@ -118,7 +118,10 @@ window.Quarto = {
 <section id="question-2-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-2-1-point">Question 2 (1 point)</h3>
 <p>Write an R command that calculates <span class="math inline">\log_2\left(64\right)</span></p>
-<p>Provide both the numerical answer and the R command. ### Question 3 (1 point) {-}</p>
+<p>Provide both the numerical answer and the R command.</p>
+</section>
+<section id="question-3-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-3-1-point">Question 3 (1 point)</h3>
 <p>If we create the following vector in R, what class will it be?</p>
 <pre><code>c(1, 2, "c", "d")</code></pre>
 <ul>
@@ -204,7 +207,7 @@ window.Quarto = {
 <p>If you did all the steps correctly, you should have 260 observations. The average of the <code>high</code> variable should be 0.9561. The average of the <code>vol</code> variable should be 79920. If only some of these match your cleaned dataset, you will still be able to answer some of the questions correctly.</p>
 <section id="question-11-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-11-1-point">Question 11 (1 point)</h3>
-<p>Create a variable called <code>hml</code> which is the <code>high</code> variable minus the <code>low</code> variable. What is the mean of this variable?</p>
+<p>Create a variable called <code>hml</code> which is the <code>high</code> variable minus the <code>low</code> variable.</p>
 <p>Use this variable to write an R command that computes the mean of this variable.</p>
 <p>Assign the output of this command to the variable <code>a11</code> in your script and write its numerical value in the box below.</p>
 </section>
@@ -221,7 +224,7 @@ window.Quarto = {
 <section id="question-14-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-14-1-point">Question 14 (1 point)</h3>
 <p>Write an R command that finds the date on which the largest volume was traded.</p>
-<p>Assign the output of this command to the variable <code>a14</code> in your script and write the day and the month in the boxes below.</p>
+<p>Assign the output of this command to the variable <code>a14</code> in your script and write the day, month and year in the boxes below.</p>
 </section>
 </section>
 <section id="optimization-3-points" class="level2 unnumbered">
@@ -242,12 +245,12 @@ window.Quarto = {
 <section id="question-16-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-16-1-point">Question 16 (1 point)</h3>
 <p>Write an R command that finds the value of <span class="math inline">x</span> that maximizes this function.</p>
-<p>Assign the output of this command to the variable <code>a16</code> in your script and write the numerical value of your answer in the box below.</p>
+<p>Write the numerical value of the output of this command in the box below.</p>
 </section>
 <section id="question-17-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-17-1-point">Question 17 (1 point)</h3>
 <p>Write an R command that finds the value of the function <span class="math inline">f(x)</span> at its maximum value.</p>
-<p>Assign the output of this command to the variable <code>a17</code> in your script and write the numerical value of your answer in the box below.</p>
+<p>Write the numerical value of the output of this command in the box below.</p>
 </section>
 </section>
 <section id="aggregating-merging-and-reshaping-3-points" class="level2 unnumbered">
@@ -257,18 +260,18 @@ window.Quarto = {
 <li><a href="https://walshc.github.io/ebi-prog/gdp-per-capita-growths.csv">gdp-per-capita-growths.csv</a> - this dataset contains 3 variables: <code>country</code>, <code>year</code> and <code>gdp_pc_growth</code>. The variable <code>gdp_pc_growth</code> is the growth rate of the country’s per capita gross domestic product (GDP) in that year.</li>
 <li><a href="https://walshc.github.io/ebi-prog/lending-rates.csv">lending-rates.csv</a> - this dataset contains 3 variables: <code>country</code>, <code>year</code> and <code>lending_rate</code>. The variable <code>lending_rate</code> is the lending interest rate in that country in that year.</li>
 </ol>
-<p>Download the following <a href="https://walshc.github.io/ebi-prog-exams/sample-exam-block-5-template.R">template script</a> and use it to clean the data and answer the questions that follow. As in the template, assign the datasets <code>gdp-per-capita-growths.csv</code> to <code>df1</code> and <code>lending-rates.csv</code> to <code>df2</code> in your script.</p>
+<p>Download the following <a href="https://walshc.github.io/ebi-prog-exams/sample-exam-block-5-template.R">template script</a> and use it to answer the questions that follow. As in the template, assign the datasets <code>gdp-per-capita-growths.csv</code> to <code>df1</code> and <code>lending-rates.csv</code> to <code>df2</code> in your script.</p>
 <section id="question-18-1-points" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-18-1-points">Question 18 (1 points)</h3>
 <p>Using the dataset <code>gdp-per-capita-growths.csv</code>, calculate the average per capita GDP growth rate across countries by year.</p>
 <p>Write an R command that finds the year in the data when the average GDP per capita growth rate the <em>smallest</em>?</p>
-<p>Assign the output of this command to the variable <code>a18</code> in your script and write the numerical value of your answer in the box below.</p>
+<p>Write the numerical value of your answer in the box below.</p>
 </section>
 <section id="question-19-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-19-1-point">Question 19 (1 point)</h3>
 <p>Use R to merge the datasets <code>gdp-per-capita-growths.csv</code> and <code>lending-rates.csv</code> together by the variables <code>"country"</code> and <code>"year"</code>, dropping observations without a match. Your merged dataset should have 2,572 observations and 4 variables.</p>
 <p>Write an R command that computes the mean growth rate in GDP per capita in the merged dataset.</p>
-<p>Assign the output of this command to the variable <code>a19</code> in your script and write the numerical value of your answer in the box below.</p>
+<p>Write the numerical value of your answer in the box below.</p>
 </section>
 <section id="question-20-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-20-1-point">Question 20 (1 point)</h3>
@@ -292,7 +295,6 @@ window.Quarto = {
 Netherlands 2000 gdp_pc_growth  3.4535383
 Netherlands 2001 gdp_pc_growth  1.5574581
 Netherlands 2002 gdp_pc_growth -0.4203677</code></pre>
-<p><em>Note:</em> You do not need to save your answer in your R script for this question.</p>
 </section>
 </section>
 
