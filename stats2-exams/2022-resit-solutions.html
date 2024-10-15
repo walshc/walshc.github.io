@@ -272,13 +272,13 @@ F-statistic: 83.18 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ul>
 <p>If you estimated the model correctly, your estimated regression intercept should be -0.147803.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pricechange <span class="sc">~</span> population <span class="sc">+</span> highway <span class="sc">+</span> competition <span class="sc">+</span> border, <span class="at">data =</span> df)</span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(pricechange <span class="sc">~</span> competition <span class="sc">+</span> border <span class="sc">+</span> population <span class="sc">+</span> highway, <span class="at">data =</span> df)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = pricechange ~ population + highway + competition + 
-    border, data = df)
+lm(formula = pricechange ~ competition + border + population + 
+    highway, data = df)
 
 Residuals:
       Min        1Q    Median        3Q       Max 
@@ -287,10 +287,10 @@ Residuals:
 Coefficients:
                Estimate  Std. Error t value      Pr(&gt;|t|)    
 (Intercept) -0.14780325  0.00341575 -43.271       &lt; 2e-16 ***
-population   0.02270240  0.00375709   6.043 0.00000000214 ***
-highway      0.00983050  0.00515244   1.908        0.0567 .  
 competition -0.00011101  0.00002182  -5.087 0.00000043447 ***
 border       0.02326379  0.00580928   4.005 0.00006674617 ***
+population   0.02270240  0.00375709   6.043 0.00000000214 ***
+highway      0.00983050  0.00515244   1.908        0.0567 .  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -320,7 +320,7 @@ F-statistic: 35.71 on 4 and 995 DF,  p-value: &lt; 2.2e-16</code></pre>
 <pre><code>[1] 0.8744507</code></pre>
 </div>
 </div>
-<p><em>Explanation:</em> The <span class="math inline">R^2</span> measures the proportion of the price change data explained by the model. <span class="math inline">1-R^2</span> measures the proprtion of the price change data left unexplained.</p>
+<p><em>Explanation:</em> The <span class="math inline">R^2</span> measures the proportion of the price change data explained by the model. <span class="math inline">1-R^2</span> measures the proportion of the price change data left unexplained.</p>
 </section>
 <section id="question-9" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-9">Question 9</h4>

@@ -29,7 +29,7 @@ df$e <- m1$residuals
 ggplot(df, aes(population, e)) + geom_point()
 
 # Model 2
-m2 <- lm(pricechange ~ population + highway + competition + border, data = df)
+m2 <- lm(pricechange ~ competition + border + population + highway, data = df)
 summary(m2)
 
 # Q7
