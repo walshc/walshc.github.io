@@ -660,6 +660,22 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </section>
 <section id="question-19" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="question-19">Question 19</h4>
+<p>According to the model, an existing CEO working one year longer with the company on average sees an increase in salary of how many dollars, holding sales and market value fixed?</p>
+<p><strong>Answer:</strong></p>
+<p>An existing CEO working one year longer with the company will see a one-unit increase in both the variables <code>comten</code> and <code>ceoten</code>. This is because their tenure in the company and as a CEO both increase by one year.</p>
+<p>Therefor the answer is <span class="math inline">b_3+b_4</span> multiplied by 1,000 to convert to dollars:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">coef</span>(m4)[<span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>]) <span class="sc">*</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7576.577</code></pre>
+</div>
+</div>
+<p>To see why we sum <span class="math inline">b_3+b_4</span> more clearly, we can write down the model:</p>
+<p><span class="math display">\mathbb{E}[Y_i|sales_i,mktval_i,comten_i,ceoten_i]=\beta_0 + \beta_1 sales_i + \beta_2 mktval_i + \beta_3 comten_i + \beta_4 ceoten_i</span></p>
+<p>Adding 1 year to <code>comten</code> and <code>ceoten</code>, holding <code>sales</code> and <code>mktval</code> fixed: <span class="math display">\mathbb{E}[Y_i|sales_i,mktval_i,comten_i+1,ceoten_i+1]=\beta_0 + \beta_1 sales_i + \beta_2 mktval_i + \beta_3 (comten_i+1) + \beta_4 (ceoten_i+1)</span> Taking differences: <span class="math display">\mathbb{E}[Y_i|sales_i,mktval_i,comten_i+1,ceoten_i+1]-\mathbb{E}[Y_i|sales_i,mktval_i,comten_i,ceoten_i]=\beta_3+\beta_4</span></p>
+</section>
+<section id="question-20" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-20">Question 20</h4>
 <p>Using the model, provide a 95% confidence interval for the mean salary of CEOs (in dollars) with the following characteristics:</p>
 <ul>
 <li><p>They have been working in their company for 20 years, and have been a CEO there for 8 of those years.</p></li>
@@ -669,8 +685,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </ul>
 <p><strong>Answer:</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df_p <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sales =</span> <span class="dv">1000</span>, <span class="at">mktval =</span> <span class="dv">1500</span>, <span class="at">comten =</span> <span class="dv">20</span>, <span class="at">ceoten =</span> <span class="dv">8</span>)</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(m4, df_p, <span class="at">interval =</span> <span class="st">"confidence"</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>df_p <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sales =</span> <span class="dv">1000</span>, <span class="at">mktval =</span> <span class="dv">1500</span>, <span class="at">comten =</span> <span class="dv">20</span>, <span class="at">ceoten =</span> <span class="dv">8</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(m4, df_p, <span class="at">interval =</span> <span class="st">"confidence"</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       fit      lwr      upr
 1 682.1336 628.8171 735.4501</code></pre>

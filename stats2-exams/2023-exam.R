@@ -54,6 +54,9 @@ summary(m4)
 m4r <- lm(salary ~ sales + mktval, data = df)
 anova(m4r, m4)
 
-# Q19: Obtain confidence interval for particular values:
+# Q19: Effect on salary for a CEO working one year longer with the company:
+sum(coef(m4)[4:5]) * 1000
+
+# Q20: Obtain confidence interval for particular values:
 df_p <- data.frame(sales = 1000, mktval = 1500, comten = 20, ceoten = 8)
 predict(m4, df_p, interval = "confidence", level = 0.95)
