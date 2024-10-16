@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistics 2 2024/25 Exam Solutions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="2024-exam-solutions_files/libs/clipboard/clipboard.min.js"></script>
+<script src="2024-exam-solutions_files/libs/quarto-html/quarto.js"></script>
+<script src="2024-exam-solutions_files/libs/quarto-html/popper.min.js"></script>
+<script src="2024-exam-solutions_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="2024-exam-solutions_files/libs/quarto-html/anchor.min.js"></script>
+<link href="2024-exam-solutions_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="2024-exam-solutions_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="2024-exam-solutions_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="2024-exam-solutions_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="2024-exam-solutions_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Statistics 2 2024/25 Exam Solutions</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
+<section id="introduction" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The European Central Bank (ECB) sets its interest rate in order to control inflation in the Eurozone. We call this interest rate the ECB policy rate. Because individual banks in the Eurozone borrow and lend with the ECB based on rate, changes in this rate usually leads to changes in interest rates on individual savings accounts and loans. You have been tasked with investigating how changes in the ECB policy rate is passed through to the monthly average mortgage interest rate in the Netherlands.</p>
+<p>You have a dataset of the monthly average mortgage interest rate and the ECB policy rate from February 2015 to July 2024 (<span class="math inline">n=114</span> observations). Plotted over time, the data look like:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="2024-exam-solutions_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The dataset contains the following variables:</p>
+<ul>
+<li><code>year</code>: The year</li>
+<li><code>month</code>: Month of the year (1=Jan, 2=Feb, …, 12=Dec).</li>
+<li><code>rate</code>: The average mortgage interest rate in the Netherlands in that month (<span class="math inline">rate_t</span>).</li>
+<li><code>ecb</code>: The ECB policy rate (<span class="math inline">ecb_t</span>).</li>
+<li><code>rate_chg</code>: The change in <code>rate</code> from the previous period (<span class="math inline">rate_t-rate_{t-1}</span>, where <span class="math inline">rate_{t-1}</span> denotes the value of <code>rate</code> from the previous month).</li>
+<li><code>ecb_chg</code>: The change in <code>ecb</code> from the previous period (<span class="math inline">ecb_t-ecb_{t-1}</span>, where <span class="math inline">ecb_{t-1}</span> denotes the value of <code>ecb</code> from the previous month).</li>
+<li><code>ecb_chg_lag</code>: The one-month lag of <code>ecb_chg</code> (<span class="math inline">ecb_{t-1}-ecb_{t-2}</span>, where <span class="math inline">ecb_{t-2}</span> denotes the value of <code>ecb</code> from two months ago).</li>
+</ul>
+<p>You can download the dataset by clicking on the following link: <a href="https://walshc.github.io/stats2-exams/rates.csv">rates.csv</a>.</p>
+<p><em>Note:</em> Although some variables contain lags of other variables, the dataset has been cleaned so that there are no missing observations.</p>
+<section id="question-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-1">Question 1</h4>
+<p>What is the sample correlation coefficient between <code>rate</code> and <code>ecb</code>?</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"rates.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df<span class="sc">$</span>rate, df<span class="sc">$</span>ecb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9822467</code></pre>
+</div>
+</div>
+</section>
+<section id="question-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-2">Question 2</h4>
+<p>The sample correlation coefficient between <code>rate_chg</code> and <code>ecb_chg_lag</code> is 0.4452. Choose the option below which best represents the interpretation of this correlation.</p>
+<ul>
+<li>A 1 percentage point decrease in the ECB policy rate in the previous month compared to two months ago increases average mortgage rates by 0.4452 percentage points on average.</li>
+<li>A 1 percentage point increase in the ECB policy rate in the previous month compared to two months ago increases average mortgage rates by 0.4452 percentage points on average.</li>
+<li>There is a positive linear relationship between one-month lagged ECB policy rate changes and contemporaneous changes in the average mortgage rate.</li>
+<li>There is a negative linear relationship between the one-month lagged ECB policy rate changes and contemporaneous changes in the average mortgage rate.</li>
+</ul>
+<p><strong>Answer:</strong></p>
+<p>There is a positive linear relationship between one-month-lagged ECB policy rate changes and contemporaneous changes in the average mortgage rate.</p>
+</section>
+</section>
+<section id="model-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-1">Model 1</h2>
+<p>Estimate a simple linear regression model that explains <code>rate</code> with <code>ecb</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(rate <span class="sc">~</span> ecb, <span class="at">data =</span> df)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = rate ~ ecb, data = df)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.28711 -0.16367 -0.03741  0.16509  0.58704 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  2.43738    0.01869  130.41   &lt;2e-16 ***
+ecb          0.68743    0.01241   55.41   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.196 on 112 degrees of freedom
+Multiple R-squared:  0.9648,    Adjusted R-squared:  0.9645 
+F-statistic:  3071 on 1 and 112 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>Your estimated intercept should be 2.43738.</p>
+<p>Use this model to answer the following questions.</p>
+<section id="question-3" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-3">Question 3</h4>
+<p>Choose the answer below which best represents the interpretation of the sample regression intercept.</p>
+<ul>
+<li>If the ECB policy rate is 0%, then on average the average mortgage interest rate is 2.44%.</li>
+<li>If the ECB policy rate is 0%, then on average the average mortgage interest rate is 2.44%. However, there are no observations of <code>ecb</code> at or near zero so this prediction is unreliable.</li>
+<li>If the ECB policy rate is 0%, then on average the average mortgage interest rate is 2.44%. However, there are no observations of <code>rate</code> at or near zero so this prediction is unreliable.</li>
+<li>If the ECB policy rate is 0%, then the mortgage interest rate will be 2.44%.</li>
+</ul>
+<p><strong>Answer:</strong></p>
+<p>If the ECB policy rate is 0%, then on average the average mortgage interest rate is 2.44%.</p>
+</section>
+<section id="question-4" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-4">Question 4</h4>
+<p>Report the sample regression slope.</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m1)[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      ecb 
+0.6874312 </code></pre>
+</div>
+</div>
+</section>
+<section id="question-5" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-5">Question 5</h4>
+<p>According to the estimated model, an increase in the ECB policy rate of 2 percentage points leads to how much of an increase in the average mortgage interest rate on average?</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">coef</span>(m1)[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     ecb 
+1.374862 </code></pre>
+</div>
+</div>
+<p><em>Explanation:</em> The model is: <span class="math display">
+\mathbb{E}[rate_t | ecb_t]=\beta_0+\beta_1 ecb_t
+</span> Increasing the ECB policy rate by 2 percentage points: <span class="math display">
+\mathbb{E}[rate_t | ecb_t+2]=\beta_0+\beta_1 \left(ecb_t+2\right)=\beta_0 + \beta_1 ecb_t + 2\beta_1
+</span> Taking differences yields <span class="math inline">2\beta_1</span>. So we take <span class="math inline">2\times b_1</span> as our answer.</p>
+</section>
+<section id="question-6" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-6">Question 6</h4>
+<p>Obtain the residuals <span class="math inline">e_t</span> from the estimated model of <code>rate</code> on <code>ecb</code> and estimate an auxiliary regression model that explains the residuals using the one-month lag of residuals:</p>
+<p><span class="math display">
+e_t = \gamma_0 + \gamma_1 e_{t-1} + \nu_t
+</span> Perform a test for the usefulness of this auxiliary model. That is, <span class="math inline">H_0</span>: <span class="math inline">\gamma_1=0</span> and <span class="math inline">H_1</span>: <span class="math inline">\gamma_1\neq 0</span>. Use a 5% significance level.</p>
+<ul>
+<li>Under the null hypothesis, the model (choose one option below):
+<ul>
+<li>Does not suffer from serial autocorrelation.</li>
+<li>Suffers from serial autocorrelation.</li>
+<li>Does not suffer from heteroskedasticity.</li>
+<li>Suffers from heteroskedasticity.</li>
+</ul></li>
+<li>What is the value of the test statistic from your test? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the critical value? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is your conclusion? (Choose one option below:):
+<ul>
+<li>The value of the test statistic is larger than the critical value. Therefore we reject the null hypothesis.</li>
+<li>The value of the test statistic is smaller than the critical value. Therefore we reject the null hypothesis.</li>
+<li>The value of the test statistic is larger than the critical value. Therefore we fail to reject the null hypothesis.</li>
+<li>The value of the test statistic is smaller than the critical value. Therefore we fail to reject the null hypothesis.</li>
+</ul></li>
+</ul>
+<p><strong>Answer:</strong> Under <span class="math inline">H_0</span>, the model does not suffer from serial autocorrelation. We can obtain the value of the test statistic with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>e <span class="ot">&lt;-</span> m1<span class="sc">$</span>residuals</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>lag_e <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, df<span class="sc">$</span>e[<span class="dv">1</span><span class="sc">:</span>(<span class="fu">nrow</span>(df)<span class="sc">-</span><span class="dv">1</span>)])</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>aux <span class="ot">&lt;-</span> <span class="fu">lm</span>(e <span class="sc">~</span> lag_e, <span class="at">data =</span> df)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(aux))[<span class="st">"lag_e"</span>, <span class="st">"t value"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 22.7911</code></pre>
+</div>
+</div>
+<p>The critical value is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.975</span>, aux<span class="sc">$</span>df.residual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.981567</code></pre>
+</div>
+</div>
+<p>The value of the test statistic is larger than the critical value. Therefore we reject the null hypothesis.</p>
+</section>
+</section>
+<section id="model-2" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-2">Model 2</h2>
+<p>Based on your analysis of the previous model, you decide it would be better to estimate a model using changes in <span class="math inline">rate_t</span> and <span class="math inline">ecb_t</span> instead of levels. Additionally, you want to use the <em>lagged change</em> in the ECB policy rate because banks may take some time to respond to the policy rate.</p>
+<p>Estimate a model that explains the change in the average mortgage interest rate (<code>rate_chg</code>) with the one-month lagged change in the ECB policy rate (<code>ecb_chg_lag</code>).</p>
+<p>If you estimated the model correctly, your estimated intercept should be 0.014505.</p>
+<p>In terms of <span class="math inline">rate_t</span> and <span class="math inline">ecb_t</span>, the model can be written as: <span class="math display">\mathbb{E}[rate_t-rate_{t-1}|ecb_{t-1}-ecb_{t-2}]=\beta_0+\beta_1(ecb_{t-1}-ecb_{t-2})
+</span></p>
+<p>Use this model to answer the following questions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(rate_chg <span class="sc">~</span> ecb_chg_lag, <span class="at">data =</span> df)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = rate_chg ~ ecb_chg_lag, data = df)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.1445 -0.0345 -0.0095  0.0155  0.4455 
+
+Coefficients:
+            Estimate Std. Error t value    Pr(&gt;|t|)    
+(Intercept) 0.014505   0.007271   1.995      0.0485 *  
+ecb_chg_lag 0.263443   0.050061   5.262 0.000000692 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.0751 on 112 degrees of freedom
+Multiple R-squared:  0.1982,    Adjusted R-squared:  0.1911 
+F-statistic: 27.69 on 1 and 112 DF,  p-value: 0.0000006916</code></pre>
+</div>
+</div>
+<section id="question-7" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-7">Question 7</h4>
+<p>Using the model, test the following claim at the 5% level using a <span class="math inline">p</span>-value approach:</p>
+<p>“A 1 percentage point increase in the ECB policy rate between months <span class="math inline">t-2</span> and <span class="math inline">t-1</span> leads to a <em>more than</em> 0.2 percentage point increase in the average mortgage rate compared to the case where the ECB keeps the policy rate unchanged.”</p>
+<p>To help you answer this question, we note the following:</p>
+<ul>
+<li>A 1 percentage point increase in the ECB policy rate between months <span class="math inline">t-2</span> and <span class="math inline">t-1</span> corresponds to <span class="math inline">ecb_{t-1}-ecb_{t-2}=1</span>. Then according to the model we have: <span class="math display">\mathbb{E}[rate_t-rate_{t-1}|ecb_{t-1}-ecb_{t-2}=1]=\beta_0+\beta_1\times 1=\beta_0+\beta_1
+</span></li>
+<li>If the ECB policy rate remains unchanged between months <span class="math inline">t-2</span> and <span class="math inline">t-1</span>, then <span class="math inline">ecb_{t-1}-ecb_{t-2}=0</span>. Then according to the model we have: <span class="math display">\mathbb{E}[rate_t-rate_{t-1}|ecb_{t-1}-ecb_{t-2}=0]=\beta_0+\beta_1\times 0=\beta_0
+</span></li>
+</ul>
+<p>Answer the questions below.</p>
+<ul>
+<li><p>What is the null hypothesis? <span class="math inline">\beta_1</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</p></li>
+<li><p>What is the alternative hypothesis? <span class="math inline">\beta_1</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</p></li>
+<li><p>Under the null hypothesis, the test statistic <span class="math inline">T</span> follows a <span class="math inline">t</span> distribution with how many degrees of freedom? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is the associated <span class="math inline">p</span>-value? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is your conclusion? Choose an option below:</p>
+<ul>
+<li>Reject H0: There is sufficient evidence for the claim.</li>
+<li>Reject H0: There is not sufficient evidence for the claim.</li>
+<li>Don’t reject H0: There is sufficient evidence for the claim.</li>
+<li>Don’t reject H0: There is not sufficient evidence for the claim.</li>
+</ul></li>
+</ul>
+<p><strong>Answer</strong>:</p>
+<ul>
+<li><span class="math inline">H_0</span>: <span class="math inline">\beta_1 \leq 0.2</span>.</li>
+<li><span class="math inline">H_1</span>: <span class="math inline">\beta_1 &gt; 0.2</span>.</li>
+<li>Under <span class="math inline">H_0</span>, <span class="math inline">T=(B_1-0.2)/S_{B_1}</span> follows a <span class="math inline">t</span> distribution with <span class="math inline">n-k-1=112</span> degrees of freedom.</li>
+<li>The value of the test statistic can be computed with:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>b_1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">summary</span>(m2))[<span class="st">"ecb_chg_lag"</span>, <span class="st">"Estimate"</span>]</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>s_b_1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">summary</span>(m2))[<span class="st">"ecb_chg_lag"</span>, <span class="st">"Std. Error"</span>]</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> (b_1 <span class="sc">-</span> <span class="fl">0.2</span>) <span class="sc">/</span> s_b_1</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.267317</code></pre>
+</div>
+</div>
+<ul>
+<li>The <span class="math inline">p</span>-value for this upper tail test can be computed with:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(t, m2<span class="sc">$</span>df.residual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1038353</code></pre>
+</div>
+</div>
+<ul>
+<li>The conclusion is: Don’t reject H0: There is not sufficient evidence for the claim.</li>
+</ul>
+</section>
+<section id="question-8" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-8">Question 8</h4>
+<p>If the ECB keeps the policy rate fixed each period, by how much does the model predict the average mortgage rate to increase each period on average (in percentage points)?</p>
+<p><strong>Answer:</strong></p>
+<p>0.014505% (the intercept).</p>
+<p><em>Explanation:</em></p>
+<p>The model is: <span class="math display">\mathbb{E}[rate_t-rate_{t-1}|ecb_{t-1}-ecb_{t-2}]=\beta_0+\beta_1(ecb_{t-1}-ecb_{t-2})
+</span> If the ECB policy rate remains unchanged, we have: <span class="math display">\mathbb{E}[rate_t-rate_{t-1}|ecb_{t-1}-ecb_{t-2}=0]=\beta_0
+</span> So the expected change in the rate is simply the model intercept, which is given to us in the introduction to the model.</p>
+</section>
+<section id="question-9" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-9">Question 9</h4>
+<p>In August and September 2022, the ECB policy rate was zero. In October 2022 it increased to 0.75% and remained at this rate in November 2022. According to the model, by how much <em>more</em> is the average mortgage rate expected to increase between October and November 2022 compared to the case where the policy rate remained unchanged?</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m2)[<span class="dv">2</span>] <span class="sc">*</span> <span class="fl">0.75</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ecb_chg_lag 
+  0.1975822 </code></pre>
+</div>
+</div>
+<p><em>Explanation:</em></p>
+<p>The model is: <span class="math display">\mathbb{E}[rate_t-rate_{t-1}|ecb_{t-1}-ecb_{t-2}]=\beta_0+\beta_1(ecb_{t-1}-ecb_{t-2})
+</span> When the ECB policy rate increases by 0.75: <span class="math display">\mathbb{E}[rate_t-rate_{t-1}|ecb_{t-1}-ecb_{t-2}=0.75]=\beta_0+0.75\beta_1
+</span> When the ECB policy rate is unchanged: <span class="math display">\mathbb{E}[rate_t-rate_{t-1}|ecb_{t-1}-ecb_{t-2}=0]=\beta_0
+</span> The difference is then <span class="math inline">0.75\beta_1</span>. So we take <span class="math inline">0.75\times 0.263443=0.1975822</span>.</p>
+</section>
+<section id="question-10" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-10">Question 10</h4>
+<p>Provide a 99% confidence interval for the estimated coefficient on <code>ecb_chg_lag</code>:</p>
+<ul>
+<li>Lower bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Upper bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+</ul>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(m2, <span class="at">parm =</span> <span class="st">"ecb_chg_lag"</span>, <span class="at">level =</span> <span class="fl">0.99</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                0.5 %    99.5 %
+ecb_chg_lag 0.1322617 0.3946241</code></pre>
+</div>
+</div>
+<p>Lower bound is 0.1322617, upper bound is 0.3946241.</p>
+</section>
+<section id="question-11" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-11">Question 11</h4>
+<p>What is the coefficient of determination in your model?</p>
+<p><strong>Answer:</strong> This is the <span class="math inline">R^2</span>. We can get this with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1982448</code></pre>
+</div>
+</div>
+</section>
+<section id="question-12" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-12">Question 12</h4>
+<p>What proportion of the variation in <code>rate_chg</code> is left <em>unexplained</em> by the model?</p>
+<p><em>Note:</em> proportions are between 0 and 1.</p>
+<p><strong>Answer:</strong> This is <span class="math inline">1-R^2</span>. We can get this with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">summary</span>(m2)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8017552</code></pre>
+</div>
+</div>
+</section>
+<section id="question-13" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-13">Question 13</h4>
+<p>Use the estimated model to predict what the average mortgage interest rate will be in August 2024 based on the observed ECB policy rates that we observe in the data.</p>
+<p>Also provide the lower bound and upper bound for a 95% prediction interval for this prediction.</p>
+<p><em>Note</em>: Using the <code>predict()</code> function in R (or obtaining predicted values and individual prediction intervals if using SPSS) with this model will only provide you with a prediction for the <em>change</em> in the average mortgage interest rate. You will need to combine these values with the observed average mortgage interest rate in July 2024 to transform your answer into a prediction for the actual average mortgage interest rate in August 2024. That is, your model will predict <span class="math inline">rate_t-rate_{t-1}</span>, but you need to provide a prediction and prediction interval for <span class="math inline">rate_t</span> in your answer.</p>
+<ul>
+<li>Prediction: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Prediction interval lower bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Prediction interval upper bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+</ul>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>Prediction: 5.2786.</li>
+<li>Lower bound: 5.1265.</li>
+<li>Upper bound: 5.4308.</li>
+</ul>
+<p><em>Explanation</em>:</p>
+<p>For August 2024, the one-month lag ECB policy rate is 3.75%. The two-month lag is 4%. So the value of <code>ecb_chg_lag</code> is -0.25. We use this in <code>df_p</code> below to make the prediction. The output of the prediction gives a prediction for <span class="math inline">{rate_t-rate_{t-1}}</span>. To get the prediction of <span class="math inline">rate_t</span> at time <span class="math inline">t</span>, we need to add the average mortgage interest rate in July 2024 (5.33%). We can do this in R with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df_p <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ecb_chg_lag =</span> <span class="sc">-</span><span class="fl">0.25</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(m2, df_p, <span class="at">interval =</span> <span class="st">"prediction"</span>, <span class="at">level =</span> <span class="fl">0.95</span>) <span class="sc">+</span> <span class="fl">5.33</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       fit      lwr      upr
+1 5.278644 5.126516 5.430772</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="model-3" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-3">Model 3</h2>
+<p>You are now interested in if <em>increases</em> in the ECB policy rate are more quickly reflected in mortgage interest rates compared to policy rate <em>decreases</em>. This phenomenon is called asymmetric price transmission, also known as “rockets and feathers”. When the EBC policy rate increases, mortgage rates rise immediately (like a rocket), whereas if it decreases, mortgage rates fall only gradually (like feathers falling slowly).</p>
+<p>To study this phenomenon, create the following two dummy variables from the data:</p>
+<ol type="1">
+<li><code>positive_chg</code>: A dummy variable that equals one if <code>ecb_chg_lag &gt; 0</code> and is zero otherwise (dummy for lagged positive changes).</li>
+<li><code>negative_chg</code>: A dummy variable that equals one if <code>ecb_chg_lag &lt; 0</code> and is zero otherwise (dummy for lagged negative changes).</li>
+</ol>
+<p>Using these two variables, estimate a model that explains <code>rate_chg</code> with these two dummy variables.</p>
+<p>If you estimated the model correctly, your estimated intercept should be 0.01426.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This can be done without creating dummies as follows:</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(rate_chg <span class="sc">~</span> <span class="fu">I</span>(ecb_chg_lag <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">I</span>(ecb_chg_lag <span class="sc">&lt;</span> <span class="dv">0</span>), <span class="at">data =</span> df)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># But we can do it by first creating dummies this way:</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>positive_chg <span class="ot">&lt;-</span> df<span class="sc">$</span>ecb_chg_lag <span class="sc">&gt;</span> <span class="dv">0</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>negative_chg <span class="ot">&lt;-</span> df<span class="sc">$</span>ecb_chg_lag <span class="sc">&lt;</span> <span class="dv">0</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(rate_chg <span class="sc">~</span> positive_chg <span class="sc">+</span> negative_chg, <span class="at">data =</span> df)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = rate_chg ~ positive_chg + negative_chg, data = df)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.14426 -0.03426 -0.01426  0.01574  0.44574 
+
+Coefficients:
+                 Estimate Std. Error t value   Pr(&gt;|t|)    
+(Intercept)       0.01426    0.00764   1.866     0.0647 .  
+positive_chgTRUE  0.11974    0.02545   4.704 0.00000739 ***
+negative_chgTRUE -0.02092    0.04498  -0.465     0.6427    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.07678 on 111 degrees of freedom
+Multiple R-squared:  0.1693,    Adjusted R-squared:  0.1544 
+F-statistic: 11.31 on 2 and 111 DF,  p-value: 0.00003373</code></pre>
+</div>
+</div>
+<p>Use this model to answer the following questions.</p>
+<section id="question-14" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-14">Question 14</h4>
+<p>Perform an appropriate hypothesis test to test the usefulness of the model. Use a 5% significance level.</p>
+<ul>
+<li>The null hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\beta_j</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> for <span class="math inline">j=</span> <span class="math inline">\underline{\hspace{20mm}}</span> to <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in values in the blank spaces).</li>
+<li>The alternative hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\beta_j</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> for the same <span class="math inline">j</span> (choose one comparison operator and fill in a value in in the blank space).</li>
+<li>The formula for the test statistic is of the form: <span class="math display">
+\frac{\frac{a - SSE}{k}}{\frac{SSE}{n-k-1}}
+</span> What is the value of <span class="math inline">a</span> in the estimated model? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the critical value? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is your conclusion? (choose one option below):
+<ul>
+<li><em>Reject</em> <span class="math inline">H_0</span>. The model is <em>useful</em>.</li>
+<li><em>Reject</em> <span class="math inline">H_0</span>. The model is <em>useless</em>.</li>
+<li><em>Don’t reject</em> <span class="math inline">H_0</span>. The model is <em>useful</em>.</li>
+<li><em>Don’t reject</em> <span class="math inline">H_0</span>. The model is <em>useless</em>.</li>
+</ul></li>
+</ul>
+<p><strong>Answer</strong>:</p>
+<ul>
+<li><span class="math inline">H_0</span>: All of <span class="math inline">\beta_j=0</span> for <span class="math inline">j=1</span> to <span class="math inline">2</span>.</li>
+<li><span class="math inline">H_1</span>: At least one of <span class="math inline">\beta_j\neq 0</span> for the same <span class="math inline">j</span>.</li>
+<li><span class="math inline">a</span> is the <span class="math inline">SST</span>. We can find this using:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>m3r <span class="ot">&lt;-</span> <span class="fu">lm</span>(rate_chg <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> df)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m3r, m3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: rate_chg ~ 1
+Model 2: rate_chg ~ positive_chg + negative_chg
+  Res.Df     RSS Df Sum of Sq      F     Pr(&gt;F)    
+1    113 0.78778                                   
+2    111 0.65438  2    0.1334 11.314 0.00003373 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>The <span class="math inline">SST=0.78778</span> (the <code>RSS</code> of the model with just an intercept). - The value of the test statistic can be read from the <code>anova()</code> output (11.314) or the <code>summary()</code> output (11.31) or obtained directly with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)<span class="sc">$</span>fstatistic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    value     numdf     dendf 
+ 11.31439   2.00000 111.00000 </code></pre>
+</div>
+</div>
+<ul>
+<li>The critical value is:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(<span class="fl">0.95</span>, <span class="dv">2</span>, <span class="dv">111</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.078057</code></pre>
+</div>
+</div>
+<p>where the numerator and denominator degrees of freedom (2 and 111) can be read from the last line of the <code>summary()</code> output, the command <code>summary(m3)$fstatistic</code>, or calculated directly (<span class="math inline">k=2</span> variables and <span class="math inline">n-k-1=114-2-1=111</span>). - Conclusion: <em>Reject</em> <span class="math inline">H_0</span>. The model is <em>useful</em>.</p>
+</section>
+<section id="question-15" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-15">Question 15</h4>
+<p>Which variables are individually statistically significant at the 5% level?</p>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><code>positive_chg</code> is individually statistically significant at the 5% level.</li>
+<li><code>negative_chg</code> is not individually statistically significant at the 5% level.</li>
+</ul>
+</section>
+<section id="question-16" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-16">Question 16</h4>
+<p>Does your model give evidence that the mortgage interest rate displays the rockets and feather phenomenon?</p>
+<p><strong>Yes/No</strong>. When the ECB policy rate increases, there is a <strong>large positive/small negative</strong> and statistically <strong>significant/insignificant</strong> impact on the average mortgage interest rate. This is the <strong>rockets/feathers</strong> effect. However, when the ECB policy rate decreases, there is a <strong>large positive/small negative</strong> and <strong>statistically </strong>significant/insignificant** impact on the average mortgage interest rate.</p>
+<p><strong>Answer:</strong> Yes. When the ECB policy rate increases, there is a large positive and statistically significant impact on the average mortgage interest rate. This is the rockets effect. However, when the ECB policy rate decreases, there is a small negative and statistically insignificant impact on the average mortgage interest rate. This is the feathers effect.</p>
+</section>
+<section id="question-17" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-17">Question 17</h4>
+<p>Why did we not have the problem of strict multicollinearity when we include a dummy for <em>both</em> positive changes and negative changes?</p>
+<ul>
+<li>The problem is there, but R/SPSS ignored it and estimated the model anyway.</li>
+<li>Because there are observations with <code>ecb_chg_lag</code> equal to zero, we do not have strict multicollinearity.</li>
+<li>Because we are estimating the model with <code>rate_chg</code> instead of <code>rate</code>, we avoid the problem.</li>
+<li>We are able to write negative changes as the negative of positive changes. Therefore one variable can be written as a linear combination of another.</li>
+</ul>
+<p><strong>Answer:</strong> Because there are observations with <code>ecb_chg_lag</code> equal to zero, we do not have strict multicollinearity.</p>
+</section>
+</section>
+<section id="model-4" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-4">Model 4</h2>
+<p>Estimate a model with <code>rate_chg</code> as the dependent variable and the following 3 independent variables:</p>
+<ul>
+<li><code>year</code></li>
+<li><code>positive_chg</code></li>
+<li><code>negative_chg</code></li>
+</ul>
+<p>The variables <code>positive_chg</code> and <code>negative_chg</code> here are the same as those you created for model 3.</p>
+<p>If you estimated the model correctly, your estimated intercept should equal -22.992197.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(rate_chg <span class="sc">~</span> year <span class="sc">+</span> positive_chg <span class="sc">+</span> negative_chg, <span class="at">data =</span> df)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = rate_chg ~ year + positive_chg + negative_chg, data = df)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.12628 -0.04207 -0.01416  0.02176  0.41235 
+
+Coefficients:
+                   Estimate Std. Error t value  Pr(&gt;|t|)    
+(Intercept)      -22.992197   5.363967  -4.286 0.0000391 ***
+year               0.011395   0.002657   4.289 0.0000387 ***
+positive_chgTRUE   0.077233   0.025658   3.010   0.00324 ** 
+negative_chgTRUE   0.002655   0.042184   0.063   0.94993    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.07139 on 110 degrees of freedom
+Multiple R-squared:  0.2884,    Adjusted R-squared:  0.2689 
+F-statistic: 14.86 on 3 and 110 DF,  p-value: 0.00000003462</code></pre>
+</div>
+</div>
+<p>Use this model to answer the following question.</p>
+<section id="question-18" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-18">Question 18</h4>
+<p>Test the joint usefulness of variables <code>positive_chg</code> and <code>negative_chg</code>, which are the 2nd and 3rd variables in your model. Use a 5% significance level.</p>
+<p>Choose one of the options in <em>italics</em> and fill in the blanks.</p>
+<ul>
+<li>The null hypothesis is that <em>all/at least one/none</em> of <span class="math inline">\beta_j</span> <span class="math inline">\rule{1cm}{0.15mm}</span> <span class="math inline">\rule{1cm}{0.15mm}</span> for <span class="math inline">j=\rule{1cm}{0.15mm}</span>.</li>
+<li>The alternative hypothesis is that <em>all/at least one/none</em> of <span class="math inline">\beta_j</span> <span class="math inline">\rule{1cm}{0.15mm}</span> <span class="math inline">\rule{1cm}{0.15mm}</span> for the same <span class="math inline">j</span>.</li>
+</ul>
+<p>The test statistic is of the form: <span class="math display">
+\frac{\frac{SSE_r - a}{k-g}}{\frac{a}{n-k-1}}
+</span></p>
+<p>What is the value of <span class="math inline">a</span> in the test? <span class="math inline">\rule{1cm}{0.15mm}</span></p>
+<p>What is the value of the test statistic? <span class="math inline">\rule{1cm}{0.15mm}</span></p>
+<p>What is the <span class="math inline">p</span>-value? <span class="math inline">\rule{1cm}{0.15mm}</span></p>
+<p>Which of the 4 options below is the correct conclusion from the test?</p>
+<ul>
+<li>Reject H0. The variables are useful additions to the model.</li>
+<li>Reject H0. The variables are not useful additions to the model.</li>
+<li>Don’t reject H0. The variables are useful additions to the model.</li>
+<li>Don’t reject H0. The variables are not useful additions to the model.</li>
+</ul>
+<p><strong>Answer:</strong></p>
+<p>We can perform the partial <span class="math inline">F</span> test by first estimating the reduced model:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>m4r <span class="ot">&lt;-</span> <span class="fu">lm</span>(rate_chg <span class="sc">~</span> year, <span class="at">data =</span> df)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m4r, m4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: rate_chg ~ year
+Model 2: rate_chg ~ year + positive_chg + negative_chg
+  Res.Df     RSS Df Sum of Sq     F  Pr(&gt;F)  
+1    112 0.60682                             
+2    110 0.56062  2  0.046205 4.533 0.01283 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>We now have everything to answer the questions:</p>
+<ul>
+<li><span class="math inline">H_0</span>: All <span class="math inline">\beta_j=0</span> for <span class="math inline">j=2,3</span>.</li>
+<li><span class="math inline">H_1</span>: At least one <span class="math inline">\beta_j\neq 0</span> for the same <span class="math inline">j</span>.</li>
+<li><span class="math inline">a</span> is the <span class="math inline">SSE_c</span>, the sum of squared errors for the complete model. We can find the value of this from the <code>anova()</code> output: 0.56062.</li>
+<li>Value of the test statistic: 4.533.</li>
+<li><span class="math inline">p</span>-value: 0.01283.</li>
+<li>Conclusion: Reject H0. The variables are useful additions to the model (<em>reason:</em> <span class="math inline">p</span>-value smaller than significance level).</li>
+</ul>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
