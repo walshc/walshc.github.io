@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -316,7 +316,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
-<p>In this chapter we will learn how to store objects into the R environment and about some different <em>object types</em> for objects in R.</p>
+<p>In this chapter we will learn how to store objects in the R environment and about different <em>object types</em> in R.</p>
 <section id="the-assignment-operator" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="the-assignment-operator"><span class="header-section-number">4.1</span> The Assignment Operator</h2>
 <section id="assigning-objects" class="level3" data-number="4.1.1">
@@ -328,6 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>&lt;-</code> operator assigns the value <code>2</code> to <code>a</code>, and similarly for <code>b</code>.</p>
+<p>Variable names can be multiple characters long and can contain dots (<code>.</code>), underscores (<code>_</code>) and numbers - as long as they don’t start with a number. For example, <code>a1</code>, <code>a.1</code>, and <code>a_1</code> are possible variable names, but <code>1a</code> is not.</p>
 <p>Because we use the assignment operator <code>&lt;-</code> so often, RStudio has a shortcut for it. If you hold <code>Alt</code> and press <code>-</code>, RStudio will write <code>&lt;-</code>, including spaces around it. It makes the spaces because <code>a &lt;- 2</code> is easier to read than <code>a&lt;-2</code>.</p>
 </section>
 <section id="the-environment-tab-in-rstudio" class="level3" data-number="4.1.2">
@@ -380,7 +381,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="character-vectors" class="level3" data-number="4.2.3">
 <h3 data-number="4.2.3" class="anchored" data-anchor-id="character-vectors"><span class="header-section-number">4.2.3</span> Character Vectors</h3>
-<p>R can also work with character vectors which are vectors composed of letters or words instead of numbers or logical constants (<code>TRUE</code> or <code>FALSE</code>). We have to write the words in quotes, otherwise R will think we providing it with variable names instead:</p>
+<p>R can also work with character vectors which are vectors composed of letters or words instead of numbers or logical constants (<code>TRUE</code> or <code>FALSE</code>). We have to write the words in quotes, otherwise R will think we are providing it with variable names instead:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"programming"</span>, <span class="st">"and"</span>, <span class="st">"quantitative"</span>, <span class="st">"skills"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -444,7 +445,7 @@ Levels: cycle train walk</code></pre>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="cn">TRUE</span>, <span class="at">z =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>It has elements that are numeric, logical and character vectors, and the elements all have different lengths (3, 1 and 2).</p>
-<p>A <code>data.frame</code> can have elements/columns of different types (such as in the travel mode example above, which had numeric and factor variables), but all elements/columns <code>data.frame</code> must have the same length (unlike a <code>list</code> where any length is possible).</p>
+<p>A <code>data.frame</code> can have elements/columns of different types (such as in the travel mode example above, which had numeric and factor variables), but all elements/columns of a <code>data.frame</code> must have the same length (unlike a <code>list</code> where any length is possible).</p>
 
 
 </section>
@@ -452,7 +453,7 @@ Levels: cycle train walk</code></pre>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>This is not relevant for the exam, but strictly speaking R has two numeric vector types: <em>integer vectors</em> and <em>double vectors</em>. An <em>integer vector</em> can only contain whole numbers (like -3 and 2), whereas a <em>double vector</em> can contain non-whole numbers (like -4.5 and 1.25). When we create the vector in the example with <code>a &lt;- c(1, 3, 7, 2)</code> it actually creates a double vector. To specify it to be an integer vector we can write an <code>L</code> after the numbers: <code>a &lt;- c(1L, 3L, 7L, 2L)</code>. We can also convert the vector to integer with the <code>as.integer()</code> command, like: <code>a &lt;- as.integer(c(1, 3, 7, 2))</code>. Why are non-whole numbers called double vectors? The “double” in the name for double vectors refers to the amount of precision with which R actually uses with numbers. What do we mean by precision? When R stores the number <span class="math inline">\frac{1}{3}</span>, it doesn’t store it with an infinite number of 3s after the decimal (as your computer would run out of memory). R instead stores only a certain number of significant digits, up to 56 bytes. If we run the command <code>sprintf("%0.25f", 1/3)</code>, which prints <span class="math inline">\frac{1}{3}</span> with 25 decimal places, we will see how R works with the number <span class="math inline">\frac{1}{3}</span>. You will see that it’s something like 0.3333333333333333148296163. After about 15-20 numbers after the decimal point we start seeing random numbers. This is because it was only precious up to 15-20 decimal places. For this course, however, the difference between integer and double vectors will not be important.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>This is not relevant for the exam, but strictly speaking R has two numeric vector types: <em>integer vectors</em> and <em>double vectors</em>. An <em>integer vector</em> can only contain whole numbers (like -3 and 2), whereas a <em>double vector</em> can contain non-whole numbers (like -4.5 and 1.25). When we create the vector in the example with <code>a &lt;- c(1, 3, 7, 2)</code> it actually creates a double vector. To specify it to be an integer vector we can write an <code>L</code> after the numbers: <code>a &lt;- c(1L, 3L, 7L, 2L)</code>. We can also convert the vector to integer with the <code>as.integer()</code> command, like: <code>a &lt;- as.integer(c(1, 3, 7, 2))</code>. Why are non-whole numbers called double vectors? The “double” in the name for double vectors refers to the amount of precision with which R actually uses with numbers. What do we mean by precision? When R stores the number <span class="math inline">\frac{1}{3}</span>, it doesn’t store it with an infinite number of 3s after the decimal (as your computer would run out of memory). R instead stores only a certain number of significant digits, up to 56 bytes. If we run the command <code>sprintf("%0.25f", 1/3)</code>, which prints <span class="math inline">\frac{1}{3}</span> with 25 decimal places, we will see how R works with the number <span class="math inline">\frac{1}{3}</span>. You will see that it’s something like 0.3333333333333333148296163. After about 15-20 numbers after the decimal point we start seeing random numbers. This is because it was only precise up to 15-20 decimal places. For this course, however, the difference between integer and double vectors will not be important.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
