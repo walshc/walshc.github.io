@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -314,7 +314,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
 <p>Up to now we have been writing commands directly into the R console. This is all fine if all you want to do is try out a few different simple commands. However, when working on a project with some data you will often be executing many commands and it’s easy to lose track of what you are doing. It’s also very easy to make mistakes. <em>R scripts</em> are a solution to this problem. An R script is a text file where you can write all of your commands in the order you want them run, and then you can tell RStudio to run the entire file of commands. You can also ask it to only run part of the file. This has many advantages:</p>
 <ul>
-<li>If you have run 10 commands to calculate something and then afterwards you decide to change what happened in one of the earlier commands, you would often have type all the commands again. In an R script you would just need to edit the line with that command. So R scripts can save you a lot of time.</li>
+<li>If you have run 10 commands to calculate something and then afterwards you decide to change what happened in one of the earlier commands, you would usually have to type all the commands again. In an R script you would just need to edit the line with that command. So R scripts can save you a lot of time.</li>
 <li>You or anyone else can easily reproduce your work by re-running the R script.</li>
 <li>By having all the commands in a script you can more easily spot any mistakes you might have.</li>
 <li>It is a way of saving your work.</li>
@@ -356,7 +356,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="sourcing-with-echo" class="level4" data-number="7.2.2.1">
 <h4 data-number="7.2.2.1" class="anchored" data-anchor-id="sourcing-with-echo"><span class="header-section-number">7.2.2.1</span> Sourcing with Echo</h4>
 <p>Another way to run the entire script is to <em>source</em> the script. You can do this with the keyboard shortcut <code>Ctrl+Shift+Enter</code> or by clicking the down-arrow next to the <code>Source</code> button at the top of the script, and clicking “Source with Echo”.</p>
-<p>With this approach you don’t need to select the lines first. It always runs the entire file. But keep in mind there is no way to run part of script with this method.</p>
+<p>With this approach you don’t need to select the lines first. It always runs the entire file.</p>
 </section>
 <section id="sourcing-without-echo" class="level4" data-number="7.2.2.2">
 <h4 data-number="7.2.2.2" class="anchored" data-anchor-id="sourcing-without-echo"><span class="header-section-number">7.2.2.2</span> Sourcing without Echo</h4>
@@ -380,7 +380,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="7.3" class="anchored" data-anchor-id="commenting-in-r"><span class="header-section-number">7.3</span> Commenting in R</h2>
 <section id="commenting-as-annotation" class="level3" data-number="7.3.1">
 <h3 data-number="7.3.1" class="anchored" data-anchor-id="commenting-as-annotation"><span class="header-section-number">7.3.1</span> Commenting as Annotation</h3>
-<p>When writing an R script it is good practice to add comments throughout to explain what you are doing. This helps other people who are reading your code to understand what you are doing and your intentions. Most of all, though, it helps you to understand your code when you look back at it after a few months. To add a comment in R you simply need to type a <code>#</code> and anything you write after the <code>#</code> is not run by R. For example:</p>
+<p>When writing an R script it is good practice to add comments throughout to explain what you are doing. This helps other people who are reading your code to understand what you are doing and your intentions. Most of all, though, it helps you to understand your own code when you look back at it after a few months. To add a comment in R you simply need to type a <code>#</code> and anything you write after the <code>#</code> is not run by R. For example:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set values of a and b:</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">2</span></span>
