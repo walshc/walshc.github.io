@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -318,7 +318,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We also load the same penguins data like we saw in <a href="intro-to-plotting.html"><span>Chapter&nbsp;14</span></a>:</p>
+<p>We also load the same penguins data that we saw in <a href="intro-to-plotting.html"><span>Chapter&nbsp;14</span></a>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -337,7 +337,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing non-finite values (`stat_bin()`).</code></pre>
+<pre><code>Warning: Removed 2 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -348,10 +349,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>With <code>ggplot()</code>, the first argument you provide is the dataframe with the variables you want to plot. Here it’s the <code>penguins</code> dataframe. The second argument is the “mapping” which we provide using the <code>aes()</code> (aesthetics) function. For a histogram we only need to provide one variable. Because we already tell ggplot the name of the dataframe, we only provide the variable name <code>body_mass_g</code> here instead of typing <code>penguins$body_mass_g</code>.</p>
-<p>The next thing we do is add <em>layers</em>. We do this using the sum operator, <code>+</code>. To tell ggplot to add a histogram to the plot, we add <code>geom_histogram()</code>. It’s good practice to put the layers on different lines to make them easier to read, as later on we’ll see that we can use many layers.</p>
+<p>The next thing we do is add <em>layers</em>. We do this using the sum operator, <code>+</code>. To tell ggplot to add a histogram to the plot, we add <code>geom_histogram()</code>. It’s good practice to put the layers on different lines to make them easier to read, as later on we’ll see that <code>ggplot</code> commands can get very long as we add many many layers.</p>
 <p>We can see that ggplot gave 2 warnings when we did this command:</p>
 <ol type="1">
-<li>It tells us its using 30 bins and tells us how we can change this.</li>
+<li>It tells us it is using 30 bins and tells us how we can change this.</li>
 <li><code>Warning: Removed 2 rows containing non-finite values</code> is telling us that our data contain 2 <code>NA</code> values that weren’t included in the plot. This is expected, because in <a href="intro-to-plotting.html"><span>Chapter&nbsp;14</span></a> we saw that our dataset contains some missing observations.</li>
 </ol>
 </section>
@@ -360,12 +361,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To customize the plot, we can use options in the functions, and add more <em>layers</em> to the plot. There are many possibilities here. Let’s see some of these:</p>
 <section id="changing-the-number-of-bins" class="level4" data-number="15.2.2.1">
 <h4 data-number="15.2.2.1" class="anchored" data-anchor-id="changing-the-number-of-bins"><span class="header-section-number">15.2.2.1</span> Changing the number of bins:</h4>
-<p>Just like the warning above told us, we can reduce the number of bins to 15 using the <code>bins</code> option in <code>geom_histogram()</code>:</p>
+<p>Just like the warning above told us, we can change the number of bins to a different number using the <code>bins</code> option in <code>geom_histogram()</code>. Let’s change it to use 15 bins instead:</p>
 <div class="cell" data-layout-align="center" data-fig.asp="0.618">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(body_mass_g)) <span class="sc">+</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing non-finite values (`stat_bin()`).</code></pre>
+<pre><code>Warning: Removed 2 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -378,12 +380,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="changing-the-color-of-the-bins" class="level4" data-number="15.2.2.2">
 <h4 data-number="15.2.2.2" class="anchored" data-anchor-id="changing-the-color-of-the-bins"><span class="header-section-number">15.2.2.2</span> Changing the color of the bins:</h4>
-<p>We can change the color of the bins using the <code>fill</code> option in <code>geom_histogram()</code>. We add this to the previous options:</p>
+<p>We can change the color of the bins using the <code>fill</code> option in <code>geom_histogram()</code>, and we can change the outline color of the bins using the <code>color</code> option. We add this to the previous options:</p>
 <div class="cell" data-layout-align="center" data-fig.asp="0.618">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(body_mass_g)) <span class="sc">+</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>, <span class="at">fill =</span> <span class="st">"navy"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>, <span class="at">fill =</span> <span class="st">"navy"</span>, <span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing non-finite values (`stat_bin()`).</code></pre>
+<pre><code>Warning: Removed 2 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -399,11 +402,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To change the names of the axis labels, we add <em>additional layers</em>. We can change the horizontal axis label with the <code>xlab()</code> function, putting in quotes what we want the new label to be. Similarly, we use the <code>ylab()</code> function for the vertical axis label. Because these are additional layers, we add them to the plot using the <code>+</code> operator:</p>
 <div class="cell" data-layout-align="center" data-fig.asp="0.618">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(body_mass_g)) <span class="sc">+</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>, <span class="at">fill =</span> <span class="st">"navy"</span>) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>, <span class="at">fill =</span> <span class="st">"navy"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Penguin weight (grams)"</span>) <span class="sc">+</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing non-finite values (`stat_bin()`).</code></pre>
+<pre><code>Warning: Removed 2 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -419,12 +423,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>What if we want to get rid of the gray background? A white background is better for plots that get printed on paper. The easiest way to do this is to change the “theme” of the plot to a more minimalistic theme. We do this by adding the <code>theme_minimal()</code> layer:</p>
 <div class="cell" data-layout-align="center" data-fig.asp="0.618">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(body_mass_g)) <span class="sc">+</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>, <span class="at">fill =</span> <span class="st">"navy"</span>) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>, <span class="at">fill =</span> <span class="st">"navy"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Penguin weight (grams)"</span>) <span class="sc">+</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Count"</span>) <span class="sc">+</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing non-finite values (`stat_bin()`).</code></pre>
+<pre><code>Warning: Removed 2 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -491,7 +496,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(bill_length_mm, flipper_length_mm)) <span class="sc">+</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -506,7 +512,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(bill_length_mm, flipper_length_mm, <span class="at">color =</span> species)) <span class="sc">+</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -525,7 +532,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Flipper length (in mm)"</span>) <span class="sc">+</span></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -538,7 +546,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="saving-plots" class="level2" data-number="15.5">
 <h2 data-number="15.5" class="anchored" data-anchor-id="saving-plots"><span class="header-section-number">15.5</span> Saving Plots</h2>
-<p>There are many different ways to save plots created by R, but a simple way to do so is to use the <code>ggsave()</code> function. If we want to save a plot as a PDF file we simply use the command after our <code>ggplot()</code> call giving the name we want to give to the plot with the file extension. For example:</p>
+<p>There are many different ways to save plots created by R, but a simple way to do so is to use the <code>ggsave()</code> function. If we want to save a plot as a PDF file we simply use the command after our <code>ggplot()</code> call giving the name we want to give to the plot with the appropriate file extension (such as <code>.pdf</code> or <code>.png</code>). For example:</p>
 <div class="cell" data-layout-align="center" data-fig.asp="0.618">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(bill_length_mm, flipper_length_mm)) <span class="sc">+</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
