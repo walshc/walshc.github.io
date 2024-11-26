@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming and Quantitative Skills Sample Exam</title>
+<title>Programming for E&amp;BI Sample Exam</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,8 +68,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="sample-exam-solutions_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="sample-exam-solutions_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 </head>
 
@@ -81,7 +95,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Programming and Quantitative Skills Sample Exam</h1>
+<h1 class="title">Programming for E&amp;BI Sample Exam</h1>
 </div>
 
 
@@ -96,14 +110,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
 <section id="short-answer-questions-5-points" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="short-answer-questions-5-points">Short-Answer Questions (5 points)</h2>
 <section id="question-1-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-1-1-point">Question 1 (1 point)</h3>
-<p>Calculate the following using R:</p>
-<p><span class="math display">\[
+<p>Write an R command that calculates the following:</p>
+<p><span class="math display">
 \frac{2^4 + 10}{8\times \sqrt{4}}
-\]</span></p>
+</span> Provide both the numerical answer and the R command.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span><span class="sc">^</span><span class="dv">4</span> <span class="sc">+</span> <span class="dv">10</span>) <span class="sc">/</span> (<span class="dv">8</span> <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -113,7 +128,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="question-2-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-2-1-point">Question 2 (1 point)</h3>
-<p>Calculate <span class="math inline">\(\log_2\left(64\right)\)</span> using R.</p>
+<p>Write an R command that calculates <span class="math inline">\log_2\left(64\right)</span></p>
+<p>Provide both the numerical answer and the R command.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">64</span>, <span class="at">base =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -132,28 +148,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Neither numeric nor character.</li>
 </ul>
 <p>Note: You do not need to supply your code for this question.</p>
+<p><strong>Answer:</strong> All elements of a vector must be of the same type. If characters are present, all elements are coerced to character. We can also find the class using the <code>class()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"c"</span>, <span class="st">"d"</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "1" "2" "c" "d"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"c"</span>, <span class="st">"d"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># All elements of a vector in R must have the same class. Here all elements</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># are coerced to be character.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="question-4-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-4-1-point">Question 4 (1 point)</h3>
-<p>Write an R command to generate a numeric vector containing the following sequence:</p>
-<p><span class="math display">\[
+<p>Write an R command that generates a numeric vector containing the following sequence:</p>
+<p><span class="math display">
 (10, 10, 20, 20, 30, 30, 40, 40, \dots, 470, 470, 480, 480, 490, 490, 500, 500)
-\]</span></p>
+</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">10</span>, <span class="at">to =</span> <span class="dv">500</span>, <span class="at">by =</span> <span class="dv">10</span>), <span class="at">each =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">10</span>, <span class="at">to =</span> <span class="dv">500</span>, <span class="at">by =</span> <span class="dv">10</span>), <span class="at">each =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1]  10  10  20  20  30  30  40  40  50  50  60  60  70  70  80  80  90  90
  [19] 100 100 110 110 120 120 130 130 140 140 150 150 160 160 170 170 180 180
@@ -173,33 +183,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>a | b</code></li>
 </ul>
 <p>Note: You do not need to supply your code for this question.</p>
+<p><strong>Answer:</strong></p>
+<p><code>!a &amp; !b</code></p>
+<p><em>Explanation:</em> We can make two vectors <code>a</code> and <code>b</code> that cover every possible combination of <code>TRUE</code> and <code>FALSE</code> and then compare the target output with each of the options:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make two vectors covering every possibility:</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># The target output is:</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>(a <span class="sc">|</span> b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The target output is:</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>(a <span class="sc">|</span> b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE FALSE FALSE  TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Try the different options:</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The first one matches:</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>a <span class="sc">&amp;</span> <span class="sc">!</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Options</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>a <span class="sc">&amp;</span> <span class="sc">!</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE FALSE FALSE  TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The remaining ones don't match:</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>a <span class="sc">|</span> <span class="sc">!</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>a <span class="sc">|</span> <span class="sc">!</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE  TRUE  TRUE  TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">|</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">|</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  TRUE  TRUE  TRUE FALSE</code></pre>
 </div>
 </div>
+<p>The first one matches and the others don’t. The reason this first one matches is because of De Morgan’s laws which are:</p>
+<ul>
+<li>The negation of “A and B” is the same as “not A or not B.”</li>
+<li>The negation of “A or B” is the same as “not A and not B.”</li>
+</ul>
+<p>The question concerns <code>!(a | b)</code> which is the negation of “A or B” (the 2nd law). From this we know it is the same as “not A and not B”, which is <code>!a &amp; !b</code> in R, the first of the 3 multiple choice options.</p>
 </section>
 </section>
 <section id="data-analysis-5-points" class="level2 unnumbered">
@@ -208,24 +223,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><code>salary</code>: CEO compensation in 1990 (in dollars).</li>
 <li><code>age</code>: CEO age</li>
-<li><code>college</code>: <span class="math inline">\(=1\)</span> if the CEO attended college and <span class="math inline">\(=0\)</span> otherwise.</li>
-<li><code>grad</code>: <span class="math inline">\(=1\)</span> if the CEO attended post-graduate education and <span class="math inline">\(=0\)</span> otherwise.</li>
+<li><code>college</code>: <span class="math inline">=1</span> if the CEO attended college and <span class="math inline">=0</span> otherwise.</li>
+<li><code>grad</code>: <span class="math inline">=1</span> if the CEO attended post-graduate education and <span class="math inline">=0</span> otherwise.</li>
 <li><code>comten</code>: Years the CEO worked with the company.</li>
 <li><code>ceoten</code>: Years as CEO with the company.</li>
 <li><code>profits</code>: Profits of the company in 1990 (in dollars).</li>
 </ul>
 <p>When reading the dataset into R, assign it to <code>df</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"ceosal.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <section id="question-6-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-6-1-point">Question 6 (1 point)</h3>
 <p>How many observations are in the dataset?</p>
-<p>Also assign your answer to <code>answer6</code> in your code.</p>
+<p>Provide both the numerical answer and the R command required to obtain the answer (if the dataframe is assigned to <code>df</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First we need to change directory to the folder containing the ceosal.csv</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># file. Ideally you would do this using an R project.</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"ceosal.csv"</span>)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>answer6 <span class="ot">&lt;-</span> <span class="fu">nrow</span>(df)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>answer6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 177</code></pre>
 </div>
@@ -234,10 +247,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="question-7-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-7-1-point">Question 7 (1 point)</h3>
 <p>What is the median of the variable <code>comten</code>?</p>
-<p>Also assign your answer to <code>answer7</code> in your code.</p>
+<p>Provide both the numerical answer and the R command required to obtain the answer (if the dataframe is assigned to <code>df</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>answer7 <span class="ot">&lt;-</span> <span class="fu">median</span>(df<span class="sc">$</span>comten)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>answer7</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(df<span class="sc">$</span>comten)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 23</code></pre>
 </div>
@@ -246,10 +258,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="question-8-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-8-1-point">Question 8 (1 point)</h3>
 <p>What is the mean salary of the CEOs that attended post-graduated education?</p>
-<p>Also assign your answer to <code>answer8</code> in your code.</p>
+<p>Provide both the numerical answer and the R command required to obtain the answer (if the dataframe is assigned to <code>df</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>answer8 <span class="ot">&lt;-</span> <span class="fu">mean</span>(df<span class="sc">$</span>salary[df<span class="sc">$</span>grad <span class="sc">==</span> <span class="dv">1</span>])</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>answer8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>salary[df<span class="sc">$</span>grad <span class="sc">==</span> <span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 864212.8</code></pre>
 </div>
@@ -258,10 +269,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="question-9-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-9-1-point">Question 9 (1 point)</h3>
 <p>How many people in the dataset attended college but didn’t attend post-graduate education?</p>
-<p>Also assign your answer to <code>answer9</code> in your code.</p>
+<p>Provide both the numerical answer and the R command required to obtain the answer (if the dataframe is assigned to <code>df</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>answer9 <span class="ot">&lt;-</span> <span class="fu">sum</span>(df<span class="sc">$</span>college <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> df<span class="sc">$</span>grad <span class="sc">==</span> <span class="dv">0</span>)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>answer9</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(df<span class="sc">$</span>college <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> df<span class="sc">$</span>grad <span class="sc">==</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 78</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Or alternatively:</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(df<span class="sc">$</span>college[df<span class="sc">$</span>grad <span class="sc">==</span> <span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 78</code></pre>
 </div>
@@ -270,10 +285,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="question-10-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-10-1-point">Question 10 (1 point)</h3>
 <p>In the dataset, what is the longest someone worked at a company (in years) for before they became CEO?</p>
-<p>Also assign your answer to <code>answer10</code> in your code.</p>
+<p>Provide both the numerical answer and the R command required to obtain the answer (if the dataframe is assigned to <code>df</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>answer10 <span class="ot">&lt;-</span> <span class="fu">max</span>(df<span class="sc">$</span>comten <span class="sc">-</span> df<span class="sc">$</span>ceoten)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>answer10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(df<span class="sc">$</span>comten <span class="sc">-</span> df<span class="sc">$</span>ceoten)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 39</code></pre>
 </div>
@@ -282,8 +296,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-cleaning-4-points" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="data-cleaning-4-points">Data Cleaning (4 points)</h2>
-<p>Download the dataset <a href="https://walshc.github.io/pqs/euro-dollar-2022.csv">euro-dollar-2022.csv</a>. The dataset contains the closing Euro-Dollar exchange rate (variable “Price”) each day throughout 2022, together with the opening, highest and lowest exchange rate. Furthermore, it includes the volume traded and the percentage daily change in the closing price.</p>
-<p>In this question you will need clean this dataset to answer the questions that follow.</p>
+<p>Download the dataset <a href="https://walshc.github.io/pqs/euro-dollar-2022.csv">euro-dollar-2022.csv</a>. The dataset contains the closing Euro-Dollar exchange rate (variable <code>Price</code>) each day throughout 2022, together with the opening, highest and lowest exchange rate. Furthermore, it includes the volume traded and the percentage daily change in the closing price.</p>
+<p>Download the following <a href="https://walshc.github.io/pqs-exams/sample-exam-block-3-template.R">template script</a> and use it to clean the data and answer the questions that follow.</p>
 <p>When reading the dataset into R, assign it to <code>df</code>.</p>
 <p>You should do the following cleaning tasks to your dataframe <code>df</code>:</p>
 <ol type="1">
@@ -295,7 +309,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Convert <code>Change</code> to numeric. <em>Tip:</em> Use <code>gsub("\\%", "", x)</code> to remove a percentage symbol from <code>x</code>.</li>
 <li>Convert all variable names to lower case.</li>
 </ol>
-<p>If you did all the steps correctly, you should have 260 observations. The average of the <code>high</code> variable should be 0.9561. The average of the <code>vol</code> variable should be 79,920. If only some of these match your cleaned dataset, you will still be able to answer some of the questions correctly.</p>
+<p>If you did all the steps correctly, you should have 260 observations. The average of the <code>high</code> variable should be 0.9561. The average of the <code>vol</code> variable should be 79920. If only some of these match your cleaned dataset, you will still be able to answer some of the questions correctly.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First perform all the cleaning tasks:</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -332,12 +346,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="question-11-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-11-1-point">Question 11 (1 point)</h3>
-<p>Create a variable called <code>hml</code> which is the <code>high</code> variable minus the <code>low</code> variable. What is the mean of this variable?</p>
-<p>Also assign your answer to <code>answer11</code> in your code.</p>
+<p>Create a variable called <code>hml</code> which is the <code>high</code> variable minus the <code>low</code> variable.</p>
+<p>Use this variable to write an R command that computes the mean of this variable.</p>
+<p>Assign the output of this command to the variable <code>a11</code> in your script and write its numerical value in the box below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>hml <span class="ot">&lt;-</span> df<span class="sc">$</span>high <span class="sc">-</span> df<span class="sc">$</span>low</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>answer11 <span class="ot">&lt;-</span> <span class="fu">mean</span>(df<span class="sc">$</span>hml)</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>answer11</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>a11 <span class="ot">&lt;-</span> <span class="fu">mean</span>(df<span class="sc">$</span>hml)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>a11</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.009504231</code></pre>
 </div>
@@ -345,11 +360,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="question-12-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-12-1-point">Question 12 (1 point)</h3>
-<p>What is the median of the <code>vol</code> variable?</p>
-<p>Also assign your answer to <code>answer12</code> in your code.</p>
+<p>Write an R command that computes the median of the <code>vol</code> variable.</p>
+<p>Assign the output of this command to the variable <code>a12</code> in your script and write its numerical value in the box below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>answer12 <span class="ot">&lt;-</span> <span class="fu">median</span>(df<span class="sc">$</span>vol)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>answer12</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>a12 <span class="ot">&lt;-</span> <span class="fu">median</span>(df<span class="sc">$</span>vol)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>a12</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 80185</code></pre>
 </div>
@@ -357,12 +372,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="question-13-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-13-1-point">Question 13 (1 point)</h3>
-<p>What was the largest <em>negative</em> daily price change in the data?</p>
-<p>Write the percentage change without the <code>%</code> symbol.</p>
-<p>Also assign your answer to <code>answer13</code> in your code.</p>
+<p>Write an R command that computes the largest <em>negative</em> daily price change in the data.</p>
+<p>Assign the output of this command to the variable <code>a13</code> in your script and write its numerical value (without the <code>%</code> symbol) in the box below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>answer13 <span class="ot">&lt;-</span> <span class="fu">min</span>(df<span class="sc">$</span>change)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>answer13</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>a13 <span class="ot">&lt;-</span> <span class="fu">min</span>(df<span class="sc">$</span>change)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>a13</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -2.1</code></pre>
 </div>
@@ -370,11 +384,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="question-14-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-14-1-point">Question 14 (1 point)</h3>
-<p>On which date was the largest volume traded?</p>
-<p>Also assign your answer to <code>answer14</code> in your code.</p>
+<p>Write an R command that finds the date on which the largest volume was traded.</p>
+<p>Assign the output of this command to the variable <code>a14</code> in your script and write the day, month and year in the boxes below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>answer14 <span class="ot">&lt;-</span> df<span class="sc">$</span>date[df<span class="sc">$</span>vol <span class="sc">==</span> <span class="fu">max</span>(df<span class="sc">$</span>vol)]</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>answer14</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>a14 <span class="ot">&lt;-</span> df<span class="sc">$</span>date[df<span class="sc">$</span>vol <span class="sc">==</span> <span class="fu">max</span>(df<span class="sc">$</span>vol)]</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>a14</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2022-06-16"</code></pre>
 </div>
@@ -388,18 +402,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="optimization-3-points" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="optimization-3-points">Optimization (3 points)</h2>
-<p>The following 3 questions will involve working with the following mathematical function defined over all real numbers <span class="math inline">\(x\)</span>:</p>
-<p><span class="math display">\[f(x) = -x^2 + 2x - 5\]</span></p>
+<p>The following 3 questions will involve working with the following mathematical function defined over all real numbers <span class="math inline">x</span>:</p>
+<p><span class="math display">f(x) = -x^2 + 2x - 5</span></p>
 <section id="question-15-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-15-1-point">Question 15 (1 point)</h3>
-<p>Plot the function between the <span class="math inline">\(x\)</span> values <span class="math inline">\(-3\)</span> and <span class="math inline">\(+5\)</span>. Choose the answer below which best describes the shape of this function:</p>
+<p>Plot the function between the <span class="math inline">x</span> values <span class="math inline">-3</span> and <span class="math inline">+5</span>. Choose the answer below which best describes the shape of this function:</p>
 <ul>
 <li>Straight line</li>
 <li>Flat</li>
 <li>U shape</li>
 <li>Inverted U shape (upside-down U)</li>
 </ul>
-<p>Note: you do not need to save your answer in your R script for this question.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="sc">-</span>x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>x <span class="sc">-</span> <span class="dv">5</span></span>
@@ -418,12 +431,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="question-16-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-16-1-point">Question 16 (1 point)</h3>
-<p>Use R to find the value of <span class="math inline">\(x\)</span> that maximizes this function.</p>
-<p>Also assign your answer to <code>answer16</code> in your code.</p>
+<p>Write an R command that finds the value of <span class="math inline">x</span> that maximizes this function.</p>
+<p>Write the numerical value of the output of this command in the box below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>f_max <span class="ot">&lt;-</span> <span class="fu">optimize</span>(f, <span class="fu">c</span>(<span class="sc">-</span><span class="dv">100</span>, <span class="dv">100</span>), <span class="at">maximum =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>answer16 <span class="ot">&lt;-</span> f_max<span class="sc">$</span>maximum</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>answer16</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>f_max<span class="sc">$</span>maximum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
@@ -431,11 +443,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="question-17-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-17-1-point">Question 17 (1 point)</h3>
-<p>What value does the function take at its maximum?</p>
-<p>Also assign your answer to <code>answer17</code> in your code.</p>
+<p>Write an R command that finds the value of the function <span class="math inline">f(x)</span> at its maximum value.</p>
+<p>Write the numerical value of the output of this command in the box below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>answer17 <span class="ot">&lt;-</span> f_max<span class="sc">$</span>objective</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>answer17</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>f_max<span class="sc">$</span>objective</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -4</code></pre>
 </div>
@@ -454,21 +465,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="https://walshc.github.io/pqs/gdp-per-capita-growths.csv">gdp-per-capita-growths.csv</a> - this dataset contains 3 variables: <code>country</code>, <code>year</code> and <code>gdp_pc_growth</code>. The variable <code>gdp_pc_growth</code> is the growth rate of the country’s per capita gross domestic product (GDP) in that year.</li>
 <li><a href="https://walshc.github.io/pqs/lending-rates.csv">lending-rates.csv</a> - this dataset contains 3 variables: <code>country</code>, <code>year</code> and <code>lending_rate</code>. The variable <code>lending_rate</code> is the lending interest rate in that country in that year.</li>
 </ol>
-<p>Assign the first dataset <code>gdp-per-capita-growths.csv</code> to <code>df1</code> when reading it into R.</p>
-<p>Assign the second dataset <code>lending-rates.csv</code> to <code>df2</code> when reading it into R.</p>
+<p>Assign the dataset <code>gdp-per-capita-growths.csv</code> to <code>df1</code> and <code>lending-rates.csv</code> to <code>df2</code> in your script.</p>
 <section id="question-18-1-points" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-18-1-points">Question 18 (1 points)</h3>
 <p>Using the dataset <code>gdp-per-capita-growths.csv</code>, calculate the average per capita GDP growth rate across countries by year.</p>
-<p>In what year in the data was the average GDP per capita growth rate the smallest?</p>
-<p>Also assign your answer to <code>answer18</code> in your code.</p>
+<p>Write an R command that finds the year in the data when the average GDP per capita growth rate the <em>smallest</em>?</p>
+<p>Write the numerical value of your answer in the box below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"gdp-per-capita-growths.csv"</span>)</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"lending-rates.csv"</span>)</span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(gdp_pc_growth <span class="sc">~</span> year, <span class="at">data =</span> df1, <span class="at">FUN =</span> mean)</span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> tmp[<span class="fu">order</span>(tmp<span class="sc">$</span>gdp_pc_growth), ]</span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>answer18 <span class="ot">&lt;-</span> tmp<span class="sc">$</span>year[<span class="dv">1</span>]</span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>answer18</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Find average GDP per growth growth across countries by year:</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(gdp_pc_growth <span class="sc">~</span> year, <span class="at">data =</span> df1, <span class="at">FUN =</span> mean)</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort from smallest to largest:</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> tmp[<span class="fu">order</span>(tmp<span class="sc">$</span>gdp_pc_growth), ]</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the year with the smallest value of GDP per capita growth:</span></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>tmp<span class="sc">$</span>year[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2009</code></pre>
 </div>
@@ -476,9 +490,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="question-19-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-19-1-point">Question 19 (1 point)</h3>
-<p>Merge the datasets <code>gdp-per-capita-growths.csv</code> and <code>lending-rates.csv</code> together by the variables <code>"country"</code> and <code>"year"</code>, dropping observations without a match. Your merged dataset should have 2,572 observations and 4 variables.</p>
-<p>Report the mean growth rate in GDP per capita in the merged dataset.</p>
-<p>Also assign your answer to <code>answer19</code> in your code.</p>
+<p>Use R to merge the datasets <code>gdp-per-capita-growths.csv</code> and <code>lending-rates.csv</code> together by the variables <code>"country"</code> and <code>"year"</code>, dropping observations without a match. Your merged dataset should have 2,572 observations and 4 variables.</p>
+<p>Write an R command that computes the mean growth rate in GDP per capita in the merged dataset.</p>
+<p>Write the numerical value of your answer in the box below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge by country and year:</span></span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">merge</span>(df1, df2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"year"</span>))</span>
@@ -488,8 +502,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2572    4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>answer19 <span class="ot">&lt;-</span> <span class="fu">mean</span>(df<span class="sc">$</span>gdp_pc_growth)</span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>answer19</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get answer:</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>gdp_pc_growth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.456217</code></pre>
 </div>
@@ -517,16 +531,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Netherlands 2000 gdp_pc_growth  3.4535383
 Netherlands 2001 gdp_pc_growth  1.5574581
 Netherlands 2002 gdp_pc_growth -0.4203677</code></pre>
-<p>Note: You do not need to save your answer in your R script for this question.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>df_nl <span class="ot">&lt;-</span> df[df<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Netherlands"</span>, ]</span>
-<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>df_nl_long <span class="ot">&lt;-</span> <span class="fu">melt</span>(df_nl, <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"year"</span>))</span>
-<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_nl_long, <span class="fu">aes</span>(year, value, <span class="at">color =</span> variable)) <span class="sc">+</span></span>
-<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create subset of merged data which only includes the Netherlands:</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>df_nl <span class="ot">&lt;-</span> df[df<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Netherlands"</span>, ]</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshape from long to wide:</span></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>df_nl_long <span class="ot">&lt;-</span> <span class="fu">melt</span>(df_nl, <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"year"</span>))</span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GDP per capita growth and lender rate over time:</span></span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_nl_long, <span class="fu">aes</span>(year, value, <span class="at">color =</span> variable)) <span class="sc">+</span></span>
+<span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="sample-exam-solutions_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
 </div>
