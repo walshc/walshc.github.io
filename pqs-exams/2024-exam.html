@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming for E&amp;BI Sample Exam</title>
+<title>Programming and Quantitative Skills - 2024 Exam Solutions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,7 +34,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="2024-exam_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="2024-exam_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -49,34 +49,7 @@ ul.task-list li input[type="checkbox"] {
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 </head>
 
@@ -88,7 +61,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Programming for E&amp;BI Sample Exam</h1>
+<h1 class="title">Programming and Quantitative Skills - 2024 Exam Solutions</h1>
 </div>
 
 
@@ -101,9 +74,7 @@ window.Quarto = {
   </div>
   
 
-
 </header>
-
 
 <p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
 <section id="short-answer-questions-5-points" class="level2 unnumbered">
@@ -117,18 +88,19 @@ window.Quarto = {
 </section>
 <section id="question-2-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-2-1-point">Question 2 (1 point)</h3>
-<p>Write an R command that calculates <span class="math inline">\log_2\left(64\right)</span></p>
+<p>Write an R command that calculates <span class="math inline">\log_3\left(27\right)</span></p>
 <p>Provide both the numerical answer and the R command.</p>
 </section>
 <section id="question-3-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-3-1-point">Question 3 (1 point)</h3>
 <p>If we create the following vector in R, what class will it be?</p>
-<pre><code>c(1, 2, "c", "d")</code></pre>
+<pre><code>c(1, 2, TRUE, FALSE)</code></pre>
 <ul>
 <li>Numeric.</li>
 <li>Character.</li>
+<li>Logical.</li>
+<li>Both numeric and logical.</li>
 <li>Both numeric and character.</li>
-<li>Neither numeric nor character.</li>
 </ul>
 <p>Note: You do not need to supply your code for this question.</p>
 </section>
@@ -136,119 +108,128 @@ window.Quarto = {
 <h3 class="unnumbered anchored" data-anchor-id="question-4-1-point">Question 4 (1 point)</h3>
 <p>Write an R command that generates a numeric vector containing the following sequence:</p>
 <p><span class="math display">
-(10, 10, 20, 20, 30, 30, 40, 40, \dots, 470, 470, 480, 480, 490, 490, 500, 500)
-</span></p>
+(100, 99, 98, \dots, 3, 2, 1, 100, 99, 98, \dots, 3, 2, 1)
+</span> The resulting vector could contain 200 elements.</p>
 </section>
 <section id="question-5-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-5-1-point">Question 5 (1 point)</h3>
-<p>The logical vectors <code>a</code> and <code>b</code> have equal length. Which of the following options is always the same as <code>!(a | b)</code>, regardless of the contents of <code>a</code> and <code>b</code>?</p>
+<p>The logical vectors <code>a</code> and <code>b</code> have equal length. Which of the following options is always the same as <code>!a &amp; !b</code>, regardless of the contents of <code>a</code> and <code>b</code>?</p>
 <ul>
-<li><code>!a &amp; !b</code></li>
-<li><code>!a | !b</code></li>
+<li><code>!(a | b)</code></li>
 <li><code>a | b</code></li>
+<li><code>a &amp; b</code></li>
+<li><code>!(a &amp; b)</code></li>
 </ul>
 <p>Note: You do not need to supply your code for this question.</p>
 </section>
 </section>
 <section id="data-analysis-5-points" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="data-analysis-5-points">Data Analysis (5 points)</h2>
-<p>Download the dataset <a href="https://walshc.github.io/ebi-prog/ceosal.csv">ceosal.csv</a>. The dataset contains information on chief executive officers (CEOs) at different companies. The variable descriptions are:</p>
+<p>Download the dataset <a href="https://walshc.github.io/pqs/airfare.csv">airfare.csv</a>. The dataset contains information on the average number of passengers and average fares along different airline routes in the US. The variable descriptions are:</p>
 <ul>
-<li><code>salary</code>: CEO compensation in 1990 (in dollars).</li>
-<li><code>age</code>: CEO age</li>
-<li><code>college</code>: <span class="math inline">=1</span> if the CEO attended college and <span class="math inline">=0</span> otherwise.</li>
-<li><code>grad</code>: <span class="math inline">=1</span> if the CEO attended post-graduate education and <span class="math inline">=0</span> otherwise.</li>
-<li><code>comten</code>: Years the CEO worked with the company.</li>
-<li><code>ceoten</code>: Years as CEO with the company.</li>
-<li><code>profits</code>: Profits of the company in 1990 (in dollars).</li>
+<li><code>year</code>: The year.</li>
+<li><code>route_id</code>: An ID variable indicating the airline route.</li>
+<li><code>distance</code>: The distance in miles traveled on the route.</li>
+<li><code>avg_passengers</code>: The average number of passengers on that route in that year.</li>
+<li><code>avg_fare</code>: The average price of a ticket on that route in that year (in dollars).</li>
 </ul>
 <p>When reading the dataset into R, assign it to <code>df</code>.</p>
 <section id="question-6-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-6-1-point">Question 6 (1 point)</h3>
-<p>How many observations are in the dataset?</p>
+<p>How many observations (rows) are in the dataset?</p>
 <p>Provide both the numerical answer and the R command required to obtain the answer (if the dataframe is assigned to <code>df</code>).</p>
 </section>
 <section id="question-7-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-7-1-point">Question 7 (1 point)</h3>
-<p>What is the median of the variable <code>comten</code>?</p>
+<p>What is the median of the variable <code>avg_fare</code>?</p>
 <p>Provide both the numerical answer and the R command required to obtain the answer (if the dataframe is assigned to <code>df</code>).</p>
 </section>
 <section id="question-8-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-8-1-point">Question 8 (1 point)</h3>
-<p>What is the mean salary of the CEOs that attended post-graduated education?</p>
+<p>In 1997, how expensive was the route with the highest average fare?</p>
 <p>Provide both the numerical answer and the R command required to obtain the answer (if the dataframe is assigned to <code>df</code>).</p>
 </section>
 <section id="question-9-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-9-1-point">Question 9 (1 point)</h3>
-<p>How many people in the dataset attended college but didn’t attend post-graduate education?</p>
+<p>What is the average fare on route 66 over the years 1997-2000? That is, for route 66, what is the average of the <code>avg_fare</code> variable?</p>
 <p>Provide both the numerical answer and the R command required to obtain the answer (if the dataframe is assigned to <code>df</code>).</p>
 </section>
 <section id="question-10-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-10-1-point">Question 10 (1 point)</h3>
-<p>In the dataset, what is the longest someone worked at a company (in years) for before they became CEO?</p>
+<p>How many routes in the dataset in 1997 involve a distance exceeding 2500 miles?</p>
 <p>Provide both the numerical answer and the R command required to obtain the answer (if the dataframe is assigned to <code>df</code>).</p>
 </section>
 </section>
 <section id="data-cleaning-4-points" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="data-cleaning-4-points">Data Cleaning (4 points)</h2>
-<p>Download the dataset <a href="https://walshc.github.io/ebi-prog/euro-dollar-2022.csv">euro-dollar-2022.csv</a>. The dataset contains the closing Euro-Dollar exchange rate (variable <code>Price</code>) each day throughout 2022, together with the opening, highest and lowest exchange rate. Furthermore, it includes the volume traded and the percentage daily change in the closing price.</p>
-<p>Download the following <a href="https://walshc.github.io/ebi-prog-exams/sample-exam-block-3-template.R">template script</a> and use it to clean the data and answer the questions that follow.</p>
-<p>When reading the dataset into R, assign it to <code>df</code>.</p>
-<p>You should do the following cleaning tasks to your dataframe <code>df</code>:</p>
+<p>Download the dataset <a href="https://walshc.github.io/pqs/admissions.csv">admissions.csv</a>. The dataset contains student applications records for a university. The raw dataset contains 157 observations. It contains the following variables:</p>
+<ul>
+<li><code>Age</code>: The age of the applicant.</li>
+<li><code>Gender</code>: The gender of the applicant.</li>
+<li><code>Admission Test Score</code>: The applicant’s score out of 100 in an entrance exam.</li>
+<li><code>High School Percentage</code>: The applicant’s average high school grades out of 100.</li>
+<li><code>Admission Status</code>: Whether the applicant was accepted or rejected to the university.</li>
+</ul>
+<p>Using the following template script to clean your data according to the 7 steps below and to answer the 3 questions that follow: <a href="https://walshc.github.io/pqs-exams/2024-exam-block-3-template.R">2024-exam-block-3-template.R</a>.</p>
 <ol type="1">
-<li>Format the <code>Date</code> variable to a date.</li>
-<li>Sort the data by <code>Date</code> ascending (the earliest date in the data should be first, the most recent date last).</li>
-<li>Drop rows with any missing data.</li>
-<li>Convert <code>Price</code>, <code>Open</code>, <code>High</code> and <code>Low</code> to numeric.</li>
-<li>Convert <code>Vol</code> to numeric. For example, <code>"33.87K"</code> should be <code>33870</code>. <em>Hint:</em> First use the <code>gsub()</code> function to remove the <code>K</code>. Then convert the variable to numeric format. Finally multiply it by 1,000.</li>
-<li>Convert <code>Change</code> to numeric. <em>Tip:</em> Use <code>gsub("\\%", "", x)</code> to remove a percentage symbol from <code>x</code>.</li>
-<li>Convert all variable names to lower case.</li>
+<li>Drop all rows containing <code>NA</code> values. You should be left with 127 observations</li>
+<li>Drop all rows where <code>Age</code> is negative. You should be left with 122 observations.</li>
+<li>Drop all rows where <code>Gender</code> is equal to <code>""</code>. You should be left with 113 observations.</li>
+<li>Drop all rows where <code>Admission.Test.Score</code> is negative or larger than 100. You should be left with 111 observations.</li>
+<li>Drop all rows where <code>High.School.Percentage</code> is negative or larger than 100. You should be left with 109 observations.</li>
+<li>Drop all rows where <code>Admission.Status</code> is equal to ““. You should be left with 103 observations.</li>
+<li>Change the 5 variable names to: <code>age</code>, <code>gender</code>, <code>admission_test_score</code>, <code>high_school</code>, <code>admission_status</code>.</li>
 </ol>
-<p>If you did all the steps correctly, you should have 260 observations. The average of the <code>high</code> variable should be 0.9561. The average of the <code>vol</code> variable should be 79920. If only some of these match your cleaned dataset, you will still be able to answer some of the questions correctly.</p>
+<p>When reading the dataset into R, assign it to <code>df</code>. If you did all the steps correctly, you should have 103 observations remaining and the average of the <code>admission_test_score</code> variable should be 76.95146. The output of <code>head(df, n = 3)</code> should appear like this:</p>
+<pre><code>    age gender admission_test_score high_school admission_status
+1    24 Female                   50       68.90         Rejected
+4    17   Male                   55       85.29         Rejected
+8    20 Female                   82       55.67         Accepted</code></pre>
 <section id="question-11-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-11-1-point">Question 11 (1 point)</h3>
-<p>Create a variable called <code>hml</code> which is the <code>high</code> variable minus the <code>low</code> variable.</p>
-<p>Use this variable to write an R command that computes the mean of this variable.</p>
+<p>In the cleaned dataset, what is the mean of the variable <code>high_school</code>?</p>
 <p>Assign the output of this command to the variable <code>a11</code> in your script and write its numerical value in the box below.</p>
 </section>
 <section id="question-12-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-12-1-point">Question 12 (1 point)</h3>
-<p>Write an R command that computes the median of the <code>vol</code> variable.</p>
+<p>In the cleaned dataset, what is the acceptance rate of the university? That is, what proportion of observations have the admission status <code>"Accepted"</code>?</p>
+<p>Your answer should be between 0 and 1.</p>
 <p>Assign the output of this command to the variable <code>a12</code> in your script and write its numerical value in the box below.</p>
 </section>
 <section id="question-13-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-13-1-point">Question 13 (1 point)</h3>
-<p>Write an R command that computes the largest <em>negative</em> daily price change in the data.</p>
+<p>In the cleaned dataset, what is the highest admission test score among applicants that are 17 years old?</p>
 <p>Assign the output of this command to the variable <code>a13</code> in your script and write its numerical value (without the <code>%</code> symbol) in the box below.</p>
-</section>
-<section id="question-14-1-point" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="question-14-1-point">Question 14 (1 point)</h3>
-<p>Write an R command that finds the date on which the largest volume was traded.</p>
-<p>Assign the output of this command to the variable <code>a14</code> in your script and write the day, month and year in the boxes below.</p>
 </section>
 </section>
 <section id="optimization-3-points" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="optimization-3-points">Optimization (3 points)</h2>
 <p>The following 3 questions will involve working with the following mathematical function defined over all real numbers <span class="math inline">x</span>:</p>
-<p><span class="math display">f(x) = -x^2 + 2x - 5</span></p>
+<p><span class="math display">f(x) =
+\begin{cases}
+10 &amp; \text{ if } x &lt; 0 \\
+-x^2 + 10x + 10 &amp; \text{ otherwise}
+\end{cases}
+</span></p>
+<section id="question-14-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-14-1-point">Question 14 (1 point)</h3>
+<p>Plot the function between the <span class="math inline">x</span> values <span class="math inline">-10</span> and <span class="math inline">+10</span>. Choose the answer below which best describes the shape of this function:</p>
+<ul>
+<li>The function is flat at 10 for negative <span class="math inline">x</span> and inverse U-shaped for positive <span class="math inline">x</span>.</li>
+<li>The function is flat at 10 for positive <span class="math inline">x</span> and inverse U-shaped for negative <span class="math inline">x</span>.</li>
+<li>The function is flat at 10 for negative <span class="math inline">x</span> and U-shaped for positive <span class="math inline">x</span>.</li>
+<li>The function is flat at 10 for positive <span class="math inline">x</span> and U-shaped for negative <span class="math inline">x</span>.</li>
+</ul>
+<p><em>Tip:</em> Define the function <span class="math inline">f</span> using the <code>ifelse()</code> function.</p>
+<p><em>Note:</em> You do not need to provide R code for this question.</p>
+</section>
 <section id="question-15-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-15-1-point">Question 15 (1 point)</h3>
-<p>Plot the function between the <span class="math inline">x</span> values <span class="math inline">-3</span> and <span class="math inline">+5</span>. Choose the answer below which best describes the shape of this function:</p>
-<ul>
-<li>Straight line</li>
-<li>Flat</li>
-<li>U shape</li>
-<li>Inverted U shape (upside-down U)</li>
-</ul>
-<p><em>Note:</em> you do not need to assign your answer to this question to any variable in your R.</p>
+<p>Write an R command that finds the value of <span class="math inline">x</span> that maximizes this function in the interval <span class="math inline">[0, 100]</span>.</p>
+<p>Write the numerical value of the output of this command in the box below.</p>
 </section>
 <section id="question-16-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-16-1-point">Question 16 (1 point)</h3>
-<p>Write an R command that finds the value of <span class="math inline">x</span> that maximizes this function.</p>
-<p>Write the numerical value of the output of this command in the box below.</p>
-</section>
-<section id="question-17-1-point" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="question-17-1-point">Question 17 (1 point)</h3>
 <p>Write an R command that finds the value of the function <span class="math inline">f(x)</span> at its maximum value.</p>
 <p>Write the numerical value of the output of this command in the box below.</p>
 </section>
@@ -257,44 +238,45 @@ window.Quarto = {
 <h2 class="unnumbered anchored" data-anchor-id="aggregating-merging-and-reshaping-3-points">Aggregating, Merging and Reshaping (3 points)</h2>
 <p>Download the two datasets:</p>
 <ol type="1">
-<li><a href="https://walshc.github.io/ebi-prog/gdp-per-capita-growths.csv">gdp-per-capita-growths.csv</a> - this dataset contains 3 variables: <code>country</code>, <code>year</code> and <code>gdp_pc_growth</code>. The variable <code>gdp_pc_growth</code> is the growth rate of the country’s per capita gross domestic product (GDP) in that year.</li>
-<li><a href="https://walshc.github.io/ebi-prog/lending-rates.csv">lending-rates.csv</a> - this dataset contains 3 variables: <code>country</code>, <code>year</code> and <code>lending_rate</code>. The variable <code>lending_rate</code> is the lending interest rate in that country in that year.</li>
+<li><a href="https://walshc.github.io/pqs/sales-by-state-2023.csv">sales-by-state-2023.csv</a> - this dataset contains 3 variables: <code>state</code>, <code>region</code> and <code>sales</code>. The dataset contains the sales (in thousands of dollars) for a company from 2023 in 30 US states and their corresponding region.</li>
+<li><a href="https://walshc.github.io/pqs/ad-spend-by-state-2023.csv">ad-spend-by-state-2023.csv</a> - this dataset contains 2 variables: <code>state</code>, and <code>ad_spend</code>. The dataset contains the advertising expenditure (in thousands of dollars) for the same company in 2023 in the same 30 US states as the sales data.</li>
 </ol>
-<p>Assign the dataset <code>gdp-per-capita-growths.csv</code> to <code>df1</code> and <code>lending-rates.csv</code> to <code>df2</code> in your script.</p>
-<section id="question-18-1-points" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="question-18-1-points">Question 18 (1 points)</h3>
-<p>Using the dataset <code>gdp-per-capita-growths.csv</code>, calculate the average per capita GDP growth rate across countries by year.</p>
-<p>Write an R command that finds the year in the data when the average GDP per capita growth rate the <em>smallest</em>?</p>
-<p>Write the numerical value of your answer in the box below.</p>
+<section id="question-17-1-points" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-17-1-points">Question 17 (1 points)</h3>
+<p>Assuming the <code>sales-by-state-2023.csv</code> dataset has been read into R as <code>df1</code>, write an R command in the box below that finds the average sales by region. The output of your command should be:</p>
+<pre><code>         region    sales
+1 North Central 3818.535
+2     Northeast 4488.667
+3         South 2973.121
+4          West 5484.096</code></pre>
+</section>
+<section id="question-18-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-18-1-point">Question 18 (1 point)</h3>
+<p>Merge the datasets <code>sales-by-state-2023.csv</code> and <code>ad-spend-by-state-2023.csv</code> by the variable <code>state</code>. Use ggplot to create a scatter plot with <code>ad_spend</code> on the horizontal axis and <code>sales</code> on the vertical axis. Choose the answer below which best describes how to interpret this plot.</p>
+<ul>
+<li>There does not appear to be any relationship between advertising expenditure and sales. Whether ad expenditure is low or high, the value of sales is roughly the same.</li>
+<li>There does not appear to be any relationship between advertising expenditure and sales. Whether sales are low or high, the value of advertising expenditure is roughly the same.</li>
+<li>Where ad expenditure is high, sales tends to be low. Where ad expenditure is low, sales tends to be high.</li>
+<li>Where ad expenditure is low, sales tends to be low. Where ad expenditure is high, sales tends to be high.</li>
+</ul>
 </section>
 <section id="question-19-1-point" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="question-19-1-point">Question 19 (1 point)</h3>
-<p>Use R to merge the datasets <code>gdp-per-capita-growths.csv</code> and <code>lending-rates.csv</code> together by the variables <code>"country"</code> and <code>"year"</code>, dropping observations without a match. Your merged dataset should have 2,572 observations and 4 variables.</p>
-<p>Write an R command that computes the mean growth rate in GDP per capita in the merged dataset.</p>
-<p>Write the numerical value of your answer in the box below.</p>
-</section>
-<section id="question-20-1-point" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="question-20-1-point">Question 20 (1 point)</h3>
-<p>Create a subset of the merged data from Question 19 which only includes data on the Netherlands. This is when the <code>country</code> variable equals <code>"Netherlands"</code>.</p>
-<p>Reshape the Netherlands data to <em>long format</em> and use this long-format data to create a line plot of per capita GDP growth and the lending rate over time in the Netherlands. Choose the answer below which best describes what the plot shows in 2009:</p>
-<ul>
-<li>GDP per capita growth fell sharply, but the lending rate increased.</li>
-<li>GDP per capita growth rose sharply, but the lending rate decreased.</li>
-<li>GDP per capita growth fell sharply, and the lending rate also decreased.</li>
-<li>GDP per capita growth rose sharply, and the lending rate also increased.</li>
-</ul>
-<p><em>Hint:</em> Your long-format data for the Netherlands should have 4 variables: <code>"country"</code>, <code>"year"</code>, <code>"variable"</code> and <code>"value"</code>, where:</p>
-<ul>
-<li><code>"country"</code> is <code>"Netherlands"</code> everywhere.</li>
-<li><code>"year"</code> takes on the values 2000-2013 repeated twice.</li>
-<li><code>"variable"</code> contains the two variable names (<code>"gdp_pc_growth"</code> and <code>"lending_rate"</code>) repeated for each year.</li>
-<li><code>"value"</code> contains the values of those variables in those years.</li>
-</ul>
-<p>The first 3 rows of your reshaped data should look like:</p>
-<pre><code>    country year      variable      value
-Netherlands 2000 gdp_pc_growth  3.4535383
-Netherlands 2001 gdp_pc_growth  1.5574581
-Netherlands 2002 gdp_pc_growth -0.4203677</code></pre>
+<p>Create the following dataframe using the command below:</p>
+<pre><code>df &lt;- data.frame(id = 1:3, x = c(4, 2, 7), y = c(6, 3, 8))</code></pre>
+<p>The dataframe <code>df</code> should look like this:</p>
+<pre><code>  id x y
+1  1 4 6
+2  2 2 3
+3  3 7 8</code></pre>
+<p>Assuming the <code>reshape2</code> package has been correctly loaded with the command <code>library(reshape2)</code>, write a command in the box below that will transform <code>df</code> to the following:</p>
+<pre><code>  id variable value
+1  1        x     4
+2  2        x     2
+3  3        x     7
+4  1        y     6
+5  2        y     3
+6  3        y     8</code></pre>
 </section>
 </section>
 
@@ -335,7 +317,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -367,50 +360,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -420,17 +374,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -442,130 +387,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -609,7 +431,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -635,32 +456,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -721,7 +516,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-
 
 
 
