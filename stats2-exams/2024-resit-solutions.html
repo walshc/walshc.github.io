@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.52">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistics 2 2024/25 Resit Solutions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="2024-resit-solutions_files/libs/clipboard/clipboard.min.js"></script>
+<script src="2024-resit-solutions_files/libs/quarto-html/quarto.js"></script>
+<script src="2024-resit-solutions_files/libs/quarto-html/popper.min.js"></script>
+<script src="2024-resit-solutions_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="2024-resit-solutions_files/libs/quarto-html/anchor.min.js"></script>
+<link href="2024-resit-solutions_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="2024-resit-solutions_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="2024-resit-solutions_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="2024-resit-solutions_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="2024-resit-solutions_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="2024-resit-solutions.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Statistics 2 2024/25 Resit Solutions</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
+<section id="introduction" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The dataset <a href="https://walshc.github.io/stats2/toyota-corolla.csv"><code>toyota-corolla.csv</code></a> contains data from a random sample of advertisements for used Toyota Corolla cars on the website Craigslist, which is the American equivalent of Marktplaats. Here is an example advertisement from the site:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="toyota.png" class="img-fluid figure-img"></p>
+<figcaption>Example Advertisement</figcaption>
+</figure>
+</div>
+<p>There are 857 observations and 7 variables in the dataset:</p>
+<ul>
+<li><code>price</code>: The asking price in dollars for the car in the advertisement.</li>
+<li><code>age</code>: The age of the vehicle in years since its manufacture.</li>
+<li><code>odometer</code>: The total number of miles the car has driven in its lifetime. This is usually shown on the car’s dashboard. <em>Note:</em> 1 mile is 1.609344 kilometers.</li>
+<li><code>state_ca</code>: A dummy variable that equals 1 if the car advertisement was placed in the state of California and 0 otherwise.</li>
+<li><code>state_fl</code>: A dummy variable that equals 1 if the car advertisement was placed in the state of Florida and 0 otherwise.</li>
+<li><code>state_ny</code>: A dummy variable that equals 1 if the car advertisement was placed in the state of New York and 0 otherwise.</li>
+<li><code>state_tx</code>: A dummy variable that equals 1 if the car advertisement was placed in the state of Texas and 0 otherwise.</li>
+</ul>
+<p>All the advertisements are from one of California, Florida, New York or Texas.</p>
+<section id="question-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-1">Question 1</h4>
+<p>What is the sample correlation between <code>odometer</code> and <code>price</code>?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"toyota-corolla.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df<span class="sc">$</span>odometer, df<span class="sc">$</span>price)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.686819</code></pre>
+</div>
+</div>
+<p><strong>Answer:</strong></p>
+<p>-0.686819.</p>
+</section>
+<section id="question-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-2">Question 2</h4>
+<p>The sample correlation between <code>age</code> and <code>price</code> is -0.7405305. Choose the answer below which best interprets this correlation.</p>
+<ul>
+<li>A car that is older by one year will on average sell for $0.74 less.</li>
+<li>A car that is newer by one year will on average sell for $0.74 less.</li>
+<li>Older cars tend to have smaller asking prices and newer cars tend to have larger asking prices.</li>
+<li>Older cars tend to have larger asking prices and newer cars tend to have smaller asking prices.</li>
+</ul>
+<p><strong>Answer:</strong></p>
+<p>Older cars tend to have smaller asking prices and newer cars tend to have larger asking prices.</p>
+</section>
+</section>
+<section id="model-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-1">Model 1</h2>
+<p>Estimate a simple linear regression model with <code>price</code> as the dependent variable and <code>odometer</code> as the independent variable.</p>
+<p>Your estimated sample regression intercept should be 17970.519227.</p>
+<p>Use this model to answer the following questions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> odometer, <span class="at">data =</span> df)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = price ~ odometer, data = df)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-17120.5  -1542.1    685.4   2426.3  13298.7 
+
+Coefficients:
+                Estimate   Std. Error t value Pr(&gt;|t|)    
+(Intercept) 17970.519227   276.537183   64.98   &lt;2e-16 ***
+odometer       -0.085900     0.003109  -27.63   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3913 on 855 degrees of freedom
+Multiple R-squared:  0.4717,    Adjusted R-squared:  0.4711 
+F-statistic: 763.5 on 1 and 855 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<section id="question-3" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-3">Question 3</h4>
+<p>Choose the answer below which best interprets the sample regression intercept.</p>
+<ul>
+<li>The predicted asking price of a Toyota Corolla is $17970.52.</li>
+<li>All Toyota Corollas sell for $17970.52.</li>
+<li>The predicted asking price of a Toyota Corolla that has driven zero miles is $17970.52.</li>
+<li>All Toyota Corollas that have not driven any miles sell for $17970.52.</li>
+</ul>
+<p><strong>Answer:</strong></p>
+<p>The predicted asking price of Toyota Corolla that has driven zero miles is $17970.52.</p>
+<p><em>Explanation:</em></p>
+<p>The model is <span class="math inline">\mathbb{E}\left[price_i|odometer_i\right] = \beta_0 + \beta_1 odometer_i</span>. A Toyota Corolla with zero mileage will have an odometer value of 0. Thus <span class="math inline">\mathbb{E}\left[price_i|odometer_i=0\right]=\beta_0</span>. The estimate of <span class="math inline">\beta_0</span> is therefore our prediction of the asking price when the mileage is zero.</p>
+</section>
+<section id="question-4" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-4">Question 4</h4>
+<p>Report the sample regression slope.</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m1)[[<span class="st">"odometer"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.08590005</code></pre>
+</div>
+</div>
+</section>
+<section id="question-5" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-5">Question 5</h4>
+<p>Consider two Toyota Corollas, Car A and Car B. Car A has driven 100,000 miles in its lifetime while Car B has driven only 90,000.</p>
+<p>According to the model, by how much more is Car B expected to sell for in the market compared to Car A?</p>
+<p>In other words, calculate “Predicted asking price car B” - “Predicted asking price car A”.</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m1)[[<span class="st">"odometer"</span>]] <span class="sc">*</span> (<span class="dv">90000</span> <span class="sc">-</span> <span class="dv">100000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 859.0005</code></pre>
+</div>
+</div>
+<p><em>Explanation:</em></p>
+<p>The model is <span class="math inline">\mathbb{E}\left[price_i|odometer_i\right] = \beta_0 + \beta_1 odometer_i</span>. For Car A, we have an expected asking price of <span class="math inline">\mathbb{E}\left[price_i|odometer_i=100000\right] = \beta_0 + 100000\beta_1</span> and for Car B, we have an expected asking price of <span class="math inline">\mathbb{E}\left[price_i|odometer_i=90000\right] = \beta_0 + 90000\beta_1</span>. The difference between the two is therefore:</p>
+<p><span class="math display">
+\begin{split}
+&amp;\mathbb{E}\left[price_i|odometer_i=90000\right]-
+\mathbb{E}\left[price_i|odometer_i=100000\right]\\=&amp;
+\beta_0 + 90000\beta_1-(\beta_0 + 100000\beta_1)\\=&amp;
+90000\beta_1-100000\beta_1 \\=&amp;
+\beta_1\left(90000-100000\right)
+\end{split}</span></p>
+</section>
+<section id="question-6" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-6">Question 6</h4>
+<p>Run a regression of the squared residuals against <code>odometer</code> to formally test the homoskedasticity assumption in the model. Use a 5% level for the test.</p>
+<p>What is the null hypothesis? Choose one of the following options:</p>
+<ul>
+<li>There is no heteroskedasticity.</li>
+<li>There is heteroskedasticity.</li>
+</ul>
+<p>What is the <span class="math inline">p</span>-value of the test?</p>
+<p>What is the conclusion of the test? Choose one of the following options:</p>
+<ul>
+<li>There is not sufficient evidence to conclude that there is heteroskedasticity.</li>
+<li>There is sufficient evidence to conclude that there is heteroskedasticity.</li>
+<li>There is not sufficient evidence to conclude that there is homoskedasticity.</li>
+<li>There is sufficient evidence to conclude that there is homoskedasticity.</li>
+</ul>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>Null hypothesis: There is no heteroskedasticity.</li>
+<li>For the <span class="math inline">p</span>-value we run the test:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>e2 <span class="ot">&lt;-</span> m1<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(e2 <span class="sc">~</span> odometer, <span class="at">data =</span> df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = e2 ~ odometer, data = df)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-30326577 -15162785  -6539651   1584558 261174843 
+
+Coefficients:
+               Estimate  Std. Error t value Pr(&gt;|t|)    
+(Intercept) 31937335.58  2405035.08  13.279  &lt; 2e-16 ***
+odometer        -213.96       27.04  -7.913 7.74e-15 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 34030000 on 855 degrees of freedom
+Multiple R-squared:  0.06824,   Adjusted R-squared:  0.06715 
+F-statistic: 62.62 on 1 and 855 DF,  p-value: 7.745e-15</code></pre>
+</div>
+</div>
+<p>The <span class="math inline">p</span>-value is 0. - Conclusion: There is sufficient evidence to conclude that there is heteroskedasticity.</p>
+</section>
+</section>
+<section id="model-2" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-2">Model 2</h2>
+<p>Estimate a simple linear regression model with <code>price</code> as the dependent variable and the following two independent variables:</p>
+<ul>
+<li><code>odometer</code></li>
+<li><code>age</code></li>
+</ul>
+<p>Your estimated sample regression intercept should be 19089.793448.</p>
+<p>Use this model to answer the following questions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> odometer <span class="sc">+</span> age, <span class="at">data =</span> df)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = price ~ odometer + age, data = df)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-15752.2   -953.3    420.7   1638.0  11367.4 
+
+Coefficients:
+                Estimate   Std. Error t value Pr(&gt;|t|)    
+(Intercept) 19089.793448   237.822351   80.27   &lt;2e-16 ***
+odometer       -0.046291     0.003303  -14.01   &lt;2e-16 ***
+age          -578.251592    29.874177  -19.36   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3264 on 854 degrees of freedom
+Multiple R-squared:  0.6328,    Adjusted R-squared:  0.632 
+F-statistic: 735.9 on 2 and 854 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<section id="question-7" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-7">Question 7</h4>
+<p>Holding the odometer reading fixed, according to the model by how much more does a one-year younger Toyota Corolla on average sell for on the market?</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="fu">coef</span>(m2)[<span class="st">"age"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     age 
+578.2516 </code></pre>
+</div>
+</div>
+</section>
+<section id="question-8" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-8">Question 8</h4>
+<p>Provide a 99% confidence interval for the estimated coefficient on <code>odometer</code>:</p>
+<ul>
+<li>Lower bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Upper bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+</ul>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(m2, <span class="at">parm =</span> <span class="st">"odometer"</span>, <span class="at">level =</span> <span class="fl">0.99</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               0.5 %      99.5 %
+odometer -0.05481931 -0.03776273</code></pre>
+</div>
+</div>
+</section>
+<section id="question-9" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-9">Question 9</h4>
+<p>Perform an appropriate hypothesis test to test the usefulness of the model. Use a 5% significance level.</p>
+<ul>
+<li>The null hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\beta_j</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> for <span class="math inline">j=</span> <span class="math inline">\underline{\hspace{20mm}}</span> to <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in values in the blank spaces).</li>
+<li>The alternative hypothesis is that <em>at least one/all/none</em> (choose one) of <span class="math inline">\beta_j</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> for the same <span class="math inline">j</span> (choose one comparison operator and fill in a value in in the blank space).</li>
+<li>The formula for the test statistic is of the form: <span class="math display">
+\frac{\frac{SST - SSE}{a}}{\frac{SSE}{n-k-1}}
+</span> What is the value of <span class="math inline">a</span> in the estimated model? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is the critical value? <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>What is your conclusion? (choose one option below):
+<ul>
+<li><em>Reject</em> <span class="math inline">H_0</span>. The model is <em>useful</em>.</li>
+<li><em>Reject</em> <span class="math inline">H_0</span>. The model is <em>useless</em>.</li>
+<li><em>Don’t reject</em> <span class="math inline">H_0</span>. The model is <em>useful</em>.</li>
+<li><em>Don’t reject</em> <span class="math inline">H_0</span>. The model is <em>useless</em>.</li>
+</ul></li>
+</ul>
+<p><strong>Answer</strong>:</p>
+<ul>
+<li><span class="math inline">H_0</span>: All of <span class="math inline">\beta_j=0</span> for <span class="math inline">j=1</span> to <span class="math inline">2</span>.</li>
+<li><span class="math inline">H_1</span>: At least one of <span class="math inline">\beta_j\neq 0</span> for the same <span class="math inline">j</span>.</li>
+<li><span class="math inline">a</span> in the formula is <span class="math inline">k</span>. This is the number of variables in the model, which is 2.</li>
+<li>The value of the test statistic can be read from the <code>summary()</code> output (735.89) or obtained directly with:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)<span class="sc">$</span>fstatistic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   value    numdf    dendf 
+735.8914   2.0000 854.0000 </code></pre>
+</div>
+</div>
+<ul>
+<li>The critical value is:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(<span class="fl">0.95</span>, <span class="dv">2</span>, <span class="dv">854</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.006266</code></pre>
+</div>
+</div>
+<p>where the numerator and denominator degrees of freedom (2 and 854) can be read from the last line of the <code>summary()</code> output, the command <code>summary(m2)$fstatistic</code>, or calculated directly (<span class="math inline">k=2</span> variables and <span class="math inline">n-k-1=857-2-1=854</span>).</p>
+<ul>
+<li>Conclusion: <em>Reject</em> <span class="math inline">H_0</span>. The model is <em>useful</em>.</li>
+</ul>
+</section>
+<section id="question-10" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-10">Question 10</h4>
+<p>Use the model to test the following claim at the 5% level using a <span class="math inline">p</span>-value approach:</p>
+<p>“Holding the age of a Toyota Corolla fixed, each additional mile driven on average decreases the market value of a Toyota Corolla by more than 4 cents ($0.04).”</p>
+<p>Perform this test by answering the questions below.</p>
+<ul>
+<li><p>What is the null hypothesis? <span class="math inline">\beta_1</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</p></li>
+<li><p>What is the alternative hypothesis? <span class="math inline">\beta_1</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</p></li>
+<li><p>Under the null hypothesis, the test statistic <span class="math inline">T=(B_1-b)/S_{B_1}</span>, where <span class="math inline">b</span> is the hinge, follows a <span class="math inline">t</span> distribution with how many degrees of freedom? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is the associated <span class="math inline">p</span>-value? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is your conclusion? Choose an option below:</p>
+<ul>
+<li>Reject H0: There is sufficient evidence for the claim.</li>
+<li>Reject H0: There is not sufficient evidence for the claim.</li>
+<li>Don’t reject H0: There is sufficient evidence for the claim.</li>
+<li>Don’t reject H0: There is not sufficient evidence for the claim.</li>
+</ul></li>
+</ul>
+<p><strong>Answer</strong>:</p>
+<ul>
+<li><span class="math inline">H_0</span>: <span class="math inline">\beta_1 \geq -0.04</span>.</li>
+<li><span class="math inline">H_1</span>: <span class="math inline">\beta_1 &lt; -0.04</span>.</li>
+<li>Under <span class="math inline">H_0</span>, <span class="math inline">T=(B_1-b)/S_{B_1}</span>, where <span class="math inline">b</span> is the hinge, follows a <span class="math inline">t</span> distribution with <span class="math inline">n-k-1=854</span> degrees of freedom.</li>
+<li>The value of the test statistic can be computed with:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>b_1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">summary</span>(m2))[<span class="st">"odometer"</span>, <span class="st">"Estimate"</span>]</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>s_b_1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">summary</span>(m2))[<span class="st">"odometer"</span>, <span class="st">"Std. Error"</span>]</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> (b_1 <span class="sc">+</span> <span class="fl">0.04</span>) <span class="sc">/</span> s_b_1</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.904355</code></pre>
+</div>
+</div>
+<ul>
+<li>The <span class="math inline">p</span>-value for this lower tail test can be computed with:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(t, m2<span class="sc">$</span>df.residual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.02859986</code></pre>
+</div>
+</div>
+<ul>
+<li>The conclusion is: Reject H0: There is sufficient evidence for the claim.</li>
+</ul>
+</section>
+</section>
+<section id="model-3" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-3">Model 3</h2>
+<p>Estimate a simple linear regression model with <code>price</code> as the dependent variable and the following three independent variables:</p>
+<ul>
+<li><code>odometer</code></li>
+<li><code>age</code></li>
+<li>The interaction between <code>odometer</code> and <code>age</code>.</li>
+</ul>
+<p>Your estimated sample regression intercept should be 20541.174993.</p>
+<p>Use this model to answer the following questions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> odometer <span class="sc">*</span> age, <span class="at">data =</span> df)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = price ~ odometer * age, data = df)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-16242.4   -794.4    373.2   1597.4  11261.3 
+
+Coefficients:
+                 Estimate   Std. Error t value       Pr(&gt;|t|)    
+(Intercept)  20541.174993   328.060378  62.614        &lt; 2e-16 ***
+odometer        -0.068901     0.004840 -14.235        &lt; 2e-16 ***
+age           -856.224737    53.069730 -16.134        &lt; 2e-16 ***
+odometer:age     0.003364     0.000536   6.275 0.000000000555 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3193 on 853 degrees of freedom
+Multiple R-squared:  0.649, Adjusted R-squared:  0.6478 
+F-statistic: 525.8 on 3 and 853 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<section id="question-11" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-11">Question 11</h4>
+<p>Report the estimated coefficient on the interaction term.</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m3)[<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>odometer:age 
+ 0.003363627 </code></pre>
+</div>
+</div>
+</section>
+<section id="question-12" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-12">Question 12</h4>
+<p>According to the model, what is the average impact of driving one additional mile on the resale price for new cars (cars with age zero)?</p>
+<p>That is, when <code>age</code> equals zero, what is the expected change in the selling price when <code>odometer</code> increases by one unit?</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m3)[<span class="st">"odometer"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   odometer 
+-0.06890122 </code></pre>
+</div>
+</div>
+<p><em>Explanation:</em></p>
+<p>The model is: <span class="math display">
+\mathbb{E}\left[price_i|odometer_i,age_i\right]=\beta_0 + \beta_1 odometer_i + \beta_2 age_i + \beta_3 odometer_i age_i
+</span> For cars with age zero, the model becomes: <span class="math display">
+\mathbb{E}\left[price_i|odometer_i,age_i=0\right]=\beta_0 + \beta_1 odometer_i + \beta_2 \times 0 + \beta_3 odometer_i \times 0 = \beta_0 + \beta_1 odometer_i
+</span> Therefore increasing the mileage by one unit will have an expected impact of <span class="math inline">\beta_1</span>, which is estimated to be -0.0689 dollars (a reduction in 6.89 cents).</p>
+</section>
+<section id="question-13" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-13">Question 13</h4>
+<p>According to the model, what is the average impact of driving one additional mile on the resale price for cars that are 10 years old (cars with age 10).</p>
+<p>That is, when <code>age</code> equals ten, what is the expected change in the selling price when <code>odometer</code> increases by one unit?</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m3)[<span class="st">"odometer"</span>] <span class="sc">+</span> <span class="fu">coef</span>(m3)[<span class="st">"odometer:age"</span>] <span class="sc">*</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   odometer 
+-0.03526495 </code></pre>
+</div>
+</div>
+<p><em>Explanation:</em></p>
+<p>The model is: <span class="math display">
+\mathbb{E}\left[price_i|odometer_i,age_i\right]=\beta_0 + \beta_1 odometer_i + \beta_2 age_i + \beta_3 odometer_i age_i
+</span> For cars with age ten, the model becomes: <span class="math display">
+\begin{split}\mathbb{E}\left[price_i|odometer_i,age_i=10\right]&amp;=\beta_0 + \beta_1 odometer_i + \beta_2 \times 10 + \beta_3 odometer_i \times 10 \\&amp;=
+\beta_0 + \beta_1 odometer_i + 10\beta_2 + 10\beta_3 odometer_i\\&amp;=
+\left(\beta_0 + 10\beta_2\right) + \left(\beta_1 +10\beta_3\right)odometer_i
+\end{split}
+</span> Therefore increasing the mileage by one unit will have an expected impact of <span class="math inline">\beta_1+10\beta_3</span>, which is estimated to be -0.0352 dollars (a reduction in 3.52 cents).</p>
+</section>
+<section id="question-14" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-14">Question 14</h4>
+<p>Choose the answer below which best interprets the model estimates:</p>
+<ul>
+<li>For newer cars, driving one additional mile on average has a bigger effect on the car’s depreciation compared to older cars.</li>
+<li>For older cars, driving one additional mile on average has a bigger effect on the car’s depreciation compared to newer cars.</li>
+<li>Driving one additional mile has the same effect on the car’s depreciation, regardless of how old it is.</li>
+<li>Driving more miles in a car does not impact its value. All that matters is how old the car is.</li>
+</ul>
+<p><strong>Answer:</strong></p>
+<p>For new cars, driving one additional mile has a bigger effect on the car’s depreciation compared to old cars.</p>
+<p><em>Explanation:</em></p>
+<p>The previous 2 questions showed that for new cars, one additional mile reduced the value by on average 6.9 cents, whereas for ten-year-old cars, this was only 3.5 cents. So one additional mile has a bigger effect on the car’s depreciation for new cars compared to old cars.</p>
+</section>
+</section>
+<section id="model-4" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-4">Model 4</h2>
+<p>Estimate a simple linear regression model with <code>price</code> as the dependent variable and the following five independent variables:</p>
+<ul>
+<li><code>odometer</code></li>
+<li><code>age</code></li>
+<li><code>state_fl</code></li>
+<li><code>state_ny</code></li>
+<li><code>state_tx</code></li>
+</ul>
+<p>Your estimated sample regression intercept should be 20106.250435.</p>
+<p>Use this model to answer the following questions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> odometer <span class="sc">+</span> age <span class="sc">+</span> state_fl <span class="sc">+</span> state_ny <span class="sc">+</span> state_tx, <span class="at">data =</span> df)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = price ~ odometer + age + state_fl + state_ny + state_tx, 
+    data = df)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-14734.1   -918.8    404.4   1744.8  10373.8 
+
+Coefficients:
+                Estimate   Std. Error t value       Pr(&gt;|t|)    
+(Intercept) 20106.250435   264.744313  75.946        &lt; 2e-16 ***
+odometer       -0.046084     0.003208 -14.366        &lt; 2e-16 ***
+age          -594.843361    29.393528 -20.237        &lt; 2e-16 ***
+state_fl    -1670.793437   256.274366  -6.520 0.000000000121 ***
+state_ny    -1060.337181   359.599538  -2.949        0.00328 ** 
+state_tx    -2006.696530   328.732687  -6.104 0.000000001567 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3159 on 851 degrees of freedom
+Multiple R-squared:  0.6573,    Adjusted R-squared:  0.6553 
+F-statistic: 326.5 on 5 and 851 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<section id="question-15" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-15">Question 15</h4>
+<p>Which variables are individually statistically significant at the 1% level?</p>
+<p><strong>Answer:</strong></p>
+<p>All 5 variables. All have <span class="math inline">p</span>-values below 0.01.</p>
+</section>
+<section id="question-16" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-16">Question 16</h4>
+<p>For a given mileage and age, Toyota Corollas on average sell for how much more in New York compared to Texas?</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m4)[<span class="st">"state_ny"</span>] <span class="sc">-</span> <span class="fu">coef</span>(m4)[<span class="st">"state_tx"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>state_ny 
+946.3593 </code></pre>
+</div>
+</div>
+<p>Toyota Corollas of a given mileage and age on average sell for $946.36 more in New York comapred to Texas.</p>
+<p><em>Explanation:</em> In New York, the model is: <span class="math display">
+\begin{split}
+&amp;\mathbb{E}\left[price_i|odometer_i,age_i,state\_fl_i=0,state\_ny_i=1,state\_tx_i=0\right]\\&amp;=\beta_0 + \beta_1 odometer_i + \beta_2 age_i +\beta_3\times0+\beta_4\times1+\beta_5\times0
+\\&amp;=\beta_0 + \beta_1 odometer_i + \beta_2 age_i+ \beta_4\\
+\end{split}
+</span> In Texas, the model is: <span class="math display">
+\begin{split}
+&amp;\mathbb{E}\left[price_i|odometer_i,age_i,state\_fl_i=0,state\_ny_i=0,state\_tx_i=1\right]\\&amp;=\beta_0 + \beta_1 odometer_i + \beta_2 age_i +\beta_3\times0+\beta_4\times0+\beta_5\times1
+\\&amp;=\beta_0 + \beta_1 odometer_i + \beta_2 age_i+ \beta_5\\
+\end{split}
+</span> The difference is <span class="math inline">\beta_4-\beta_5</span>.</p>
+</section>
+<section id="question-17" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-17">Question 17</h4>
+<p>Provide an interval that contains with 95% probability the asking price of a 10-year-old Toyota Corolla in Texas with 100,000 miles on its odometer.</p>
+<ul>
+<li>Lower bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Upper bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>df_p <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">age =</span> <span class="dv">10</span>, <span class="at">odometer =</span> <span class="dv">100000</span>, <span class="at">state_fl =</span> <span class="dv">0</span>,</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">state_ny =</span> <span class="dv">0</span>, <span class="at">state_tx =</span> <span class="dv">1</span>)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(m4, df_p, <span class="at">interval =</span> <span class="st">"prediction"</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       fit      lwr      upr
+1 7542.682 1314.737 13770.63</code></pre>
+</div>
+</div>
+<p>The prediction is $7,542.68. The lower bound is $1,314.74. The upper bound is $13,770.63.</p>
+</section>
+<section id="question-18" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-18">Question 18</h4>
+<p>Test the joint usefulness of the state dummy variabes, which are variables 3-5 in your the model. Use a 5% significance level.</p>
+<p>Choose one of the options in <em>italics</em> and fill in the blanks.</p>
+<ul>
+<li>The null hypothesis is that <em>all/at least one/none</em> of <span class="math inline">\beta_j</span> <span class="math inline">\rule{1cm}{0.15mm}</span> <span class="math inline">\rule{1cm}{0.15mm}</span> for <span class="math inline">j</span> from <span class="math inline">\rule{1cm}{0.15mm}</span> to <span class="math inline">\rule{1cm}{0.15mm}</span>.</li>
+<li>The alternative hypothesis is that <em>all/at least one/none</em> of <span class="math inline">\beta_j</span> <span class="math inline">\rule{1cm}{0.15mm}</span> <span class="math inline">\rule{1cm}{0.15mm}</span> for the same <span class="math inline">j</span>.</li>
+</ul>
+<p>The test statistic is of the form: <span class="math display">
+\frac{\frac{SSE_r - SSE_c}{a}}{\frac{SSE_c}{n-k-1}}
+</span></p>
+<p>What is the value of <span class="math inline">a</span> in the test? <span class="math inline">\rule{1cm}{0.15mm}</span></p>
+<p>What is the value of the test statistic? <span class="math inline">\rule{1cm}{0.15mm}</span></p>
+<p>What is the critical value? <span class="math inline">\rule{1cm}{0.15mm}</span></p>
+<p>Which of the 4 options below is the correct conclusion from the test?</p>
+<ul>
+<li>Reject H0. The variables are useful additions to the model.</li>
+<li>Reject H0. The variables are not useful additions to the model.</li>
+<li>Don’t reject H0. The variables are useful additions to the model.</li>
+<li>Don’t reject H0. The variables are not useful additions to the model.</li>
+</ul>
+<p><strong>Answer:</strong></p>
+<p>We can perform the partial <span class="math inline">F</span> test by using the <code>anova()</code> function with the reduced model (<code>odometer</code> and <code>age</code> only) and the complete model (<code>odometer</code>, <code>age</code> and the state dummies). The reduced model is actually just model 2 from earlier, so there is no need to estiamte it again.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m2, m4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: price ~ odometer + age
+Model 2: price ~ odometer + age + state_fl + state_ny + state_tx
+  Res.Df        RSS Df Sum of Sq      F            Pr(&gt;F)    
+1    854 9099709729                                          
+2    851 8491795514  3 607914215 20.307 0.000000000001023 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>We now have everything to answer the questions:</p>
+<ul>
+<li><span class="math inline">H_0</span>: All <span class="math inline">\beta_j=0</span> for <span class="math inline">j</span> from 3 to 5.</li>
+<li><span class="math inline">H_1</span>: At least one <span class="math inline">\beta_j\neq 0</span> for the same <span class="math inline">j</span>.</li>
+<li><span class="math inline">a</span> is <span class="math inline">k-g</span>, the number of variables in the complete model minus the number of variables in the reduced model (or the number of variables we are testing). This is <span class="math inline">5-2=3</span>.</li>
+<li>Value of the test statistic: 20.307.</li>
+<li>Critical value with <span class="math inline">k-g=3</span> numerator and <span class="math inline">n-k-1=851</span> denominator degrees of freedom:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(<span class="fl">0.95</span>, <span class="dv">3</span>, <span class="dv">851</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.615365</code></pre>
+</div>
+</div>
+<ul>
+<li>Conclusion: Reject H0. The variables are useful additions to the model (<em>reason:</em> the test statistic 20.307 is larger than the critical value of 2.615).</li>
+</ul>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
