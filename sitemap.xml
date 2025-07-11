@@ -6,55 +6,930 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
 <url>
-  <loc>http://walshc.github.io/</loc>
-  <lastmod>2025-06-30T01:01:18+00:00</lastmod>
+  <loc>https://walshc.github.io/</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://walshc.github.io/Walsh_Christoph_CV.pdf</loc>
-  <lastmod>2025-06-30T01:01:18+00:00</lastmod>
+  <loc>https://walshc.github.io/Walsh_Christoph_CV.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://walshc.github.io/research/ghana_radio.pdf</loc>
-  <lastmod>2025-06-30T01:01:18+00:00</lastmod>
+  <loc>https://walshc.github.io/research/loansharks.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://walshc.github.io/research/thai_banks.pdf</loc>
-  <lastmod>2025-06-30T01:01:18+00:00</lastmod>
+  <loc>https://walshc.github.io/research/gang_bargaining.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://walshc.github.io/research/gang_bargaining.pdf</loc>
-  <lastmod>2025-06-30T01:01:18+00:00</lastmod>
+  <loc>https://walshc.github.io/research/ghana_radio.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://walshc.github.io/research/loansharks.pdf</loc>
-  <lastmod>2025-06-30T01:01:18+00:00</lastmod>
+  <loc>https://walshc.github.io/research/thai_banks.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://walshc.github.io/research/environmental_impacts_of_banning_vehicle_advertising.pdf</loc>
-  <lastmod>2025-06-30T01:01:18+00:00</lastmod>
+  <loc>https://walshc.github.io/research/environmental_impacts_of_banning_vehicle_advertising.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://walshc.github.io/ec201</loc>
-  <lastmod>2025-06-30T01:01:18+00:00</lastmod>
+  <loc>https://walshc.github.io/ge-theory/</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://walshc.github.io/ge-theory</loc>
-  <lastmod>2025-06-30T01:01:18+00:00</lastmod>
+  <loc>https://walshc.github.io/stats2/</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://walshc.github.io/panel-data</loc>
-  <lastmod>2025-06-30T01:01:18+00:00</lastmod>
+  <loc>https://walshc.github.io/pqs/</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://walshc.github.io/pqs</loc>
-  <lastmod>2025-06-30T01:01:18+00:00</lastmod>
+  <loc>https://walshc.github.io/ebi-prog/</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://walshc.github.io/ebi-prog</loc>
-  <lastmod>2025-06-30T01:01:18+00:00</lastmod>
+  <loc>https://walshc.github.io/panel-data/</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://walshc.github.io/stats2</loc>
-  <lastmod>2025-06-30T01:01:18+00:00</lastmod>
+  <loc>https://walshc.github.io/ec201/</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
+<url>
+  <loc>https://walshc.github.io/ge-theory/syllabus_micro3_part2_2024.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ge-theory/1_intro_to_ge.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ge-theory/2_partial_equilibrium.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ge-theory/3_market_failures.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ge-theory/4_edgeworth_box.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ge-theory/5_welfare_theorems.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ge-theory/6_existence_uniqueness_stability.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/index.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/Statistics-2-for-IBA.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/scatter-plots.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/covariance.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/correlation.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/spurious-relationships.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/slr-intro.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/slr-estimation.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/slr-assumptions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/slr-confint.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/slr-hypothesis-testing.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/slr-statistical-significance.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/slr-r-squared.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/slr-prediction-intervals.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/mlr-intro.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/mlr-assumptions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/mlr-inference.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/mlr-r-squared.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/mlr-prediction-intervals.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/f-test.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/partial-f-test.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/collinearity.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/higher-order-terms.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/interaction-terms.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/dummy-variables.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/qualitative-variables.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/heteroskedasticity.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/serial-correlation.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/stats2/zero-conditional-mean.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/index.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/Programming-and-Quantitative-Skills-for-IBA---R.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/getting-started.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/r-as-a-calculator.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/data-types.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/operations-on-vectors.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/comparing-vectors.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/r-scripts.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/reading-csv-datasets.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/packages.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/dataframes-indexing.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/dataframes-creating-variables.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/dataframes-summary-statistics.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/data-cleaning.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/intro-to-plotting.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/plotting-with-ggplot.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/making-functions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/optimization.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/ifelse.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/merging.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/reshaping.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/aggregating.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs/tutorials.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/index.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/Programming-for-E-BI.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/getting-started.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/r-as-a-calculator.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/data-types.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/operations-on-vectors.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/comparing-vectors.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/r-scripts.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/reading-csv-datasets.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/packages.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/dataframes-indexing.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/dataframes-creating-variables.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/dataframes-summary-statistics.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/data-cleaning.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/intro-to-plotting.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/plotting-with-ggplot.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/making-functions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/optimization.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/ifelse.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/merging.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/reshaping.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/aggregating.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog/tutorials.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/panel-data/syllabus-230347.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/panel-data/1-linear-static.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/panel-data/2-linear-dynamic.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/panel-data/3-binary.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/panel-data/4-count.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/panel-data/5-censored.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/panel-data/1-linear-static-exercises.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/panel-data/2-linear-dynamic-exercises.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/panel-data/3-binary-exercises.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/panel-data/4-count-exercises.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/panel-data/5-censored-exercises.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/syllabus-2017.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/ec201-notes.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/math-review.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/ps1.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/ps1-sol.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/ps2.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/ps2-sol.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/ps3.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/ps3-sol.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/ps4.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/ps4-sol.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/ps5.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/ps5-sol.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/extra-questions.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/extra-questions-sol.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/practice-midterm.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/practice-midterm-sol.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/midterm-2016.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/midterm-2016-sol.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/midterm-2017.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/midterm-2017-sol.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/practice-final.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/practice-final-sol.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/final-2016.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/final-2016-sol.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/final-2017.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ec201/final-2017-sol.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial2-questions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial2.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial3-questions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial3.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial4-questions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial4.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial5-questions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial5.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial6-questions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial6.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial7-questions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial7.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-exams/sample-exam.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-exams/sample-exam-solutions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-exams/extra-practice-questions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-exams/extra-practice-questions-with-solutions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial2-questions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial2.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial3-questions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial3.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial4-questions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial4.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial5-questions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial5.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial6-questions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial6.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial7-questions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial7.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-exams/sample-exam.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-exams/sample-exam-solutions.html</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial2-questions.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial2.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial3-questions.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial4-questions.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial4.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial5-questions.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial5.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial6-questions.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial6.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial7-questions.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/pqs-tutorials/tutorial7.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial2-questions.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial2.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial3-questions.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial4-questions.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial4.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial5-questions.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial5.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial6-questions.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial6.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial7-questions.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://walshc.github.io/ebi-prog-tutorials/tutorial7.pdf</loc>
+  <lastmod>2025-07-01T12:52:14+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+
+
 </urlset>
