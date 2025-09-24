@@ -648,7 +648,7 @@ F-statistic: 60.32 on 4 and 521 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>No observations satisfy this. Therefore we should not trust this estimate.</p>
-<p>Interpreting <span class="math inline">b_1</span> i done as normal. Holding gender and marital status fixed, increasing education by one year on average increases the wage by 49 cents.</p>
+<p>Interpreting <span class="math inline">b_1</span> is done as normal. Holding gender and marital status fixed, increasing education by one year on average increases the wage by 49 cents.</p>
 <p>To interpret <span class="math inline">b_2</span> we need to be careful because <code>female</code> also appears in the interaction. When the variable married equals zero, then this term drops out and we can interpret the variable as normal. So <span class="math inline">b_2</span> is the average difference in wage between unmarried women and unmarried men, holding education fixed. So holding education fixed, unmarried women on average earn 37 cents less than unmarried men. The wage gap is therefore 37 cents for married women.</p>
 <p>To interpret <span class="math inline">b_3</span> we need to be careful because <code>married</code> also appears in the interaction. When the female dummy equals zero, then this term drops out and we can interpret the variable as normal. So <span class="math inline">b_3</span> is the average difference in wage between married men and unmarried men, holding education fixed. Holding education fixed, married men on average earn $2.64 more than unmarried men.</p>
 <p>Finally, for <span class="math inline">b_4</span> we recall that above we showed that <span class="math inline">\beta_4</span> can be interpreted as the difference in wage gap between married and unmarried women. So holding education fixed, the gender wage gap is $2.83 larger for married women compared to unmarried women.</p>
@@ -665,7 +665,7 @@ F-statistic: 60.32 on 4 and 521 DF,  p-value: &lt; 2.2e-16</code></pre>
 <pre><code>[1] 0.1974969</code></pre>
 </div>
 </div>
-<p>The <span class="math inline">p</span>-value (0.1975) is greater than the significance level (0.05), so we we do not reject the null hypothesis. There is not enough evidence to show that unmarried women earn less than unmarried men of equal education levels.</p>
+<p>The <span class="math inline">p</span>-value (0.1975) is greater than the significance level (0.05), so we do not reject the null hypothesis. There is not enough evidence to show that unmarried women earn less than unmarried men of equal education levels.</p>
 
 
 </section>

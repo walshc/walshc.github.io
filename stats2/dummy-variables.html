@@ -363,7 +363,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="theory" class="level2" data-number="24.2">
 <h2 data-number="24.2" class="anchored" data-anchor-id="theory"><span class="header-section-number">24.2</span> Theory</h2>
-<p>Consider a simple linear regression model with a dummy variable: <span class="math display">\mathbb{E}\left[ Y_i|x_i \right]=\beta_0 + \beta_1 x_i</span> - When the dummy variable equals 0, the expected value of <span class="math inline">Y_i</span> is <span class="math inline">\mathbb{E}\left[ Y_i|x_i =0\right]=\beta_0</span>. Call this <span class="math inline">\mu_0</span>. - When the dummy variable equals 1, the expected value of <span class="math inline">Y_i</span> is <span class="math inline">\mathbb{E}\left[ Y_i|x_i =1\right]=\beta_0+\beta_1</span>. Call this <span class="math inline">\mu_1</span>.</p>
+<p>Consider a simple linear regression model with a dummy variable: <span class="math display">\mathbb{E}\left[ Y_i|x_i \right]=\beta_0 + \beta_1 x_i</span></p>
+<ul>
+<li>When the dummy variable equals 0, the expected value of <span class="math inline">Y_i</span> is <span class="math inline">\mathbb{E}\left[ Y_i|x_i =0\right]=\beta_0</span>. Call this <span class="math inline">\mu_0</span>.</li>
+<li>When the dummy variable equals 1, the expected value of <span class="math inline">Y_i</span> is <span class="math inline">\mathbb{E}\left[ Y_i|x_i =1\right]=\beta_0+\beta_1</span>. Call this <span class="math inline">\mu_1</span>.</li>
+</ul>
 <p>The difference in means between the two groups, <span class="math inline">\mu_1-\mu_0</span>, is equal to <span class="math inline">\beta_1</span>. Therefore we can estimate this regression model to estimate the difference in means, and hypothesis tests on <span class="math inline">\beta_1</span> are equivalent to hypothesis tests for the difference in means.</p>
 </section>
 <section id="dummy-variable-trap" class="level2" data-number="24.3">
