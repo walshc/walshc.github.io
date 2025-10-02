@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.5.52">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -286,7 +286,7 @@ window.Quarto = {
 <section id="package-reshape2" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="package-reshape2">Package <code>reshape2</code></h3>
 <ul>
-<li>Reshape long to wide with the <code>id</code> variable indexing rows and the <code>variable</code> variable indexing columns: <code>dcast(df, id ~ variable)</code></li>
+<li>Reshape long to wide with the <code>id</code> variable indexing rows, the <code>variable</code> variable indexing columns, and the <code>value</code> variable representing the values in the columns: <code>dcast(df, id ~ variable, value.var = "value")</code></li>
 <li>Reshape wide to long by <code>"id"</code>: <code>melt(df, id.vars = "id")</code></li>
 </ul>
 </section>
