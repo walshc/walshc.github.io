@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.52">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistics 2 for IBA - 28&nbsp; The Zero Conditional Mean Assumption</title>
+<title>28&nbsp; The Zero Conditional Mean Assumption – Statistics 2 for IBA</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -45,13 +45,14 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -66,7 +67,34 @@ ul.task-list li input[type="checkbox"] {
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -77,24 +105,24 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./zero-conditional-mean.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Zero Conditional Mean Assumption</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./zero-conditional-mean.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Zero Conditional Mean Assumption</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistics 2 for IBA</a> 
         <div class="sidebar-tools-main">
-    <a href="./Statistics-2-for-IBA.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./Statistics-2-for-IBA.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -271,7 +299,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -306,12 +334,14 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
 <section id="introduction" class="level2" data-number="28.1">
 <h2 data-number="28.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">28.1</span> Introduction</h2>
-<p>A crucial assumption in the linear regression model is that <span class="math inline">\mathbb{E}\left[ \varepsilon_i|x_{i1},\dots,x_{ik} \right]=0</span>. This assumption implies no correlation between the error term and the explanatory variables. A violation of this assumption means our estimates of <span class="math inline">\beta_{j}</span> are either too big or too small, sometimes even turning the opposite sign! Recall the class size and test scores example we saw in <a href="slr-assumptions.html"><span>Chapter&nbsp;8</span></a> where we saw that a regression of test scores on class size can yield a positive coefficient estimate on class size, even though we expect a negative one. Naturally this is much more serious than having standard errors that are too small.</p>
+<p>A crucial assumption in the linear regression model is that <span class="math inline">\mathbb{E}\left[ \varepsilon_i|x_{i1},\dots,x_{ik} \right]=0</span>. This assumption implies no correlation between the error term and the explanatory variables. A violation of this assumption means our estimates of <span class="math inline">\beta_{j}</span> are either too big or too small, sometimes even turning the opposite sign! Recall the class size and test scores example we saw in <a href="slr-assumptions.html" class="quarto-xref"><span>Chapter 8</span></a> where we saw that a regression of test scores on class size can yield a positive coefficient estimate on class size, even though we expect a negative one. Naturally this is much more serious than having standard errors that are too small.</p>
 <p>A common remedy to this problem is to add more explanatory variables to the model that we suspect are correlated with our <span class="math inline">X</span> variables of interest and the outcome variable <span class="math inline">Y</span>. For example, adding the average socioeconomic status of the students to the class size and test scores model.</p>
 <p>In this chapter we will briefly discuss some other solutions to the problem. At the very end of this chapter we will also have a brief discussion on some other model assumptions.</p>
 </section>
@@ -325,19 +355,19 @@ ul.task-list li input[type="checkbox"] {
 <li>If there are 40 students to be enrolled, there is only 1 classroom.</li>
 <li>If there are 41 students to be enrolled, they are split into 2 classrooms (one with 20 and one 21 students).</li>
 </ul>
-<p>Having 40 versus 41 students enrolled in a year is effectively random. Therefore if we compare test scores only between schools with 40 students (big classrooms) and 41 students (small classrooms), we can get the causal effect of classroom size on test scores.</p>
+<p>Having 40 versus 41 students enrolled in a year is effectively random. This is because it’s very unlikely the inhabitants of the district are coordinating on the number of children and when they give birth in order to get smaller class sizes (on top of that there is a lot of randomness in fertility and the timing of childbirth). So it’s as if there was an experiment when we look at the 40- and 41-student districts. Therefore if we compare test scores only between schools with 40 students (big classrooms) and 41 students (small classrooms), we can get the causal effect of classroom size on test scores.</p>
 <p>Here is another example of a natural experiment. Suppose we want to estimate the effect of attending an elite secondary school (a dummy variable <span class="math inline">X</span>) on future earnings (<span class="math inline">Y</span>): <span class="math display">
 Y_i=\beta_0 + \beta_1 X_i + \varepsilon_i
 </span> Often people who attend these schools are very able and productive. But able and productive people can find better jobs, regardless of where they go to school. So the <span class="math inline">X</span> variable is correlated with the error term.</p>
 <p>Ability/productivity is a difficult variable to measure precisely, so we can’t add it to our model. It would also be both prohibitively expensive and unethical to randomly force some people to attend an elite school and others not.</p>
-<p>So we rely on the natural experiment approach. We can make use of the fact that some elite schools have an entrance exam where you can enter if you achieve a minimum score on the exam. Students that just barely passed and just barely failed scored very similar on the exam, and on average should be similar to each other. Just some people were lucky and just about passed, while others had some bad luck and scored just below the required grade. By comparing future earnings only between those just above and just below the passing grade, we can get the causal effect.</p>
+<p>So we rely on the natural experiment approach. We can make use of the fact that some elite schools have an entrance exam where you can enter if you achieve a minimum score on the exam. Suppose for example the passing grade is 60%. Students that scored 59% and 60% scored very similarly and so on average be similar to each other. But those that got 60% passed and could attend the elite school, while those that got 59% failed could not. For the students that scored 59% and 60%, because of some guessing on the exam, it’s down to luck whether they passed or not, and so it’s effectively random if they get into the elite school or not. It’s unlikely that the students that got 60% are systematically more able than those with 59% (at least not materially so). Therefore by comparing future earnings only between those just above and just below the passing grade, we can get the causal effect.</p>
 </section>
 <section id="other-model-assumptions" class="level2" data-number="28.3">
 <h2 data-number="28.3" class="anchored" data-anchor-id="other-model-assumptions"><span class="header-section-number">28.3</span> Other Model Assumptions</h2>
-<p>We end this chapter with a very brief discussion of the other model assumptions and possible remedies for violations.</p>
+<p>We end this chapter with a very brief discussion of the other model assumptions and possible remedies for violations. We will not discuss a formal test for these.</p>
 <section id="non-linearities-or-non-normal-error-terms" class="level3" data-number="28.3.1">
 <h3 data-number="28.3.1" class="anchored" data-anchor-id="non-linearities-or-non-normal-error-terms"><span class="header-section-number">28.3.1</span> Non-Linearities or Non-Normal Error Terms</h3>
-<p>We will not discuss a formal test for these. If based on an analysis of scatter plots you suspect a violation of either of these, a change in the model specification can help. For example:</p>
+<p>If based on an analysis of scatter plots you suspect a violation of either of these, a change in the model specification can help. For example:</p>
 <ul>
 <li>Taking the natural logarithm of either the <span class="math inline">Y</span> variable, the <span class="math inline">X</span> variable, or both.</li>
 <li>Transforming levels of a variable <span class="math inline">X_t</span> to either:
@@ -350,7 +380,7 @@ Y_i=\beta_0 + \beta_1 X_i + \varepsilon_i
 </section>
 <section id="perfect-collinearity" class="level3" data-number="28.3.2">
 <h3 data-number="28.3.2" class="anchored" data-anchor-id="perfect-collinearity"><span class="header-section-number">28.3.2</span> Perfect Collinearity</h3>
-<p>We won’t discuss a formal test for this because R automatically “drops” variables that suffer from it. We will know immediately if it is present in our model. The remedy is simple: we just have to drop the offending variables from the model.</p>
+<p>R automatically “drops” variables that suffer from perfect collinearity, so we don’t need to worry too much about this. We will know immediately if it is present in our model. The remedy is simple: we just have to drop the offending variables from the model.</p>
 
 
 </section>
@@ -392,18 +422,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -435,11 +454,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/walshc\.github\.io\/stats2");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -449,8 +507,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -462,7 +529,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -506,6 +696,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -531,6 +722,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -592,7 +809,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./serial-correlation.html" class="pagination-link">
+      <a href="./serial-correlation.html" class="pagination-link" aria-label="Testing and Correcting for Serial Correlation">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Testing and Correcting for Serial Correlation</span></span>
       </a>          
   </div>
@@ -600,6 +817,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 
