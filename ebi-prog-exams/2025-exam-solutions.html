@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Programming for E&amp;BI 2025 Exam Solutions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="2025-exam-solutions_files/libs/clipboard/clipboard.min.js"></script>
+<script src="2025-exam-solutions_files/libs/quarto-html/quarto.js"></script>
+<script src="2025-exam-solutions_files/libs/quarto-html/popper.min.js"></script>
+<script src="2025-exam-solutions_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="2025-exam-solutions_files/libs/quarto-html/anchor.min.js"></script>
+<link href="2025-exam-solutions_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="2025-exam-solutions_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="2025-exam-solutions_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="2025-exam-solutions_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="2025-exam-solutions_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="2025-exam-solutions.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Programming for E&amp;BI 2025 Exam Solutions</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
+<section id="short-answer-questions-5-points" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="short-answer-questions-5-points">Short-Answer Questions (5 points)</h2>
+<section id="question-1-2-points" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-1-2-points">Question 1 (2 points)</h3>
+<p>Write an R command that calculates the following:</p>
+<p><span class="math display">
+\frac{|-3| + \log_3\left(9\right)}{2}
+</span> where <span class="math inline">|x|</span> is the absolute value of <span class="math inline">x</span>.</p>
+<p>Provide both the numerical answer and the R command.</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">abs</span>(<span class="sc">-</span><span class="dv">3</span>) <span class="sc">+</span> <span class="fu">log</span>(<span class="dv">9</span>, <span class="at">base =</span> <span class="dv">3</span>))<span class="sc">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.5</code></pre>
+</div>
+</div>
+</section>
+<section id="question-2-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-2-1-point">Question 2 (1 point)</h3>
+<p>Write an R command in the box below that repeats the sequence <span class="math inline">(3, 2, 1)</span> one hundred times.</p>
+<p>The resulting vector should be of the form <span class="math inline">(3,2,1,3,2,1,\dots,3,2,1,3,2,1)</span> and have 300 elements.</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">3</span>, <span class="at">to =</span> <span class="dv">1</span>, <span class="at">by =</span> <span class="sc">-</span><span class="dv">1</span>), <span class="at">times =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3
+ [38] 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2
+ [75] 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1
+[112] 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3
+[149] 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2
+[186] 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1
+[223] 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3
+[260] 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2
+[297] 1 3 2 1</code></pre>
+</div>
+</div>
+<p>Another valid approach would be:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">times =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3
+ [38] 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2
+ [75] 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1
+[112] 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3
+[149] 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2
+[186] 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1
+[223] 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3
+[260] 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2
+[297] 1 3 2 1</code></pre>
+</div>
+</div>
+</section>
+<section id="question-3-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-3-1-point">Question 3 (1 point)</h3>
+<p>The vector <code>x</code> is the sequence <span class="math inline">(1,2,\dots,19,20)</span>. This can be created in R with the command:</p>
+<pre><code>x &lt;- 1:20</code></pre>
+<p>Write an R command in the box below <em>using indexing</em> that returns all the even numbers from <code>x</code>. That is, your command should be of the form <code>x[???]</code> where <code>???</code> indexes the even elements of <code>x</code>. The output should have 10 elements.</p>
+<p><strong>Answer:</strong> There are many ways to answer this question. One way is to create the sequence <span class="math inline">(2, 4, \dots, 18, 20)</span> and use that to index <span class="math inline">x</span>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">20</span>, <span class="at">by =</span> <span class="dv">2</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  2  4  6  8 10 12 14 16 18 20</code></pre>
+</div>
+</div>
+<p>Another way to create the same sequence is to use <code>1:10 * 2</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">*</span> <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  2  4  6  8 10 12 14 16 18 20</code></pre>
+</div>
+</div>
+<p>Another way is to alternate <code>FALSE</code>, <code>TRUE</code> 10 times. You can do this with <code>rep(c(FALSE, TRUE), 10)</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">rep</span>(<span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">TRUE</span>), <span class="dv">10</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  2  4  6  8 10 12 14 16 18 20</code></pre>
+</div>
+</div>
+<p>One option making use of the modulo operator is as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>x[x <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  2  4  6  8 10 12 14 16 18 20</code></pre>
+</div>
+</div>
+<p>Here, <code>x %% 2</code> returns the remainder when dividing an element of <span class="math inline">x</span> by 2. If the remainder is 0, then it is exactly divisible by 2 and thus even. So <code>x %% 2 == 0</code> returns <code>TRUE</code> when <code>x</code> is even and <code>FALSE</code> when odd.</p>
+</section>
+<section id="question-4-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-4-1-point">Question 4 (1 point)</h3>
+<p>The variable <code>x</code> is a single number. Write an R command in that box below that returns <code>TRUE</code> if <code>x</code> is in the interval <span class="math inline">(2,3)</span> and <code>FALSE</code> otherwise. The interval <span class="math inline">(2,3)</span> includes all numbers between 2 and 3 but not including 2.0 and 3.0. That is, it returns <code>TRUE</code> if <span class="math inline">x&gt;2</span> AND <span class="math inline">x&lt;3</span> and <code>FALSE</code> otherwise.</p>
+<p><strong>Answer:</strong> The answer is:</p>
+<pre><code>(x &gt; 2) &amp; (x &lt; 3)</code></pre>
+<p>To see this, generate some values of <span class="math inline">x</span> both inside and outside the interval:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="fl">2.2</span>, <span class="fl">2.8</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>(x <span class="sc">&gt;</span> <span class="dv">2</span>) <span class="sc">&amp;</span> (x <span class="sc">&lt;</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="data-analysis-8-points" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="data-analysis-8-points">Data Analysis (8 points)</h2>
+<p>Download the dataset <a href="https://walshc.github.io/ebi-prog/ranking-clicks.csv">ranking-clicks.csv</a>. The dataset contains information on the weekly number of clicks products receive in an online web store. The variable descriptions are:</p>
+<ul>
+<li><code>product_id</code>: The product ID (1 to 25).</li>
+<li><code>week</code>: The week number (1 to 6).</li>
+<li><code>ranking</code>: The position ranking of the product on the web store (1 is at the top of the webpage, 25 is at the bottom of the webpage).</li>
+<li><code>price</code>: The price of the product.</li>
+<li><code>clicks</code>: The total number of clicks the product received in the week.</li>
+</ul>
+<p>When reading the dataset into R, assign it to <code>df</code>.</p>
+<section id="question-5-2-points" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-5-2-points">Question 5 (2 points)</h3>
+<p>What is the median of the variable <code>price</code>?</p>
+<p>Provide both the numerical answer and the R command required to obtain the answer (if the dataframe is assigned to <code>df</code>).</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"ranking-clicks.csv"</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(df<span class="sc">$</span>price)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 79.49</code></pre>
+</div>
+</div>
+</section>
+<section id="question-6-2-points" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-6-2-points">Question 6 (2 points)</h3>
+<p>Calculate the total number of clicks product 1 received over the entire 6 weeks.</p>
+<p>Provide both the numerical answer and the R command required to obtain the answer (if the dataframe is assigned to <code>df</code>).</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(df<span class="sc">$</span>clicks[df<span class="sc">$</span>product_id <span class="sc">==</span> <span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 29004</code></pre>
+</div>
+</div>
+</section>
+<section id="question-7-2-points" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-7-2-points">Question 7 (2 points)</h3>
+<p>Create a scatter plot with <code>ranking</code> on the horizontal axis and <code>clicks</code> on the vertical axis. Make the color of the points vary with the product’s price.</p>
+<p>Based on your plot, answer the following 2 questions.</p>
+<p>Part (a): Choose the correction option from the following:</p>
+<ul>
+<li>Products higher on the webpage on average receive <em>more</em> clicks than products further down the webpage.</li>
+<li>Products higher on the webpage on average receive <em>fewer</em> clicks than products further down the webpage.</li>
+<li>Products higher on the webpage on average receive <em>the same number</em> clicks compared products further down the webpage.</li>
+<li>The optimal position on the webpage to receive the most clicks is roughly <em>half-way</em> down the webpage.</li>
+</ul>
+<p>Part (b): Choose the correction option from the following:</p>
+<ul>
+<li>Products with a higher price on average receive <em>more</em> clicks.</li>
+<li>Products with a higher price on average receive <em>fewer</em> clicks.</li>
+</ul>
+<p><strong>Answer:</strong> We first make the plot:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(ranking, clicks, <span class="at">color =</span> price)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2025-exam-solutions_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We can see that when ranking is low (higher on the webpage), clicks is high and when ranking is high (lower on the webpage), clicks is low. Therefore the correct option for the first question is: “Products higher on the webpage on average receive <em>more</em> clicks than products further down the webpage.”</p>
+<p>Note that the first question could be answered without making the color vary by price.</p>
+<p>Looking at the colors for price, we can see that the brightest colors (the products with the highest prices) are below the general trend between ranking and clicks (look at ranking 12, 17 and 22), whereas the darkest colors (the products with the lowest prices) are above the general trend between ranking and clicks (look at ranking 6, 11 and 14). This tells us that products with higher prices on average receive <em>fewer</em> clicks, given the ranking.</p>
+</section>
+<section id="question-8-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-8-1-point">Question 8 (1 point)</h3>
+<p>Write an R command in the box below using the <code>aggregate()</code> function that returns the total number of clicks for each product.</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(clicks <span class="sc">~</span> product_id, <span class="at">data =</span> df, <span class="at">FUN =</span> sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   product_id clicks
+1           1  29004
+2           2  26631
+3           3  28369
+4           4  22142
+5           5  21681
+6           6  25774
+7           7  20134
+8           8  18957
+9           9  19136
+10         10  17163
+11         11  22368
+12         12  13802
+13         13  15335
+14         14  18103
+15         15  16342
+16         16  14998
+17         17  10493
+18         18  11612
+19         19  14351
+20         20  12412
+21         21  11879
+22         22   7931
+23         23  11680
+24         24  14560
+25         25  11873</code></pre>
+</div>
+</div>
+</section>
+<section id="question-9-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-9-1-point">Question 9 (1 point)</h3>
+<p>Write an R command in the box below to reshape the data such that there are 25 rows, one for each product, and the columns are:</p>
+<ul>
+<li>The product ID.</li>
+<li>The number of clicks for the product in week 1.</li>
+<li>The number of clicks for the product in week 2.</li>
+<li>The number of clicks for the product in week 3.</li>
+<li>The number of clicks for the product in week 4.</li>
+<li>The number of clicks for the product in week 5.</li>
+<li>The number of clicks for the product in week 6.</li>
+</ul>
+<p>The output should be the following:</p>
+<pre><code>   product_id    1    2    3    4    5    6
+1           1 4934 4545 4742 5380 4653 4750
+2           2 4440 4463 4609 4125 4795 4199
+3           3 4439 4951 4358 4998 4631 4992
+4           4 3858 3699 3529 3642 3888 3526
+5           5 3552 3625 3569 3491 4082 3362
+6           6 4157 4441 4293 4135 3950 4798
+7           7 3080 3137 3839 3013 3705 3360
+8           8 3205 3167 3000 3001 3418 3166
+9           9 3145 2940 3321 2907 3129 3694
+10         10 2701 2937 2909 3134 2804 2678
+11         11 3996 3247 3696 4167 3303 3959
+12         12 2141 2539 2513 2306 2013 2290
+13         13 3136 2455 2267 2654 2332 2491
+14         14 3521 2795 3109 2881 2980 2817
+15         15 2332 3162 2562 2533 3194 2559
+16         16 2614 2383 2644 2624 2468 2265
+17         17 2066 2291 1596 1343 1785 1412
+18         18 1779 2364 1692 1806 1939 2032
+19         19 2097 1862 3196 2151 2242 2803
+20         20 1586 2258 1926 2258 2282 2102
+21         21 1927 2291 2488 1792 1519 1862
+22         22 1140 1295 1837 1191 1237 1231
+23         23 2085 1852 1616 2355 1842 1930
+24         24 2658 1944 2501 2194 2634 2629
+25         25 2195 1833 2229 2371 1736 1509</code></pre>
+<p><strong>Hint:</strong> Load the <code>reshape2</code> package using the command <code>library(reshape2)</code>. You do not need to include loading this package in your answer.</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dcast</span>(df, product_id <span class="sc">~</span> week, <span class="at">value.var =</span> <span class="st">"clicks"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   product_id    1    2    3    4    5    6
+1           1 4934 4545 4742 5380 4653 4750
+2           2 4440 4463 4609 4125 4795 4199
+3           3 4439 4951 4358 4998 4631 4992
+4           4 3858 3699 3529 3642 3888 3526
+5           5 3552 3625 3569 3491 4082 3362
+6           6 4157 4441 4293 4135 3950 4798
+7           7 3080 3137 3839 3013 3705 3360
+8           8 3205 3167 3000 3001 3418 3166
+9           9 3145 2940 3321 2907 3129 3694
+10         10 2701 2937 2909 3134 2804 2678
+11         11 3996 3247 3696 4167 3303 3959
+12         12 2141 2539 2513 2306 2013 2290
+13         13 3136 2455 2267 2654 2332 2491
+14         14 3521 2795 3109 2881 2980 2817
+15         15 2332 3162 2562 2533 3194 2559
+16         16 2614 2383 2644 2624 2468 2265
+17         17 2066 2291 1596 1343 1785 1412
+18         18 1779 2364 1692 1806 1939 2032
+19         19 2097 1862 3196 2151 2242 2803
+20         20 1586 2258 1926 2258 2282 2102
+21         21 1927 2291 2488 1792 1519 1862
+22         22 1140 1295 1837 1191 1237 1231
+23         23 2085 1852 1616 2355 1842 1930
+24         24 2658 1944 2501 2194 2634 2629
+25         25 2195 1833 2229 2371 1736 1509</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="data-cleaning-4-points" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="data-cleaning-4-points">Data Cleaning (4 points)</h2>
+<p>Download the dataset <a href="https://walshc.github.io/ebi-prog/sales-oct-2025.csv">sales-oct-2025.csv</a>. The dataset contains information on total number of units sold for a store throughout October 2025. The variables are:</p>
+<ul>
+<li><code>date</code>: The date in US format (month-day-year).</li>
+<li><code>day_of_week</code>: The (abbreviated) day of the week.</li>
+<li><code>sales</code>: The total number of units sold on that day.</li>
+</ul>
+<p>When reading the dataset into R, assign it to <code>df</code>.</p>
+<section id="question-10-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-10-1-point">Question 10 (1 point)</h3>
+<p>Write an R command in the box below using the <code>as.Date()</code> function that will correctly format the <code>date</code> variable to an R date.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"sales-oct-2025.csv"</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(df<span class="sc">$</span>date, <span class="at">format =</span> <span class="st">"%m/%d/%y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="question-11-3-points" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-11-3-points">Question 11 (3 points)</h3>
+<p>Perform the following cleaning steps:</p>
+<ul>
+<li>Part (a): Write an R command in the box below that will replace the values of <code>sales</code> on Saturdays and Sundays with the value <code>NA</code> (i.e.&nbsp;replace <code>"Closed"</code> with <code>NA</code>).</li>
+<li>Part (b): Write an R command in the box below that will convert the variable <code>sales</code> from character to numeric.</li>
+<li>Part (c): Write an R command in the box below that will drop all rows in <code>df</code> will missing observations. The resulting dataframe should have 23 rows.</li>
+</ul>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>sales[df<span class="sc">$</span>day_of_week <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Sat"</span>, <span class="st">"Sun"</span>)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>sales <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(df<span class="sc">$</span>sales)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="optimization-3-points" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="optimization-3-points">Optimization (3 points)</h2>
+<p>The following 3 questions will involve working with the following mathematical function defined over all real numbers <span class="math inline">x</span>:</p>
+<p><span class="math display">f(x) = 10 + 4x - 2x^2</span></p>
+<section id="question-12-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-12-1-point">Question 12 (1 point)</h3>
+<p>Plot the function between the <span class="math inline">x</span> values <span class="math inline">-3</span> and <span class="math inline">+5</span>. Choose the answer below which best describes the shape of this function:</p>
+<ul>
+<li>Straight line</li>
+<li>Flat</li>
+<li>U shape</li>
+<li>Inverted U shape (upside-down U)</li>
+</ul>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span>x <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(y)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">5</span>, <span class="at">length.out =</span> <span class="dv">2000</span>)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">f</span>(x)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x, y)</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2025-exam-solutions_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can see that it has an inverted U shape.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="question-13-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-13-1-point">Question 13 (1 point)</h3>
+<p>Use R to find the value of <span class="math inline">x</span> at an extreme point of this function.</p>
+<p>Type this value of <span class="math inline">x</span> in the box below.</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>f_max <span class="ot">&lt;-</span> <span class="fu">optimize</span>(f, <span class="fu">c</span>(<span class="sc">-</span><span class="dv">100</span>, <span class="dv">100</span>), <span class="at">maximum =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>f_max<span class="sc">$</span>maximum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</section>
+<section id="question-14-1-point" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="question-14-1-point">Question 14 (1 point)</h3>
+<p>What value does the function take at the extreme point?</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>f_max<span class="sc">$</span>objective</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or alternatively:</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(f_max<span class="sc">$</span>maximum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12</code></pre>
+</div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
