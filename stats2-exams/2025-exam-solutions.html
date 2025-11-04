@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistics 2 2025/26 Exam Solutions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="2025-exam-solutions_files/libs/clipboard/clipboard.min.js"></script>
+<script src="2025-exam-solutions_files/libs/quarto-html/quarto.js"></script>
+<script src="2025-exam-solutions_files/libs/quarto-html/popper.min.js"></script>
+<script src="2025-exam-solutions_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="2025-exam-solutions_files/libs/quarto-html/anchor.min.js"></script>
+<link href="2025-exam-solutions_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="2025-exam-solutions_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="2025-exam-solutions_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="2025-exam-solutions_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="2025-exam-solutions_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="2025-exam-solutions.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Statistics 2 2025/26 Exam Solutions</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
+<section id="introduction" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
+<p>You work for an airline considering opening a new route between the cities Dehli and Mumbai in India. You have been tasked with analyzing flight pricing among rival airlines on this route. You go to the websites of all the airlines that fly direct between those two cities and take note of the price of an economy class ticket for different dates: if you were to fly tomorrow, 2 days later, 3 days later and so on, until 49 days later.</p>
+<p>You also take note of the airline, source city and destination city. You put all of these data into a spreadsheet. Here is a link to download the spreadsheet you created: <a href="https://walshc.github.io/stats2/dehli_mumbai_flights.csv"><code>dehli_mumbai_flights.csv</code></a>.</p>
+<p>The definitions of all the variables are as follows:</p>
+<ul>
+<li><code>flight</code>: The flight number.</li>
+<li><code>airline</code>: The name of the airline service running the flight.</li>
+<li><code>source_city</code>: The city the flight is leaving from (either Dehli or Mumbai).</li>
+<li><code>destination_city</code>: The city the flight is flying to (either Dehli or Mumbai).</li>
+<li><code>days_left</code>: The number of days until the flight departs. If <code>days_left</code> equals 1, it means the flight is leaving tomorrow. If it equals 2, it means the flight is leaving in 2 days, etc.</li>
+<li><code>price</code>: The price of the flight converted to euro.</li>
+</ul>
+<p>Your supervisor asks you to answer the following questions using your data.</p>
+<section id="question-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-1">Question 1</h4>
+<p>What is the sample correlation between <code>days_left</code> and <code>price</code>?</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"delhi_mumbai_flights.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df<span class="sc">$</span>days_left, df<span class="sc">$</span>price)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.6908118</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="model-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-1">Model 1</h2>
+<p>Estimate a linear regression model with <code>price</code> as the dependent variable and <code>days_left</code> as the independent variable.</p>
+<p>If you estimated the model correctly, you should have an estimated intercept of 56.03504.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> days_left, <span class="at">data =</span> df)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = price ~ days_left, data = df)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-20.460  -8.810   0.598   8.037 187.558 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 56.03504    0.35869  156.22   &lt;2e-16 ***
+days_left   -0.84233    0.01226  -68.69   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 11.88 on 5168 degrees of freedom
+Multiple R-squared:  0.4772,    Adjusted R-squared:  0.4771 
+F-statistic:  4718 on 1 and 5168 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<section id="question-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-2">Question 2</h4>
+<p>What is the sample regression slope?</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m1)[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> days_left 
+-0.8423306 </code></pre>
+</div>
+</div>
+</section>
+<section id="question-3" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-3">Question 3</h4>
+<p>Use the model to estimate the mean price of flights departing in 50 days (i.e.&nbsp;<code>days_left</code> equal to 50).</p>
+<p>Also obtain a 95% confidence interval for the mean price of flights departing in 50 days.</p>
+<ul>
+<li>Estimate of the mean price of flights departing in 50 days: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Confidence interval lower bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+<li>Confidence interval upper bound: <span class="math inline">\underline{\hspace{20mm}}</span></li>
+</ul>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_p <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">days_left =</span> <span class="dv">50</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(m1, df_p, <span class="at">interval =</span> <span class="st">"confidence"</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       fit      lwr      upr
+1 13.91851 13.25596 14.58106</code></pre>
+</div>
+</div>
+<p>The prediction is under <code>fit</code>, the lower bound of the confidence interval is under <code>lwr</code>, and the upper bound of the confidence interval is under <code>upr</code>.</p>
+<!--
+#### Question 5 {-}
+
+Create a scatter plot with `days_left` on the horizontal axis and `price` on the vertical axis. Choose the answer below that best describes what you see:
+
+- There is a very clear negative linear relationship between `price` and `days_left`. If we were to draw a line going through the cloud of points, all points would lie very close to it.
+- There is a very clear positive linear relationship between `price` and `days_left`. If we were to draw a line going through the cloud of points, all points would lie very close to it.
+- Flights departing within the next 14 days are markedly more expensive than those departing in more than 14 days. There is a clear shift in the price at 14 days.
+- Flights departing within the next 14 days are markedly cheaper than those departing in more than 14 days. There is a clear shift in the price at 14 days.
+
+**Answer:**
+
+::: {.cell}
+
+```{.r .cell-code}
+library(ggplot2)
+ggplot(df, aes(days_left, price)) + geom_point()
+```
+
+::: {.cell-output-display}
+![](2025-exam-solutions_files/figure-html/unnamed-chunk-5-1.png){width=672}
+:::
+:::
+
+Flights departing within the next 14 days are markedly more expensive than those departing in more than 14 days. There is a clear shift in the price at 14 days.
+
+-->
+</section>
+<section id="question-4" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-4">Question 4</h4>
+<p>Plot the residuals (on the vertical axis) against <code>days_left</code> (on the horizontal axis). Choose the answer below which best interprets what this plot says about our model assumptions.</p>
+<ul>
+<li>All residuals are positive when <code>days_left</code> is less than 15. This evidence suggests that the assumption <span class="math inline">\mathbb{E}[\varepsilon_i|x_i]=0</span> for all <span class="math inline">x_i</span> is satisfied.</li>
+<li>All residuals are negative when <code>days_left</code> is less than 15. This evidence suggests that the assumption <span class="math inline">\mathbb{E}[\varepsilon_i|x_i]=0</span> for all <span class="math inline">x_i</span> is satisfied.</li>
+<li>All residuals are positive when <code>days_left</code> is less than 15. This evidence suggests that the assumption <span class="math inline">\mathbb{E}[\varepsilon_i|x_i]=0</span> for all <span class="math inline">x_i</span> is violated.</li>
+<li>All residuals are negative when <code>days_left</code> is less than 15. This evidence suggests that the assumption <span class="math inline">\mathbb{E}[\varepsilon_i|x_i]=0</span> for all <span class="math inline">x_i</span> is violated.</li>
+</ul>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>e <span class="ot">&lt;-</span> m1<span class="sc">$</span>residuals</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(days_left, e)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2025-exam-solutions_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>All residuals are positive when <code>days_left</code> is less than 15. This evidence suggests that the assumption <span class="math inline">\mathbb{E}[\varepsilon_i|x_i]=0</span> for all <span class="math inline">x_i</span> is violated.</p>
+</section>
+<section id="question-5" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-5">Question 5</h4>
+<p>Perform a formal test for heteroskedasticity by regressing the square of the residuals on <code>days_left</code>.</p>
+<p>Use a 5% significance level.</p>
+<p>In this test, the null hypothesis is that the model exhibits which of the following:</p>
+<ul>
+<li>Homoskedasticity</li>
+<li>Heteroskedasticity</li>
+<li>Multiskedasticity</li>
+<li>Paraskedasticity</li>
+</ul>
+<p>What is the <span class="math inline">p</span>-value from this test? <span class="math inline">\underline{\hspace{20mm}}</span></p>
+<p>What is the conclusion? Choose one of the answers below:</p>
+<ul>
+<li>The model exhibits heteroskedasticity. Therefore the standard errors are not reliable.</li>
+<li>The model exhibits homoskedasticity. Therefore the standard errors are not reliable.</li>
+<li>The model exhibits heteroskedasticity. Therefore the standard errors are reliable.</li>
+<li>The model exhibits homoskedasticity. Therefore the standard errors are reliable.</li>
+</ul>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>e2 <span class="ot">&lt;-</span> m1<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>m_aux <span class="ot">&lt;-</span> <span class="fu">lm</span>(e2 <span class="sc">~</span> days_left, <span class="at">data =</span> df)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(m_aux))[<span class="st">"days_left"</span>, <span class="st">"Pr(&gt;|t|)"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.00008592984</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="model-2" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-2">Model 2</h2>
+<p>A scatter plot of <code>days_left</code> and <code>price</code> is shown below:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="2025-exam-solutions_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Based on this, your supervisor suggests an alternative way of modeling <code>price</code> as a function of <code>days_left</code>. Your supervisor suggests to use a dummy variable that equals 1 if the flight is within 14 days (i.e.&nbsp;<code>days_left</code> <span class="math inline">\leq 14</span>) and 0 if the flight is more than 14 days away (i.e.&nbsp;<code>days_left</code> <span class="math inline">&gt;14</span>).</p>
+<p>Create this variable with the command:</p>
+<pre><code>df$within14 &lt;- df$days_left &lt;= 14</code></pre>
+<p>Use this variable to estimate a linear regression model with <code>price</code> as the dependent variable and <code>within14</code> as the independent variable.</p>
+<p>If you estimated the model correctly, your estimated intercept should equal 25.5823.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>within14 <span class="ot">&lt;-</span> df<span class="sc">$</span>days_left <span class="sc">&lt;=</span> <span class="dv">14</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> within14, <span class="at">data =</span> df)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = price ~ within14, data = df)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+ -3.212  -2.052  -1.932   0.898 180.948 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   25.5823     0.1077   237.5   &lt;2e-16 ***
+within14TRUE  34.7598     0.2168   160.4   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 6.722 on 5168 degrees of freedom
+Multiple R-squared:  0.8326,    Adjusted R-squared:  0.8326 
+F-statistic: 2.571e+04 on 1 and 5168 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<section id="question-6" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-6">Question 6</h4>
+<p>Compare the sum of squares due to regression (<span class="math inline">SSR</span>) between Model 1 (using <code>days_left</code>) and Model 2 (using <code>within14</code>). Choose the answer below which best describes what you learn from this.</p>
+<ul>
+<li>Model 2 has a <strong>higher</strong> <span class="math inline">SSR</span> than Model 1 and therefore Model 2 is preferred.</li>
+<li>Model 2 has a <strong>lower</strong> <span class="math inline">SSR</span> than Model 1 and therefore Model 2 is preferred.</li>
+<li>Model 2 has a <strong>higher</strong> <span class="math inline">SSR</span> than Model 1 and therefore Model 2 is <strong>not</strong> preferred.</li>
+<li>Model 2 has a <strong>lower</strong> <span class="math inline">SSR</span> than Model 1 and therefore Model 2 is <strong>not</strong> preferred.</li>
+<li>The two models use different <strong>independent</strong> variables, and therefore we can’t compare their <span class="math inline">SSR</span>s in a meaningful way.</li>
+<li>The two models use different <strong>dependent</strong> variables, and therefore we can’t compare their <span class="math inline">SSR</span>s in a meaningful way.</li>
+</ul>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>m0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> df)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m0, m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: price ~ 1
+Model 2: price ~ days_left
+  Res.Df     RSS Df Sum of Sq      F    Pr(&gt;F)    
+1   5169 1395330                                  
+2   5168  729449  1    665881 4717.6 &lt; 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m0, m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: price ~ 1
+Model 2: price ~ within14
+  Res.Df     RSS Df Sum of Sq     F    Pr(&gt;F)    
+1   5169 1395330                                 
+2   5168  233510  1   1161820 25713 &lt; 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>Model 2 has a <strong>higher</strong> <span class="math inline">SSR</span> than Model 1 and is therefore preferred.</p>
+</section>
+<section id="question-7" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-7">Question 7</h4>
+<p>Obtain a 95% confidence interval for the coefficient in front of the variable <code>within14</code>. Report the lower and upper bound.</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(m2, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                2.5 %   97.5 %
+(Intercept)  25.37107 25.79348
+within14TRUE 34.33482 35.18474</code></pre>
+</div>
+</div>
+<p>The lower bound is 34.33482 and the upper bound is 35.18474.</p>
+</section>
+</section>
+<section id="model-3" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-3">Model 3</h2>
+<p>Your supervisor is also interested in the average price differences between airlines.</p>
+<p>To study this, estimate a linear regression model with <code>price</code> as the dependent variable and dummy variables for the airlines as the independent variables. Use <code>"Air_India"</code> as the base category, so the included variables should be dummy variables for <code>"AirAsia"</code>, <code>"Go_FIRST"</code>, <code>"Indigo"</code>, <code>"SpiceJet"</code> and <code>"Vistara"</code>.</p>
+<p>In R, you can estimate this model using the <code>airline</code> variable as is (i.e.&nbsp;using the formula <code>price ~ airline</code>). It is not necessary to create the individual dummy variables. <code>"Air_India"</code> will automatically be chosen as the base category using this approach.</p>
+<p>If you estimated the model correctly, the estimated regression intercept should equal 33.6899.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> airline, <span class="at">data =</span> df)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = price ~ airline, data = df)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-14.914 -10.963  -7.797  13.400 171.643 
+
+Coefficients:
+                Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)      33.6899     0.6502  51.813  &lt; 2e-16 ***
+airlineAirAsia    0.2583     1.3884   0.186 0.852394    
+airlineGO_FIRST  -2.9532     0.8189  -3.606 0.000313 ***
+airlineIndigo     1.1968     0.7837   1.527 0.126772    
+airlineSpiceJet   3.5940     0.9859   3.645 0.000270 ***
+airlineVistara    1.5533     0.7820   1.986 0.047062 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 16.32 on 5164 degrees of freedom
+Multiple R-squared:  0.01424,   Adjusted R-squared:  0.01328 
+F-statistic: 14.92 on 5 and 5164 DF,  p-value: 0.00000000000001447</code></pre>
+</div>
+</div>
+<section id="question-8" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-8">Question 8</h4>
+<p>The estimated intercept of 33.6899 means that the average price of which airline equal to €33.68?</p>
+<ul>
+<li>Air India</li>
+<li>AirAsia</li>
+<li>Go First</li>
+<li>Indigo</li>
+<li>SpiceJet</li>
+<li>Vistara</li>
+</ul>
+<p><strong>Answer:</strong></p>
+<p>This is the average price of the base category, which is Air India.</p>
+</section>
+<section id="question-9" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-9">Question 9</h4>
+<p>According to the model, what is the average price of SpiceJet flights in the data?</p>
+<p><strong>Answer:</strong></p>
+<p>We add the estimated intercept and the coefficient on SpiceJet:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m3)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">coef</span>(m3)[<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept) 
+    37.2839 </code></pre>
+</div>
+</div>
+</section>
+<section id="question-10" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-10">Question 10</h4>
+<p>Use the model to test the following claim at the 5% level:</p>
+<p>“GO FIRST flights are more than €2 cheaper compared to Air India”</p>
+<p>Perform this test by answering the questions below.</p>
+<p><em>Note:</em> If you estimated your regression model using the variable <code>airline</code> as is, and assigned it to the name <code>m3</code>, then you can extract the coefficient for GO FIRST with the following R command:</p>
+<pre><code>b_2 &lt;- coef(summary(m3))["airlineGO_FIRST", "Estimate"]</code></pre>
+<ul>
+<li><p>What is the null hypothesis? <span class="math inline">\beta_2</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</p></li>
+<li><p>What is the alternative hypothesis? <span class="math inline">\beta_2</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</p></li>
+<li><p>Under the null hypothesis, the test statistic <span class="math inline">T=(B_2-b)/S_{B_2}</span>, where <span class="math inline">b</span> is the hinge, follows a <span class="math inline">t</span> distribution with how many degrees of freedom? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is the associated <span class="math inline">p</span>-value? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is your conclusion? Choose an option below:</p>
+<ul>
+<li>Reject H0: There is sufficient evidence for the claim.</li>
+<li>Reject H0: There is not sufficient evidence for the claim.</li>
+<li>Don’t reject H0: There is sufficient evidence for the claim.</li>
+<li>Don’t reject H0: There is not sufficient evidence for the claim.</li>
+</ul></li>
+</ul>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><span class="math inline">H_0</span>: <span class="math inline">\beta_1 \geq -2</span>.</li>
+<li><span class="math inline">H_1</span>: <span class="math inline">\beta_1 &lt; -2</span>.</li>
+<li>Under <span class="math inline">H_0</span>, <span class="math inline">T=(B_2-b)/S_{B_2}</span>, where <span class="math inline">b</span> is the hinge, follows a <span class="math inline">t</span> distribution with <span class="math inline">n-k-1=5164</span> degrees of freedom.</li>
+<li>The value of the test statistic can be computed with:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>b_2 <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">summary</span>(m3))[<span class="st">"airlineGO_FIRST"</span>, <span class="st">"Estimate"</span>]</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>s_b_2 <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">summary</span>(m3))[<span class="st">"airlineGO_FIRST"</span>, <span class="st">"Std. Error"</span>]</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> (b_2 <span class="sc">+</span> <span class="dv">2</span>) <span class="sc">/</span> s_b_2</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.163996</code></pre>
+</div>
+</div>
+<ul>
+<li>The <span class="math inline">p</span>-value for this lower tail test can be computed with:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(t, m3<span class="sc">$</span>df.residual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1222397</code></pre>
+</div>
+</div>
+<ul>
+<li>The conclusion is: Don’t reject H0: There is not sufficient evidence for the claim.</li>
+</ul>
+</section>
+</section>
+<section id="model-4" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-4">Model 4</h2>
+<p>Estimate a model explaining <code>price</code> with the <code>within14</code> dummy variable AND dummy variables for the airlines (using <code>"Air_India"</code> as the base category).</p>
+<p>Like with the previous model, you can add these airline dummies to your model using the <code>airline</code> variable as is (which also automatically chooses <code>"Air_India"</code> as the base category). You simply use the formula <code>price ~ within14 + airline</code>.</p>
+<p>If you estimated the model correctly your estimated intercept should equal 24.2944.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> within14 <span class="sc">+</span> airline, <span class="at">data =</span> df)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">summary</span>(m4))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = price ~ within14 + airline, data = df)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+ -4.368  -2.543  -0.458   0.466 179.222 
+
+Coefficients:
+                Estimate Std. Error t value     Pr(&gt;|t|)    
+(Intercept)      24.2944     0.2685  90.466      &lt; 2e-16 ***
+within14TRUE     34.8186     0.2136 163.011      &lt; 2e-16 ***
+airlineAirAsia    2.3754     0.5602   4.240 0.0000227248 ***
+airlineGO_FIRST  -0.5214     0.3307  -1.577        0.115    
+airlineIndigo     3.0133     0.3163   9.526      &lt; 2e-16 ***
+airlineSpiceJet   0.2107     0.3982   0.529        0.597    
+airlineVistara    1.7197     0.3155   5.452 0.0000000523 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 6.583 on 5163 degrees of freedom
+Multiple R-squared:  0.8396,    Adjusted R-squared:  0.8394 
+F-statistic:  4505 on 6 and 5163 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<section id="question-11" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-11">Question 11</h4>
+<p>Test the joint usefulness of the airline dummies in this model (variables 2-6) at the 5% level.</p>
+<p>Choose one of the options in <em>italics</em> and fill in the blanks.</p>
+<ul>
+<li>The null hypothesis is that <em>all/at least one/none</em> of <span class="math inline">\beta_j=</span> <span class="math inline">\rule{1cm}{0.15mm}</span> for <span class="math inline">j</span> from <span class="math inline">\rule{1cm}{0.15mm}</span> to <span class="math inline">\rule{1cm}{0.15mm}</span>.</li>
+<li>The alternative hypothesis is that <em>all/at least one/none</em> of <span class="math inline">\beta_j\neq</span> <span class="math inline">\rule{1cm}{0.15mm}</span> for the same <span class="math inline">j</span>.</li>
+</ul>
+<p>The test statistic is of the form: <span class="math display">
+\frac{\frac{SSE_r - a}{g-k}}{\frac{a}{n-k-1}}
+</span></p>
+<p>What is the numeric value of <span class="math inline">a</span> in the test? <span class="math inline">\rule{1cm}{0.15mm}</span></p>
+<p>What is the numeric value of the test statistic? <span class="math inline">\rule{1cm}{0.15mm}</span></p>
+<p>What is the critical value? <span class="math inline">\rule{1cm}{0.15mm}</span></p>
+<p>Which of the 4 options below is the correct conclusion from the test?</p>
+<ul>
+<li>Reject H0. The variables are useful additions to the model.</li>
+<li>Reject H0. The variables are not useful additions to the model.</li>
+<li>Don’t reject H0. The variables are useful additions to the model.</li>
+<li>Don’t reject H0. The variables are not useful additions to the model.</li>
+</ul>
+<p><strong>Answer:</strong></p>
+<p>We can perform the partial <span class="math inline">F</span> test by using the <code>anova()</code> function with the reduced model (price explained by <code>within14</code> only, which is model <code>m2</code> above) and the complete model (price explained by <code>within14</code> and <code>airline</code>, which is model <code>m4</code> above).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m2, m4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: price ~ within14
+Model 2: price ~ within14 + airline
+  Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)    
+1   5168 233510                                  
+2   5163 223772  5    9738.7 44.939 &lt; 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>We now have everything to answer the questions:</p>
+<ul>
+<li><span class="math inline">H_0</span>: All <span class="math inline">\beta_j=0</span> for <span class="math inline">j</span> from 2 to 6.</li>
+<li><span class="math inline">H_1</span>: At least one <span class="math inline">\beta_j\neq 0</span> for the same <span class="math inline">j</span>.</li>
+<li><span class="math inline">a</span> is <span class="math inline">SSE_c</span>, the sum of squared errors in the complete model. This is 223772 from the <code>anova()</code> output.</li>
+<li>Value of the test statistic: 44.939.</li>
+<li>Critical value with <span class="math inline">k-g=5</span> numerator and <span class="math inline">n-k-1=5163</span> denominator degrees of freedom:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(<span class="fl">0.95</span>, <span class="dv">5</span>, <span class="dv">5163</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.215831</code></pre>
+</div>
+</div>
+<ul>
+<li>Conclusion: Reject H0. The variables are useful additions to the model (<em>reason:</em> the test statistic 44.939 is larger than the critical value of 2.215831).</li>
+</ul>
+</section>
+</section>
+<section id="model-5" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-5">Model 5</h2>
+<p>Estimate a regression model explaining <code>price</code> with:</p>
+<ul>
+<li>A dummy variable that equals 1 if <code>days_left</code> is less than or equal to 14 and 0 otherwise.</li>
+<li>A dummy variable that equals 1 if <code>source_city</code> is Mumbai and 0 otherwise.</li>
+<li>The interaction of the above two variables.</li>
+</ul>
+<p><em>Note:</em> Using the variable <code>source_city</code> as is will automatically create a dummy variable that equals 1 if the source city is Mumbai.</p>
+<p>If you estimated the model correctly, your estimated regression intercept should equal 26.2802.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>m5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> within14 <span class="sc">*</span> source_city, <span class="at">data =</span> df)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = price ~ within14 * source_city, data = df)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+ -3.910  -2.171  -1.945   0.200 181.645 
+
+Coefficients:
+                               Estimate Std. Error t value        Pr(&gt;|t|)    
+(Intercept)                     26.2802     0.1518 173.121         &lt; 2e-16 ***
+within14TRUE                    34.3006     0.3038 112.891         &lt; 2e-16 ***
+source_cityMumbai               -1.3947     0.2146  -6.499 0.0000000000883 ***
+within14TRUE:source_cityMumbai   0.9109     0.4318   2.109           0.035 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 6.695 on 5166 degrees of freedom
+Multiple R-squared:  0.8341,    Adjusted R-squared:  0.834 
+F-statistic:  8655 on 3 and 5166 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<section id="question-12" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-12">Question 12</h4>
+<p>Which variables are individually statistically significant at the 1% level?</p>
+<p><strong>Answer:</strong></p>
+<p>We can check the <span class="math inline">p</span>-values from the summary output. The first two variables are significant at the 1% level but the interaction term is not. We can see this based on the number of stars (at least 2 stars means significant at the 1% level).</p>
+</section>
+<section id="question-13" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-13">Question 13</h4>
+<p>For flights departing from Delhi, on average how much more expensive are flights departing within 14 days compared to more than 14 days away (according to your estimated model)?</p>
+<p><strong>Answer:</strong></p>
+<p>If we let <span class="math inline">x_{i1}</span> denote if the flight departs within 14 days and <span class="math inline">x_{i2}</span> denote if the flight departs from Mumbai, we can write our model as: <span class="math display">\mathbb{E}\left[price_i|x_{i1},x_{i2}\right]=\beta_0+\beta_1 x_{i1} +\beta_2 x_{i2} + \beta_3 x_{i1} x_{i2}</span> For flights departing from Delhi, we have: <span class="math display">\mathbb{E}\left[price_i|x_{i1},x_{i2}=0\right]=\beta_0+\beta_1 x_{i1}</span> For flights within 14 days from Delhi: <span class="math display">\mathbb{E}\left[price_i|x_{i1}=1,x_{i2}=0\right]=\beta_0+\beta_1</span> For flights more than 14 days away from Delhi: <span class="math display">\mathbb{E}\left[price_i|x_{i1}=0,x_{i2}=0\right]=\beta_0</span> The difference is <span class="math inline">\beta_1</span>. So the answer is our estimate of this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m5)[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>within14TRUE 
+    34.30058 </code></pre>
+</div>
+</div>
+</section>
+<section id="question-14" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-14">Question 14</h4>
+<p>For flights departing from Mumbai, on average how much more expensive are flights departing within 14 days compared to more than 14 days away (according to your estimated model)?</p>
+<p><strong>Answer:</strong></p>
+<p>This uses the notation in the answer from the previous question.</p>
+<p>For flights departing from Mumbai, we have: <span class="math display">\mathbb{E}\left[price_i|x_{i1},x_{i2}=1\right]=\beta_0+\beta_1 x_{i1} + \beta_2 +\beta_3 x_{i1}</span> We can simplify this to: <span class="math display">\mathbb{E}\left[price_i|x_{i1},x_{i2}=1\right]=\beta_0+\beta_2 + (\beta_1 + \beta_3)x_{i1}</span> For flights within 14 days from Delhi: <span class="math display">\mathbb{E}\left[price_i|x_{i1}=1,x_{i2}=1\right]=\beta_0+\beta_2+\beta_1 + \beta_3</span> For flights more than 14 days away from Delhi: <span class="math display">\mathbb{E}\left[price_i|x_{i1}=0,x_{i2}=1\right]=\beta_0+\beta_2</span> The difference is <span class="math inline">\beta_1+\beta_3</span>. So the answer is our estimate of these terms added together:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m5)[<span class="dv">2</span>] <span class="sc">+</span> <span class="fu">coef</span>(m5)[<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>within14TRUE 
+    35.21146 </code></pre>
+</div>
+</div>
+</section>
+<section id="question-15" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-15">Question 15</h4>
+<p>Your supervisor asks you to add another dummy variable to this model for flights departing from Delhi. You don’t think this is a great idea. Why?</p>
+<p>Choose the option from the list below which best describes why we shouldn’t add this dummy to the model.</p>
+<ul>
+<li>Including this dummy lowers the <span class="math inline">R^2</span> of the model.</li>
+<li>Including this dummy causes a strict multicolinearity problem.</li>
+<li>Including this dummy lowers the significance level of the other variables.</li>
+<li>Including this dummy will make the model suffer from heteroskedasticity.</li>
+<li>Including this dummy will make the model suffer from serial correlation.</li>
+</ul>
+<p><strong>Answer:</strong> Including this dummy causes a strict multicolinearity problem.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
