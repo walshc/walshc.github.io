@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><code>indicator =</code>[the indicator you found in the first step (surrounded by quotes)]</li>
 <li><code>country = "NLD"</code></li>
-<li><code>start = 1960</code></li>
+<li><code>start = 1970</code></li>
 <li><code>end = 2022</code></li>
 </ul>
 <p>What was the inflation rate in the Netherlands in 2022 according to these data?</p>
@@ -96,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="question-3" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="question-3">Question 3</h2>
-<p>What was the median annual inflation rate in consumer prices (in %) in years that end in a zero between 1960-2020 (so the years 1960, 1970, 1980, 1990, 2000, 2010, 2020)?</p>
+<p>What was the median annual inflation rate in consumer prices (in %) in years that end in a zero between 1970-2020 (so the years 1970, 1980, 1990, 2000, 2010, 2020)?</p>
 <p>Write your answer with 3 digits after the decimal.</p>
 </section>
 <section id="question-4" class="level2 unnumbered">
@@ -115,18 +115,18 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="unnumbered anchored" data-anchor-id="question-5">Question 5</h2>
 <p>Create a vector called <code>inflation_change</code> which is the change in inflation from the previous year:</p>
 <ul>
-<li>The first element should be the difference in the inflation rate between 1961 and 1960 (inflation 1961 minus inflation 1960).</li>
-<li>The second element should be the difference in the inflation rate between 1962 and 1961.</li>
+<li>The first element should be the difference in the inflation rate between 1971 and 1970 (inflation 1971 minus inflation 1970).</li>
+<li>The second element should be the difference in the inflation rate between 1972 and 1971.</li>
 <li>…</li>
 <li>The last element should be difference in the inflation rate between 2022 and 2021.</li>
 </ul>
-<p>This vector should have 62 elements. We don’t have a change for 1960 because we don’t observe the inflation rate in 1959.</p>
+<p>This vector should have 52 elements. We don’t have a change for 1970 because we don’t observe the inflation rate in 1969.</p>
 <p>What is the value of the 5th element in your vector? Report your answer with 3 numbers after the decimal.</p>
 </section>
 <section id="question-6" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="question-6">Question 6</h2>
 <p>You want to add this <code>inflation_change</code> vector as a variable to your dataframe which is sorted ascending by year.</p>
-<p>However, because your vector has only 62 elements (because we do not know the value of inflation in 1959), we cannot add it directly. Instead, we replace the value for the change of inflation in 1960 with a missing value indicator <code>NA</code>.</p>
+<p>However, because your vector has only 52 elements (because we do not know the value of inflation in 1969), we cannot add it directly. Instead, we replace the value for the change of inflation in 1970 with a missing value indicator <code>NA</code>.</p>
 <p>Which of the following commands will add the inflation_change variable correctly in your data?</p>
 <ul>
 <li><code>df$inflation_change &lt;- c(inflation_change, NA)</code></li>
