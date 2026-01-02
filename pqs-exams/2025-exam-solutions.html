@@ -394,8 +394,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Part (a) Type this value of <span class="math inline">x</span> in the box below.</p>
 <p><strong>Answer:</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>f_max <span class="ot">&lt;-</span> <span class="fu">optimize</span>(f, <span class="fu">c</span>(<span class="sc">-</span><span class="dv">100</span>, <span class="dv">100</span>), <span class="at">maximum =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>f_max<span class="sc">$</span>minimum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>f_min <span class="ot">&lt;-</span> <span class="fu">optimize</span>(f, <span class="fu">c</span>(<span class="sc">-</span><span class="dv">100</span>, <span class="dv">100</span>), <span class="at">maximum =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>f_min<span class="sc">$</span>minimum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
@@ -403,12 +403,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Part (b): What value does the function take at the extreme point?</p>
 <p><strong>Answer:</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>f_max<span class="sc">$</span>objective</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>f_min<span class="sc">$</span>objective</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or alternatively:</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(f_max<span class="sc">$</span>minimum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(f_min<span class="sc">$</span>minimum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8</code></pre>
 </div>
