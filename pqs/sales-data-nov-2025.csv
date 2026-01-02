@@ -1,0 +1,13 @@
+"product_id","region","price","sales"
+"A","Noord-Brabant",499.99,952
+"A","Gelderland",499.99,874
+"A","Limburg",499.99,1082
+"B","Noord-Brabant",399.99,1201
+"B","Gelderland",399.99,971
+"B","Limburg",399.99,1111
+"C","Noord-Brabant",249.99,1156
+"C","Gelderland",249.99,1106
+"C","Limburg",249.99,1253
+"D","Noord-Brabant",699.99,604
+"D","Gelderland",699.99,453
+"D","Limburg",699.99,589
