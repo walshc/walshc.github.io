@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming for E&amp;BI - 13&nbsp; Data Cleaning</title>
+<title>Business Programming for E&amp;BI - 13&nbsp; Data Cleaning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,9 +111,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Programming for E&amp;BI</a> 
+      <a href="./">Business Programming for E&amp;BI</a> 
         <div class="sidebar-tools-main">
-    <a href="./Programming-for-E-BI.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./Business-Programming-for-E-BI.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -343,25 +343,25 @@ Date,Open,High,Low,Last,Close,Number of Shares,Number of Trades,Print table
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     Date                Open            High            Low       
- Length:521         Min.   :394.7   Min.   :408.2   Min.   :375.8  
- Class :character   1st Qu.:535.5   1st Qu.:545.5   1st Qu.:525.8  
- Mode  :character   Median :592.1   Median :597.4   Median :582.5  
-                    Mean   :589.2   Mean   :597.5   Mean   :579.6  
-                    3rd Qu.:645.5   3rd Qu.:652.5   3rd Qu.:636.1  
-                    Max.   :770.5   Max.   :777.5   Max.   :764.2  
-                    NA's   :6       NA's   :6       NA's   :6      
-      Last           Close       Number.of.Shares   Number.of.Trades  
- Min.   :397.4   Min.   :397.4   Length:521         Length:521        
- 1st Qu.:535.9   1st Qu.:535.9   Class :character   Class :character  
- Median :589.4   Median :589.4   Mode  :character   Mode  :character  
- Mean   :588.4   Mean   :588.4                                        
- 3rd Qu.:644.0   3rd Qu.:644.0                                        
- Max.   :770.5   Max.   :770.5                                        
- NA's   :6       NA's   :6                                            
+<pre><code>        Date          Open            High            Low       
+ Length   :521   Min.   :394.7   Min.   :408.2   Min.   :375.8  
+ N.unique :521   1st Qu.:535.5   1st Qu.:545.5   1st Qu.:525.8  
+ N.blank  :  0   Median :592.1   Median :597.4   Median :582.5  
+ Min.nchar:  8   Mean   :589.2   Mean   :597.5   Mean   :579.6  
+ Max.nchar: 10   3rd Qu.:645.5   3rd Qu.:652.5   3rd Qu.:636.1  
+                 Max.   :770.5   Max.   :777.5   Max.   :764.2  
+                 NAs    :6       NAs    :6       NAs    :6      
+      Last           Close        Number.of.Shares  Number.of.Trades
+ Min.   :397.4   Min.   :397.4   Length   :521     Length   :521    
+ 1st Qu.:535.9   1st Qu.:535.9   N.unique :516     N.unique :512    
+ Median :589.4   Median :589.4   N.blank  :  0     N.blank  :  0    
+ Mean   :588.4   Mean   :588.4   Min.nchar:  4     Min.nchar:  4    
+ 3rd Qu.:644.0   3rd Qu.:644.0   Max.nchar:  7     Max.nchar:  6    
+ Max.   :770.5   Max.   :770.5                                      
+ NAs    :6       NAs    :6                                          
  Print.table   
  Mode:logical  
- NA's:521      
+ NAs :521      
                
                
                
@@ -489,7 +489,7 @@ Date,Open,High,Low,Last,Close,Number of Shares,Number of Trades,Print table
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>Number.of.Shares)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
   84141  571178  711067  783291  916000 2932273       6 </code></pre>
 </div>
 </div>
@@ -528,7 +528,7 @@ Date,Open,High,Low,Last,Close,Number of Shares,Number of Trades,Print table
  Mean   :2022-08-29   Mean   :589.2   Mean   :597.5   Mean   :579.6  
  3rd Qu.:2023-02-28   3rd Qu.:645.5   3rd Qu.:652.5   3rd Qu.:636.1  
  Max.   :2023-08-29   Max.   :770.5   Max.   :777.5   Max.   :764.2  
-                      NA's   :6       NA's   :6       NA's   :6      
+                      NAs    :6       NAs    :6       NAs    :6      
       Last           Close       Number.of.Shares  Number.of.Trades
  Min.   :397.4   Min.   :397.4   Min.   :  84141   Min.   :  4398  
  1st Qu.:535.9   1st Qu.:535.9   1st Qu.: 571178   1st Qu.: 26290  
@@ -536,7 +536,7 @@ Date,Open,High,Low,Last,Close,Number of Shares,Number of Trades,Print table
  Mean   :588.4   Mean   :588.4   Mean   : 783291   Mean   : 35830  
  3rd Qu.:644.0   3rd Qu.:644.0   3rd Qu.: 916000   3rd Qu.: 42707  
  Max.   :770.5   Max.   :770.5   Max.   :2932273   Max.   :108957  
- NA's   :6       NA's   :6       NA's   :6         NA's   :6       </code></pre>
+ NAs    :6       NAs    :6       NAs    :6         NAs    :6       </code></pre>
 </div>
 </div>
 <p>We can see that there are 6 <code>NA</code>s for all variables except the <code>Date</code> variable. If we scroll through the data we notice that 6 rows with <code>NA</code>s are the same for all variables. Let’s have a look at what dates these are. We can do this using the <code>is.na()</code> function. This function, when applied to a vector, returns <code>TRUE</code> if the element is <code>NA</code> and <code>FALSE</code> if not. To see the dates when the variables are missing, we can do:</p>

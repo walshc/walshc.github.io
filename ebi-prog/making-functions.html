@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming for E&amp;BI - 16&nbsp; Making Functions</title>
+<title>Business Programming for E&amp;BI - 16&nbsp; Making Functions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -127,9 +127,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Programming for E&amp;BI</a> 
+      <a href="./">Business Programming for E&amp;BI</a> 
         <div class="sidebar-tools-main">
-    <a href="./Programming-for-E-BI.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./Business-Programming-for-E-BI.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -360,6 +360,22 @@ f(x) = -8 -2x +x^2
 </div>
 </div>
 <p>In this example, the sequence runs from <span class="math inline">-4</span> to <span class="math inline">+6</span>. The <code>length.out</code> option specifies how many numbers in total there should be in the sequence between <span class="math inline">-4</span> and <span class="math inline">+6</span>. 200 numbers is plenty to get a curve that looks smooth. Why did we use <span class="math inline">-4</span> and <span class="math inline">+6</span> here? This range includes minimum and gives a good idea of its shape. You can try out different ranges instead (using numbers different from <span class="math inline">-4</span> and <span class="math inline">+6</span>). When making these plots the easiest thing to do is try out different numbers until the plot looks good.</p>
+<p>The above works well and it’s easy to follow as we can use commands we have learned already and see the steps along the way. There is, however, a faster approach to do this using the <code>stat_function()</code> function within the <code>ggplot2</code> package. With this approach we create a very small dataframe with 1 variable (<span class="math inline">x</span>) and 2 observations (the range of <span class="math inline">x</span> we want to plot). Then instead of using a <code>geom_line()</code> layer we use <code>stat_function(fun = f)</code>. This function automatically generates corresponding values of <code>y</code> using the function <code>f</code> that you provide to it. By default this function uses 101 evaluation points (whereas we used 200 above). This is how you would do it in this case:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">6</span>))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   x
+1 -4
+2  6</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x)) <span class="sc">+</span> <span class="fu">stat_function</span>(<span class="at">fun =</span> f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="making-functions_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </section>
 <section id="examples-from-mathetmatics-for-ebi" class="level2" data-number="16.3">
 <h2 data-number="16.3" class="anchored" data-anchor-id="examples-from-mathetmatics-for-ebi"><span class="header-section-number">16.3</span> Examples from Mathetmatics for E&amp;BI</h2>
@@ -375,16 +391,16 @@ a = 5000 \times \left(1.09\right)^5 \times \frac{1-1.09}{1-1.09^5}=1285.462
 </span> In this loan, the debtor would need to make 5 payments of €1285.46 to pay off the loan.</p>
 <p>If you were a mortgage broker you might need to use this formula many times per day. In order to speed up your workflow you create an R function with this formula to be able to quickly calculate the amount:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>annuityMortgage <span class="ot">&lt;-</span> <span class="cf">function</span>(loan, term, rate) {</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  r <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> rate <span class="sc">/</span> <span class="dv">100</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> loan <span class="sc">*</span> r<span class="sc">^</span>term <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> r) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> r<span class="sc">^</span>term)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(a)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>annuityMortgage <span class="ot">&lt;-</span> <span class="cf">function</span>(loan, term, rate) {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  r <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> rate <span class="sc">/</span> <span class="dv">100</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> loan <span class="sc">*</span> r<span class="sc">^</span>term <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> r) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> r<span class="sc">^</span>term)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(a)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Notice here that this function has 3 arguments/inputs: <code>loan</code>, <code>term</code> and <code>rate</code>. We create an R function with many inputs by separating the inputs with commas in the <code>function()</code> function.</p>
 <p>Let’s test out this R function using the example loan above:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">annuityMortgage</span>(<span class="at">loan =</span> <span class="dv">5000</span>, <span class="at">term =</span> <span class="dv">5</span>, <span class="at">rate =</span> <span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">annuityMortgage</span>(<span class="at">loan =</span> <span class="dv">5000</span>, <span class="at">term =</span> <span class="dv">5</span>, <span class="at">rate =</span> <span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1285.462</code></pre>
 </div>
@@ -397,20 +413,20 @@ a = 5000 \times \left(1.09\right)^5 \times \frac{1-1.09}{1-1.09^5}=1285.462
 f(x) = x^2 + 5x + 4
 </span> Let’s plot the function to see what it looks like:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="dv">4</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(y)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="sc">-</span><span class="dv">6</span>, <span class="at">to =</span> <span class="dv">1</span>, <span class="at">length.out =</span> <span class="dv">200</span>)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">f</span>(x)</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x, y)</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="dv">4</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(y)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="sc">-</span><span class="dv">6</span>, <span class="at">to =</span> <span class="dv">1</span>, <span class="at">length.out =</span> <span class="dv">200</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">f</span>(x)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x, y)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="making-functions_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="making-functions_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>The last part in the code <code>geom_hline(yintercept = 0, color = "red")</code> creates a red horizontal line at zero to help us see visually where the zero points are. We can see that the function crosses the red line at <span class="math inline">-4</span> and <span class="math inline">-1</span>. These are the zero points/roots of the equation.</p>
@@ -421,15 +437,15 @@ x_2&amp;=\frac{-5 +\sqrt{5^2-4\times 4\times 1}}{2\times 1}=-1
 \end{split}
 </span> Let’s create a function in R that can calculate this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>quadRoots <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b, c) {</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  x1 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">-</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>a)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  x2 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">+</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>a)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">c</span>(x1, x2))</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>quadRoots <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b, c) {</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  x1 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">-</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>a)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  x2 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">+</span> <span class="fu">sqrt</span>(b<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>a<span class="sc">*</span>c)) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>a)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">c</span>(x1, x2))</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And let’s test it out with our example function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quadRoots</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="dv">5</span>, <span class="at">c =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quadRoots</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="dv">5</span>, <span class="at">c =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -4 -1</code></pre>
 </div>

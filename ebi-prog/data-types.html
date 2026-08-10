@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming for E&amp;BI - 4&nbsp; Objects and Object Types</title>
+<title>Business Programming for E&amp;BI - 4&nbsp; Objects and Object Types</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -127,9 +127,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Programming for E&amp;BI</a> 
+      <a href="./">Business Programming for E&amp;BI</a> 
         <div class="sidebar-tools-main">
-    <a href="./Programming-for-E-BI.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./Business-Programming-for-E-BI.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -328,6 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>&lt;-</code> operator assigns the value <code>2</code> to <code>a</code>, and similarly for <code>b</code>.</p>
+<p>Variable names can be multiple characters long and can contain dots (<code>.</code>), underscores (<code>_</code>) and numbers - as long as they don’t start with a number. For example, <code>a1</code>, <code>a.1</code>, and <code>a_1</code> are possible variable names, but <code>1a</code> is not.</p>
 <p>Because we use the assignment operator <code>&lt;-</code> so often, RStudio has a shortcut for it. If you hold <code>Alt</code> and press <code>-</code>, RStudio will write <code>&lt;-</code>, including spaces around it. It makes the spaces because <code>a &lt;- 2</code> is easier to read than <code>a&lt;-2</code>.</p>
 </section>
 <section id="the-environment-tab-in-rstudio" class="level3" data-number="4.1.2">
@@ -444,7 +445,7 @@ Levels: cycle train walk</code></pre>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="cn">TRUE</span>, <span class="at">z =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>It has elements that are numeric, logical and character vectors, and the elements all have different lengths (3, 1 and 2).</p>
-<p>A <code>data.frame</code> can have elements/columns of different types (such as in the travel mode example above, which had numeric and factor variables), but all elements/columns <code>data.frame</code> must have the same length (unlike a <code>list</code> where any length is possible).</p>
+<p>A <code>data.frame</code> can have elements/columns of different types (such as in the travel mode example above, which had numeric and factor variables), but all elements/columns of a <code>data.frame</code> must have the same length (unlike a <code>list</code> where any length is possible).</p>
 
 
 </section>

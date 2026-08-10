@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming for E&amp;BI - 14&nbsp; Introduction to Plotting</title>
+<title>Business Programming for E&amp;BI - 14&nbsp; Introduction to Plotting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,9 +111,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Programming for E&amp;BI</a> 
+      <a href="./">Business Programming for E&amp;BI</a> 
         <div class="sidebar-tools-main">
-    <a href="./Programming-for-E-BI.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./Business-Programming-for-E-BI.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -312,8 +312,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Then load it with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'palmerpenguins'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:datasets':
+
+    penguins, penguins_raw</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Running the command <code>data(penguins)</code> loads up two datasets: <code>penguins</code> and <code>penguins_raw</code>. We will ignore the <code>penguins_raw</code> dataset and only work with the <code>penguins</code> one.</p>
 </section>
@@ -321,7 +330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="14.3" class="anchored" data-anchor-id="data-inspection"><span class="header-section-number">14.3</span> Data Inspection</h2>
 <p>Before getting started with plotting, it’s good to first get a basic understanding of our data. Let’s get some summary statistics with <code>summary()</code> and find out how many observations with have with <code>nrow()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      species          island    bill_length_mm  bill_depth_mm  
  Adelie   :152   Biscoe   :168   Min.   :32.10   Min.   :13.10  
@@ -330,17 +339,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                                  Mean   :43.92   Mean   :17.15  
                                  3rd Qu.:48.50   3rd Qu.:18.70  
                                  Max.   :59.60   Max.   :21.50  
-                                 NA's   :2       NA's   :2      
+                                 NAs    :2       NAs    :2      
  flipper_length_mm  body_mass_g       sex           year     
  Min.   :172.0     Min.   :2700   female:165   Min.   :2007  
  1st Qu.:190.0     1st Qu.:3550   male  :168   1st Qu.:2007  
- Median :197.0     Median :4050   NA's  : 11   Median :2008  
+ Median :197.0     Median :4050   NAs   : 11   Median :2008  
  Mean   :200.9     Mean   :4202                Mean   :2008  
  3rd Qu.:213.0     3rd Qu.:4750                3rd Qu.:2009  
  Max.   :231.0     Max.   :6300                Max.   :2009  
- NA's   :2         NA's   :2                                 </code></pre>
+ NAs    :2         NAs    :2                                 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 344</code></pre>
 </div>
@@ -365,7 +374,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="14.4.1" class="anchored" data-anchor-id="histograms"><span class="header-section-number">14.4.1</span> Histograms</h3>
 <p>To describe the distribution of a single numeric variable, we can use a histogram. A histogram splits the data into “bins” and shows the number of observations in each bin. We can create a histogram by using the <code>hist()</code> function, putting the variable we want to plot as the argument inside:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(penguins<span class="sc">$</span>body_mass_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(penguins<span class="sc">$</span>body_mass_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="intro-to-plotting_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -375,7 +384,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="14.4.2" class="anchored" data-anchor-id="bar-plot"><span class="header-section-number">14.4.2</span> Bar Plot</h3>
 <p>For categorical variables, we can use a bar plot to visualize the relative frequencies of different categories. We already saw the <code>table()</code> function which counts the number of times each category appears:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(penguins<span class="sc">$</span>species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(penguins<span class="sc">$</span>species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
    Adelie Chinstrap    Gentoo 
@@ -384,7 +393,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>If we want to plot these values, we can put this entire expression into the <code>barplot()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(penguins<span class="sc">$</span>species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(penguins<span class="sc">$</span>species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="intro-to-plotting_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -394,7 +403,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="14.4.3" class="anchored" data-anchor-id="scatter-plots"><span class="header-section-number">14.4.3</span> Scatter Plots</h3>
 <p>To quickly visualize the relationship between two variables we can make a scatter plot. We can do this by listing the two variables we want to plot as arguments in the <code>plot()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(penguins<span class="sc">$</span>bill_length_mm, penguins<span class="sc">$</span>flipper_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(penguins<span class="sc">$</span>bill_length_mm, penguins<span class="sc">$</span>flipper_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="intro-to-plotting_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>

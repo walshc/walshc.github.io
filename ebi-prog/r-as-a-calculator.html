@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming for E&amp;BI - 3&nbsp; R as a Calculator</title>
+<title>Business Programming for E&amp;BI - 3&nbsp; R as a Calculator</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -127,9 +127,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Programming for E&amp;BI</a> 
+      <a href="./">Business Programming for E&amp;BI</a> 
         <div class="sidebar-tools-main">
-    <a href="./Programming-for-E-BI.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./Business-Programming-for-E-BI.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -285,7 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#square-and-cubed-roots" id="toc-square-and-cubed-roots" class="nav-link" data-scroll-target="#square-and-cubed-roots"><span class="header-section-number">3.6</span> Square and Cubed Roots</a></li>
   <li><a href="#exponentials" id="toc-exponentials" class="nav-link" data-scroll-target="#exponentials"><span class="header-section-number">3.7</span> Exponentials</a></li>
   <li><a href="#logarithms" id="toc-logarithms" class="nav-link" data-scroll-target="#logarithms"><span class="header-section-number">3.8</span> Logarithms</a></li>
-  <li><a href="#examples-from-mathetmatics-for-ebi" id="toc-examples-from-mathetmatics-for-ebi" class="nav-link" data-scroll-target="#examples-from-mathetmatics-for-ebi"><span class="header-section-number">3.9</span> Examples from Mathetmatics for E&amp;BI</a>
+  <li><a href="#examples-from-business-mathetmatics-for-ebi" id="toc-examples-from-business-mathetmatics-for-ebi" class="nav-link" data-scroll-target="#examples-from-business-mathetmatics-for-ebi"><span class="header-section-number">3.9</span> Examples from Business Mathetmatics for E&amp;BI</a>
   <ul class="collapse">
   <li><a href="#example-1-future-value" id="toc-example-1-future-value" class="nav-link" data-scroll-target="#example-1-future-value"><span class="header-section-number">3.9.1</span> Example 1: Future Value</a></li>
   <li><a href="#example-2-present-value" id="toc-example-2-present-value" class="nav-link" data-scroll-target="#example-2-present-value"><span class="header-section-number">3.9.2</span> Example 2: Present Value</a></li>
@@ -557,9 +557,9 @@ e^x = \underset{n\rightarrow \infty}{\lim} \left(1 + \frac{x}{n}\right)^n
 <p>We write both arguments into the <code>log()</code> function, separated by commas.</p>
 <p>This is just like how we used functions with more than one argument in Excel, for example the <code>VLOOKUP</code> function. We separated the arguments there by commas as well.</p>
 </section>
-<section id="examples-from-mathetmatics-for-ebi" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="examples-from-mathetmatics-for-ebi"><span class="header-section-number">3.9</span> Examples from Mathetmatics for E&amp;BI</h2>
-<p>Below are some examples to show that we can use R to calculate the answers to some of the problems you face in the course Mathematics for E&amp;BI.</p>
+<section id="examples-from-business-mathetmatics-for-ebi" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="examples-from-business-mathetmatics-for-ebi"><span class="header-section-number">3.9</span> Examples from Business Mathetmatics for E&amp;BI</h2>
+<p>Below are some examples to show that we can use R to calculate the answers to some of the problems you face in the course Business Mathematics for E&amp;BI.</p>
 <section id="example-1-future-value" class="level3" data-number="3.9.1">
 <h3 data-number="3.9.1" class="anchored" data-anchor-id="example-1-future-value"><span class="header-section-number">3.9.1</span> Example 1: Future Value</h3>
 <p>A manager invests €200,000 for a period of 15 years. The interest rate is 6% per year. What is the future value of this investment?</p>
@@ -579,7 +579,7 @@ e^x = \underset{n\rightarrow \infty}{\lim} \left(1 + \frac{x}{n}\right)^n
 <p><em>Solution</em></p>
 <p>In general, the present value of investment <span class="math inline">K</span> in <span class="math inline">T</span> years with an interest rate <span class="math inline">i</span> is <span class="math inline">K\left(1+\frac{i}{100}\right)^{-T}</span>. The present value is therefore <span class="math inline">200000\times\left(1.06\right)^{-15}</span>. We can calculate this with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="dv">200000</span> <span class="sc">*</span> <span class="fl">1.06</span><span class="sc">^</span>(<span class="sc">-</span><span class="dv">15</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="dv">200000</span> <span class="sc">*</span> <span class="fl">1.06</span><span class="sc">^</span>(<span class="sc">-</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 83453.01</code></pre>
 </div>

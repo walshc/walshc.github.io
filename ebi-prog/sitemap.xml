@@ -2,94 +2,94 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://walshc.github.io/ebi-prog/index.html</loc>
-    <lastmod>2024-10-01T19:04:16.007Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.599Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/getting-started.html</loc>
-    <lastmod>2024-10-01T19:04:16.017Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.608Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/r-as-a-calculator.html</loc>
-    <lastmod>2024-10-01T19:04:16.045Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.627Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/data-types.html</loc>
-    <lastmod>2024-10-01T19:04:16.068Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.639Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/operations-on-vectors.html</loc>
-    <lastmod>2024-10-01T19:04:16.091Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.656Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/comparing-vectors.html</loc>
-    <lastmod>2024-10-01T19:04:16.106Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.665Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/r-scripts.html</loc>
-    <lastmod>2024-10-01T19:04:16.120Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.672Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/reading-csv-datasets.html</loc>
-    <lastmod>2024-10-01T19:04:16.140Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.687Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/packages.html</loc>
-    <lastmod>2024-10-01T19:04:16.153Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.695Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/dataframes-indexing.html</loc>
-    <lastmod>2024-10-01T19:04:16.168Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.704Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/dataframes-creating-variables.html</loc>
-    <lastmod>2024-10-01T19:04:16.184Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.720Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/dataframes-summary-statistics.html</loc>
-    <lastmod>2024-10-01T19:04:16.201Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.729Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/data-cleaning.html</loc>
-    <lastmod>2024-10-01T19:04:16.219Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.744Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/intro-to-plotting.html</loc>
-    <lastmod>2024-10-01T19:04:16.229Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.751Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/plotting-with-ggplot.html</loc>
-    <lastmod>2024-10-01T19:04:16.249Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.769Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/making-functions.html</loc>
-    <lastmod>2024-10-01T19:04:16.261Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.781Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/optimization.html</loc>
-    <lastmod>2024-10-01T19:04:16.274Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.796Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/ifelse.html</loc>
-    <lastmod>2024-10-01T19:04:16.290Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.807Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/merging.html</loc>
-    <lastmod>2024-10-01T19:04:16.303Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.819Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/reshaping.html</loc>
-    <lastmod>2024-10-01T19:04:16.313Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.828Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/aggregating.html</loc>
-    <lastmod>2024-10-01T19:04:16.321Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.839Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/ebi-prog/tutorials.html</loc>
-    <lastmod>2024-10-01T19:04:16.330Z</lastmod>
+    <lastmod>2026-08-10T18:17:19.844Z</lastmod>
   </url>
   <url>
-    <loc>https://walshc.github.io/ebi-prog/Programming-for-E-BI.pdf</loc>
-    <lastmod>2024-10-01T19:04:15.833Z</lastmod>
+    <loc>https://walshc.github.io/ebi-prog/Business-Programming-for-E-BI.pdf</loc>
+    <lastmod>2026-08-10T18:17:19.426Z</lastmod>
   </url>
 </urlset>

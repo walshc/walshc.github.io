@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming for E&amp;BI - 12&nbsp; Dataframes: Summary Statistics</title>
+<title>Business Programming for E&amp;BI - 12&nbsp; Dataframes: Summary Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,9 +111,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Programming for E&amp;BI</a> 
+      <a href="./">Business Programming for E&amp;BI</a> 
         <div class="sidebar-tools-main">
-    <a href="./Programming-for-E-BI.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./Business-Programming-for-E-BI.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -330,13 +330,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     team                wins           draws            losses     
- Length:18          Min.   : 4.00   Min.   : 4.000   Min.   : 2.00  
- Class :character   1st Qu.: 9.25   1st Qu.: 6.000   1st Qu.: 7.50  
- Mode  :character   Median :10.50   Median : 8.000   Median :13.00  
-                    Mean   :12.94   Mean   : 8.111   Mean   :12.94  
-                    3rd Qu.:17.75   3rd Qu.:10.000   3rd Qu.:18.00  
-                    Max.   :25.00   Max.   :15.000   Max.   :25.00  
+<pre><code>        team         wins           draws            losses     
+ Length   :18   Min.   : 4.00   Min.   : 4.000   Min.   : 2.00  
+ N.unique :18   1st Qu.: 9.25   1st Qu.: 6.000   1st Qu.: 7.50  
+ N.blank  : 0   Median :10.50   Median : 8.000   Median :13.00  
+ Min.nchar: 2   Mean   :12.94   Mean   : 8.111   Mean   :12.94  
+ Max.nchar:16   3rd Qu.:17.75   3rd Qu.:10.000   3rd Qu.:18.00  
+                Max.   :25.00   Max.   :15.000   Max.   :25.00  
    goals_for     goals_against     goal_diff      total_points  
  Min.   :26.00   Min.   :27.00   Min.   :-44.0   Min.   :18.00  
  1st Qu.:39.75   1st Qu.:38.50   1st Qu.:-27.5   1st Qu.:36.00  

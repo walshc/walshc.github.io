@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programming for E&amp;BI - 19&nbsp; Merging</title>
+<title>Business Programming for E&amp;BI - 19&nbsp; Merging</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,9 +111,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Programming for E&amp;BI</a> 
+      <a href="./">Business Programming for E&amp;BI</a> 
         <div class="sidebar-tools-main">
-    <a href="./Programming-for-E-BI.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./Business-Programming-for-E-BI.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -358,7 +358,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="19.2" class="anchored" data-anchor-id="merging"><span class="header-section-number">19.2</span> Merging</h2>
 <section id="the-merge-command" class="level3" data-number="19.2.1">
 <h3 data-number="19.2.1" class="anchored" data-anchor-id="the-merge-command"><span class="header-section-number">19.2.1</span> The <code>merge()</code> Command</h3>
-<p>Now that the two datasets are clean, we merge the two using the <code>merge()</code> function. The first two arguments of the <code>merge()</code> function are the two datasets we want to merge. The third argument, <code>by</code>, specifies the variable name (in quotations) that link the two datasets. In our case, the variable linking the two is the date variable.</p>
+<p>Now that the two datasets are clean, we merge the two using the <code>merge()</code> function. The first two arguments of the <code>merge()</code> function are the two datasets we want to merge. The third argument, <code>by</code>, specifies the variable name (in quotations) that links the two datasets. In our case, the variable linking the two is the date variable.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">merge</span>(df1, df2, <span class="at">by =</span> <span class="st">"date"</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -413,7 +413,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  Mean   : 63.47  
  3rd Qu.: 72.97  
  Max.   :133.18  
- NA's   :918     </code></pre>
+ NAs    :918     </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -439,7 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">expand.grid</span>(</span>
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">market_area =</span> <span class="fu">c</span>(<span class="st">"Market A"</span>, <span class="st">"Market B"</span>),</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="fu">seq.Date</span>(<span class="fu">as.Date</span>(<span class="st">"2022-01-01"</span>), <span class="fu">as.Date</span>(<span class="st">"2022-03-01"</span>), <span class="at">by =</span> <span class="st">"month"</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="fu">seq</span>(<span class="fu">as.Date</span>(<span class="st">"2022-01-01"</span>), <span class="fu">as.Date</span>(<span class="st">"2022-03-01"</span>), <span class="at">by =</span> <span class="st">"month"</span>)</span>
 <span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>))</span>
 <span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>df2<span class="sc">$</span>advertising_exp <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="fu">nrow</span>(df1), <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">500</span>)</span>
 <span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
