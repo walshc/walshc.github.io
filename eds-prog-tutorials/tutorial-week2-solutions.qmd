@@ -1,0 +1,213 @@
+---
+title: "Tutorial Exercises Week 2 - Solutions"
+format:
+  html:
+    theme: cosmos
+    mainfont: "Fira Sans"
+    monofont: "Fira Mono"
+    html-math-method: katex
+    toc: true
+    code-copy: true
+    code-fold: false
+    code-link: false
+    code-tools: false
+    css: style.css
+---
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Fira+Sans&display=swap" rel="stylesheet">
+
+#### Question 1 {-}
+
+Assign the strings `'I'`, `'love'` and `'Tilburg'` to the variables `a`, `b` and `c`, respectively. Use these 3 variables to print the output `'I love Tilburg'` on one line.
+
+```{python}
+a = 'I'
+b = 'love'
+c = 'Tilburg'
+a + ' ' + b + ' ' + c
+```
+
+#### Question 2 {-}
+
+The days of the week in Dutch are maandag, dinsdag, woensdag, donderdag,
+vrijdag, zaterdag, zondag. Create a dictionary in Python where the *keys* are the days of the week in English and the *values* are the days of the week are in Dutch. Use your dictionary to translate a day of the week from English to Dutch.
+
+```{python}
+dow = {
+  'Monday'    : 'maandag',
+  'Tuesday'   : 'dinsdag',
+  'Wednesday' : 'woensdag',
+  'Thursday'  : 'donderdag',
+  'Friday'    : 'vrijdag',
+  'Saturday'  : 'zaterdag',
+  'Sunday'    : 'zondag'
+}
+dow['Thursday']
+```
+
+#### Question 3 {-}
+
+Today is Thursday. What day of the week will it be in 200 days' time?
+*Hint*: make use of the modulus operator.
+
+```{python}
+dow = {
+  0 : 'Monday',
+  1 : 'Tuesday',
+  2 : 'Wednesday',
+  3 : 'Thursday',
+  4 : 'Friday',
+  5 : 'Saturday',
+  6 : 'Sunday'
+}
+dow[(3 + 200) % 7]
+```
+
+#### Question 4 {-}
+
+If `a` and `b` are logical constants (one of `True` or `False`), `not (a or b)` is always the same as which of the following?
+
+- `a or b`
+- `a and b`
+- `not a or not b`
+- `not a and not b`
+
+This is one of De Morgan's laws. NOT (A OR B) is the same as NOT A AND NOT B:
+$$
+\neg \left(A \lor B\right)
+\quad\Leftrightarrow \quad
+\left(\neg A \right)\land \left(\neg B\right)
+$$
+
+where $\neg$ means NOT, $\lor$ means OR and $\land$ means AND. So the answer is `not a and not b`.
+
+To see this in Python we can create two lists containing every possible combination of `True` and `False`:
+
+```{python}
+a = [True, True, False, False]
+b = [True, False, True, False]
+```
+NOT (A OR B) gives for each pair:
+```{python}
+[not (a[i] or b[i]) for i in range(len(a))]
+```
+NOT A AND B gives for each pair:
+```{python}
+[not a[i] and not b[i] for i in range(len(a))]
+```
+We can see that these are the same.
+
+The other De Morgan's Law is that NOT (A AND B) is the same as NOT A OR NOT B:
+
+$$
+\neg \left(A \land B\right)
+\quad\Leftrightarrow \quad
+\left(\neg A \right)\lor \left(\neg B\right)
+$$
+Try write a set of Python commands to check this law as well!
+
+#### Question 5 {-}
+
+Consider the following two lists:
+```{python}
+a = [2, 4, 6, 8]
+b = [1, 4, 6]
+```
+Write a single line of Python code that uses a list comprehension that checks for every element in `a` whether it is contained *somewhere* in `b`. The output should be `[False, True, True, False]` because 4 and 6 are in `b` while 2 and 8 are not.
+
+
+```{python}
+[i in b for i in a]
+```
+
+#### Question 6 {-}
+
+From the following list:
+```{python}
+a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+Write a single line of Python code using slices that creates a new list `b` with elements `[1, 2, 3, 8, 9, 10]`.
+
+```{python}
+a[:3] + a[7:]
+```
+
+#### Question 7 {-}
+
+- Anne is taking the following courses: `'Math', 'English', 'German', 'Physics', 'History', 'Economics'`.
+- Ben is taking the following courses: `'Math', 'English', 'French', 'Chemistry', 'History', 'Business'`.
+
+Create two Python variables containing the courses Anne and Ben are taking. Write a line of Python code to find the courses they are taking together.
+
+```{python}
+anne = set(['Math', 'English', 'German', 'Physics', 'History', 'Economics'])
+ben = set(['Math', 'English', 'French', 'Chemistry', 'History', 'Business'])
+anne.intersection(ben)
+```
+
+#### Question 8 {-}
+
+This is continued from Question 7. Write a line of Python code to find what courses Ben is taking that Anne isn't taking.
+
+```{python}
+ben.difference(anne)
+```
+
+#### Question 9 {-}
+
+Use Python code to find the average of the following list of numbers:
+```{python}
+a = [2, 4, 3, 8, 5, 3, 5, 9, 1, 7]
+```
+Write your code in such a way that if you change the list `a` to another one (potentially with a different number of elements) that the code will still work.
+
+
+```{python}
+sum(a) / len(a)
+```
+
+#### Question 10 {-}
+
+Write a `for` loop over the following list of numbers that prints `True` if the number is even and `False` if the number is odd:
+```{python}
+a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+
+```{python}
+for i in a:
+    print(i % 2 == 0)
+```
+
+#### Question 11 {-}
+
+Count how many times the number 10 appears in the following list using 3 different methods:
+
+- Using a `for` loop.
+- Using a list comprehension
+- Using one of the list's methods.
+
+You may find it useful to use the fact that `True` equals one and `False` equals zero when converted to an integer.
+```{python}
+a = [20, 10, 10, 20, 10, 20, 10, 10, 20, 10]
+```
+
+The `for` loop approach:
+```{python}
+counter = 0
+for i in a:
+    counter += i == 10
+counter
+```
+
+The list comprehension approach:
+```{python}
+sum([i == 10 for i in a])
+```
+
+The list method approach:
+```{python}
+a.count(10)
+```
+

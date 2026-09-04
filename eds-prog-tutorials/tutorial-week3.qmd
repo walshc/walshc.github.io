@@ -1,0 +1,82 @@
+---
+title: "Tutorial Exercises Week 3"
+format:
+  html:
+    theme: cosmos
+    mainfont: "Fira Sans"
+    monofont: "Fira Mono"
+    html-math-method: katex
+    toc: true
+    code-copy: true
+    code-fold: false
+    code-link: false
+    code-tools: false
+    css: style.css
+---
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Fira+Sans&display=swap" rel="stylesheet">
+
+#### Question 1 {-}
+A leap year is a year that is *either* (i) divisible by 400 *or* (ii) divisible by 4 and not divisible by 100.
+
+For example, 2000 and 2024 are leap years, but 1900 and 2025 are not leap years.
+
+The variable `y` is an integer representing a year. Write a Python command that returns `True` if `y` is a leap year and `False` otherwise.
+
+#### Question 2 {-}
+
+Use Python to convert 13,446,566 seconds into days, hours, minutes and seconds. Then get Python to print the message:
+
+```
+13446566 seconds is A days, B hours, C minutes and D seconds.
+```
+replacing `A`, `B`, `C` and `D` with what you find.
+
+
+#### Question 3 {-}
+
+Write a function called `is_even()` which takes an integer as an input and returns `True` if the number is even and `False` if the number is odd.
+
+#### Question 4 {-}
+
+Write a function called `is_prime()` which takes an integer as an input and returns `True` if the number is prime (a natural number greater than one that is only divisible by itself and one) and `False` if the number is not prime.
+
+#### Question 5 {-}
+
+In Tilburg University, grades vary between 1 and 10. Typically we take the percentage of answers correct in an exam, divide by 10 and round to the nearest half. So for example a grade of 72.4% is rounded down to 7.0 whereas a 72.5% is rounded up to 7.5. However, there are some exceptions to this:
+
+- A 5.5 is not allowed. 54.9% would be rounded down to a 5. 55.0% would be rounded up to a 6.0.
+- A 0.0 or a 0.5 is not allowed. Any grade below 10% is rounded up to a 1.0.
+
+Create a Python function which takes the percentage grade as an input (a float between 0 and 100) and gives the rounded grade as output, treating the special cases appropriately. Test out this function on different grades.
+
+You may find the `round()` function useful for this. 
+
+#### Question 6 {-}
+
+Runners typically measure their "pace" in terms of how many minutes and seconds it takes to run one kilometer. For example, the marathon world record was run at a 2:51 pace, meaning on average it took 2 minutes and 51 seconds to run each of the 42.195 kilometers in the marathon. This translates to 21.05km/h. Write a Python function that takes pace as an input (in 2 arguments: minutes and seconds) and returns the speed in kilometers per hour.
+
+#### Question 7 {-}
+
+Write a function that does the inverse of what is asked in Question 2. The function should take as input a speed in km/h and return the pace as a tuple of two elements (with minutes and seconds) as output.
+
+#### Question 8 {-}
+
+Create a function in Python that evaluates:
+
+$$
+f(x) = 1 + x + x^2 + x^3
+$$
+Then use the *bisection method* to find the point where $f(x)$ crosses zero. That is, find the value of $x$ that solves $f(x)=0$. Let $\epsilon_{tol}=0.000001$ be the prespecified tolerance level. Follow these steps in your code:
+
+1. Start with a guess $a$ where $f(a)<0$ and a guess $b$ where $f(b)>0$.
+2. Get the midpoint between $a$ and $b$ with $c=\frac{a+b}{2}$.
+3. Two possibilities:
+- If $|f(c)|\leq \epsilon_{tol}$, iteration is complete. The value $c$ (approximately) solves $f(c)=0$.
+- If $|f(c)|>\epsilon_{tol}$, then set $a=c$ if $f(c)<0$ and otherwise set $b=c$. Return to step 2.
+
+*Hints:*
+For our function $f(x)$, $a=-10$ and $b=10$ will work as initial guesses. To do the iteration you should use a `while` loop. The structure of the code will be similar to the code we used to approximate the square root [approximate the square root](https://tisem-eds.github.io/prog/06-defining-functions.html) in the lectures.
+
+
