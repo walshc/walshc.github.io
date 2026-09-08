@@ -2,118 +2,118 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://walshc.github.io/stats2/index.html</loc>
-    <lastmod>2024-08-27T07:57:17.941Z</lastmod>
+    <lastmod>2025-08-21T07:29:42.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/scatter-plots.html</loc>
-    <lastmod>2024-08-27T07:57:17.982Z</lastmod>
+    <lastmod>2025-08-21T07:37:36.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/covariance.html</loc>
-    <lastmod>2024-08-27T07:57:18.014Z</lastmod>
+    <lastmod>2025-08-21T07:47:23.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/correlation.html</loc>
-    <lastmod>2024-08-27T07:57:18.035Z</lastmod>
+    <lastmod>2025-08-21T07:54:01.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/spurious-relationships.html</loc>
-    <lastmod>2024-08-27T07:57:18.055Z</lastmod>
+    <lastmod>2025-08-21T07:58:05.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/slr-intro.html</loc>
-    <lastmod>2024-08-27T07:57:18.071Z</lastmod>
+    <lastmod>2025-08-21T08:10:37.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/slr-estimation.html</loc>
-    <lastmod>2024-08-27T07:57:18.090Z</lastmod>
+    <lastmod>2025-08-21T08:14:37.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/slr-assumptions.html</loc>
-    <lastmod>2024-08-27T07:57:18.152Z</lastmod>
+    <lastmod>2024-09-02T13:48:55.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/slr-confint.html</loc>
-    <lastmod>2024-08-27T07:57:18.185Z</lastmod>
+    <lastmod>2025-08-28T12:46:50.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/slr-hypothesis-testing.html</loc>
-    <lastmod>2024-08-27T07:57:18.244Z</lastmod>
+    <lastmod>2024-09-02T14:12:19.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/slr-statistical-significance.html</loc>
-    <lastmod>2024-08-27T07:57:18.260Z</lastmod>
+    <lastmod>2025-08-28T11:44:01.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/slr-r-squared.html</loc>
-    <lastmod>2024-08-27T07:57:18.284Z</lastmod>
+    <lastmod>2025-08-29T09:11:37.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/slr-prediction-intervals.html</loc>
-    <lastmod>2024-08-27T07:57:18.307Z</lastmod>
+    <lastmod>2024-09-30T17:52:35.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/mlr-intro.html</loc>
-    <lastmod>2024-08-27T07:57:18.323Z</lastmod>
+    <lastmod>2026-09-08T11:18:40.371Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/mlr-assumptions.html</loc>
-    <lastmod>2024-08-27T07:57:18.341Z</lastmod>
+    <lastmod>2024-07-29T13:15:04.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/mlr-inference.html</loc>
-    <lastmod>2024-08-27T07:57:18.360Z</lastmod>
+    <lastmod>2024-09-10T10:29:43.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/mlr-r-squared.html</loc>
-    <lastmod>2024-08-27T07:57:18.383Z</lastmod>
+    <lastmod>2024-10-07T09:50:57.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/mlr-prediction-intervals.html</loc>
-    <lastmod>2024-08-27T07:57:18.398Z</lastmod>
+    <lastmod>2024-09-30T17:58:28.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/f-test.html</loc>
-    <lastmod>2024-08-27T07:57:18.425Z</lastmod>
+    <lastmod>2024-08-01T10:59:01.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/partial-f-test.html</loc>
-    <lastmod>2024-08-27T07:57:18.455Z</lastmod>
+    <lastmod>2025-09-12T08:04:09.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/collinearity.html</loc>
-    <lastmod>2024-08-27T07:57:18.477Z</lastmod>
+    <lastmod>2024-08-05T15:35:11.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/higher-order-terms.html</loc>
-    <lastmod>2024-08-27T07:57:18.497Z</lastmod>
+    <lastmod>2024-08-06T09:54:19.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/interaction-terms.html</loc>
-    <lastmod>2024-08-27T07:57:18.510Z</lastmod>
+    <lastmod>2024-08-06T15:13:52.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/dummy-variables.html</loc>
-    <lastmod>2024-08-27T07:57:18.545Z</lastmod>
+    <lastmod>2025-09-24T11:45:30.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/qualitative-variables.html</loc>
-    <lastmod>2024-08-27T07:57:18.583Z</lastmod>
+    <lastmod>2025-09-24T11:50:31.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/heteroskedasticity.html</loc>
-    <lastmod>2024-08-27T07:57:18.596Z</lastmod>
+    <lastmod>2025-09-29T07:04:58.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/serial-correlation.html</loc>
-    <lastmod>2024-08-27T07:57:18.622Z</lastmod>
+    <lastmod>2025-09-29T07:34:52.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/zero-conditional-mean.html</loc>
-    <lastmod>2024-08-27T07:57:18.642Z</lastmod>
+    <lastmod>2025-09-29T07:20:50.000Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/stats2/Statistics-2-for-IBA.pdf</loc>
-    <lastmod>2024-08-27T07:57:17.716Z</lastmod>
+    <lastmod>2026-09-08T11:20:53.058Z</lastmod>
   </url>
 </urlset>
