@@ -325,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption class="figure-caption">ZeroDivisionError</figcaption>
 </figure>
 </div>
-<p>Another common runtime error in the context of functions is a TypeError. Such an errors occur when, you do not provide the correct number of input arguments for a function. In the code below, we have forgotten to input the second variable <code>b</code> that the function <code>division()</code> requires.</p>
+<p>Another common runtime error in the context of functions is a TypeError. Such an error occurs when, you do not provide the correct number of input arguments for a function. In the code below, we have forgotten to input the second variable <code>b</code> that the function <code>division()</code> requires.</p>
 <div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> division(a,b):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a<span class="op">/</span>b</span>
@@ -389,7 +389,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>3</code></pre>
 </div>
 </div>
-<p>In the example above, it is fairly easy to realize that the function is not behaving as it should, because almost all choices of <span class="math inline">a</span> and <span class="math inline">b</span> (excluding cases where <span class="math inline">a</span> and/or <span class="math inline">b</span> equal zero) will return the wrong output.</p>
+<p>In the example above, it is fairly easy to realize that the function is not behaving as it should, because almost all choices of <span class="math inline">a</span> and <span class="math inline">b</span> (excluding the case where <span class="math inline">b</span> equals zero) will return the wrong output.</p>
 <p>Sometimes, however, logical errors are harder to spot as a function might still give the correct ouput for many input arguments. Let us look at an example.</p>
 <p>Suppose you have an extra room in your house that you rent out. You have a booking system that checks whether an incoming booking can be made or whether the room is not available. To do this, you compare the incoming booking <span class="math inline">[a,b]</span>, which is a booking for days <span class="math inline">a,a+1,\dots,b</span> with <span class="math inline">a</span> the arrival date and <span class="math inline">b</span> the departure date, to existing bookings in the system, which are represented by an interval <span class="math inline">[c,d]</span> with arrival date <span class="math inline">c</span> and departure date <span class="math inline">d</span>. (For simplicity we model dates as integer numbers.)</p>
 <p>Because you want to have enough time to clean the room, the departure and arrival dates of different bookings cannot be on the same date. In other words, the booking days of different bookings are not allowed to overlap.</p>

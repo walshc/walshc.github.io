@@ -2,50 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://walshc.github.io/eds-prog/index.html</loc>
-    <lastmod>2026-08-04T12:06:14.551Z</lastmod>
+    <lastmod>2026-09-14T18:38:04.869Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/eds-prog/getting-started.html</loc>
-    <lastmod>2026-08-04T12:06:14.557Z</lastmod>
+    <lastmod>2026-09-14T18:38:04.875Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/eds-prog/python-as-a-calculator.html</loc>
-    <lastmod>2026-08-04T12:06:14.575Z</lastmod>
+    <lastmod>2026-09-14T18:38:04.895Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/eds-prog/data-types-part1.html</loc>
-    <lastmod>2026-08-04T12:06:14.597Z</lastmod>
+    <lastmod>2026-09-14T18:38:04.914Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/eds-prog/data-types-part2.html</loc>
-    <lastmod>2026-08-04T12:06:14.628Z</lastmod>
+    <lastmod>2026-09-14T18:38:04.945Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/eds-prog/defining-functions.html</loc>
-    <lastmod>2026-08-04T12:06:14.643Z</lastmod>
+    <lastmod>2026-09-14T18:38:04.960Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/eds-prog/numpy.html</loc>
-    <lastmod>2026-08-04T12:06:14.664Z</lastmod>
+    <lastmod>2026-09-14T18:38:04.978Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/eds-prog/pandas.html</loc>
-    <lastmod>2026-08-04T12:06:14.688Z</lastmod>
+    <lastmod>2026-09-14T18:38:05.002Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/eds-prog/data-visualization.html</loc>
-    <lastmod>2026-08-04T12:06:14.701Z</lastmod>
+    <lastmod>2026-09-14T18:38:05.015Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/eds-prog/optimization.html</loc>
-    <lastmod>2026-08-04T12:06:14.712Z</lastmod>
+    <lastmod>2026-09-14T18:38:05.026Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/eds-prog/classes.html</loc>
-    <lastmod>2026-08-04T12:06:14.724Z</lastmod>
+    <lastmod>2026-09-14T18:38:05.038Z</lastmod>
   </url>
   <url>
     <loc>https://walshc.github.io/eds-prog/errors-and-debugging.html</loc>
-    <lastmod>2026-08-04T12:06:14.752Z</lastmod>
+    <lastmod>2026-09-14T18:38:05.065Z</lastmod>
   </url>
 </urlset>
