@@ -1,0 +1,173 @@
+---
+title: "Tutorial Exercises Week 3 - Solutions"
+format:
+  html:
+    theme: cosmos
+    mainfont: "Fira Sans"
+    monofont: "Fira Mono"
+    html-math-method: katex
+    toc: true
+    code-copy: true
+    code-fold: false
+    code-link: false
+    code-tools: false
+    css: style.css
+---
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Fira+Sans&display=swap" rel="stylesheet">
+
+#### Question 1 {-}
+A leap year is a year that is *either* (i) divisible by 400 *or* (ii) divisible by 4 and not divisible by 100.
+
+For example, 2000 and 2024 are leap years, but 1900 and 2025 are not leap years.
+
+The variable `y` is an integer representing a year. Write a Python command that returns `True` if `y` is a leap year and `False` otherwise.
+
+**Answer:**
+```
+(y % 400 == 0) or ((y % 4 == 0) and (y % 100 != 0))
+```
+
+Testing it out :
+```{python}
+test_years = [1900, 2000, 2024, 2025]
+[(y % 400 == 0) or ((y % 4 == 0) and (y % 100 != 0)) for y in test_years]
+```
+
+#### Question 2 {-}
+
+Use Python to convert 13,446,566 seconds into days, hours, minutes and seconds. Then get Python to print the message:
+
+```
+13446566 seconds is A days, B hours, C minutes and D seconds.
+```
+replacing `A`, `B`, `C` and `D` with what you find.
+
+
+```{python}
+secs = 13446566
+remaining = secs
+days = remaining // (24 * 60 * 60)
+remaining %= (24 * 60 * 60)
+hours = remaining // (60 * 60)
+remaining %= (60 * 60)
+minutes = remaining // 60
+remaining %= 60
+seconds = remaining
+
+str(secs) + " seconds is " + str(days) + " days, " + str(hours) + \
+    " hours, " + str(minutes) + " minutes and " + str(seconds) + " seconds."
+```
+
+#### Question 3 {-}
+
+Write a function called `is_even()` which takes an integer as an input and returns `True` if the number is even and `False` if the number is odd.
+
+```{python}
+def is_even(x):
+    return x % 2 == 0
+[(i, is_even(i)) for i in range(10)]
+```
+
+#### Question 4 {-}
+
+Write a function called `is_prime()` which takes an integer as an input and returns `True` if the number is prime (a natural number greater than one that is only divisible by itself and one) and `False` if the number is not prime.
+
+```{python}
+def is_prime(x):
+    if x in [0, 1]:
+        return False
+    for i in range(2, x):
+        if x % i == 0:
+            return False
+    return True
+[(i, is_prime(i)) for i in range(10)]
+```
+
+The function could be made more efficient by having the loop only go as far as $\lfloor \sqrt{x}\rfloor$ (the square root of the input rounded down). If no factor was found by that point, none will be found after it either.
+
+#### Question 5 {-}
+
+In Tilburg University, grades vary between 1 and 10. Typically we take the percentage of answers correct in an exam, divide by 10 and round to the nearest half. So for example a grade of 72.4% is rounded down to 7.0 whereas a 72.5% is rounded up to 7.5. However, there are some exceptions to this:
+
+- A 5.5 is not allowed. 54.9% would be rounded down to a 5. 55.0% would be rounded up to a 6.0.
+- A 0.0 or a 0.5 is not allowed. Any grade below 10% is rounded up to a 1.0.
+
+Create a Python function which takes the percentage grade as an input (a float between 0 and 100) and gives the rounded grade as output, treating the special cases appropriately. Test out this function on different grades.
+
+You may find the `round()` function useful for this. 
+
+
+We give an extra `1e-6` to avoid grading down due to floating-point precision:
+```{python}
+def roundedGrade(x):
+    if (x < 10):
+        return 1.0
+    elif (x >= 55 - 1e-6 and x < 60):
+        return 6.0
+    elif (x >= 50 and x < 55 - 1e-6):
+        return 5.0
+    else:
+        return round((x + 1e-6) / 5, ndigits=0) / 2
+[(i, roundedGrade(i)) for i in [40, 54.9, 55, 57, 62.49, 62.5, 77.49, 77.5]]
+```
+
+#### Question 6 {-}
+
+Runners typically measure their "pace" in terms of how many minutes and seconds it takes to run one kilometer. For example, the marathon world record was run at a 2:51 pace, meaning on average it took 2 minutes and 51 seconds to run each of the 42.195 kilometers in the marathon. This translates to 21.05km/h. Write a Python function that takes pace as an input (in 2 arguments: minutes and seconds) and returns the speed in kilometers per hour.
+
+```{python}
+def pace2speed(mins, secs):
+    mins = mins + secs/60
+    return 60 / mins
+[pace2speed(x[0], x[1]) for x in [(5, 00), (4, 00), (2, 51)]]
+```
+
+#### Question 7 {-}
+
+Write a function that does the inverse of what is asked in Question 6. The function should take as input a speed in km/h and return the pace as a tuple of two elements (with minutes and seconds) as output.
+
+```{python}
+def speed2pace(speed):
+    mins = 60 / speed
+    return (int(mins // 1), mins % 1 * 60)
+[speed2pace(x) for x in [12, 13, 14, 15]]
+```
+
+#### Question 8 {-}
+
+Create a function in Python that evaluates:
+
+$$
+f(x) = 1 + x + x^2 + x^3
+$$
+Then use the *bisection method* to find the point where $f(x)$ crosses zero. That is, find the value of $x$ that solves $f(x)=0$. Let $\epsilon_{tol}=0.000001$ be the prespecified tolerance level. Follow these steps in your code:
+
+1. Start with a guess $a$ where $f(a)<0$ and a guess $b$ where $f(b)>0$.
+2. Get the midpoint between $a$ and $b$ with $c=\frac{a+b}{2}$.
+3. Two possibilities:
+- If $|f(c)|\leq \epsilon_{tol}$, iteration is complete. The value $c$ (approximately) solves $f(c)=0$.
+- If $|f(c)|>\epsilon_{tol}$, then set $a=c$ if $f(c)<0$ and otherwise set $b=c$. Return to step 2.
+
+*Hints:*
+For our function $f(x)$, $a=-10$ and $b=10$ will work as initial guesses. To do the iteration you should use a `while` loop. The structure of the code will be similar to the code we used to approximate the square root [approximate the square root](https://tisem-eds.github.io/prog/06-defining-functions.html) in the lectures.
+
+```{python}
+def f(x):
+    return 1 + x + x ** 2 + x ** 3
+
+a = -10
+b = 10
+tol = 0.000001
+dist = tol + 1
+while dist > tol:
+   c = (a + b) / 2
+   dist = abs(f(c))
+   if f(c) < 0:
+       a = c
+   else:
+       b = c
+c
+```
+
