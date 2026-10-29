@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistics 2 2026/27 Exam - Solutions</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="2026-exam_files/libs/clipboard/clipboard.min.js"></script>
+<script src="2026-exam_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="2026-exam_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="2026-exam_files/libs/quarto-html/popper.min.js"></script>
+<script src="2026-exam_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="2026-exam_files/libs/quarto-html/anchor.min.js"></script>
+<link href="2026-exam_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="2026-exam_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="2026-exam_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="2026-exam_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="2026-exam_files/libs/bootstrap/bootstrap-44abd701d6213a1845229bc199c89439.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="2026-exam.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Statistics 2 2026/27 Exam - Solutions</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&amp;family=Fira+Sans&amp;display=swap" rel="stylesheet"></p>
+<section id="introduction" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The dataset <a href="https://walshc.github.io/stats2-data/amsterdam-house-prices.csv"><code>amsterdam-house-prices.csv</code></a> contains information on the asking price of a random sample of houses for sale in Amsterdam in August 2021, as well as some basic information on the listings.</p>
+<p>The definitions of all the variables are as follows:</p>
+<ul>
+<li><code>price</code>: The asking price in thousands of euros.</li>
+<li><code>area</code>: The floor space in square meters (m<span class="math inline">^2</span>).</li>
+<li><code>bedrooms</code>: The number of bedrooms.</li>
+<li><code>neighborhood</code>: Whether the listing was in the North, South, East, West, or Central neighborhood of Amsterdam.</li>
+</ul>
+<p>Use this dataset to answer the following questions.</p>
+<section id="question-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-1">Question 1</h4>
+<p>What is the sample correlation between <code>price</code> and <code>area</code>?</p>
+</section>
+</section>
+<section id="model-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-1">Model 1</h2>
+<p>Estimate a linear regression model with <code>price</code> as the dependent variable and <code>area</code> as the independent variable.</p>
+<p>If you estimated the model correctly, you should have an estimated intercept of 23.3385.</p>
+<section id="question-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-2">Question 2</h4>
+<p>What is the sample regression slope?</p>
+</section>
+<section id="question-3" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-3">Question 3</h4>
+<p>According to the sample regression slope, a 1m<span class="math inline">^2</span> increase in the area of a house on average increases the listing price by how many euros?</p>
+<p><em>Note:</em> Pay attention to the units of the variables. Price is measured in <em>thousands</em> of euros. You will need to multiply by 1000 to report your answer in euros. Pay attention to the units in all questions that follow.</p>
+</section>
+<section id="question-4" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-4">Question 4</h4>
+<p>Plot the residuals (on the vertical axis) against <code>area</code> (on the horizontal axis). Choose the answer below which best describes what you see:</p>
+<ul>
+<li>The dispersion of the residuals increases as area increases.</li>
+<li>The dispersion of the residuals decreases as area increases.</li>
+<li>The dispersion of the residuals is constant in area.</li>
+<li>The residuals are all positive.</li>
+<li>The residuals are all negative.</li>
+</ul>
+<p>Based on this, which model assumption is likely violated?</p>
+<ul>
+<li>Linear in parameters</li>
+<li>Random sampling</li>
+<li>Sample variation in the explanatory variable</li>
+<li>Zero conditional mean</li>
+<li>Homoskedasticity</li>
+<li>Normality</li>
+</ul>
+</section>
+</section>
+<section id="model-2" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-2">Model 2</h2>
+<p>Estimate a linear regression model with <code>price</code> as the dependent variable and <code>bedrooms</code> as the independent variable.</p>
+<p>If you estimated the model correctly, you should have an estimated intercept of 166.604.</p>
+<section id="question-5" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-5">Question 5</h4>
+<p>The estimated intercept of 166.604 can be interpreted as follows.</p>
+<p>The expected price of houses with <span class="math inline">\underline{\hspace{20mm}}</span> bedrooms is €<span class="math inline">\underline{\hspace{20mm}}</span>. However, this estimate is unreliable because:</p>
+<ul>
+<li>This number of bedrooms is outside the range of our data.</li>
+<li>The estimated intercept is not statistically different from zero.</li>
+<li>The estimated slope is not statistically different from zero.</li>
+<li>The adjusted R<span class="math inline">^2</span> is smaller than the standard <span class="math inline">R^2</span>.</li>
+</ul>
+</section>
+<section id="question-6" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-6">Question 6</h4>
+<p>Perform a formal test for heteroskedasticity by regressing the square of the residuals on <code>bedrooms</code>.</p>
+<p>Use a 5% significance level.</p>
+<p>In this test, the null hypothesis is that the model exhibits which of the following:</p>
+<ul>
+<li>Homoskedasticity</li>
+<li>Heteroskedasticity</li>
+<li>Multiskedasticity</li>
+<li>Paraskedasticity</li>
+</ul>
+<p>What is the <span class="math inline">p</span>-value from this test? <span class="math inline">\underline{\hspace{20mm}}</span></p>
+<p>What is the conclusion? Choose one of the answers below:</p>
+<ul>
+<li>The model exhibits heteroskedasticity. Therefore the standard errors are not reliable.</li>
+<li>The model exhibits homoskedasticity. Therefore the standard errors are not reliable.</li>
+<li>The model exhibits heteroskedasticity. Therefore the standard errors are reliable.</li>
+<li>The model exhibits homoskedasticity. Therefore the standard errors are reliable.</li>
+</ul>
+</section>
+</section>
+<section id="model-3" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-3">Model 3</h2>
+<p>Estimate a regression model with <code>price</code> as the dependent variable and the following 2 independent variables:</p>
+<ol type="1">
+<li><code>area</code></li>
+<li><code>bedrooms</code></li>
+</ol>
+<p>If you estimated the model correctly, your estimated intercept should equal 92.531.</p>
+<section id="question-7" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-7">Question 7</h4>
+<p>What proportion of the variation in <code>price</code> is left unexplained by the model?</p>
+<p><em>Note:</em> your answer should be between 0 and 1.</p>
+</section>
+<section id="question-8" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-8">Question 8</h4>
+<p>Use the model to test the following claim at the 5% level:</p>
+<p>“An additional bedroom in a listing on average decreases the asking price by more than €40,000, holding the area fixed.”</p>
+<p>Perform this test by answering the questions below. Use the conventional standard errors given by <code>summary()</code>.</p>
+<ul>
+<li><p>What is the null hypothesis? <span class="math inline">\beta_2</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</p></li>
+<li><p>What is the alternative hypothesis? <span class="math inline">\beta_2</span> <span class="math inline">&lt;/\leq/&gt;/\geq/=/\neq</span> <span class="math inline">\underline{\hspace{20mm}}</span> (choose one comparison operator and fill in a value in the blank).</p></li>
+<li><p>Under the null hypothesis, the test statistic <span class="math inline">T=(B_2-b)/S_{B_2}</span>, where <span class="math inline">b</span> is the hinge, follows a <span class="math inline">t</span> distribution with how many degrees of freedom? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is the value of the test statistic? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is the associated <span class="math inline">p</span>-value? <span class="math inline">\underline{\hspace{20mm}}</span></p></li>
+<li><p>What is your conclusion? Choose an option below:</p>
+<ul>
+<li>Reject H0: There is sufficient evidence for the claim.</li>
+<li>Reject H0: There is not sufficient evidence for the claim.</li>
+<li>Don’t reject H0: There is sufficient evidence for the claim.</li>
+<li>Don’t reject H0: There is not sufficient evidence for the claim.</li>
+</ul></li>
+</ul>
+</section>
+<section id="question-9" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-9">Question 9</h4>
+<p>Use the estimated model to obtain a 95% confidence interval for the average price of 3-bedroom listings that are 80m<span class="math inline">^2</span> in size. Report your answer in euros.</p>
+</section>
+</section>
+<section id="model-4" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-4">Model 4</h2>
+<p>Estimate a regression model with <code>price</code> as the dependent variable and the following 4 independent variables:</p>
+<ol type="1">
+<li>A dummy variable that equals 1 if the listing is in the East and 0 otherwise.</li>
+<li>A dummy variable that equals 1 if the listing is in the North and 0 otherwise.</li>
+<li>A dummy variable that equals 1 if the listing is in the South and 0 otherwise.</li>
+<li>A dummy variable that equals 1 if the listing is in the West and 0 otherwise.</li>
+</ol>
+<p><em>Note:</em> By using the variable <code>neighborhood</code> as is in your model formula, these dummy variables will be created automatically.</p>
+<p>If you estimated the model correctly, your estimated intercept should equal 719.41.</p>
+<section id="question-10" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-10">Question 10</h4>
+<p>According to the estimated model, what is the average price of listings in the central neighborhood?</p>
+<p><em>Note:</em> Report your answer in euros, taking note of the units of your variables.</p>
+</section>
+<section id="question-11" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-11">Question 11</h4>
+<p>Let <span class="math inline">\bar{p}_j</span> be the average price (in €1,000s) of a listing in neighborhood <span class="math inline">j</span>, where <span class="math inline">j</span> is one of Central, East, North, South or West.</p>
+<p>The estimated coefficient in front of the East neighborhood dummy in the model is -269.12. Which of the following does this number represent?</p>
+<ul>
+<li><span class="math inline">\bar{p}_{East}</span></li>
+<li><span class="math inline">\bar{p}_{East}-\bar{p}_{Central}</span></li>
+<li><span class="math inline">\bar{p}_{Central}-\bar{p}_{East}</span></li>
+<li><span class="math inline">\bar{p}_{Central}+\bar{p}_{East}</span></li>
+<li><span class="math inline">\bar{p}_{Central}</span></li>
+</ul>
+</section>
+<section id="question-12" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-12">Question 12</h4>
+<p>Test the following claim at the 5% level: “There are differences in average house prices across neighborhoods”.</p>
+<ul>
+<li>The null hypothesis is that <em>all/at least one/none</em> of <span class="math inline">\beta_j=</span> <span class="math inline">\rule{1cm}{0.15mm}</span> for <span class="math inline">j</span> from <span class="math inline">\rule{1cm}{0.15mm}</span> to <span class="math inline">\rule{1cm}{0.15mm}</span>.</li>
+<li>The alternative hypothesis is that <em>all/at least one/none</em> of <span class="math inline">\beta_j\neq</span> <span class="math inline">\rule{1cm}{0.15mm}</span> for the same <span class="math inline">j</span>.</li>
+</ul>
+<p>The test statistic is of the form: <span class="math display">
+\frac{\frac{a}{k}}{\frac{SSE}{n-k-1}}
+</span></p>
+<p>What is the numeric value of <span class="math inline">a</span> in the test? <span class="math inline">\rule{1cm}{0.15mm}</span></p>
+<p>What is the numeric value of the test statistic? <span class="math inline">\rule{1cm}{0.15mm}</span></p>
+<p>What is the critical value? <span class="math inline">\rule{1cm}{0.15mm}</span></p>
+<p>Which of the 4 options below is the correct conclusion from the test?</p>
+<ul>
+<li>Reject H0. There are significant differences in house prices across neighborhoods.</li>
+<li>Reject H0. There are no significant differences in house prices across neighborhoods.</li>
+<li>Don’t reject H0. There are significant differences in house prices across neighborhoods.</li>
+<li>Don’t reject H0. There are no significant differences in house prices across neighborhoods.</li>
+</ul>
+</section>
+</section>
+<section id="model-5" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="model-5">Model 5</h2>
+<p>Estimate a regression model with <code>price</code> as the dependent variable and the following 3 independent variables:</p>
+<ol type="1">
+<li><code>area</code></li>
+<li><code>bedrooms</code></li>
+<li>The interaction between <code>area</code> and <code>bedrooms</code>.</li>
+</ol>
+<p>If you estimated the model correctly, your estimated intercept should equal 169.7672.</p>
+<section id="question-13" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-13">Question 13</h4>
+<p>Which variables are individually statistically significant at the 5% level?</p>
+</section>
+<section id="question-14" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-14">Question 14</h4>
+<p>Obtain a 95% confidence interval for the coefficient in front of the variable <code>bedrooms</code>. Report the lower and upper bound.</p>
+</section>
+<section id="question-15" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-15">Question 15</h4>
+<p>According to the model estimates, for a one-bedroom listing, by how much on average does the listing price increase (in €) when the area increases by 1m<span class="math inline">^2</span>?</p>
+</section>
+<section id="question-16" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="question-16">Question 16</h4>
+<p>According to the model estimates, for a 100m<span class="math inline">^2</span> listing, by how much on average does the listing price change (in €) when it has one more bedroom (holding area fixed at 100m<span class="math inline">^2</span>)?</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
