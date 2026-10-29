@@ -1,0 +1,219 @@
+
+<link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Fira+Sans&display=swap" rel="stylesheet">
+
+---
+title: "Business Programming 2026 Exam Solutions"
+format:
+  html:
+    theme: cosmos
+    mainfont: "Fira Sans"
+    monofont: "Fira Mono"
+    html-math-method: katex
+  pdf:
+    documentclass: article
+execute:
+  echo: true
+  include: true
+---
+
+## Excel (3 points) {-}
+
+### Question 1 (1 point) {-}
+
+Download the following Excel file:
+
+[sales-report-sept-2026.xlsx](https://walshc.github.io/ebi-prog-data/sales-report-sept-2026.xlsx)
+
+The file contains the total number of units sold per day for a company's 10 products in September. Using a pivot table, obtain the total units sold for each product over the whole month. What is the product ID of the product which sold the most units?
+
+### Question 2 (2 points) {-}
+
+Download the following Excel file:
+
+[sales-report-week-40-2026.xlsx](https://walshc.github.io/ebi-prog-data/sales-report-week-40-2026.xlsx)
+
+The file contains:
+
+- Sheet 1: the total number of units sold per day for a company's 6 products for one week.
+- Sheet 2: the price of each product.
+
+You want the price of the corresponding product as a new column in Sheet 1. You will add this to column `D` using the `VLOOKUP` function.
+
+Write in each box below the 4 arguments you would give to the `VLOOKUP` function in cell `D2`. Write each argument such that you can copy and paste the formula to cells `D3` to `D43`.
+
+- Argument 1:
+- Argument 2:
+- Argument 3:
+- Argument 4:
+
+## Short-Answer Questions (5 points) {-}
+
+### Question 3 (2 points) {-}
+Write an R command that calculates the following:
+$$
+\frac{\frac{5}{6} + \log_3\left(27\right)}{\sqrt{7}}
+$$
+
+Provide both the numerical answer and the R command in the boxes below.
+
+### Question 4 (1 point) {-}
+
+Write an R command in the box below that generates a sequence of 15 evenly-spaced values starting from $-2$ and ending in $5$.
+
+Your answer must use a sequence-generating function. It is not permitted to write out the full vector manually.
+
+### Question 5 (1 point) {-}
+
+Consider the following 2 vectors:
+```{r}
+products <- c("Lamp", "Chair", "Shelf", "Desk")
+featured_products <- c("Chair", "Desk", "Sofa")
+```
+
+Write an R command using the `%in%` operator that returns the elements of `products` that are contained in the vector `featured_products`.
+The code you provide in your answer does not need to include the two lines above.
+
+The output of your command should be `[1] "Chair" "Desk"`.
+
+### Question 6 (1 point) {-}
+
+Define `x` as follows:
+```{r}
+x <- c(-3, 0, 8, -1, 5)
+```
+
+Write an R command in the box below with two nested uses of the `ifelse()` function that takes `x` as input and returns as output a character vector with:
+
+- `"positive"` whenever `x` is greater than zero.
+- `"negative"` whenever `x` is less than zero.
+- `"zero"` whenever `x` equals zero.
+
+The output of your command should be `[1] "negative" "zero" "positive" "negative" "positive"`.
+
+## Data Cleaning and Analysis (9 points) {-}
+
+Download the following dataset: [`yield-curves.csv`](https://walshc.github.io/ebi-prog-data/yield-curves.csv). The data contain information on US treasury yields at different maturities (durations of the bonds) from the 3rd of September in 2024, 2025, and 2026. The data were obtained from the Federal Reserve Bank of St. Louis FRED Interface.
+
+The variable descriptions are as follows.
+
+- `date`: The date in month/day/year format.
+- `term`: The maturity/duration of the security. This is in months if the `duration` variable equals `month(s)` and is in years if the `duration` variable equals `year(s)`.
+- `duration`: Either `year(s)` or `month(s)` and describes whether the `term` variable is measured in years or months.
+- `yield`: The annualized return on the security.
+
+For example, the first observation in the data tells us that the yield on a 1-year bond on 3 September 2024 was 4.35%.
+
+When reading the dataset into R, assign it to `df`.
+
+### Question 7 (1 point) {-}
+
+Write an R command in the box below that will convert the `date` variable to an R date.
+
+### Question 8 (1 point) {-}
+
+Write an R command in the box below that will create a new variable called `maturity` which is the maturity/duration of the security measured in months. For example:
+
+- If `term` is `1` and `duration` is `month(s)`, then `maturity` should equal `1`.
+- If `term` is `2` and `duration` is `month(s)`, then `maturity` should equal `2`.
+- If `term` is `1` and `duration` is `year(s)`, then `maturity` should equal `12`.
+- If `term` is `2` and `duration` is `year(s)`, then `maturity` should equal `24`.
+
+### Question 9 (1 point) {-}
+
+Write an R command in the box below that will keep only the variables `date`, `maturity` and `yield`, dropping the variables `term` and `duration`.
+
+Your output should match the following dataset: [`yield-curves-cleaned.csv`](https://walshc.github.io/ebi-prog-data/yield-curves-cleaned.csv).
+
+### Question 10 (1 point) {-}
+
+Write an R command in the box below that returns the average of the `yield` variable in the dataset.
+
+*Note:* If you weren't able to complete the previous cleaning steps, use the following dataset to do this question: [`yield-curves-cleaned.csv`](https://walshc.github.io/ebi-prog-data/yield-curves-cleaned.csv).
+
+### Question 11 (1 point) {-}
+
+Write an R command in the box below using the `max()` function that returns the maximum yield with a 12-month maturity in the dataset.
+
+### Question 12 (1 point) {-}
+
+Write an R command in the box below using the `aggregate()` function that returns the average of the `yield` variable by date.
+
+Your output should be the following:
+```{r, echo=FALSE}
+df <- read.csv("yield-curves-cleaned.csv")
+aggregate(yield ~ date, FUN = mean, data = df)
+```
+
+### Question 13 (1 point) {-}
+
+Use the package `ggplot2` to create a plot with 3 *yield curves*, one for 2024, 2025, and 2026. A yield curve shows the yield at different maturities at the same point in time.
+
+Here is the approach you should follow:
+
+- In your aesthetic mapping:
+    - Put `maturity` on the horizontal axis.
+    - Put `yield` on the vertical axis.
+    - Set the color equal to `factor(date)`.
+- Add a `geom_line()` layer to the plot.
+
+Choose the answer which best describes what can be seen in this plot:
+
+- In all years the yield is increasing in maturity.
+- In all years the yield is decreasing in maturity.
+- In 2026, the yield never decreases in maturity. In 2025, the yield first decreases in maturity then increases.
+- In 2025, the yield never decreases in maturity. In 2026, the yield first decreases in maturity then increases.
+- In 2024, the yield never decreases in maturity. In 2025, the yield first decreases in maturity then increases.
+- In 2024, the yield never decreases in maturity. In 2026, the yield first decreases in maturity then increases.
+
+### Question 14 (1 point) {-}
+
+Assuming the `reshape2` package has already been loaded with `library(reshape2)`, write an R command in the box below to reshape the data from long to wide format. Here, rows should represent maturities, columns should represent dates, and the values should be the yields. Call this wide dataset `wide`.
+
+Your data frame `wide` from your command should be the following:
+```{r, echo=FALSE}
+library(reshape2)
+df <- read.csv("yield-curves-cleaned.csv")
+dcast(df, maturity ~ date, value.var = "yield")
+```
+
+### Question 15 (1 point) {-}
+
+Use the data frame `wide` to calculate a new variable called `change_2026` which is, for each maturity, the yield on 3 September 2026 minus the yield on 3 September 2025. The output of `wide$change_2026` should equal:
+
+```{r, echo=FALSE}
+library(reshape2)
+wide <- read.csv("yield-curves-wide.csv")
+wide$change_2026 <- wide[, 4] - wide[, 3]
+wide$change_2026
+```
+
+Provide the R command to create this variable in the box below.
+
+*Hint:* Use indexing to extract the necessary columns from `wide`.
+
+*Note:* If you weren't able to complete the previous reshaping step, use the following dataset to do this question: [`yield-curves-wide.csv`](https://walshc.github.io/ebi-prog-data/yield-curves-wide.csv).
+
+## Optimization (3 points) {-}
+
+The following two questions involve the mathematical function defined over all real numbers $x$:
+
+$$f(x) = 18 + 12x - 2x^2$$
+
+### Question 16 (1 point) {-}
+
+Plot the function between the $x$ values $-2$ and $+8$. Select or enter the correct options in the boxes below that best describe the plot.
+
+Part (a): The shape of the function is *a straight line / flat / U-shaped / inverse U-shaped*.
+
+Part (b): When $f(x) = 34$, the corresponding values of $x$ are $\_\_\_$ and $\_\_\_$ (the answers are whole numbers).
+
+Part (c): At $x=5$, the function is *downward-sloping / flat / upward-sloping / vertical*.
+
+### Question 17 (2 points) {-}
+
+Use R to find the value of $x$ at which this function reaches its maximum. You may restrict your search over the interval $[-2,8]$.
+
+Part (a): Type this value of $x$ in the box below.
+
+Part (b): What is the maximum value of the function?
+
